@@ -7,10 +7,17 @@ If a ticker's data can't be fetched, it returns no frame and the charter's
 
 from __future__ import annotations
 
+import datetime as dt
+
 import pandas as pd
 import yfinance as yf
 
 LOOKBACK = "18mo"  # enough history for the 52-week-high distance plus SMAs
+
+# US equities close at 20:00 UTC in summer (EDT) and 21:00 UTC in winter (EST).
+# 21:05 UTC is a DST-proof "the daily bar is final now" cutoff; the scheduled
+# 21:30 UTC run clears it year-round.
+FINAL_BAR_CUTOFF_UTC = dt.time(21, 5)
 
 
 def fetch_watchlist(tickers: list[str], period: str = LOOKBACK) -> dict[str, pd.DataFrame]:
@@ -69,6 +76,21 @@ def bars_today(frames: dict[str, pd.DataFrame]) -> dict[str, dict]:
 def latest_session_date(frames: dict[str, pd.DataFrame]) -> str:
     """Most recent trading date across the watchlist."""
     return max(str(df.index[-1].date()) for df in frames.values())
+
+
+def bar_is_final(bar_date: str, now: dt.datetime | None = None) -> bool:
+    """True if `bar_date`'s daily bar can no longer change.
+
+    A bar from any earlier day is final. Today's bar is only final after the
+    DST-proof close cutoff — while the market is open (or just closed), the
+    "daily bar" yfinance returns is still in progress, and the charter says
+    no numbers, no trade.
+    """
+    now = now or dt.datetime.now(dt.timezone.utc)
+    bar = dt.date.fromisoformat(bar_date)
+    if bar < now.date():
+        return True
+    return now.time() >= FINAL_BAR_CUTOFF_UTC
 
 
 def regime_summary(frames: dict[str, pd.DataFrame]) -> str:

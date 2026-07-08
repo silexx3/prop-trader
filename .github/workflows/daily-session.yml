@@ -13,9 +13,6 @@ permissions:
 jobs:
   run-session:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: prop-trader
     steps:
       - uses: actions/checkout@v4
 
@@ -23,7 +20,9 @@ jobs:
         with:
           python-version: "3.11"
 
-      - run: pip install -r requirements.txt
+      # auto_session.py only needs the data stack, not streamlit —
+      # keeps the runner install small and fast.
+      - run: pip install pandas yfinance
 
       - name: Run today's session
         run: python auto_session.py

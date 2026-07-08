@@ -216,6 +216,10 @@ if run_clicked:
         if already:
             st.warning(f"A session for {session_date} is already in the ledger. "
                        "Markets close once a day — come back after the next close.")
+        elif not market.bar_is_final(session_date):
+            st.warning(f"The market is still open (or just closed) — {session_date}'s daily bar "
+                       "isn't final yet. No numbers, no trade: the bot runs after the close settles "
+                       "(21:30 UTC), or come back then.")
         else:
             # Amendment 2026-07-08: candidates that pass every charter rule are
             # placed automatically — no human place/skip step. This is what lets

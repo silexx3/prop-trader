@@ -34,6 +34,10 @@ def run() -> bool:
     if any(s["date"] == session_date for s in ledger["sessions"]):
         print(f"Session for {session_date} already logged. Markets close once a day.")
         return False
+    if not market.bar_is_final(session_date):
+        print(f"{session_date}'s bar is still in progress (market open or just closed). "
+              "No numbers, no trade — run again after the close settles.")
+        return False
 
     bars = market.bars_today(frames)
     closed_today = engine.manage_open_trades(ledger, bars, session_date)
