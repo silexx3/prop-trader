@@ -13,10 +13,14 @@ import yfinance as yf
 LOOKBACK = "18mo"  # enough history for the 52-week-high distance plus SMAs
 
 
-def fetch_watchlist(tickers: list[str]) -> dict[str, pd.DataFrame]:
-    """Fetch daily OHLCV for each ticker; missing/failed tickers are omitted."""
+def fetch_watchlist(tickers: list[str], period: str = LOOKBACK) -> dict[str, pd.DataFrame]:
+    """Fetch daily OHLCV for each ticker; missing/failed tickers are omitted.
+
+    `period` defaults to the live bot's 18-month window; pass "max" for a
+    backtest that wants the fullest history yfinance has for each ticker.
+    """
     frames: dict[str, pd.DataFrame] = {}
-    data = yf.download(tickers, period=LOOKBACK, interval="1d",
+    data = yf.download(tickers, period=period, interval="1d",
                        group_by="ticker", auto_adjust=True, progress=False)
     for t in tickers:
         try:
