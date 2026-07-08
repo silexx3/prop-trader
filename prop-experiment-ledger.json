@@ -1,0 +1,48 @@
+{
+  "experiment": "Abhi vs the course — simulated $5,000 prop account",
+  "started": "2026-07-07",
+  "account": {
+    "currency": "USD",
+    "starting_balance": 5000.0,
+    "balance": 5000.0,
+    "open_risk_R": 0
+  },
+  "rules": {
+    "risk_per_trade_pct": 1.0,
+    "cost_per_trade_R": 0.05,
+    "max_open_positions": 2,
+    "max_open_risk_R": 2,
+    "setups_allowed": ["ma_pullback", "base_breakout"],
+    "style": "swing, daily charts",
+    "verdict_metric": "expectancy_R_after_costs",
+    "verdict_sample": "100 trades or 6 months"
+  },
+  "watchlist": ["SPY", "QQQ", "NVDA", "AAPL", "MSFT", "AMD"],
+  "stats": {
+    "trades_closed": 0,
+    "wins": 0,
+    "losses": 0,
+    "win_rate_pct": null,
+    "expectancy_R": null,
+    "total_R": 0,
+    "max_drawdown_pct": 0
+  },
+  "open_trades": [],
+  "pending_orders": [],
+  "closed_trades": [],
+  "sessions": [
+    {
+      "date": "2026-07-07",
+      "regime": "Risk-off tech day: SPY ~-0.7%, QQQ ~-2.3%, Nasdaq -1.4%, chips heavy (NVDA ~-1.9%). Profit-taking in tech on mixed economic news.",
+      "actions": "No trades. Two reasons logged: (1) red impulse day is the wrong day to buy a pullback before any sign of a reclaim — setup requires the turn, not the fall; (2) exact daily levels could not be verified from free feeds today, and the charter says no numbers, no trade.",
+      "trades": [],
+      "brutality": 2,
+      "brutality_note": "Mild for us (flat). Rough for anyone long chips on margin.",
+      "lessons": [
+        "Sitting out IS a position — day 1 of most real prop evaluations is lost by forcing action onto a scoreboard.",
+        "Data quality gates trades: an entry without a verified level is a guess wearing a number.",
+        "A -2% QQQ day starts the pullback clock: if the dip lands on rising 20/50-day averages and reclaims, that's the first legitimate setup of the experiment."
+      ]
+    }
+  ]
+}
