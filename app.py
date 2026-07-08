@@ -8,6 +8,7 @@ from __future__ import annotations
 import datetime as dt
 
 import pandas as pd
+import requests
 import streamlit as st
 
 import backtest
@@ -84,6 +85,73 @@ with right:
 
 st.divider()
 
+# ---------- bot status (what the bot is doing right now) ----------
+
+REPO_SLUG = "silexx3/prop-trader"
+ACTIONS_URL = f"https://github.com/{REPO_SLUG}/actions"
+
+
+@st.cache_data(ttl=120)
+def fetch_latest_workflow_run():
+    """Latest scheduled-run status from the public GitHub API (no auth needed).
+    Returns None when offline or rate-limited — the dashboard must still work."""
+    try:
+        r = requests.get(
+            f"https://api.github.com/repos/{REPO_SLUG}/actions/workflows/daily-session.yml/runs",
+            params={"per_page": 1}, timeout=5)
+        runs = r.json().get("workflow_runs", [])
+        if not runs:
+            return {"status": "no_runs", "conclusion": None, "url": ACTIONS_URL}
+        run = runs[0]
+        return {"status": run["status"], "conclusion": run["conclusion"],
+                "started": run["run_started_at"], "url": run["html_url"]}
+    except Exception:
+        return None
+
+
+def next_scheduled_run_utc() -> dt.datetime:
+    """Next weekday 21:30 UTC — mirrors the cron in daily-session.yml."""
+    now = dt.datetime.now(dt.timezone.utc)
+    candidate = now.replace(hour=21, minute=30, second=0, microsecond=0)
+    while candidate <= now or candidate.weekday() >= 5:
+        candidate += dt.timedelta(days=1)
+    return candidate
+
+
+run_info = fetch_latest_workflow_run()
+
+if run_info and run_info["status"] in ("queued", "in_progress"):
+    status_line = "⚙️ **Running today's session right now** — refresh in a minute for results."
+elif ledger["open_trades"]:
+    tickers = ", ".join(t["ticker"] for t in ledger["open_trades"])
+    status_line = (f"📈 **Trading** — managing {len(ledger['open_trades'])} open position(s): "
+                   f"{tickers}. Stops and targets get checked at the next session run.")
+elif ledger["pending_orders"]:
+    tickers = ", ".join(o["ticker"] for o in ledger["pending_orders"])
+    status_line = (f"🎯 **Orders armed** — buy-stops waiting on {tickers}; "
+                   "they fill or expire at the next session.")
+else:
+    status_line = "👁️ **Watching** — flat, scanning for the two charter setups every session."
+
+nxt = next_scheduled_run_utc()
+away = nxt - dt.datetime.now(dt.timezone.utc)
+hrs, mins = divmod(int(away.total_seconds() // 60), 60)
+
+with st.container(border=True):
+    st.markdown(f"### 🤖 Bot status")
+    st.markdown(status_line)
+    pieces = [f"Next scheduled run in **{hrs}h {mins}m** (weekdays 21:30 UTC, after US close)"]
+    if run_info and run_info["status"] == "completed":
+        if run_info["conclusion"] == "success":
+            pieces.append(f"last auto-run [✅ succeeded]({run_info['url']})")
+        else:
+            pieces.append(f"last auto-run [❌ {run_info['conclusion']}]({run_info['url']}) — check the Actions tab")
+    elif run_info and run_info["status"] == "no_runs":
+        pieces.append(f"no scheduled runs yet — the first fires at the next slot ([Actions tab]({ACTIONS_URL}))")
+    elif run_info is None:
+        pieces.append(f"couldn't reach GitHub for run status ([Actions tab]({ACTIONS_URL}))")
+    st.caption(" · ".join(pieces))
+
 # ---------- overnight briefing (what the bot did while you were away) ----------
 
 if ledger["sessions"]:
@@ -111,6 +179,12 @@ if ledger["sessions"]:
                 f"No session logged in {days_ago} days — the scheduled GitHub Actions run may "
                 "have failed or the market's been closed. Check the repo's Actions tab."
             )
+
+    all_lessons = [(s["date"], lesson) for s in ledger["sessions"] for lesson in s.get("lessons", [])]
+    if all_lessons:
+        with st.expander(f"📚 Everything the bot has learned so far ({len(all_lessons)} lessons)"):
+            for date, lesson in reversed(all_lessons):
+                st.markdown(f"- **{date}** — {lesson}")
 else:
     st.info("No sessions logged yet — the bot hasn't run overnight. It runs automatically on "
             "the GitHub Actions schedule, or click \"Run today's session\" below to trigger one now.")
@@ -119,7 +193,6 @@ st.divider()
 
 # ---------- session runner ----------
 
-watchlist = st.session_state.get("watchlist_edit", ", ".join(ledger["watchlist"]))
 run_col, wl_col = st.columns([1, 3])
 with wl_col:
     wl_text = st.text_input("Watchlist (editable)", value=", ".join(ledger["watchlist"]),

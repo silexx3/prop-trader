@@ -76,7 +76,7 @@ def run() -> bool:
 
 if __name__ == "__main__":
     try:
-        changed = run()
+        run()
         sys.exit(0)
     except Exception as e:
         print(f"ERROR: {e}", file=sys.stderr)

@@ -30,7 +30,7 @@ def rules_from_ledger(ledger: dict) -> Rules:
     r = ledger.get("rules", {})
     return Rules(
         risk_per_trade_pct=r.get("risk_per_trade_pct", RISK_PER_TRADE_PCT),
-        cost_per_trade_R=r.get("cost_per_trade_R", r.get("cost_per_trade_R", COST_PER_TRADE_R)),
+        cost_per_trade_R=r.get("cost_per_trade_R", COST_PER_TRADE_R),
         max_open_positions=r.get("max_open_positions", MAX_OPEN_POSITIONS),
         max_open_risk_R=r.get("max_open_risk_R", MAX_OPEN_RISK_R),
     )
@@ -187,12 +187,13 @@ def manage_open_trades(ledger: dict, bars_today: dict[str, dict], date: str) -> 
         if bar is None:
             continue
         if bar["low"] <= trade["stop"]:
-            # Gap through the stop fills at the open, not the stop price.
-            exit_price = min(trade["stop"], bar["open"]) if bar["open"] < trade["stop"] else trade["stop"]
+            # A gap through the stop fills at the open, not the stop price.
+            exit_price = min(trade["stop"], bar["open"])
             closed.append(close_trade(ledger, trade, exit_price=exit_price,
                                       exit_date=date, reason="stop"))
         elif bar["high"] >= trade["target"]:
-            exit_price = max(trade["target"], bar["open"]) if bar["open"] > trade["target"] else trade["target"]
+            # A gap past the target also fills at the open (in our favor).
+            exit_price = max(trade["target"], bar["open"])
             closed.append(close_trade(ledger, trade, exit_price=exit_price,
                                       exit_date=date, reason="target"))
     return closed

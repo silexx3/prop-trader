@@ -67,11 +67,14 @@ against history instead of live data.
 2. Build the union of all trading dates across the watchlist, sorted ascending.
    Skip the initial warm-up window (~95 sessions) where indicators aren't valid yet.
 3. Walk forward one calendar date at a time. On each date `d`, in this exact order
-   (mirrors the live daily cadence so there is no lookahead bias):
-   a. `process_pending_fills` — orders placed after `d-1`'s close (good for exactly
-      one session) either fill against `d`'s bar or expire tonight.
-   b. `manage_open_trades` — check `d`'s bar against open trades, stop before target
-      (pessimistic), exactly as live.
+   (matches `auto_session.py`'s actual live order exactly, so there is no lookahead
+   bias and no divergence from what the live bot does):
+   a. `manage_open_trades` — check `d`'s bar against already-open trades, stop before
+      target (pessimistic), exactly as live.
+   b. `process_pending_fills` — orders placed after `d-1`'s close (good for exactly
+      one session) either fill against `d`'s bar or expire tonight. A trade that
+      fills today is not itself checked against its stop/target until the next
+      day's bar — same simplification the live bot already makes.
    c. `setups.scan` against each ticker's data sliced through `d` (`df.loc[:d]`) —
       this can only see data up to and including today's close, so any candidate it
       finds becomes a pending order good for `d+1`, never for `d` itself.
