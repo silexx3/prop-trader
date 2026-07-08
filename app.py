@@ -5,6 +5,8 @@ Run with:  streamlit run app.py
 
 from __future__ import annotations
 
+import datetime as dt
+
 import pandas as pd
 import streamlit as st
 
@@ -79,6 +81,39 @@ with right:
     c4.metric("Max drawdown", f"{stats['max_drawdown_pct']}%",
               f"{len(ledger['open_trades'])} open · {len(ledger['pending_orders'])} pending",
               delta_color="off")
+
+st.divider()
+
+# ---------- overnight briefing (what the bot did while you were away) ----------
+
+if ledger["sessions"]:
+    latest = ledger["sessions"][-1]
+    try:
+        days_ago = (dt.date.today() - dt.date.fromisoformat(latest["date"])).days
+    except ValueError:
+        days_ago = None
+    freshness = ("today" if days_ago == 0 else
+                 "yesterday" if days_ago == 1 else
+                 f"{days_ago} days ago" if days_ago is not None else latest["date"])
+
+    with st.container(border=True):
+        st.markdown(f"### 🌙 Overnight briefing — last session was **{freshness}** ({latest['date']})")
+        st.write(f"**Regime:** {latest.get('regime', '—')}")
+        st.write(f"**What happened:** {latest.get('actions', '—')}")
+        flames = "🔥" * latest.get("brutality", 0) or "calm"
+        st.caption(f"Brutality {latest.get('brutality', 0)}/5 {flames} — {latest.get('brutality_note', '')}")
+        if latest.get("lessons"):
+            st.markdown("**Lessons logged:**")
+            for lesson in latest["lessons"]:
+                st.markdown(f"- {lesson}")
+        if days_ago is not None and days_ago >= 2:
+            st.warning(
+                f"No session logged in {days_ago} days — the scheduled GitHub Actions run may "
+                "have failed or the market's been closed. Check the repo's Actions tab."
+            )
+else:
+    st.info("No sessions logged yet — the bot hasn't run overnight. It runs automatically on "
+            "the GitHub Actions schedule, or click \"Run today's session\" below to trigger one now.")
 
 st.divider()
 
