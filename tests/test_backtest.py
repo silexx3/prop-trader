@@ -90,6 +90,16 @@ def test_run_backtest_returns_ledger_journal_can_read():
     assert stats["trades_closed"] == len(result["closed_trades"])
 
 
+def test_equity_curve_start_date_is_parseable():
+    # journal.equity_curve() feeds ledger["started"] straight into
+    # pd.to_datetime() for the dashboard chart — it must be a real date,
+    # not a placeholder string like "backtest".
+    df = _uptrend_pullback_frame()
+    result = backtest.run_backtest_from_frames({"TEST": df}, starting_balance=5000.0)
+    curve = journal.equity_curve(result)
+    pd.to_datetime([d for d, _ in curve])  # raises if any point is unparseable
+
+
 def test_run_backtest_never_touches_real_ledger():
     before = journal.LEDGER_PATH.read_bytes()
     df = _uptrend_pullback_frame()

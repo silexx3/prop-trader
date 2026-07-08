@@ -21,11 +21,17 @@ import setups
 WARMUP_SESSIONS = 95
 
 
-def new_scratch_ledger(watchlist: list[str], starting_balance: float = 5000.0) -> dict:
+def new_scratch_ledger(watchlist: list[str], starting_balance: float = 5000.0,
+                       started: str = "1970-01-01") -> dict:
     """A ledger-shaped dict, structurally identical to journal.load_ledger()'s
-    output, but never read from or written to disk."""
+    output, but never read from or written to disk.
+
+    `started` must be a real date string — journal.equity_curve() parses it
+    as the chart's first x-axis point, so a non-date placeholder breaks the
+    dashboard's chart rendering.
+    """
     return {
-        "started": "backtest",
+        "started": started,
         "account": {"currency": "USD", "starting_balance": starting_balance,
                     "balance": starting_balance, "open_risk_R": 0},
         "rules": {"risk_per_trade_pct": engine.RISK_PER_TRADE_PCT,
@@ -85,9 +91,10 @@ def frames_through(frames: dict[str, pd.DataFrame], date_indices: dict[str, dict
 def run_backtest_from_frames(frames: dict[str, pd.DataFrame], starting_balance: float = 5000.0) -> dict:
     """The simulation loop itself, taking pre-fetched frames. Split out from
     run_backtest() so tests can pass synthetic data without hitting yfinance."""
-    ledger = new_scratch_ledger(list(frames.keys()), starting_balance)
     date_indices = {t: build_date_index(df) for t, df in frames.items()}
     dates = trading_dates(frames)
+    started = dates[0] if dates else "1970-01-01"
+    ledger = new_scratch_ledger(list(frames.keys()), starting_balance, started=started)
 
     for date in dates:
         bars = bars_on(frames, date_indices, date)

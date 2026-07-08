@@ -8,6 +8,7 @@ from __future__ import annotations
 import pandas as pd
 import streamlit as st
 
+import backtest
 import data as market
 import engine
 import journal
@@ -40,6 +41,11 @@ def persist():
 @st.cache_data(ttl=600, show_spinner="Fetching daily data…")
 def fetch(tickers: tuple[str, ...]):
     return market.fetch_watchlist(list(tickers))
+
+
+@st.cache_data(ttl=3600, show_spinner="Running historical backtest (this can take a bit)…")
+def run_cached_backtest(tickers: tuple[str, ...]):
+    return backtest.run_backtest(list(tickers))
 
 
 # ---------- header ----------
@@ -218,3 +224,51 @@ for s in reversed(ledger["sessions"]):
             st.caption(s["brutality_note"])
         for lesson in s.get("lessons", []):
             st.markdown(f"- {lesson}")
+
+st.divider()
+
+# ---------- backtest (hypothetical, read-only, never touches the real ledger) ----------
+
+st.subheader("📊 Backtest — hypothetical, not real results")
+st.caption(
+    "Runs the exact same engine against this watchlist's full historical daily data. "
+    "**Survivorship/hindsight-bias caveat:** these tickers were picked with the benefit "
+    "of already knowing how they performed — this shows what THIS watchlist would have "
+    "done, not a blind test of the strategy on an unbiased universe."
+)
+
+if st.button("▶ Run backtest"):
+    st.session_state.backtest_result = run_cached_backtest(tuple(ledger["watchlist"]))
+
+if "backtest_result" in st.session_state:
+    bt = st.session_state.backtest_result
+    bt_stats = journal.compute_stats(bt)
+    bt_exp = bt_stats["expectancy_R"]
+    bt_exp_txt = f"{bt_exp:+.3f}R" if bt_exp is not None else "—"
+    bt_color = "inherit" if bt_exp is None else ("#0a9950" if bt_exp > 0 else "#d43a3a")
+
+    bl, br = st.columns([2, 3])
+    with bl:
+        st.markdown('<div class="big-label">Backtest expectancy per trade</div>', unsafe_allow_html=True)
+        st.markdown(f'<p class="big-expectancy" style="color:{bt_color}">{bt_exp_txt}</p>', unsafe_allow_html=True)
+    with br:
+        c1, c2, c3, c4 = st.columns(4)
+        c1.metric("Trades", bt_stats["trades_closed"])
+        c2.metric("Win rate", f"{bt_stats['win_rate_pct']}%" if bt_stats["win_rate_pct"] is not None else "—")
+        c3.metric("Total R", f"{bt_stats['total_R']:+.2f}")
+        c4.metric("Max drawdown", f"{bt_stats['max_drawdown_pct']}%")
+
+    bt_curve = pd.DataFrame(journal.equity_curve(bt), columns=["date", "balance"])
+    bt_curve["date"] = pd.to_datetime(bt_curve["date"])
+    st.line_chart(bt_curve.set_index("date")["balance"], height=240)
+
+    bt_rs = journal.r_distribution(bt)
+    if bt_rs:
+        bt_bins = pd.cut(pd.Series(bt_rs), bins=[-5, -2, -1.5, -1, -0.5, 0, 0.5, 1, 1.5, 2, 5])
+        bt_hist = bt_bins.value_counts().sort_index()
+        bt_hist.index = [f"{iv.left:g}…{iv.right:g}" for iv in bt_hist.index]
+        st.bar_chart(bt_hist, height=200)
+
+    bt_by_setup = journal.expectancy_by_setup(bt)
+    if bt_by_setup:
+        st.dataframe(pd.DataFrame(bt_by_setup).T, use_container_width=True)
