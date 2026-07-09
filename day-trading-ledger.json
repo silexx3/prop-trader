@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 5034.96,
+    "balance": 5056.64,
     "open_risk_R": 0
   },
   "rules": {
@@ -30,13 +30,13 @@
     "AMD"
   ],
   "stats": {
-    "trades_closed": 3,
-    "wins": 1,
-    "losses": 2,
+    "trades_closed": 6,
+    "wins": 2,
+    "losses": 4,
     "win_rate_pct": 33.3,
-    "expectancy_R": 0.244,
-    "total_R": 0.733,
-    "max_drawdown_pct": 1.18
+    "expectancy_R": 0.247,
+    "total_R": 1.481,
+    "max_drawdown_pct": 2.1
   },
   "open_trades": [],
   "pending_orders": [],
@@ -97,6 +97,63 @@
       "r_multiple": -0.167,
       "pnl_usd": -8.68,
       "balance_after": 5034.96
+    },
+    {
+      "id": "2026-07-09-AMD-3",
+      "ticker": "AMD",
+      "setup": "vwap_pullback",
+      "entry": 551.72,
+      "stop": 546.1,
+      "target": 562.96,
+      "shares": 8,
+      "risk_usd": 44.960000000000036,
+      "opened": "2026-07-09",
+      "entry_bar": 11,
+      "note": "Held above VWAP then first pullback into it (bar 10); long on reclaim of 551.71, stop under the dip 546.65.",
+      "exit": 546.1,
+      "closed": "2026-07-09",
+      "reason": "stop",
+      "r_multiple": -1.05,
+      "pnl_usd": -47.21,
+      "balance_after": 4987.75
+    },
+    {
+      "id": "2026-07-09-MSFT-4",
+      "ticker": "MSFT",
+      "setup": "vwap_pullback",
+      "entry": 377.61,
+      "stop": 375.91,
+      "target": 381.01,
+      "shares": 29,
+      "risk_usd": 49.29999999999967,
+      "opened": "2026-07-09",
+      "entry_bar": 15,
+      "note": "Held above VWAP then first pullback into it (bar 14); long on reclaim of 377.60, stop under the dip 376.29.",
+      "exit": 381.01,
+      "closed": "2026-07-09",
+      "reason": "target",
+      "r_multiple": 1.95,
+      "pnl_usd": 96.13,
+      "balance_after": 5083.88
+    },
+    {
+      "id": "2026-07-09-NVDA-5",
+      "ticker": "NVDA",
+      "setup": "vwap_pullback",
+      "entry": 203.30999755859375,
+      "stop": 201.44,
+      "target": 202.61,
+      "shares": 130,
+      "risk_usd": 50.70000000000192,
+      "opened": "2026-07-09",
+      "entry_bar": 54,
+      "note": "Held above VWAP then first pullback into it (bar 39); long on reclaim of 201.82, stop under the dip 201.64.",
+      "exit": 203.12,
+      "closed": "2026-07-09",
+      "reason": "target",
+      "r_multiple": -0.152,
+      "pnl_usd": -27.24,
+      "balance_after": 5056.64
     }
   ],
   "sessions": [
@@ -111,6 +168,19 @@
       "actions": "AAPL vwap_pullback \u2192 target +1.95R; AMD vwap_pullback \u2192 stop -1.05R; SPY orb_long \u2192 eod_flat -0.17R",
       "lessons": [
         "Replayed 6 tickers on 5-minute bars; 3 trade(s), +0.73R after costs."
+      ]
+    },
+    {
+      "date": "2026-07-09",
+      "trades": [
+        "2026-07-09-AMD-3",
+        "2026-07-09-MSFT-4",
+        "2026-07-09-NVDA-5"
+      ],
+      "realized_R": 0.748,
+      "actions": "AMD vwap_pullback \u2192 stop -1.05R; MSFT vwap_pullback \u2192 target +1.95R; NVDA vwap_pullback \u2192 target -0.15R",
+      "lessons": [
+        "Replayed 6 tickers on 5-minute bars; 3 trade(s), +0.75R after costs."
       ]
     }
   ],
