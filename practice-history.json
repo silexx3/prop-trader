@@ -149,6 +149,80 @@
           "max_drawdown_pct": 9.05
         }
       ]
+    },
+    {
+      "run": 3,
+      "at": "2026-07-09T08:57:10+00:00",
+      "window": [
+        "1995-08-16",
+        "1997-12-22"
+      ],
+      "tickers": [
+        "AAPL",
+        "AMD",
+        "EWA",
+        "EWJ",
+        "MSFT",
+        "SPY"
+      ],
+      "results": [
+        {
+          "variant": "charter-baseline",
+          "trades": 24,
+          "expectancy_R": 0.463,
+          "win_rate_pct": 50.0,
+          "total_R": 11.106,
+          "max_drawdown_pct": 4.11
+        },
+        {
+          "variant": "base-6-weeks",
+          "trades": 25,
+          "expectancy_R": 0.22,
+          "win_rate_pct": 44.0,
+          "total_R": 5.511,
+          "max_drawdown_pct": 5.2
+        },
+        {
+          "variant": "base-8-weeks-tight",
+          "trades": 29,
+          "expectancy_R": 0.155,
+          "win_rate_pct": 41.4,
+          "total_R": 4.49,
+          "max_drawdown_pct": 6.33
+        },
+        {
+          "variant": "base-loose-range",
+          "trades": 23,
+          "expectancy_R": 0.538,
+          "win_rate_pct": 52.2,
+          "total_R": 12.378,
+          "max_drawdown_pct": 4.1
+        },
+        {
+          "variant": "pullback-deep-swing",
+          "trades": 18,
+          "expectancy_R": 0.812,
+          "win_rate_pct": 61.1,
+          "total_R": 14.613,
+          "max_drawdown_pct": 3.18
+        },
+        {
+          "variant": "pullback-wide-zone",
+          "trades": 27,
+          "expectancy_R": 0.248,
+          "win_rate_pct": 44.4,
+          "total_R": 6.691,
+          "max_drawdown_pct": 4.94
+        },
+        {
+          "variant": "wider-stop-buffer",
+          "trades": 20,
+          "expectancy_R": 0.426,
+          "win_rate_pct": 50.0,
+          "total_R": 8.517,
+          "max_drawdown_pct": 5.65
+        }
+      ]
     }
   ]
 }
