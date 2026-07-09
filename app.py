@@ -384,3 +384,39 @@ if "backtest_result" in st.session_state:
     bt_by_setup = journal.expectancy_by_setup(bt)
     if bt_by_setup:
         st.dataframe(pd.DataFrame(bt_by_setup).T, use_container_width=True)
+
+st.divider()
+
+# ---------- practice lab (the bot's offline training, outside the experiment) ----------
+
+st.subheader("🧠 Practice Lab — what the bot is learning offline")
+st.caption(
+    "Every practice run (scheduled 05:30 UTC weekdays — while the US market sleeps) tests "
+    "strategy variants against a fresh randomized slice of history on a scratch $10k account. "
+    "Results accumulate across runs, so this leaderboard genuinely sharpens with sample size. "
+    "**It never touches the live $5k experiment** — promoting a finding requires a dated "
+    "charter amendment, because hindsight-tuned settings are presumed overfit."
+)
+
+try:
+    import practice
+
+    _hist = practice.load_history()
+    if _hist["runs"]:
+        n_runs = len(_hist["runs"])
+        last = _hist["runs"][-1]
+        st.markdown(f"**{n_runs} practice run(s) banked** · latest studied "
+                    f"**{last['window'][0]} → {last['window'][1]}** "
+                    f"across {len(last['tickers'])} tickers")
+        board = practice.leaderboard(_hist)
+        board_df = pd.DataFrame(board).set_index("variant")
+        st.dataframe(board_df, use_container_width=True)
+        best = next((b for b in board if b["expectancy_R"] is not None and b["trades"] >= 30), None)
+        if best:
+            st.markdown(f"Current front-runner: **{best['variant']}** at "
+                        f"**{best['expectancy_R']:+.3f}R** over {best['trades']} practice trades.")
+    else:
+        st.info("No practice runs banked yet — the first fires at 05:30 UTC on the next weekday, "
+                "or run `python practice.py` locally.")
+except Exception as _e:
+    st.warning(f"Practice history unavailable: {_e}")

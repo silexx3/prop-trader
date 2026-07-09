@@ -8,6 +8,7 @@ If a ticker's data can't be fetched, it returns no frame and the charter's
 from __future__ import annotations
 
 import datetime as dt
+from pathlib import Path
 
 import pandas as pd
 import yfinance as yf
@@ -76,6 +77,40 @@ def bars_today(frames: dict[str, pd.DataFrame]) -> dict[str, dict]:
 def latest_session_date(frames: dict[str, pd.DataFrame]) -> str:
     """Most recent trading date across the watchlist."""
     return max(str(df.index[-1].date()) for df in frames.values())
+
+
+CACHE_DIR = Path(__file__).parent / "data-cache"
+
+
+def save_cache(frames: dict[str, pd.DataFrame]) -> None:
+    """Persist fetched history so the Practice Lab can run fully offline."""
+    CACHE_DIR.mkdir(exist_ok=True)
+    for ticker, df in frames.items():
+        df.to_csv(CACHE_DIR / f"{ticker}.csv")
+
+
+def load_cache(tickers: list[str]) -> dict[str, pd.DataFrame]:
+    """Load whatever cached history exists for `tickers` (missing ones omitted).
+    Indicators were computed before caching, so no recomputation needed."""
+    frames: dict[str, pd.DataFrame] = {}
+    for ticker in tickers:
+        path = CACHE_DIR / f"{ticker}.csv"
+        if path.exists():
+            frames[ticker] = pd.read_csv(path, index_col=0, parse_dates=True)
+    return frames
+
+
+def fetch_or_cache(tickers: list[str], period: str = "max") -> dict[str, pd.DataFrame]:
+    """Fetch fresh history and update the cache; if the network is down or
+    yfinance returns nothing, fall back to the last cached copy."""
+    try:
+        frames = fetch_watchlist(tickers, period=period)
+    except Exception:
+        frames = {}
+    if frames:
+        save_cache(frames)
+        return frames
+    return load_cache(tickers)
 
 
 def bar_is_final(bar_date: str, now: dt.datetime | None = None) -> bool:

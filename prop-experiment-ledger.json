@@ -26,7 +26,13 @@
     "NVDA",
     "AAPL",
     "MSFT",
-    "AMD"
+    "AMD",
+    "EWJ",
+    "FXI",
+    "EWY",
+    "EWT",
+    "INDA",
+    "EWA"
   ],
   "stats": {
     "trades_closed": 0,

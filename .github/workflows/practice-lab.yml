@@ -1,0 +1,37 @@
+name: Practice Lab
+
+on:
+  schedule:
+    # 05:30 UTC weekdays — Asia afternoon / US overnight, the opposite side of
+    # the clock from the 21:30 UTC live session. The bot trains while the US
+    # market sleeps.
+    - cron: "30 5 * * 1-5"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  practice:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - run: pip install pandas yfinance
+
+      - name: Run practice session
+        run: python practice.py
+
+      - name: Commit practice history
+        run: |
+          git config user.name "prop-trader-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add practice-history.json
+          git diff --cached --quiet && echo "No practice changes." || git commit -m "Practice run $(date -u +%F)"
+          # The live-session workflow may have pushed meanwhile; rebase first.
+          git pull --rebase origin main
+          git push

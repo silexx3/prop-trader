@@ -88,9 +88,11 @@ def frames_through(frames: dict[str, pd.DataFrame], date_indices: dict[str, dict
     return out
 
 
-def run_backtest_from_frames(frames: dict[str, pd.DataFrame], starting_balance: float = 5000.0) -> dict:
+def run_backtest_from_frames(frames: dict[str, pd.DataFrame], starting_balance: float = 5000.0,
+                             variant: dict | None = None) -> dict:
     """The simulation loop itself, taking pre-fetched frames. Split out from
-    run_backtest() so tests can pass synthetic data without hitting yfinance."""
+    run_backtest() so tests can pass synthetic data without hitting yfinance.
+    `variant` (Practice Lab only) overrides detector params via setups.scan."""
     date_indices = {t: build_date_index(df) for t, df in frames.items()}
     dates = trading_dates(frames)
     started = dates[0] if dates else "1970-01-01"
@@ -107,7 +109,7 @@ def run_backtest_from_frames(frames: dict[str, pd.DataFrame], starting_balance: 
 
         busy = {t["ticker"] for t in ledger["open_trades"]}
         sliced = frames_through(frames, date_indices, date)
-        candidates = setups.scan(sliced, skip_tickers=busy)
+        candidates = setups.scan(sliced, skip_tickers=busy, variant=variant)
         for c in candidates:
             try:
                 engine.place_order(ledger, ticker=c["ticker"], setup=c["setup"],
