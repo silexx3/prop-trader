@@ -20,6 +20,7 @@ import backtest
 import data as market
 import engine
 import journal
+import league
 import practice
 import recap as recap_mod
 import setups
@@ -187,8 +188,8 @@ hrs, mins = divmod(int(away.total_seconds() // 60), 60)
 with st.container(border=True):
     st.markdown("### 🤖 Bot status")
     st.markdown(status_line)
-    pieces = [f"Next live session in **{hrs}h {mins}m** (weekdays 21:30 UTC) · "
-              "Practice Lab trains at 05:30 UTC"]
+    pieces = [f"Next live session + league night in **{hrs}h {mins}m** (weekdays 21:30 UTC) · "
+              "Practice Lab trains at 05:30 UTC · 5-account league running"]
     if run_info and run_info["status"] == "completed":
         if run_info["conclusion"] == "success":
             pieces.append(f"last auto-run [✅ succeeded]({run_info['url']})")
@@ -202,8 +203,8 @@ with st.container(border=True):
 
 # ---------- the desk: three tabs ----------
 
-tab_live, tab_backtest, tab_practice = st.tabs(
-    ["📈 Live desk", "🧪 Backtest", "🧠 Practice Lab"])
+tab_live, tab_league, tab_backtest, tab_practice = st.tabs(
+    ["📈 Live desk", "🏆 League", "🧪 Backtest", "🧠 Practice Lab"])
 
 
 with tab_live:
@@ -387,6 +388,54 @@ with tab_live:
         with st.expander(f"🚫 Skip log ({len(ledger['skipped_candidates'])} candidates declined)"):
             for s in reversed(ledger["skipped_candidates"][-50:]):
                 st.markdown(f"- **{s['date']} {s['ticker']}** `{s['setup']}` — {s['reason']}")
+
+
+with tab_league:
+    st.caption(
+        "Five accounts, one market, every night: the charter account plus four challengers "
+        "running different rulesets against the same data. Backtests suggest — the league "
+        "decides **forward**, on data nobody has seen. All simulated; the challengers never "
+        "touch the charter ledger, and promotion stays a human charter-amendment decision."
+    )
+    try:
+        rows = league.summary()
+        table = pd.DataFrame([{
+            "account": r["account"],
+            "balance": round(r["balance"], 2),
+            "expectancy_R": r["expectancy_R"],
+            "trades": r["trades_closed"],
+            "win_rate_%": r["win_rate_pct"],
+            "total_R": r["total_R"],
+            "max_DD_%": r["max_drawdown_pct"],
+        } for r in rows]).set_index("account")
+        st.dataframe(table, use_container_width=True)
+
+        curves = {}
+        for r in rows:
+            pts = journal.equity_curve(r["_ledger"])
+            if len(pts) > 1 or r["account"].startswith("👑"):
+                s = pd.Series({pd.to_datetime(d): b for d, b in pts})
+                curves[r["account"]] = s
+        if curves:
+            st.subheader("Equity curves — the race")
+            curve_df = pd.DataFrame(curves).sort_index().ffill()
+            st.line_chart(curve_df, height=280)
+
+        with st.expander("Who's who — the rosters"):
+            for r in rows:
+                st.markdown(f"**{r['account']}** — {r['desc']}")
+        for r in rows:
+            if r["account"].startswith("👑") or not r["_ledger"]["sessions"]:
+                continue
+            last = r["_ledger"]["sessions"][-1]
+            with st.expander(f"{r['account']} · last session {last['date']} "
+                             f"(variant: {last.get('variant', 'charter-baseline')})"):
+                st.write(last.get("actions", "—"))
+        if len(rows) == 1:
+            st.info("Challenger ledgers appear after the first league night "
+                    "(nightly at 21:30 UTC, right after the main session).")
+    except Exception as _e:
+        st.warning(f"League table unavailable: {_e}")
 
 
 with tab_backtest:

@@ -135,14 +135,16 @@ def _regime_off(frames: dict[str, pd.DataFrame]) -> str | None:
 
 
 def scan(frames: dict[str, pd.DataFrame], skip_tickers: set[str] = frozenset(),
-         variant: dict | None = None) -> list[dict]:
+         variant: dict | None = None, guards: bool = True) -> list[dict]:
     """Run both detectors over the watchlist. One candidate max per ticker;
     tickers with an open trade or pending order are skipped (no pyramiding).
 
     Candidates failing the regime filter or the correlation guard are still
     returned but carry a `blocked` reason — the caller logs the skip so
-    discipline stays auditable. `variant` is Practice Lab-only: overrides
-    detector params; the live bot always runs the charter defaults.
+    discipline stays auditable. `variant` overrides detector params (Practice
+    Lab / league challengers); `guards=False` (the league's control account
+    only) skips the regime filter and correlation guard to run the
+    pre-2026-07-09 ruleset. The live charter bot always runs defaults.
     """
     variant = variant or {}
     candidates = []
@@ -154,6 +156,9 @@ def scan(frames: dict[str, pd.DataFrame], skip_tickers: set[str] = frozenset(),
             if c:
                 candidates.append(c)
                 break
+
+    if not guards:
+        return candidates
 
     regime_reason = _regime_off(frames)
     kept: list[dict] = []
