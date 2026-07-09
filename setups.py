@@ -8,9 +8,14 @@ from __future__ import annotations
 
 import pandas as pd
 
-from data import swing_low
+from data import returns_correlation, swing_low
 
 MIN_TARGET_R = 2.0
+
+# Charter amendments 2026-07-09: correlation guard + regime filter.
+CORR_MAX = 0.85        # candidates this correlated with committed names are one bet twice
+CORR_LOOKBACK = 90     # sessions of shared history used to judge
+REGIME_TICKER = "SPY"  # the tide every long swims in
 
 
 def _candidate(ticker: str, setup: str, entry: float, stop: float, reason: str) -> dict | None:
@@ -102,12 +107,31 @@ def base_breakout(ticker: str, df: pd.DataFrame, *, base_weeks: int = 4,
     stop = max(stop_base, stop_swing)  # whichever risks less
     if entry <= stop:
         return None
-    return _candidate(
+    min_volume = float(round(vol_mult * df["avg_vol20"].iloc[-1]))
+    c = _candidate(
         ticker, "base_breakout", entry, stop,
         f"{base_weeks}-week base {range_low:.2f}–{range_high:.2f} "
         f"({(range_high / range_low - 1) * 100:.1f}% range) near highs; entry on break of "
-        f"{range_high:.2f}, needs volume > {vol_mult}× avg ({df['avg_vol20'].iloc[-1]:,.0f}) to trust the fill.",
+        f"{range_high:.2f}; fill requires volume ≥ {min_volume:,.0f} ({vol_mult}× avg) — "
+        "a quiet break is not the setup.",
     )
+    if c is not None:
+        c["min_volume"] = min_volume
+    return c
+
+
+def _regime_off(frames: dict[str, pd.DataFrame]) -> str | None:
+    """Non-None (with the reason) when the index says stand down: SPY closing
+    below its 50-day SMA is not the tide to be buying breakouts into.
+    Permissive when SPY is absent (e.g. practice windows predating a ticker)."""
+    spy = frames.get(REGIME_TICKER)
+    if spy is None or pd.isna(spy["sma50"].iloc[-1]):
+        return None
+    close, sma50 = spy["close"].iloc[-1], spy["sma50"].iloc[-1]
+    if close < sma50:
+        return (f"regime off — {REGIME_TICKER} {close:.2f} below its 50-day "
+                f"SMA {sma50:.2f}; longs stand down")
+    return None
 
 
 def scan(frames: dict[str, pd.DataFrame], skip_tickers: set[str] = frozenset(),
@@ -115,9 +139,10 @@ def scan(frames: dict[str, pd.DataFrame], skip_tickers: set[str] = frozenset(),
     """Run both detectors over the watchlist. One candidate max per ticker;
     tickers with an open trade or pending order are skipped (no pyramiding).
 
-    `variant` is Practice Lab-only: {"ma_pullback": {kwargs}, "base_breakout":
-    {kwargs}} overrides detector parameters. The live bot always calls scan
-    without it, so live behavior is exactly the charter defaults.
+    Candidates failing the regime filter or the correlation guard are still
+    returned but carry a `blocked` reason — the caller logs the skip so
+    discipline stays auditable. `variant` is Practice Lab-only: overrides
+    detector params; the live bot always runs the charter defaults.
     """
     variant = variant or {}
     candidates = []
@@ -129,4 +154,23 @@ def scan(frames: dict[str, pd.DataFrame], skip_tickers: set[str] = frozenset(),
             if c:
                 candidates.append(c)
                 break
+
+    regime_reason = _regime_off(frames)
+    kept: list[dict] = []
+    for c in candidates:
+        if regime_reason:
+            c["blocked"] = regime_reason
+            continue
+        # Correlation guard: against committed tickers (open/pending) first,
+        # then against candidates already kept this scan (first come wins).
+        for other in list(skip_tickers) + [k["ticker"] for k in kept]:
+            if other not in frames:
+                continue
+            corr = returns_correlation(frames[c["ticker"]], frames[other], CORR_LOOKBACK)
+            if corr > CORR_MAX:
+                c["blocked"] = (f"correlation guard — {c['ticker']} moves with {other} "
+                                f"({corr:.2f} over {CORR_LOOKBACK}d): one bet, two tickets")
+                break
+        else:
+            kept.append(c)
     return candidates

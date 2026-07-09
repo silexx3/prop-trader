@@ -113,6 +113,23 @@ def fetch_or_cache(tickers: list[str], period: str = "max") -> dict[str, pd.Data
     return load_cache(tickers)
 
 
+def returns_correlation(df_a: pd.DataFrame, df_b: pd.DataFrame,
+                        lookback: int = 90) -> float:
+    """Correlation of daily returns over the last `lookback` shared sessions.
+
+    Two names moving together are one bet wearing two tickets — the scan
+    layer uses this to stop the 2-position cap being eaten by twins.
+    Returns 0.0 when there isn't enough overlapping history to judge.
+    """
+    a = df_a["close"].pct_change().dropna()
+    b = df_b["close"].pct_change().dropna()
+    joined = pd.concat([a, b], axis=1, join="inner").dropna().iloc[-lookback:]
+    if len(joined) < 30:
+        return 0.0
+    corr = joined.iloc[:, 0].corr(joined.iloc[:, 1])
+    return float(corr) if pd.notna(corr) else 0.0
+
+
 def bar_is_final(bar_date: str, now: dt.datetime | None = None) -> bool:
     """True if `bar_date`'s daily bar can no longer change.
 

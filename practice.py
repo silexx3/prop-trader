@@ -61,22 +61,28 @@ def save_history(history: dict) -> None:
 
 
 def pick_window(frames: dict, run_number: int) -> dict:
-    """A contiguous WINDOW_SESSIONS slice at a deterministic-but-varied offset.
+    """One shared calendar window per run, sliced across every ticker.
 
-    Seeding by run number means every run studies a different era of history,
-    and re-running the same run number reproduces the same window.
+    All tickers see the SAME era — necessary for the correlation guard and
+    SPY regime filter to mean anything inside a practice run. Tickers that
+    didn't exist (or barely existed) in the chosen era are dropped. Seeding
+    by run number: every run studies a different era, same run number
+    reproduces the same window.
     """
-    trimmed = {}
     rng = random.Random(run_number)
+    span = WINDOW_SESSIONS + backtest.WARMUP_SESSIONS
+    all_dates = sorted(set().union(*(set(df.index) for df in frames.values())))
+    if len(all_dates) <= span:
+        end_i = len(all_dates) - 1
+    else:
+        end_i = rng.randint(span, len(all_dates) - 1)
+    start_date, end_date = all_dates[max(0, end_i - span)], all_dates[end_i]
+
+    trimmed = {}
     for ticker, df in frames.items():
-        if len(df) < MIN_SESSIONS:
-            continue
-        span = WINDOW_SESSIONS + backtest.WARMUP_SESSIONS
-        if len(df) <= span:
-            trimmed[ticker] = df
-            continue
-        start = rng.randint(0, len(df) - span - 1)
-        trimmed[ticker] = df.iloc[start:start + span]
+        window = df.loc[start_date:end_date]
+        if len(window) >= MIN_SESSIONS:
+            trimmed[ticker] = window
     return trimmed
 
 
@@ -157,6 +163,55 @@ def leaderboard(history: dict | None = None) -> list[dict]:
     return board
 
 
+# --- promotion pipeline: when practice evidence is strong enough to warrant
+# --- a human charter-amendment decision, say so loudly. Never auto-applied.
+
+PROMOTION_MIN_RUNS = 10        # windows a variant must have been tested in
+PROMOTION_MIN_TRADES = 100     # total practice trades behind the number
+PROMOTION_WIN_FRACTION = 0.7   # share of windows it must beat the baseline in
+
+
+def promotion_candidates(history: dict | None = None) -> list[dict]:
+    """Variants with enough evidence to justify a promotion *review*.
+
+    Paired comparison: within each run (same window, same tickers) a variant's
+    expectancy is compared to charter-baseline's. Beating it in ≥70% of ≥10
+    windows with ≥100 total trades is the bar for flagging — not for adopting;
+    that stays a human charter-amendment decision.
+    """
+    history = history or load_history()
+    deltas: dict[str, list[float]] = {}
+    for run in history["runs"]:
+        results = {r["variant"]: r for r in run["results"]}
+        base = results.get("charter-baseline")
+        if not base or base["expectancy_R"] is None:
+            continue
+        for name, r in results.items():
+            if name == "charter-baseline" or r["expectancy_R"] is None:
+                continue
+            deltas.setdefault(name, []).append(r["expectancy_R"] - base["expectancy_R"])
+
+    board = {b["variant"]: b for b in leaderboard(history)}
+    ready = []
+    for name, ds in deltas.items():
+        b = board.get(name)
+        if b is None or len(ds) < PROMOTION_MIN_RUNS or b["trades"] < PROMOTION_MIN_TRADES:
+            continue
+        win_frac = sum(1 for d in ds if d > 0) / len(ds)
+        avg_edge = sum(ds) / len(ds)
+        if win_frac >= PROMOTION_WIN_FRACTION and avg_edge > 0:
+            ready.append({
+                "variant": name,
+                "windows_compared": len(ds),
+                "beat_baseline_pct": round(100 * win_frac, 1),
+                "avg_edge_R": round(avg_edge, 3),
+                "trades": b["trades"],
+                "expectancy_R": b["expectancy_R"],
+            })
+    ready.sort(key=lambda x: x["avg_edge_R"], reverse=True)
+    return ready
+
+
 if __name__ == "__main__":
     try:
         record = run_practice()
@@ -166,6 +221,13 @@ if __name__ == "__main__":
                 exp = row["expectancy_R"]
                 print(f"  {row['variant']:24s} {row['trades']:4d} trades over {row['runs']} runs  "
                       f"expectancy {exp if exp is not None else '—'}")
+            ready = promotion_candidates()
+            if ready:
+                print("\n🏆 READY FOR PROMOTION REVIEW (human charter-amendment decision):")
+                for p in ready:
+                    print(f"  {p['variant']}: beat baseline in {p['beat_baseline_pct']}% of "
+                          f"{p['windows_compared']} windows, avg edge {p['avg_edge_R']:+.3f}R "
+                          f"over {p['trades']} trades")
         sys.exit(0)
     except Exception as e:
         print(f"ERROR: {e}", file=sys.stderr)

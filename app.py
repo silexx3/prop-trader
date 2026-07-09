@@ -1,6 +1,11 @@
 """Prop Trader dashboard — simulation only, no real money, ever.
 
 Run with:  streamlit run app.py
+
+Design: a trading desk's morning sheet. Ink-navy desk, amber terminal accent
+(Bloomberg heritage), IBM Plex Mono for every numeral so data reads as data.
+Green/red are reserved for realized P&L direction only — color always means
+something here.
 """
 
 from __future__ import annotations
@@ -15,16 +20,48 @@ import backtest
 import data as market
 import engine
 import journal
+import practice
 import recap as recap_mod
 import setups
+
+GAIN = "#2FBF71"
+LOSS = "#E4574C"
+AMBER = "#F5A623"
 
 st.set_page_config(page_title="Prop Trader — $5k experiment", page_icon="📒", layout="wide")
 
 st.markdown("""
 <style>
-.big-expectancy { font-size: 4rem; font-weight: 800; line-height: 1; margin: 0; }
-.big-label { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.6; }
-.verdict-note { font-size: 0.8rem; opacity: 0.5; }
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600;700&display=swap');
+
+/* Numerals are the voice of this page — everything data speaks mono. */
+[data-testid="stMetricValue"], [data-testid="stMetricDelta"],
+.big-expectancy, .mono {
+    font-family: 'IBM Plex Mono', ui-monospace, monospace !important;
+    font-variant-numeric: tabular-nums;
+}
+
+.eyebrow {
+    font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.18em;
+    opacity: 0.55; font-family: 'IBM Plex Mono', monospace;
+}
+.big-expectancy {
+    font-size: 4.2rem; font-weight: 700; line-height: 1; margin: 0.1em 0 0 0;
+}
+.verdict-rule { border: none; border-top: 2px solid #F5A623; width: 72px;
+    margin: 0.5em 0 0.4em 0; }
+.verdict-note { font-size: 0.8rem; opacity: 0.5; max-width: 34ch; }
+
+[data-testid="stMetricLabel"] { opacity: 0.65; }
+div[data-testid="stExpander"] details { border-radius: 6px; }
+
+/* Quieter tab bar, amber active underline comes from the theme primary. */
+button[data-baseweb="tab"] { font-size: 0.95rem; }
+
+/* Metrics stay readable on narrow screens instead of truncating. */
+@media (max-width: 900px) {
+    [data-testid="stMetricValue"] { font-size: 1.4rem !important; }
+}
 </style>
 """, unsafe_allow_html=True)
 
@@ -51,7 +88,20 @@ def run_cached_backtest(tickers: tuple[str, ...]):
     return backtest.run_backtest(list(tickers))
 
 
-# ---------- header ----------
+def r_histogram(rs: list[float], height: int = 200):
+    bins = pd.cut(pd.Series(rs), bins=[-5, -2, -1.5, -1, -0.5, 0, 0.5, 1, 1.5, 2, 5])
+    hist = bins.value_counts().sort_index()
+    hist.index = [f"{iv.left:g}…{iv.right:g}" for iv in hist.index]
+    st.bar_chart(hist, height=height, color=AMBER)
+
+
+def equity_chart(source_ledger: dict, height: int = 240):
+    curve_df = pd.DataFrame(journal.equity_curve(source_ledger), columns=["date", "balance"])
+    curve_df["date"] = pd.to_datetime(curve_df["date"])
+    st.line_chart(curve_df.set_index("date")["balance"], height=height, color=AMBER)
+
+
+# ---------- header + verdict ----------
 
 st.title("📒 Prop Trader — Abhi vs. the course")
 st.caption(
@@ -59,17 +109,16 @@ st.caption(
     "verdict at 100 trades or 6 months · **simulation only, no real money**"
 )
 
-# ---------- scoreboard (expectancy is the verdict, so it's biggest) ----------
-
 stats = journal.compute_stats(ledger)
 exp = stats["expectancy_R"]
 exp_txt = f"{exp:+.3f}R" if exp is not None else "—"
-exp_color = "inherit" if exp is None else ("#0a9950" if exp > 0 else "#d43a3a")
+exp_color = "inherit" if exp is None else (GAIN if exp > 0 else LOSS)
 
 left, right = st.columns([2, 3])
 with left:
-    st.markdown('<div class="big-label">Expectancy per trade (after costs)</div>', unsafe_allow_html=True)
+    st.markdown('<div class="eyebrow">Expectancy per trade · after costs</div>', unsafe_allow_html=True)
     st.markdown(f'<p class="big-expectancy" style="color:{exp_color}">{exp_txt}</p>', unsafe_allow_html=True)
+    st.markdown('<hr class="verdict-rule">', unsafe_allow_html=True)
     st.markdown('<div class="verdict-note">This number settles the bet — not the win rate, '
                 'not the balance on a good week.</div>', unsafe_allow_html=True)
 with right:
@@ -83,9 +132,7 @@ with right:
               f"{len(ledger['open_trades'])} open · {len(ledger['pending_orders'])} pending",
               delta_color="off")
 
-st.divider()
-
-# ---------- bot status (what the bot is doing right now) ----------
+# ---------- bot status strip ----------
 
 REPO_SLUG = "silexx3/prop-trader"
 ACTIONS_URL = f"https://github.com/{REPO_SLUG}/actions"
@@ -138,285 +185,287 @@ away = nxt - dt.datetime.now(dt.timezone.utc)
 hrs, mins = divmod(int(away.total_seconds() // 60), 60)
 
 with st.container(border=True):
-    st.markdown(f"### 🤖 Bot status")
+    st.markdown("### 🤖 Bot status")
     st.markdown(status_line)
-    pieces = [f"Next scheduled run in **{hrs}h {mins}m** (weekdays 21:30 UTC, after US close)"]
+    pieces = [f"Next live session in **{hrs}h {mins}m** (weekdays 21:30 UTC) · "
+              "Practice Lab trains at 05:30 UTC"]
     if run_info and run_info["status"] == "completed":
         if run_info["conclusion"] == "success":
             pieces.append(f"last auto-run [✅ succeeded]({run_info['url']})")
         else:
             pieces.append(f"last auto-run [❌ {run_info['conclusion']}]({run_info['url']}) — check the Actions tab")
     elif run_info and run_info["status"] == "no_runs":
-        pieces.append(f"no scheduled runs yet — the first fires at the next slot ([Actions tab]({ACTIONS_URL}))")
+        pieces.append(f"no scheduled runs yet ([Actions tab]({ACTIONS_URL}))")
     elif run_info is None:
         pieces.append(f"couldn't reach GitHub for run status ([Actions tab]({ACTIONS_URL}))")
     st.caption(" · ".join(pieces))
 
-# ---------- overnight briefing (what the bot did while you were away) ----------
+# ---------- the desk: three tabs ----------
 
-if ledger["sessions"]:
-    latest = ledger["sessions"][-1]
-    try:
-        days_ago = (dt.date.today() - dt.date.fromisoformat(latest["date"])).days
-    except ValueError:
-        days_ago = None
-    freshness = ("today" if days_ago == 0 else
-                 "yesterday" if days_ago == 1 else
-                 f"{days_ago} days ago" if days_ago is not None else latest["date"])
+tab_live, tab_backtest, tab_practice = st.tabs(
+    ["📈 Live desk", "🧪 Backtest", "🧠 Practice Lab"])
 
-    with st.container(border=True):
-        st.markdown(f"### 🌙 Overnight briefing — last session was **{freshness}** ({latest['date']})")
-        st.write(f"**Regime:** {latest.get('regime', '—')}")
-        st.write(f"**What happened:** {latest.get('actions', '—')}")
-        flames = "🔥" * latest.get("brutality", 0) or "calm"
-        st.caption(f"Brutality {latest.get('brutality', 0)}/5 {flames} — {latest.get('brutality_note', '')}")
-        if latest.get("lessons"):
-            st.markdown("**Lessons logged:**")
-            for lesson in latest["lessons"]:
-                st.markdown(f"- {lesson}")
-        if days_ago is not None and days_ago >= 2:
-            st.warning(
-                f"No session logged in {days_ago} days — the scheduled GitHub Actions run may "
-                "have failed or the market's been closed. Check the repo's Actions tab."
-            )
 
-    all_lessons = [(s["date"], lesson) for s in ledger["sessions"] for lesson in s.get("lessons", [])]
-    if all_lessons:
-        with st.expander(f"📚 Everything the bot has learned so far ({len(all_lessons)} lessons)"):
-            for date, lesson in reversed(all_lessons):
-                st.markdown(f"- **{date}** — {lesson}")
-else:
-    st.info("No sessions logged yet — the bot hasn't run overnight. It runs automatically on "
-            "the GitHub Actions schedule, or click \"Run today's session\" below to trigger one now.")
+with tab_live:
+    # ----- overnight briefing -----
+    if ledger["sessions"]:
+        latest = ledger["sessions"][-1]
+        try:
+            days_ago = (dt.date.today() - dt.date.fromisoformat(latest["date"])).days
+        except ValueError:
+            days_ago = None
+        freshness = ("today" if days_ago == 0 else
+                     "yesterday" if days_ago == 1 else
+                     f"{days_ago} days ago" if days_ago is not None else latest["date"])
 
-st.divider()
+        with st.container(border=True):
+            st.markdown(f"### 🌙 Overnight briefing — last session was **{freshness}** ({latest['date']})")
+            st.write(f"**Regime:** {latest.get('regime', '—')}")
+            st.write(f"**What happened:** {latest.get('actions', '—')}")
+            flames = "🔥" * latest.get("brutality", 0) or "calm"
+            st.caption(f"Brutality {latest.get('brutality', 0)}/5 {flames} — {latest.get('brutality_note', '')}")
+            if latest.get("lessons"):
+                st.markdown("**Lessons logged:**")
+                for lesson in latest["lessons"]:
+                    st.markdown(f"- {lesson}")
+            if days_ago is not None and days_ago >= 2:
+                st.warning(
+                    f"No session logged in {days_ago} days — the scheduled GitHub Actions run may "
+                    "have failed or the market's been closed. Check the repo's Actions tab."
+                )
 
-# ---------- session runner ----------
-
-run_col, wl_col = st.columns([1, 3])
-with wl_col:
-    wl_text = st.text_input("Watchlist (editable)", value=", ".join(ledger["watchlist"]),
-                            help="Comma-separated tickers. Saved with the ledger.")
-    new_wl = [t.strip().upper() for t in wl_text.split(",") if t.strip()]
-    if new_wl and new_wl != ledger["watchlist"]:
-        ledger["watchlist"] = new_wl
-        persist()
-
-with run_col:
-    st.write("")  # vertical alignment
-    run_clicked = st.button("▶ Run today's session", type="primary", use_container_width=True)
-
-if run_clicked:
-    frames = fetch(tuple(ledger["watchlist"]))
-    if not frames:
-        st.error("No data came back for the watchlist — no numbers, no trade. Try again later.")
+        all_lessons = [(s["date"], lesson) for s in ledger["sessions"] for lesson in s.get("lessons", [])]
+        if all_lessons:
+            with st.expander(f"📚 Everything the bot has learned so far ({len(all_lessons)} lessons)"):
+                for date, lesson in reversed(all_lessons):
+                    st.markdown(f"- **{date}** — {lesson}")
     else:
-        session_date = market.latest_session_date(frames)
-        already = any(s["date"] == session_date for s in ledger["sessions"])
-        if already:
-            st.warning(f"A session for {session_date} is already in the ledger. "
-                       "Markets close once a day — come back after the next close.")
-        elif not market.bar_is_final(session_date):
-            st.warning(f"The market is still open (or just closed) — {session_date}'s daily bar "
-                       "isn't final yet. No numbers, no trade: the bot runs after the close settles "
-                       "(21:30 UTC), or come back then.")
-        else:
-            # Amendment 2026-07-08: candidates that pass every charter rule are
-            # placed automatically — no human place/skip step. This is what lets
-            # the scheduled (GitHub Actions) run behave identically to a manual
-            # click here. See prop-experiment-charter.md.
-            bars = market.bars_today(frames)
-            closed_today = engine.manage_open_trades(ledger, bars, session_date)
-            filled_today, expired = engine.process_pending_fills(ledger, bars, session_date)
-            busy = {t["ticker"] for t in ledger["open_trades"]}
-            candidates = setups.scan(frames, skip_tickers=busy)
+        st.info("No sessions logged yet — the bot runs automatically on the GitHub Actions "
+                "schedule, or click \"Run today's session\" below to trigger one now.")
 
-            placed, skipped = [], []
-            for c in candidates:
-                try:
-                    placed.append(engine.place_order(
-                        ledger, ticker=c["ticker"], setup=c["setup"], entry=c["entry"],
-                        stop=c["stop"], target=c["target"], date=session_date, note=c["reason"]))
-                except engine.RuleViolation as e:
-                    journal.log_skip(ledger, c, session_date, reason=f"blocked by charter: {e}")
-                    skipped.append(c)
-
-            session_entry = recap_mod.build_recap(
-                date=session_date, regime=market.regime_summary(frames),
-                closed_today=closed_today, filled_today=filled_today, placed=placed,
-                skipped=skipped, candidates_found=len(candidates),
-                watchlist_vol_pct=market.watchlist_volatility_pct(frames))
-            ledger["sessions"].append(session_entry)
+    # ----- session runner -----
+    run_col, wl_col = st.columns([1, 3])
+    with wl_col:
+        wl_text = st.text_input("Watchlist (editable)", value=", ".join(ledger["watchlist"]),
+                                help="Comma-separated tickers. Saved with the ledger.")
+        new_wl = [t.strip().upper() for t in wl_text.split(",") if t.strip()]
+        if new_wl and new_wl != ledger["watchlist"]:
+            ledger["watchlist"] = new_wl
             persist()
-            st.session_state.last_run = session_entry
-            st.rerun()
 
-if "last_run" in st.session_state:
-    rv = st.session_state.last_run
-    st.subheader(f"Session {rv['date']} — auto-run result")
-    st.write(f"**Regime:** {rv['regime']}")
-    st.write(rv["actions"])
-    for lesson in rv["lessons"]:
-        st.caption(f"• {lesson}")
+    with run_col:
+        st.write("")  # vertical alignment
+        run_clicked = st.button("▶ Run today's session", type="primary", use_container_width=True)
 
-st.divider()
+    if run_clicked:
+        frames = fetch(tuple(ledger["watchlist"]))
+        if not frames:
+            st.error("No data came back for the watchlist — no numbers, no trade. Try again later.")
+        else:
+            session_date = market.latest_session_date(frames)
+            already = any(s["date"] == session_date for s in ledger["sessions"])
+            if already:
+                st.warning(f"A session for {session_date} is already in the ledger. "
+                           "Markets close once a day — come back after the next close.")
+            elif not market.bar_is_final(session_date):
+                st.warning(f"The market is still open (or just closed) — {session_date}'s daily bar "
+                           "isn't final yet. No numbers, no trade: the bot runs after the close "
+                           "settles (21:30 UTC), or come back then.")
+            else:
+                # Amendment 2026-07-08: auto-place, identical to the scheduled run.
+                bars = market.bars_today(frames)
+                closed_today = engine.manage_open_trades(ledger, bars, session_date)
+                filled_today, expired = engine.process_pending_fills(ledger, bars, session_date)
+                busy = {t["ticker"] for t in ledger["open_trades"]}
+                candidates = setups.scan(frames, skip_tickers=busy)
 
-# ---------- positions ----------
-
-pos_col, chart_col = st.columns([2, 3])
-
-with pos_col:
-    st.subheader("Open positions")
-    if ledger["open_trades"]:
-        for t in ledger["open_trades"]:
-            risk_left = max(0.0, (t["entry"] - t["stop"]) / (t["entry"] - t["initial_stop"]))
-            with st.container(border=True):
-                st.markdown(f"**{t['ticker']}** · `{t['setup']}` · {t['shares']} sh @ {t['entry']} · "
-                            f"stop {t['stop']} → target {t['target']} · **{risk_left:.2f}R at risk**")
-                new_stop = st.number_input(f"Move {t['ticker']} stop (up only)", value=float(t["stop"]),
-                                           step=0.01, key=f"stop_{t['id']}", format="%.2f")
-                if new_stop > t["stop"]:
+                placed, skipped = [], []
+                for c in candidates:
+                    if c.get("blocked"):
+                        journal.log_skip(ledger, c, session_date, reason=c["blocked"])
+                        skipped.append(c)
+                        continue
                     try:
-                        engine.move_stop(t, new_stop)
-                        persist()
-                        st.rerun()
+                        placed.append(engine.place_order(
+                            ledger, ticker=c["ticker"], setup=c["setup"], entry=c["entry"],
+                            stop=c["stop"], target=c["target"], date=session_date,
+                            note=c["reason"], min_volume=c.get("min_volume")))
                     except engine.RuleViolation as e:
-                        st.error(str(e))
-    else:
-        st.caption("None. Flat is a position too.")
+                        journal.log_skip(ledger, c, session_date, reason=f"blocked by charter: {e}")
+                        skipped.append(c)
 
-    st.subheader("Pending orders")
-    if ledger["pending_orders"]:
-        for o in ledger["pending_orders"]:
-            st.markdown(f"**{o['ticker']}** buy-stop {o['entry']} · stop {o['stop']} · "
-                        f"target {o['target']} · {o['shares']} sh (good next session)")
-    else:
-        st.caption("None.")
+                session_entry = recap_mod.build_recap(
+                    date=session_date, regime=market.regime_summary(frames),
+                    closed_today=closed_today, filled_today=filled_today, placed=placed,
+                    skipped=skipped, candidates_found=len(candidates),
+                    watchlist_vol_pct=market.watchlist_volatility_pct(frames))
+                ledger["sessions"].append(session_entry)
+                persist()
+                st.session_state.last_run = session_entry
+                st.rerun()
 
-    st.markdown(f"**Committed risk:** {engine.open_risk_R(ledger['open_trades']) + len(ledger['pending_orders']):.2f}R "
-                f"of {engine.rules_from_ledger(ledger).max_open_risk_R:.0f}R allowed")
+    if "last_run" in st.session_state:
+        rv = st.session_state.last_run
+        st.subheader(f"Session {rv['date']} — auto-run result")
+        st.write(f"**Regime:** {rv['regime']}")
+        st.write(rv["actions"])
+        for lesson in rv["lessons"]:
+            st.caption(f"• {lesson}")
 
-with chart_col:
-    st.subheader("Equity curve")
-    curve = journal.equity_curve(ledger)
-    curve_df = pd.DataFrame(curve, columns=["date", "balance"])
-    curve_df["date"] = pd.to_datetime(curve_df["date"])
-    st.line_chart(curve_df.set_index("date")["balance"], height=240)
+    st.divider()
 
-    rs = journal.r_distribution(ledger)
-    if rs:
-        st.subheader("R distribution")
-        bins = pd.cut(pd.Series(rs), bins=[-5, -2, -1.5, -1, -0.5, 0, 0.5, 1, 1.5, 2, 5])
-        hist = bins.value_counts().sort_index()
-        hist.index = [f"{iv.left:g}…{iv.right:g}" for iv in hist.index]
-        st.bar_chart(hist, height=200)
+    # ----- positions + charts -----
+    pos_col, chart_col = st.columns([2, 3])
 
-# ---------- expectancy by setup + export ----------
+    with pos_col:
+        st.subheader("Open positions")
+        if ledger["open_trades"]:
+            for t in ledger["open_trades"]:
+                risk_left = max(0.0, (t["entry"] - t["stop"]) / (t["entry"] - t["initial_stop"]))
+                with st.container(border=True):
+                    st.markdown(f"**{t['ticker']}** · `{t['setup']}` · {t['shares']} sh @ {t['entry']} · "
+                                f"stop {t['stop']} → target {t['target']} · **{risk_left:.2f}R at risk**")
+                    new_stop = st.number_input(f"Move {t['ticker']} stop (up only)", value=float(t["stop"]),
+                                               step=0.01, key=f"stop_{t['id']}", format="%.2f")
+                    if new_stop > t["stop"]:
+                        try:
+                            engine.move_stop(t, new_stop)
+                            persist()
+                            st.rerun()
+                        except engine.RuleViolation as e:
+                            st.error(str(e))
+        else:
+            st.caption("None. Flat is a position too.")
 
-by_setup = journal.expectancy_by_setup(ledger)
-if by_setup:
-    st.subheader("Expectancy by setup")
-    st.dataframe(pd.DataFrame(by_setup).T, use_container_width=True)
+        st.subheader("Pending orders")
+        if ledger["pending_orders"]:
+            for o in ledger["pending_orders"]:
+                vol_note = (f" · fills only on volume ≥ {o['min_volume']:,.0f}"
+                            if o.get("min_volume") else "")
+                st.markdown(f"**{o['ticker']}** buy-stop {o['entry']} · stop {o['stop']} · "
+                            f"target {o['target']} · {o['shares']} sh (good next session){vol_note}")
+        else:
+            st.caption("None.")
 
-if ledger["closed_trades"]:
-    csv = pd.DataFrame(ledger["closed_trades"]).to_csv(index=False).encode()
-    st.download_button("⬇ Export closed trades (CSV)", csv, "prop-experiment-trades.csv", "text/csv")
+        st.markdown(f"**Committed risk:** "
+                    f"{engine.open_risk_R(ledger['open_trades']) + len(ledger['pending_orders']):.2f}R "
+                    f"of {engine.rules_from_ledger(ledger).max_open_risk_R:.0f}R allowed")
 
-st.divider()
+    with chart_col:
+        st.subheader("Equity curve")
+        equity_chart(ledger)
+        rs = journal.r_distribution(ledger)
+        if rs:
+            st.subheader("R distribution")
+            r_histogram(rs)
 
-# ---------- recap feed ----------
+    by_setup = journal.expectancy_by_setup(ledger)
+    if by_setup:
+        st.subheader("Expectancy by setup")
+        st.dataframe(pd.DataFrame(by_setup).T, use_container_width=True)
 
-st.subheader("Session recaps")
-for s in reversed(ledger["sessions"]):
-    flames = "🔥" * s.get("brutality", 0) or "—"
-    with st.expander(f"{s['date']} · brutality {s.get('brutality', 0)}/5 {flames}", expanded=False):
-        st.write(f"**Regime:** {s.get('regime', '—')}")
-        st.write(f"**Actions:** {s.get('actions', '—')}")
-        if s.get("brutality_note"):
-            st.caption(s["brutality_note"])
-        for lesson in s.get("lessons", []):
-            st.markdown(f"- {lesson}")
+    if ledger["closed_trades"]:
+        csv = pd.DataFrame(ledger["closed_trades"]).to_csv(index=False).encode()
+        st.download_button("⬇ Export closed trades (CSV)", csv, "prop-experiment-trades.csv", "text/csv")
 
-st.divider()
+    st.divider()
 
-# ---------- backtest (hypothetical, read-only, never touches the real ledger) ----------
+    # ----- recap feed -----
+    st.subheader("Session recaps")
+    for s in reversed(ledger["sessions"]):
+        flames = "🔥" * s.get("brutality", 0) or "—"
+        with st.expander(f"{s['date']} · brutality {s.get('brutality', 0)}/5 {flames}", expanded=False):
+            st.write(f"**Regime:** {s.get('regime', '—')}")
+            st.write(f"**Actions:** {s.get('actions', '—')}")
+            if s.get("brutality_note"):
+                st.caption(s["brutality_note"])
+            for lesson in s.get("lessons", []):
+                st.markdown(f"- {lesson}")
 
-st.subheader("📊 Backtest — hypothetical, not real results")
-st.caption(
-    "Runs the exact same engine against this watchlist's full historical daily data. "
-    "**Survivorship/hindsight-bias caveat:** these tickers were picked with the benefit "
-    "of already knowing how they performed — this shows what THIS watchlist would have "
-    "done, not a blind test of the strategy on an unbiased universe."
-)
+    # ----- skip log: discipline is data -----
+    if ledger.get("skipped_candidates"):
+        with st.expander(f"🚫 Skip log ({len(ledger['skipped_candidates'])} candidates declined)"):
+            for s in reversed(ledger["skipped_candidates"][-50:]):
+                st.markdown(f"- **{s['date']} {s['ticker']}** `{s['setup']}` — {s['reason']}")
 
-if st.button("▶ Run backtest"):
-    st.session_state.backtest_result = run_cached_backtest(tuple(ledger["watchlist"]))
 
-if "backtest_result" in st.session_state:
-    bt = st.session_state.backtest_result
-    bt_stats = journal.compute_stats(bt)
-    bt_exp = bt_stats["expectancy_R"]
-    bt_exp_txt = f"{bt_exp:+.3f}R" if bt_exp is not None else "—"
-    bt_color = "inherit" if bt_exp is None else ("#0a9950" if bt_exp > 0 else "#d43a3a")
+with tab_backtest:
+    st.caption(
+        "Runs the exact same engine against this watchlist's full historical daily data. "
+        "**Survivorship/hindsight-bias caveat:** these tickers were picked already knowing how "
+        "they performed — this shows what THIS watchlist would have done, not a blind test of "
+        "the strategy on an unbiased universe."
+    )
 
-    bl, br = st.columns([2, 3])
-    with bl:
-        st.markdown('<div class="big-label">Backtest expectancy per trade</div>', unsafe_allow_html=True)
-        st.markdown(f'<p class="big-expectancy" style="color:{bt_color}">{bt_exp_txt}</p>', unsafe_allow_html=True)
-    with br:
-        c1, c2, c3, c4 = st.columns(4)
-        c1.metric("Trades", bt_stats["trades_closed"])
-        c2.metric("Win rate", f"{bt_stats['win_rate_pct']}%" if bt_stats["win_rate_pct"] is not None else "—")
-        c3.metric("Total R", f"{bt_stats['total_R']:+.2f}")
-        c4.metric("Max drawdown", f"{bt_stats['max_drawdown_pct']}%")
+    if st.button("▶ Run backtest"):
+        st.session_state.backtest_result = run_cached_backtest(tuple(ledger["watchlist"]))
 
-    bt_curve = pd.DataFrame(journal.equity_curve(bt), columns=["date", "balance"])
-    bt_curve["date"] = pd.to_datetime(bt_curve["date"])
-    st.line_chart(bt_curve.set_index("date")["balance"], height=240)
+    if "backtest_result" in st.session_state:
+        bt = st.session_state.backtest_result
+        bt_stats = journal.compute_stats(bt)
+        bt_exp = bt_stats["expectancy_R"]
+        bt_exp_txt = f"{bt_exp:+.3f}R" if bt_exp is not None else "—"
+        bt_color = "inherit" if bt_exp is None else (GAIN if bt_exp > 0 else LOSS)
 
-    bt_rs = journal.r_distribution(bt)
-    if bt_rs:
-        bt_bins = pd.cut(pd.Series(bt_rs), bins=[-5, -2, -1.5, -1, -0.5, 0, 0.5, 1, 1.5, 2, 5])
-        bt_hist = bt_bins.value_counts().sort_index()
-        bt_hist.index = [f"{iv.left:g}…{iv.right:g}" for iv in bt_hist.index]
-        st.bar_chart(bt_hist, height=200)
+        bl, br = st.columns([2, 3])
+        with bl:
+            st.markdown('<div class="eyebrow">Backtest expectancy per trade</div>', unsafe_allow_html=True)
+            st.markdown(f'<p class="big-expectancy" style="color:{bt_color}">{bt_exp_txt}</p>',
+                        unsafe_allow_html=True)
+        with br:
+            c1, c2, c3, c4 = st.columns(4)
+            c1.metric("Trades", bt_stats["trades_closed"])
+            c2.metric("Win rate", f"{bt_stats['win_rate_pct']}%"
+                      if bt_stats["win_rate_pct"] is not None else "—")
+            c3.metric("Total R", f"{bt_stats['total_R']:+.2f}")
+            c4.metric("Max drawdown", f"{bt_stats['max_drawdown_pct']}%")
 
-    bt_by_setup = journal.expectancy_by_setup(bt)
-    if bt_by_setup:
-        st.dataframe(pd.DataFrame(bt_by_setup).T, use_container_width=True)
+        equity_chart(bt)
+        bt_rs = journal.r_distribution(bt)
+        if bt_rs:
+            r_histogram(bt_rs)
+        bt_by_setup = journal.expectancy_by_setup(bt)
+        if bt_by_setup:
+            st.dataframe(pd.DataFrame(bt_by_setup).T, use_container_width=True)
 
-st.divider()
 
-# ---------- practice lab (the bot's offline training, outside the experiment) ----------
+with tab_practice:
+    st.caption(
+        "Every practice run (05:30 UTC weekdays — while the US market sleeps) tests strategy "
+        "variants against a fresh randomized slice of history on a scratch \\$10k account. "
+        "Results accumulate, so rankings genuinely sharpen with sample size. **It never touches "
+        "the live \\$5k experiment** — promoting a finding requires a dated charter amendment."
+    )
 
-st.subheader("🧠 Practice Lab — what the bot is learning offline")
-st.caption(
-    "Every practice run (scheduled 05:30 UTC weekdays — while the US market sleeps) tests "
-    "strategy variants against a fresh randomized slice of history on a scratch $10k account. "
-    "Results accumulate across runs, so this leaderboard genuinely sharpens with sample size. "
-    "**It never touches the live $5k experiment** — promoting a finding requires a dated "
-    "charter amendment, because hindsight-tuned settings are presumed overfit."
-)
+    try:
+        _hist = practice.load_history()
+        ready = practice.promotion_candidates(_hist)
+        if ready:
+            lines = "\n".join(
+                f"- **{p['variant']}** beat the baseline in {p['beat_baseline_pct']}% of "
+                f"{p['windows_compared']} windows (avg edge {p['avg_edge_R']:+.3f}R over "
+                f"{p['trades']} trades)"
+                for p in ready)
+            st.success("🏆 **Ready for promotion review** — the evidence bar is met; adopting any "
+                       f"of these is your charter-amendment decision:\n{lines}")
 
-try:
-    import practice
-
-    _hist = practice.load_history()
-    if _hist["runs"]:
-        n_runs = len(_hist["runs"])
-        last = _hist["runs"][-1]
-        st.markdown(f"**{n_runs} practice run(s) banked** · latest studied "
-                    f"**{last['window'][0]} → {last['window'][1]}** "
-                    f"across {len(last['tickers'])} tickers")
-        board = practice.leaderboard(_hist)
-        board_df = pd.DataFrame(board).set_index("variant")
-        st.dataframe(board_df, use_container_width=True)
-        best = next((b for b in board if b["expectancy_R"] is not None and b["trades"] >= 30), None)
-        if best:
-            st.markdown(f"Current front-runner: **{best['variant']}** at "
-                        f"**{best['expectancy_R']:+.3f}R** over {best['trades']} practice trades.")
-    else:
-        st.info("No practice runs banked yet — the first fires at 05:30 UTC on the next weekday, "
-                "or run `python practice.py` locally.")
-except Exception as _e:
-    st.warning(f"Practice history unavailable: {_e}")
+        if _hist["runs"]:
+            n_runs = len(_hist["runs"])
+            last = _hist["runs"][-1]
+            st.markdown(f"**{n_runs} practice run(s) banked** · latest studied "
+                        f"**{last['window'][0]} → {last['window'][1]}** "
+                        f"across {len(last['tickers'])} tickers")
+            board = practice.leaderboard(_hist)
+            board_df = pd.DataFrame(board).set_index("variant")
+            st.dataframe(board_df, use_container_width=True)
+            if not ready:
+                st.caption(f"No variant has met the promotion bar yet "
+                           f"(needs ≥{practice.PROMOTION_MIN_RUNS} windows, "
+                           f"≥{practice.PROMOTION_MIN_TRADES} trades, beats baseline in "
+                           f"≥{practice.PROMOTION_WIN_FRACTION:.0%} of windows). "
+                           "The bar is the point — small samples lie.")
+        else:
+            st.info("No practice runs banked yet — the first fires at 05:30 UTC on the next "
+                    "weekday, or run `python practice.py` locally.")
+    except Exception as _e:
+        st.warning(f"Practice history unavailable: {_e}")

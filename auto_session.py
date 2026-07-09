@@ -48,10 +48,16 @@ def run() -> bool:
 
     placed, skipped = [], []
     for c in candidates:
+        if c.get("blocked"):
+            journal.log_skip(ledger, c, session_date, reason=c["blocked"])
+            skipped.append(c)
+            print(f"SKIPPED {c['ticker']}: {c['blocked']}")
+            continue
         try:
             order = engine.place_order(
                 ledger, ticker=c["ticker"], setup=c["setup"], entry=c["entry"],
-                stop=c["stop"], target=c["target"], date=session_date, note=c["reason"])
+                stop=c["stop"], target=c["target"], date=session_date, note=c["reason"],
+                min_volume=c.get("min_volume"))
             placed.append(order)
             print(f"AUTO-PLACED {order['ticker']} {order['setup']}: entry {order['entry']}, "
                   f"stop {order['stop']}, target {order['target']}, {order['shares']} sh")

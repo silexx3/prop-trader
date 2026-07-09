@@ -62,7 +62,8 @@ def trading_dates(frames: dict[str, pd.DataFrame]) -> list[str]:
 
 def _row_to_bar(row) -> dict:
     return {"open": float(row["open"]), "high": float(row["high"]),
-            "low": float(row["low"]), "close": float(row["close"])}
+            "low": float(row["low"]), "close": float(row["close"]),
+            "volume": float(row["volume"])}
 
 
 def bars_on(frames: dict[str, pd.DataFrame], date_indices: dict[str, dict[str, int]],
@@ -111,10 +112,14 @@ def run_backtest_from_frames(frames: dict[str, pd.DataFrame], starting_balance: 
         sliced = frames_through(frames, date_indices, date)
         candidates = setups.scan(sliced, skip_tickers=busy, variant=variant)
         for c in candidates:
+            if c.get("blocked"):
+                journal.log_skip(ledger, c, date, reason=c["blocked"])
+                continue
             try:
                 engine.place_order(ledger, ticker=c["ticker"], setup=c["setup"],
                                    entry=c["entry"], stop=c["stop"], target=c["target"],
-                                   date=date, note=c["reason"])
+                                   date=date, note=c["reason"],
+                                   min_volume=c.get("min_volume"))
             except engine.RuleViolation as e:
                 journal.log_skip(ledger, c, date, reason=f"blocked by charter: {e}")
 

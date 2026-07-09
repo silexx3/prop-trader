@@ -1,0 +1,9 @@
+# Trading-desk theme: deep ink-navy desk, amber terminal accent.
+# Green/red appear only where they MEAN profit/loss — never as decoration.
+[theme]
+base = "dark"
+primaryColor = "#F5A623"
+backgroundColor = "#0E1420"
+secondaryBackgroundColor = "#171F2E"
+textColor = "#E6E9EF"
+font = "sans serif"

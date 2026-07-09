@@ -93,8 +93,14 @@ def check_can_place(ledger: dict, rules: Optional[Rules] = None) -> None:
 
 
 def place_order(ledger: dict, *, ticker: str, setup: str, entry: float, stop: float,
-                target: float, date: str, note: str = "") -> dict:
-    """Validate against the charter and add a pending order (good for next session)."""
+                target: float, date: str, note: str = "",
+                min_volume: float | None = None) -> dict:
+    """Validate against the charter and add a pending order (good for next session).
+
+    `min_volume`: for setups whose charter definition requires the trigger bar
+    to come with volume (base_breakout), the fill is gated on the bar's volume
+    reaching this level — a quiet break is not the setup.
+    """
     rules = rules_from_ledger(ledger)
     check_can_place(ledger, rules)
     if target < entry + 2 * (entry - stop) - 1e-9:
@@ -112,6 +118,8 @@ def place_order(ledger: dict, *, ticker: str, setup: str, entry: float, stop: fl
         "placed": date,
         "note": note,
     }
+    if min_volume is not None:
+        order["min_volume"] = min_volume
     ledger["pending_orders"].append(order)
     return order
 
@@ -209,7 +217,9 @@ def process_pending_fills(ledger: dict, bars_today: dict[str, dict], date: str) 
         bar = bars_today.get(order["ticker"])
         if bar is None:
             continue
-        if bar["high"] >= order["entry"]:
+        volume_ok = ("min_volume" not in order
+                     or bar.get("volume", 0) >= order["min_volume"])
+        if bar["high"] >= order["entry"] and volume_ok:
             trade = fill_pending(ledger, order, date)
             filled.append(trade)
     expired = expire_pending(ledger)
