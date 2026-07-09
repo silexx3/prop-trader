@@ -203,8 +203,8 @@ with st.container(border=True):
 
 # ---------- the desk: three tabs ----------
 
-tab_live, tab_league, tab_backtest, tab_practice = st.tabs(
-    ["📈 Live desk", "🏆 League", "🧪 Backtest", "🧠 Practice Lab"])
+tab_live, tab_day, tab_league, tab_backtest, tab_practice = st.tabs(
+    ["📈 Swing desk", "⚡ Day desk", "🏆 League", "🧪 Backtest", "🧠 Practice Lab"])
 
 
 with tab_live:
@@ -388,6 +388,64 @@ with tab_live:
         with st.expander(f"🚫 Skip log ({len(ledger['skipped_candidates'])} candidates declined)"):
             for s in reversed(ledger["skipped_candidates"][-50:]):
                 st.markdown(f"- **{s['date']} {s['ticker']}** `{s['setup']}` — {s['reason']}")
+
+
+with tab_day:
+    st.caption(
+        "A second \\$5k prop experiment on the fast clock: opening-range breakouts and VWAP "
+        "pullbacks on real 5-minute bars, max 3 entries a day, **always flat by the close**. "
+        "Free intraday data is delayed, so each evening the bot replays the completed session "
+        "bar-by-bar with pessimistic fills — real day-trading logic, honestly simulated. "
+        "See day-trading-charter.md."
+    )
+    try:
+        import day_session
+
+        day_ledger = day_session.load_day_ledger()
+        day_stats = journal.compute_stats(day_ledger)
+        d_exp = day_stats["expectancy_R"]
+        d_exp_txt = f"{d_exp:+.3f}R" if d_exp is not None else "—"
+        d_color = "inherit" if d_exp is None else (GAIN if d_exp > 0 else LOSS)
+
+        dl, dr = st.columns([2, 3])
+        with dl:
+            st.markdown('<div class="eyebrow">Day-lane expectancy per trade</div>', unsafe_allow_html=True)
+            st.markdown(f'<p class="big-expectancy" style="color:{d_color}">{d_exp_txt}</p>',
+                        unsafe_allow_html=True)
+        with dr:
+            c1, c2, c3, c4 = st.columns(4)
+            d_pnl = day_ledger["account"]["balance"] - day_ledger["account"]["starting_balance"]
+            c1.metric("Balance", f"${day_ledger['account']['balance']:,.2f}", f"{d_pnl:+,.2f}")
+            c2.metric("Trades", day_stats["trades_closed"],
+                      f"streak {journal.current_streak(day_ledger)}")
+            c3.metric("Win rate", f"{day_stats['win_rate_pct']}%"
+                      if day_stats["win_rate_pct"] is not None else "—",
+                      f"total {day_stats['total_R']:+.2f}R")
+            c4.metric("Max drawdown", f"{day_stats['max_drawdown_pct']}%", delta_color="off")
+
+        if day_ledger["closed_trades"]:
+            equity_chart(day_ledger)
+            trades_df = pd.DataFrame(day_ledger["closed_trades"])[
+                ["closed", "ticker", "setup", "entry", "exit", "reason", "r_multiple", "pnl_usd"]]
+            st.dataframe(trades_df.sort_values("closed", ascending=False).set_index("closed"),
+                         use_container_width=True)
+            d_rs = journal.r_distribution(day_ledger)
+            if d_rs:
+                r_histogram(d_rs)
+        else:
+            st.info("No day trades replayed yet — the first replay runs at 21:30 UTC tonight "
+                    "alongside the swing session, or run `python day_session.py` locally after "
+                    "the US close.")
+
+        if day_ledger["sessions"]:
+            st.subheader("Replay log")
+            for s in reversed(day_ledger["sessions"][-20:]):
+                with st.expander(f"{s['date']} · {s['realized_R']:+.2f}R"):
+                    st.write(s["actions"])
+                    for lesson in s.get("lessons", []):
+                        st.caption(f"• {lesson}")
+    except Exception as _e:
+        st.warning(f"Day lane unavailable: {_e}")
 
 
 with tab_league:

@@ -1,0 +1,118 @@
+{
+  "experiment": "Day-trading prop lane \u2014 after-close 5m replay",
+  "started": "2026-07-09",
+  "account": {
+    "currency": "USD",
+    "starting_balance": 5000.0,
+    "balance": 5034.96,
+    "open_risk_R": 0
+  },
+  "rules": {
+    "risk_per_trade_pct": 1.0,
+    "cost_per_trade_R": 0.05,
+    "max_open_positions": 2,
+    "max_open_risk_R": 2.0,
+    "max_entries_per_day": 3,
+    "setups_allowed": [
+      "orb_long",
+      "vwap_pullback"
+    ],
+    "style": "day trading, 5-minute bars, replayed after the close",
+    "verdict_metric": "expectancy_R_after_costs",
+    "verdict_sample": "100 trades or 6 months"
+  },
+  "watchlist": [
+    "SPY",
+    "QQQ",
+    "NVDA",
+    "AAPL",
+    "MSFT",
+    "AMD"
+  ],
+  "stats": {
+    "trades_closed": 3,
+    "wins": 1,
+    "losses": 2,
+    "win_rate_pct": 33.3,
+    "expectancy_R": 0.244,
+    "total_R": 0.733,
+    "max_drawdown_pct": 1.18
+  },
+  "open_trades": [],
+  "pending_orders": [],
+  "closed_trades": [
+    {
+      "id": "2026-07-08-AAPL-3",
+      "ticker": "AAPL",
+      "setup": "vwap_pullback",
+      "entry": 310.11,
+      "stop": 308.72,
+      "target": 312.89,
+      "shares": 35,
+      "risk_usd": 48.64999999999952,
+      "opened": "2026-07-08",
+      "entry_bar": 19,
+      "note": "Held above VWAP then first pullback into it (bar 16); long on reclaim of 310.10, stop under the dip 309.03.",
+      "exit": 312.89,
+      "closed": "2026-07-08",
+      "reason": "target",
+      "r_multiple": 1.95,
+      "pnl_usd": 94.87,
+      "balance_after": 5094.87
+    },
+    {
+      "id": "2026-07-08-AMD-4",
+      "ticker": "AMD",
+      "setup": "vwap_pullback",
+      "entry": 512.8,
+      "stop": 509.93,
+      "target": 518.54,
+      "shares": 17,
+      "risk_usd": 48.78999999999911,
+      "opened": "2026-07-08",
+      "entry_bar": 43,
+      "note": "Held above VWAP then first pullback into it (bar 42); long on reclaim of 512.79, stop under the dip 510.44.",
+      "exit": 509.93,
+      "closed": "2026-07-08",
+      "reason": "stop",
+      "r_multiple": -1.05,
+      "pnl_usd": -51.23,
+      "balance_after": 5043.64
+    },
+    {
+      "id": "2026-07-08-SPY-0",
+      "ticker": "SPY",
+      "setup": "orb_long",
+      "entry": 745.739990234375,
+      "stop": 741.9,
+      "target": 752.1,
+      "shares": 14,
+      "risk_usd": 47.59999999999968,
+      "opened": "2026-07-08",
+      "entry_bar": 77,
+      "note": "30-min opening range 742.64\u2013744.92; long on the break of 744.92 with volume \u2265 1.2\u00d7 the opening average.",
+      "exit": 745.29,
+      "closed": "2026-07-08",
+      "reason": "eod_flat",
+      "r_multiple": -0.167,
+      "pnl_usd": -8.68,
+      "balance_after": 5034.96
+    }
+  ],
+  "sessions": [
+    {
+      "date": "2026-07-08",
+      "trades": [
+        "2026-07-08-AAPL-3",
+        "2026-07-08-AMD-4",
+        "2026-07-08-SPY-0"
+      ],
+      "realized_R": 0.733,
+      "actions": "AAPL vwap_pullback \u2192 target +1.95R; AMD vwap_pullback \u2192 stop -1.05R; SPY orb_long \u2192 eod_flat -0.17R",
+      "lessons": [
+        "Replayed 6 tickers on 5-minute bars; 3 trade(s), +0.73R after costs."
+      ]
+    }
+  ],
+  "skipped_candidates": []
+}
