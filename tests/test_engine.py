@@ -211,3 +211,22 @@ def test_brutality_flat_quiet_day():
 def test_brutality_bloodbath():
     rating, _ = recap_mod.brutality_rating(-2.1, 3.0)
     assert rating == 5
+
+
+def test_rolling_expectancy_window():
+    ledger = fresh_ledger()
+    # 5 trades: +1.95, -1.05, +1.95, -1.05, +1.95 (closed in that order)
+    for exit_price in [104.0, 98.0, 104.0, 98.0, 104.0]:
+        trade = place_and_fill(ledger)
+        engine.close_trade(ledger, trade, exit_price=exit_price, exit_date="2026-07-10", reason="x")
+    points = journal.rolling_expectancy(ledger, window=3)
+    assert len(points) == 5
+    # last point = avg of trades 3,4,5 = (1.95 - 1.05 + 1.95)/3
+    assert points[-1][1] == pytest.approx((1.95 - 1.05 + 1.95) / 3, abs=0.01)
+    # first point (only 1 trade so far) = that trade's own R
+    assert points[0][1] == pytest.approx(1.95, abs=0.01)
+
+
+def test_rolling_expectancy_empty_ledger():
+    ledger = fresh_ledger()
+    assert journal.rolling_expectancy(ledger, window=20) == []

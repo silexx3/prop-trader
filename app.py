@@ -12,6 +12,7 @@ from __future__ import annotations
 
 import datetime as dt
 
+import altair as alt
 import pandas as pd
 import requests
 import streamlit as st
@@ -59,10 +60,18 @@ div[data-testid="stExpander"] details { border-radius: 6px; }
 /* Quieter tab bar, amber active underline comes from the theme primary. */
 button[data-baseweb="tab"] { font-size: 0.95rem; }
 
-/* Metrics stay readable on narrow screens instead of truncating. */
-@media (max-width: 900px) {
-    [data-testid="stMetricValue"] { font-size: 1.4rem !important; }
+/* Metric rows reflow instead of squeezing/truncating at any width: each
+   metric gets a real minimum width and wraps onto new rows as needed. */
+div[data-testid="stHorizontalBlock"]:has([data-testid="stMetric"]) {
+    flex-wrap: wrap;
+    row-gap: 0.75rem;
 }
+div[data-testid="stHorizontalBlock"]:has([data-testid="stMetric"]) > div[data-testid="stColumn"] {
+    min-width: 150px;
+    flex: 1 1 150px;
+}
+[data-testid="stMetricLabel"] p { white-space: normal !important; overflow: visible !important; }
+[data-testid="stMetricValue"] { font-size: clamp(1.1rem, 4vw, 1.875rem) !important; overflow: visible !important; }
 </style>
 """, unsafe_allow_html=True)
 
@@ -97,9 +106,42 @@ def r_histogram(rs: list[float], height: int = 200):
 
 
 def equity_chart(source_ledger: dict, height: int = 240):
+    """Equity curve with a profit/loss-tinted band against the starting
+    balance, and a real hover tooltip — a plain line can't show either."""
+    start = source_ledger["account"]["starting_balance"]
     curve_df = pd.DataFrame(journal.equity_curve(source_ledger), columns=["date", "balance"])
     curve_df["date"] = pd.to_datetime(curve_df["date"])
-    st.line_chart(curve_df.set_index("date")["balance"], height=height, color=AMBER)
+    curve_df["start"] = start
+
+    band = alt.Chart(curve_df).mark_area(opacity=0.15).encode(
+        x="date:T",
+        y=alt.Y("balance:Q", title="Balance ($)", scale=alt.Scale(zero=False)),
+        y2="start:Q",
+        color=alt.condition("datum.balance >= datum.start",
+                            alt.value(GAIN), alt.value(LOSS)))
+    line = alt.Chart(curve_df).mark_line(color=AMBER, strokeWidth=2).encode(
+        x="date:T", y="balance:Q",
+        tooltip=[alt.Tooltip("date:T", title="Date"),
+                 alt.Tooltip("balance:Q", title="Balance", format="$,.2f")])
+    baseline = alt.Chart(curve_df).mark_rule(color="#666", strokeDash=[3, 3]).encode(y="start:Q")
+    st.altair_chart((band + baseline + line).properties(height=height), use_container_width=True)
+
+
+def rolling_expectancy_chart(source_ledger: dict, window: int = 20, height: int = 200):
+    """Trailing-window expectancy over the trade sequence — shows whether
+    the edge is improving or decaying, which the lifetime average can't."""
+    points = journal.rolling_expectancy(source_ledger, window=window)
+    if len(points) < 2:
+        return
+    df = pd.DataFrame(points, columns=["trade", "expectancy_R"])
+    chart = alt.Chart(df).mark_line(color=AMBER, point=True).encode(
+        x=alt.X("trade:Q", title="Trade #"),
+        y=alt.Y("expectancy_R:Q", title=f"Rolling expectancy (last {window})"),
+        tooltip=[alt.Tooltip("trade:Q", title="Trade #"),
+                 alt.Tooltip("expectancy_R:Q", title="Expectancy", format="+.3f")])
+    zero_line = alt.Chart(pd.DataFrame({"y": [0]})).mark_rule(
+        color="#666", strokeDash=[3, 3]).encode(y="y:Q")
+    st.altair_chart((zero_line + chart).properties(height=height), use_container_width=True)
 
 
 # ---------- header + verdict ----------
@@ -126,11 +168,11 @@ with right:
     c1, c2, c3, c4 = st.columns(4)
     pnl = ledger["account"]["balance"] - ledger["account"]["starting_balance"]
     c1.metric("Balance", f"${ledger['account']['balance']:,.2f}", f"{pnl:+,.2f}")
-    c2.metric("Trades closed", stats["trades_closed"], f"of 100 · streak {journal.current_streak(ledger)}")
+    c2.metric("Trades", stats["trades_closed"], f"streak {journal.current_streak(ledger)}")
     c3.metric("Win rate", f"{stats['win_rate_pct']}%" if stats["win_rate_pct"] is not None else "—",
-              f"total {stats['total_R']:+.2f}R")
-    c4.metric("Max drawdown", f"{stats['max_drawdown_pct']}%",
-              f"{len(ledger['open_trades'])} open · {len(ledger['pending_orders'])} pending",
+              f"{stats['total_R']:+.2f}R total")
+    c4.metric("Drawdown", f"{stats['max_drawdown_pct']}%",
+              f"{len(ledger['open_trades'])}open·{len(ledger['pending_orders'])}pend",
               delta_color="off")
 
 # ---------- bot status strip ----------
@@ -355,6 +397,9 @@ with tab_live:
     with chart_col:
         st.subheader("Equity curve")
         equity_chart(ledger)
+        if len(ledger["closed_trades"]) >= 2:
+            st.subheader("Rolling expectancy")
+            rolling_expectancy_chart(ledger)
         rs = journal.r_distribution(ledger)
         if rs:
             st.subheader("R distribution")
@@ -425,6 +470,9 @@ with tab_day:
 
         if day_ledger["closed_trades"]:
             equity_chart(day_ledger)
+            if len(day_ledger["closed_trades"]) >= 2:
+                st.subheader("Rolling expectancy")
+                rolling_expectancy_chart(day_ledger)
             trades_df = pd.DataFrame(day_ledger["closed_trades"])[
                 ["closed", "ticker", "setup", "entry", "exit", "reason", "r_multiple", "pnl_usd"]]
             st.dataframe(trades_df.sort_values("closed", ascending=False).set_index("closed"),
@@ -468,16 +516,23 @@ with tab_league:
         } for r in rows]).set_index("account")
         st.dataframe(table, use_container_width=True)
 
-        curves = {}
+        long_rows = []
         for r in rows:
-            pts = journal.equity_curve(r["_ledger"])
-            if len(pts) > 1 or r["account"].startswith("👑"):
-                s = pd.Series({pd.to_datetime(d): b for d, b in pts})
-                curves[r["account"]] = s
-        if curves:
+            for d, b in journal.equity_curve(r["_ledger"]):
+                long_rows.append({"date": pd.to_datetime(d), "balance": b, "account": r["account"]})
+        if long_rows:
             st.subheader("Equity curves — the race")
-            curve_df = pd.DataFrame(curves).sort_index().ffill()
-            st.line_chart(curve_df, height=280)
+            race_df = pd.DataFrame(long_rows)
+            race_chart = alt.Chart(race_df).mark_line(point=True).encode(
+                x=alt.X("date:T", title="Date"),
+                y=alt.Y("balance:Q", title="Balance ($)", scale=alt.Scale(zero=False)),
+                color=alt.Color("account:N", title="Account",
+                                scale=alt.Scale(scheme="category10")),
+                tooltip=[alt.Tooltip("account:N", title="Account"),
+                         alt.Tooltip("date:T", title="Date"),
+                         alt.Tooltip("balance:Q", title="Balance", format="$,.2f")],
+            ).properties(height=300)
+            st.altair_chart(race_chart, use_container_width=True)
 
         with st.expander("Who's who — the rosters"):
             for r in rows:
@@ -528,6 +583,9 @@ with tab_backtest:
             c4.metric("Max drawdown", f"{bt_stats['max_drawdown_pct']}%")
 
         equity_chart(bt)
+        if len(bt["closed_trades"]) >= 2:
+            st.subheader("Rolling expectancy")
+            rolling_expectancy_chart(bt)
         bt_rs = journal.r_distribution(bt)
         if bt_rs:
             r_histogram(bt_rs)

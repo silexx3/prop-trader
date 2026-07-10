@@ -2,6 +2,12 @@
 
 The ledger is the same prop-experiment-ledger.json schema the experiment
 started with — history is never lost, the app just keeps appending to it.
+
+Ordering note: closed_trades is always appended in true chronological order
+(engine.close_trade only ever appends). Every sort in this file keys on
+`closed` date ALONE, never a tiebreaker like id — Python's sort is stable,
+so same-day trades keep their real append order for free. Adding an id (or
+any other) tiebreaker would scramble same-day ordering with an unrelated key.
 """
 
 from __future__ import annotations
@@ -58,7 +64,7 @@ def compute_stats(ledger: dict) -> dict:
 def equity_curve(ledger: dict) -> list[tuple[str, float]]:
     """(date, balance) points: start of experiment, then each closed trade."""
     points = [(ledger["started"], ledger["account"]["starting_balance"])]
-    for t in sorted(ledger["closed_trades"], key=lambda t: (t["closed"], t.get("id", ""))):
+    for t in sorted(ledger["closed_trades"], key=lambda t: t["closed"]):
         points.append((t["closed"], t["balance_after"]))
     return points
 
@@ -90,8 +96,24 @@ def r_distribution(ledger: dict) -> list[float]:
     return [t["r_multiple"] for t in ledger["closed_trades"]]
 
 
+def rolling_expectancy(ledger: dict, window: int = 20) -> list[tuple[int, float]]:
+    """(trade_number, trailing-window expectancy) for each closed trade in
+    order. Trade N's point averages the last `window` trades ending at N —
+    fewer than `window` trades so far just averages what exists. Shows
+    whether performance is improving or decaying, which the single lifetime
+    expectancy number can't.
+    """
+    closed = sorted(ledger["closed_trades"], key=lambda t: t["closed"])
+    rs = [t["r_multiple"] for t in closed]
+    points = []
+    for i in range(len(rs)):
+        chunk = rs[max(0, i - window + 1):i + 1]
+        points.append((i + 1, round(sum(chunk) / len(chunk), 3)))
+    return points
+
+
 def current_streak(ledger: dict) -> str:
-    closed = sorted(ledger["closed_trades"], key=lambda t: (t["closed"], t.get("id", "")))
+    closed = sorted(ledger["closed_trades"], key=lambda t: t["closed"])
     if not closed:
         return "no closed trades yet"
     streak, kind = 0, None
