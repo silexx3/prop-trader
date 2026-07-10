@@ -1,0 +1,65 @@
+{
+  "date": "2026-07-09",
+  "regime": "risk-on",
+  "regime_note": "the swing charter's continuation setups (pullback, breakout) are generally more favorable in a rising tape",
+  "vix": 15.84000015258789,
+  "vix_band": "normal",
+  "breadth_pct": 50.0,
+  "sectors": [
+    {
+      "ticker": "XLE",
+      "sector": "Energy",
+      "return_5d_pct": 3.81
+    },
+    {
+      "ticker": "XLV",
+      "sector": "Health Care",
+      "return_5d_pct": 1.65
+    },
+    {
+      "ticker": "XLF",
+      "sector": "Financials",
+      "return_5d_pct": 1.39
+    },
+    {
+      "ticker": "XLU",
+      "sector": "Utilities",
+      "return_5d_pct": 0.8
+    },
+    {
+      "ticker": "XLC",
+      "sector": "Communication Services",
+      "return_5d_pct": 0.7
+    },
+    {
+      "ticker": "XLRE",
+      "sector": "Real Estate",
+      "return_5d_pct": 0.11
+    },
+    {
+      "ticker": "XLP",
+      "sector": "Consumer Staples",
+      "return_5d_pct": -0.12
+    },
+    {
+      "ticker": "XLK",
+      "sector": "Technology",
+      "return_5d_pct": -0.15
+    },
+    {
+      "ticker": "XLY",
+      "sector": "Consumer Discretionary",
+      "return_5d_pct": -1.05
+    },
+    {
+      "ticker": "XLI",
+      "sector": "Industrials",
+      "return_5d_pct": -1.23
+    },
+    {
+      "ticker": "XLB",
+      "sector": "Materials",
+      "return_5d_pct": -1.49
+    }
+  ]
+}

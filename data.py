@@ -30,9 +30,14 @@ def fetch_watchlist(tickers: list[str], period: str = LOOKBACK) -> dict[str, pd.
     frames: dict[str, pd.DataFrame] = {}
     data = yf.download(tickers, period=period, interval="1d",
                        group_by="ticker", auto_adjust=True, progress=False)
+    # yfinance returns MultiIndex columns (ticker, field) with group_by="ticker"
+    # regardless of how many tickers were requested — including exactly one
+    # (verified live 2026-07-10; the old `len(tickers) > 1` check was wrong
+    # and silently broke every single-ticker fetch, e.g. market_intel's VIX read).
+    multi = isinstance(data.columns, pd.MultiIndex)
     for t in tickers:
         try:
-            df = data[t] if len(tickers) > 1 else data
+            df = data[t] if multi else data
         except KeyError:
             continue
         df = df.dropna(subset=["Close"])

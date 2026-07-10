@@ -278,6 +278,58 @@ tab_live, tab_day, tab_league, tab_backtest, tab_practice, tab_digest = st.tabs(
 
 
 with tab_live:
+    # ----- market intelligence: the tide everything else swims in -----
+    try:
+        import market_intel
+
+        latest_report = market_intel.load_latest_report()
+        intel_history = market_intel.load_history()
+        if latest_report:
+            regime = latest_report["regime"]
+            regime_color = GAIN if regime == "risk-on" else (LOSS if regime == "risk-off" else "inherit")
+            with st.container(border=True):
+                st.markdown("### 🌍 Market Intelligence")
+                mi1, mi2, mi3 = st.columns([1, 1, 2])
+                with mi1:
+                    st.markdown(f'<span class="eyebrow">Regime</span><br>'
+                                f'<span style="color:{regime_color}; font-weight:700; '
+                                f'font-size:1.4rem" class="mono">{regime.upper()}</span>',
+                                unsafe_allow_html=True)
+                    st.caption(latest_report.get("regime_note", ""))
+                with mi2:
+                    vix = latest_report.get("vix")
+                    vix_txt = f"{vix:.1f}" if vix is not None else "—"
+                    st.markdown(f'<span class="eyebrow">VIX</span><br>'
+                                f'<span class="mono" style="font-weight:700; font-size:1.4rem">'
+                                f'{vix_txt}</span>', unsafe_allow_html=True)
+                    st.caption(f"{latest_report.get('vix_band', 'unknown')} · "
+                              f"breadth {latest_report.get('breadth_pct', '—')}% above 50-SMA")
+                with mi3:
+                    week_regimes = [h["regime"] for h in intel_history[-7:]]
+                    if len(set(week_regimes)) > 1:
+                        st.caption(f"Regime moved this week: {' → '.join(week_regimes)}")
+                    else:
+                        st.caption("Regime steady all week.")
+
+                sectors = latest_report.get("sectors", [])
+                if sectors:
+                    sec_df = pd.DataFrame(sectors)
+                    sec_chart = alt.Chart(sec_df).mark_bar().encode(
+                        x=alt.X("return_5d_pct:Q", title="5-day return (%)"),
+                        y=alt.Y("sector:N", sort="-x", title=None),
+                        color=alt.condition("datum.return_5d_pct >= 0",
+                                            alt.value(GAIN), alt.value(LOSS)),
+                        tooltip=[alt.Tooltip("sector:N"), alt.Tooltip("ticker:N"),
+                                 alt.Tooltip("return_5d_pct:Q", format="+.2f")],
+                    ).properties(height=280)
+                    st.altair_chart(sec_chart, use_container_width=True)
+        else:
+            st.caption("🌍 Market intelligence: first read lands with tonight's run.")
+    except Exception as _e:
+        st.caption(f"Market intelligence unavailable: {_e}")
+
+    st.divider()
+
     # ----- overnight briefing -----
     if ledger["sessions"]:
         latest = ledger["sessions"][-1]

@@ -17,6 +17,7 @@ from pathlib import Path
 import day_session
 import journal
 import league
+import market_intel
 import practice
 
 REPORTS_DIR = Path(__file__).parent / "reports"
@@ -59,6 +60,17 @@ def build_digest(now: dt.date | None = None) -> str:
 
     parts = [f"# 📰 Week {iso_week} — Prop Trader digest",
              f"*Covering {since} → {now.isoformat()}. Simulation only — no real money.*", ""]
+
+    # Market intel — the tide everything else swims in.
+    intel_history = market_intel.load_history()
+    if intel_history:
+        latest = intel_history[-1]
+        parts.append("## 🌍 Market Intelligence")
+        parts.append(f"Regime as of {latest['date']}: **{latest['regime']}**.")
+        week_regimes = [h["regime"] for h in intel_history if h["date"] >= since]
+        if len(set(week_regimes)) > 1:
+            parts.append(f"Regime moved this week: {' → '.join(week_regimes)}.")
+        parts.append("")
 
     # League standings — the tournament is the headline.
     rows = league.summary()
