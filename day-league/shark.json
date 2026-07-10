@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 5286.95,
+    "balance": 5437.6,
     "open_risk_R": 0
   },
   "rules": {
@@ -35,13 +35,13 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 3,
-    "wins": 2,
-    "losses": 1,
-    "win_rate_pct": 66.7,
-    "expectancy_R": 0.95,
-    "total_R": 2.85,
-    "max_drawdown_pct": 1.93
+    "trades_closed": 8,
+    "wins": 5,
+    "losses": 3,
+    "win_rate_pct": 62.5,
+    "expectancy_R": 0.542,
+    "total_R": 4.335,
+    "max_drawdown_pct": 4.16
   },
   "open_trades": [],
   "pending_orders": [],
@@ -102,6 +102,101 @@
       "r_multiple": 1.95,
       "pnl_usd": 192.27,
       "balance_after": 5286.95
+    },
+    {
+      "id": "2026-07-10-META-5",
+      "ticker": "META",
+      "setup": "vwap_pullback",
+      "entry": 670.54,
+      "stop": 666.48,
+      "target": 678.66,
+      "shares": 26,
+      "risk_usd": 105.55999999999858,
+      "opened": "2026-07-10",
+      "entry_bar": 19,
+      "note": "Held above VWAP then first pullback into it (bar 18); long on reclaim of 670.53, stop under the dip 667.15.",
+      "exit": 666.48,
+      "closed": "2026-07-10",
+      "reason": "stop",
+      "r_multiple": -1.05,
+      "pnl_usd": -110.84,
+      "balance_after": 5176.11
+    },
+    {
+      "id": "2026-07-10-TSLA-6",
+      "ticker": "TSLA",
+      "setup": "vwap_pullback",
+      "entry": 410.6,
+      "stop": 407.86,
+      "target": 416.08,
+      "shares": 38,
+      "risk_usd": 104.12000000000035,
+      "opened": "2026-07-10",
+      "entry_bar": 30,
+      "note": "Held above VWAP then first pullback into it (bar 25); long on reclaim of 410.59, stop under the dip 408.27.",
+      "exit": 407.86,
+      "closed": "2026-07-10",
+      "reason": "stop",
+      "r_multiple": -1.05,
+      "pnl_usd": -109.33,
+      "balance_after": 5066.78
+    },
+    {
+      "id": "2026-07-10-AMD-7",
+      "ticker": "AMD",
+      "setup": "vwap_pullback",
+      "entry": 553.52,
+      "stop": 551.65,
+      "target": 557.26,
+      "shares": 54,
+      "risk_usd": 100.98000000000025,
+      "opened": "2026-07-10",
+      "entry_bar": 71,
+      "note": "Held above VWAP then first pullback into it (bar 69); long on reclaim of 553.51, stop under the dip 552.20.",
+      "exit": 557.26,
+      "closed": "2026-07-10",
+      "reason": "target",
+      "r_multiple": 1.95,
+      "pnl_usd": 196.91,
+      "balance_after": 5263.69
+    },
+    {
+      "id": "2026-07-10-NVDA-4",
+      "ticker": "NVDA",
+      "setup": "vwap_pullback",
+      "entry": 207.85,
+      "stop": 205.51,
+      "target": 212.53,
+      "shares": 45,
+      "risk_usd": 105.30000000000015,
+      "opened": "2026-07-10",
+      "entry_bar": 21,
+      "note": "Held above VWAP then first pullback into it (bar 12); long on reclaim of 207.84, stop under the dip 205.72.",
+      "exit": 210.95,
+      "closed": "2026-07-10",
+      "reason": "eod_flat",
+      "r_multiple": 1.275,
+      "pnl_usd": 134.23,
+      "balance_after": 5397.92
+    },
+    {
+      "id": "2026-07-10-SPY-0",
+      "ticker": "SPY",
+      "setup": "orb_long",
+      "entry": 753.780029296875,
+      "stop": 751.05,
+      "target": 758.73,
+      "shares": 40,
+      "risk_usd": 102.40000000000236,
+      "opened": "2026-07-10",
+      "entry_bar": 45,
+      "note": "30-min opening range 751.80\u2013753.23; long on the break of 753.23 with volume \u2265 1.2\u00d7 the opening average.",
+      "exit": 754.9,
+      "closed": "2026-07-10",
+      "reason": "eod_flat",
+      "r_multiple": 0.36,
+      "pnl_usd": 39.68,
+      "balance_after": 5437.6
     }
   ],
   "sessions": [
@@ -114,6 +209,19 @@
       ],
       "realized_R": 2.85,
       "actions": "AMZN target +1.95R; AMD stop -1.05R; MSFT target +1.95R",
+      "personality": "shark"
+    },
+    {
+      "date": "2026-07-10",
+      "trades": [
+        "2026-07-10-META-5",
+        "2026-07-10-TSLA-6",
+        "2026-07-10-AMD-7",
+        "2026-07-10-NVDA-4",
+        "2026-07-10-SPY-0"
+      ],
+      "realized_R": 1.485,
+      "actions": "META stop -1.05R; TSLA stop -1.05R; AMD target +1.95R; NVDA eod_flat +1.27R; SPY eod_flat +0.36R",
       "personality": "shark"
     }
   ],
