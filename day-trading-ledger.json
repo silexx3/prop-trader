@@ -12,7 +12,7 @@
     "cost_per_trade_R": 0.05,
     "max_open_positions": 2,
     "max_open_risk_R": 2.0,
-    "max_entries_per_day": 3,
+    "max_entries_per_day": 4,
     "setups_allowed": [
       "orb_long",
       "vwap_pullback"
@@ -27,7 +27,11 @@
     "NVDA",
     "AAPL",
     "MSFT",
-    "AMD"
+    "AMD",
+    "TSLA",
+    "META",
+    "AMZN",
+    "GOOGL"
   ],
   "stats": {
     "trades_closed": 6,

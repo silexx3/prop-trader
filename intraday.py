@@ -11,7 +11,10 @@ from __future__ import annotations
 import pandas as pd
 import yfinance as yf
 
-DAY_WATCHLIST = ["SPY", "QQQ", "NVDA", "AAPL", "MSFT", "AMD"]  # liquid names only
+# Deep-liquidity names only — thin intraday tape makes 5m fills a fantasy.
+# Expanded 6 -> 10 per day-charter amendment 2026-07-10 ("trade more").
+DAY_WATCHLIST = ["SPY", "QQQ", "NVDA", "AAPL", "MSFT", "AMD",
+                 "TSLA", "META", "AMZN", "GOOGL"]
 OR_BARS = 6  # opening range = first 6 five-minute bars = 30 minutes
 
 

@@ -33,12 +33,15 @@ jobs:
       - name: Replay the day-trading session
         run: python day_session.py
 
+      - name: Run the Day League
+        run: python day_league.py
+
       - name: Commit updated ledgers
         run: |
           git config user.name "prop-trader-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add prop-experiment-ledger.json league/ day-trading-ledger.json
-          git diff --cached --quiet && echo "No ledger changes." || git commit -m "Auto session + league + day replay $(date -u +%F)"
+          git add prop-experiment-ledger.json league/ day-trading-ledger.json day-league/
+          git diff --cached --quiet && echo "No ledger changes." || git commit -m "Auto session + leagues + day replay $(date -u +%F)"
           git push
 
       - name: Ping phone on failure

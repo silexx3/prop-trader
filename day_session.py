@@ -24,7 +24,7 @@ from day_setups import scan_day
 DAY_LEDGER_PATH = Path(__file__).parent / "day-trading-ledger.json"
 STARTING_BALANCE = 5000.0
 MAX_CONCURRENT = 2
-MAX_ENTRIES_PER_DAY = 3
+MAX_ENTRIES_PER_DAY = 4  # 3 -> 4 per amendment 2026-07-10 ("trade more")
 # Chase guard (amendment 2026-07-10): a fill more than this many R past the
 # trigger is chasing a gap, not taking the setup — skip it. Evidence: the
 # 2026-07-09 NVDA trade filled so far past its trigger that hitting the
@@ -73,15 +73,39 @@ def _close(ledger: dict, trade: dict, exit_price: float, reason: str, date: str)
     return closed
 
 
-def replay_day(ledger: dict, frames: dict, date: str) -> list[dict]:
-    """Walk the session forward. Returns the day's closed trades."""
-    candidates = scan_day(frames)
+def replay_day(ledger: dict, frames: dict, date: str, config: dict | None = None) -> list[dict]:
+    """Walk the session forward. Returns the day's closed trades.
+
+    `config` (Day League personalities) overrides behavior knobs; the
+    defaults ARE the day charter and the main lane never overrides them:
+      max_entries: entries allowed today (default MAX_ENTRIES_PER_DAY)
+      earliest_bar: no entries before this bar index (default 0)
+      max_chase_r: chase-guard tolerance in R (default MAX_CHASE_R)
+      require_spy_above_vwap: only enter while SPY > its VWAP (default False)
+      variant: per-detector kwargs for scan_day (default None)
+    Concurrency and risk always come from the ledger's own rules block.
+    """
+    config = config or {}
+    max_entries = config.get("max_entries", MAX_ENTRIES_PER_DAY)
+    earliest_bar = config.get("earliest_bar", 0)
+    max_chase_r = config.get("max_chase_r", MAX_CHASE_R)
+    require_tailwind = config.get("require_spy_above_vwap", False)
+    rules = engine.rules_from_ledger(ledger)
+    max_concurrent = rules.max_open_positions
+
+    candidates = scan_day(frames, variant=config.get("variant"))
     open_trades: list[dict] = []
     closed: list[dict] = []
     entries_taken = 0
     triggered_ids: set[int] = set()
     n_bars = max(len(df) for df in frames.values())
-    rules = engine.rules_from_ledger(ledger)
+
+    def spy_tailwind(k: int) -> bool:
+        spy = frames.get("SPY")
+        if spy is None or k >= len(spy):
+            return False  # Owl without a wind gauge doesn't fly
+        bar = spy.iloc[k]
+        return bool(bar["close"] > bar["vwap"])
 
     for k in range(n_bars):
         # 1) manage opens on this bar — stop before target, gaps at bar open.
@@ -99,11 +123,11 @@ def replay_day(ledger: dict, frames: dict, date: str) -> list[dict]:
                 closed.append(_close(ledger, trade, max(trade["target"], float(bar["open"])),
                                      "target", date))
 
-        # 2) new entries, caps willing.
+        # 2) new entries, caps and personality willing.
         for idx, c in enumerate(candidates):
-            if (idx in triggered_ids or c["active_from"] > k
-                    or entries_taken >= MAX_ENTRIES_PER_DAY
-                    or len(open_trades) >= MAX_CONCURRENT
+            if (idx in triggered_ids or c["active_from"] > k or k < earliest_bar
+                    or entries_taken >= max_entries
+                    or len(open_trades) >= max_concurrent
                     or any(t["ticker"] == c["ticker"] for t in open_trades)):
                 continue
             df = frames[c["ticker"]]
@@ -112,13 +136,15 @@ def replay_day(ledger: dict, frames: dict, date: str) -> list[dict]:
             bar = df.iloc[k]
             volume_ok = not c["min_volume"] or bar["volume"] >= c["min_volume"]
             if bar["high"] >= c["entry"] and volume_ok:
+                if require_tailwind and not spy_tailwind(k):
+                    continue  # not triggered: the setup may fire later with wind
                 fill = max(c["entry"], float(bar["open"]))  # gap over trigger fills worse
                 risk_per_share = c["entry"] - c["stop"]
-                if fill - c["entry"] > MAX_CHASE_R * risk_per_share:
+                if fill - c["entry"] > max_chase_r * risk_per_share:
                     triggered_ids.add(idx)
                     journal.log_skip(ledger, c, date,
                                      reason=f"gapped past trigger ({fill:.2f} vs {c['entry']:.2f}, "
-                                            f">{MAX_CHASE_R}R) — chasing is not the setup")
+                                            f">{max_chase_r}R) — chasing is not the setup")
                     continue
                 try:
                     shares, risk_usd = engine.position_size(

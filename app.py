@@ -257,8 +257,9 @@ hrs, mins = divmod(int(away.total_seconds() // 60), 60)
 with st.container(border=True):
     st.markdown("### 🤖 Bot status")
     st.markdown(status_line)
-    pieces = [f"Next live session + league night in **{hrs}h {mins}m** (weekdays 21:30 UTC) · "
-              "Practice Lab trains at 05:30 UTC · 5-account league running"]
+    pieces = [f"Next full run in **{hrs}h {mins}m** (weekdays 21:30 UTC) · "
+              "Practice Lab trains at 05:30 UTC · digest Sundays · "
+              "**10 accounts trading**: charter + 4 swing league + day charter + 4 day league"]
     if run_info and run_info["status"] == "completed":
         if run_info["conclusion"] == "success":
             pieces.append(f"last auto-run [✅ succeeded]({run_info['url']})")
@@ -521,6 +522,53 @@ with tab_day:
                     st.write(s["actions"])
                     for lesson in s.get("lessons", []):
                         st.caption(f"• {lesson}")
+
+        # ----- the Day League: four personalities, same tape -----
+        st.divider()
+        st.subheader("🎪 Day League — four personalities, one tape")
+        st.caption(
+            "Every night the same 5-minute session gets replayed by four different "
+            "temperaments. Same market, different characters — the standings show whose "
+            "personality survives contact with the tape. All simulated; the charter day "
+            "account above is the reference and is never touched by league code."
+        )
+        import day_league as _dl
+
+        dl_rows = _dl.summary()
+        cols = st.columns(len(_dl.PERSONALITIES))
+        for col, p in zip(cols, _dl.PERSONALITIES):
+            with col, st.container(border=True):
+                st.markdown(f"**{p['label']}**")
+                st.caption(p["desc"])
+
+        def _dl_ci(r):
+            ci = journal.expectancy_ci(r["_ledger"])
+            return f"{ci[0]:+.2f}…{ci[1]:+.2f}" if ci else "—"
+
+        dl_table = pd.DataFrame([{
+            "account": r["account"], "balance": round(r["balance"], 2),
+            "expectancy_R": r["expectancy_R"], "95%_CI": _dl_ci(r),
+            "trades": r["trades_closed"], "win_rate_%": r["win_rate_pct"],
+            "total_R": r["total_R"], "max_DD_%": r["max_drawdown_pct"],
+        } for r in dl_rows]).set_index("account")
+        st.dataframe(dl_table, use_container_width=True)
+
+        dl_long = []
+        for r in dl_rows:
+            for d, b in journal.equity_curve(r["_ledger"]):
+                dl_long.append({"date": pd.to_datetime(d), "balance": b, "account": r["account"]})
+        if dl_long:
+            dl_race = alt.Chart(pd.DataFrame(dl_long)).mark_line(point=True).encode(
+                x=alt.X("date:T", title="Date"),
+                y=alt.Y("balance:Q", title="Balance ($)", scale=alt.Scale(zero=False)),
+                color=alt.Color("account:N", title="Account", scale=alt.Scale(scheme="category10")),
+                tooltip=[alt.Tooltip("account:N"), alt.Tooltip("date:T"),
+                         alt.Tooltip("balance:Q", format="$,.2f")],
+            ).properties(height=260)
+            st.altair_chart(dl_race, use_container_width=True)
+        if len(dl_rows) == 1:
+            st.info("Personality ledgers appear after the first Day League night "
+                    "(nightly, right after the main day replay).")
     except Exception as _e:
         st.warning(f"Day lane unavailable: {_e}")
 
@@ -568,9 +616,11 @@ with tab_league:
             ).properties(height=300)
             st.altair_chart(race_chart, use_container_width=True)
 
-        with st.expander("Who's who — the rosters"):
-            for r in rows:
-                st.markdown(f"**{r['account']}** — {r['desc']}")
+        roster_cols = st.columns(min(len(rows), 5))
+        for col, r in zip(roster_cols, rows):
+            with col, st.container(border=True):
+                st.markdown(f"**{r['account']}**")
+                st.caption(r["desc"])
         for r in rows:
             if r["account"].startswith("👑") or not r["_ledger"]["sessions"]:
                 continue

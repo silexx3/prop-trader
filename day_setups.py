@@ -75,12 +75,16 @@ def vwap_pullback_long(ticker: str, df: pd.DataFrame, *, or_bars: int = OR_BARS,
     return None
 
 
-def scan_day(frames: dict[str, pd.DataFrame]) -> list[dict]:
-    """One candidate max per ticker per day; ORB first (it forms earlier)."""
+def scan_day(frames: dict[str, pd.DataFrame], variant: dict | None = None) -> list[dict]:
+    """One candidate max per ticker per day; ORB first (it forms earlier).
+
+    `variant` (Day League personalities): {"orb_long": {kwargs},
+    "vwap_pullback_long": {kwargs}} — the main day lane never passes it."""
+    variant = variant or {}
     out = []
     for ticker, df in frames.items():
         for detector in (orb_long, vwap_pullback_long):
-            c = detector(ticker, df)
+            c = detector(ticker, df, **variant.get(detector.__name__, {}))
             if c:
                 out.append(c)
                 break

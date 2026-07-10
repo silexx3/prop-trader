@@ -44,6 +44,17 @@ and none of it is real money.
 
 ## Amendments
 
+**2026-07-10 — trade more (watchlist + entry cap).** Watchlist expanded
+6 → 10 with TSLA, META, AMZN, GOOGL (deep-liquidity names only — thin tape
+makes simulated 5-minute fills a fantasy). Max entries per day 3 → 4.
+Risk per trade (1%) and concurrency (2) unchanged — more opportunity, same
+risk bounds.
+
+**2026-07-10 — the Day League (outside this experiment).** Four personality
+accounts (`day-league/*.json`, $5,000 each — Shark, Turtle, Owl, Rabbit)
+replay the same tape nightly under different behavior knobs. This account
+remains the day lane's verdict account and is never written by league code.
+
 **2026-07-10 — chase guard.** An entry whose fill would be more than 0.25R
 past the trigger (gap-open beyond the entry price) is skipped and logged —
 chasing a gap is not taking the setup. Evidence: on 2026-07-09, NVDA's
