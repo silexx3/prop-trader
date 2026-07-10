@@ -40,3 +40,10 @@ jobs:
           git add prop-experiment-ledger.json league/ day-trading-ledger.json
           git diff --cached --quiet && echo "No ledger changes." || git commit -m "Auto session + league + day replay $(date -u +%F)"
           git push
+
+      - name: Ping phone on failure
+        if: failure()
+        run: |
+          curl -s -m 5 -H "Title: Nightly run FAILED" -H "Priority: urgent" -H "Tags: rotating_light" \
+            -d "Daily prop session failed — check the Actions tab." \
+            "https://ntfy.sh/${NTFY_TOPIC:-prop-trader-abhi-1a1c6d67741009ef}" || true

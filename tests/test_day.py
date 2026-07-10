@@ -92,14 +92,18 @@ def test_quiet_break_with_no_volume_all_day_never_enters():
     assert closed == []
 
 
-def test_weak_break_can_fill_later_on_volume_confirmation_at_worse_price():
-    # Break on weak volume doesn't fill; the next bar brings the volume with
-    # price still over the trigger — entry happens there, at the worse open.
-    df = _orb_day(breakout_vol=500_000, after="run")
+def test_weak_break_fills_later_on_volume_only_within_chase_bound():
+    # Break on weak volume doesn't fill. The next bar brings the volume —
+    # entry happens there at the worse open, but ONLY if that pay-up stays
+    # within the chase guard's 0.25R bound. Beyond it: no trade at all.
+    rows = [(100, 100.5, 99.5, 100, 1_000_000)] * 6
+    rows += [(100, 100.4, 99.8, 100.1, 800_000)] * 4
+    rows += [(100.2, 101.2, 100.1, 100.7, 500_000)]        # weak-volume break
+    rows += [(100.75, 103.5, 100.7, 103.2, 1_500_000)] * 4  # confirms, opens +0.20 past trigger
     ledger = _ledger()
-    closed = day_session.replay_day(ledger, {"TEST": df}, "2026-07-09")
+    closed = day_session.replay_day(ledger, {"TEST": _bars(rows)}, "2026-07-09")
     assert len(closed) == 1
-    assert closed[0]["entry"] >= 101.0  # paid up for confirmation, no fantasy fill
+    assert closed[0]["entry"] == pytest.approx(100.75, abs=0.01)  # real, bounded pay-up
 
 
 def test_concurrency_and_daily_entry_caps():
@@ -119,3 +123,28 @@ def test_day_ledger_readable_by_journal_and_swing_ledger_untouched():
     assert stats["trades_closed"] == 1
     assert journal.equity_curve(ledger)[-1][1] == ledger["account"]["balance"]
     assert journal.LEDGER_PATH.read_bytes() == before
+
+
+def test_chase_guard_skips_gap_far_past_trigger():
+    # OR 99.5–100.5, trigger ~100.55, stop ~99.4 -> risk ~1.15.
+    # A bar OPENING at 101.2 gaps ~0.65 past the trigger (> 0.25R) -> skip.
+    rows = [(100, 100.5, 99.5, 100, 1_000_000)] * 6
+    rows += [(100, 100.4, 99.8, 100.1, 800_000)] * 4
+    rows += [(101.2, 102.5, 101.0, 102.0, 3_000_000)]   # gap-open way past trigger
+    rows += [(102.0, 104.5, 101.8, 104.0, 2_000_000)] * 4
+    ledger = _ledger()
+    closed = day_session.replay_day(ledger, {"TEST": _bars(rows)}, "2026-07-09")
+    assert closed == []  # chasing is not the setup
+    assert any("gapped past trigger" in s["reason"] for s in ledger["skipped_candidates"])
+
+
+def test_modest_gap_within_quarter_R_still_fills():
+    # Same setup but the entry bar opens just above the trigger (within 0.25R).
+    rows = [(100, 100.5, 99.5, 100, 1_000_000)] * 6
+    rows += [(100, 100.4, 99.8, 100.1, 800_000)] * 4
+    rows += [(100.7, 101.5, 100.6, 101.2, 3_000_000)]   # open 100.7, trigger ~100.55
+    rows += [(101.2, 104.5, 101.0, 104.0, 2_000_000)] * 4
+    ledger = _ledger()
+    closed = day_session.replay_day(ledger, {"TEST": _bars(rows)}, "2026-07-09")
+    assert len(closed) == 1
+    assert closed[0]["entry"] == pytest.approx(100.7, abs=0.01)

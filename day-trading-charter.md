@@ -41,3 +41,13 @@ Verdict metric: expectancy (average R after costs) at 100 trades or
 
 Started July 9, 2026. This is a learning experiment, not financial advice,
 and none of it is real money.
+
+## Amendments
+
+**2026-07-10 — chase guard.** An entry whose fill would be more than 0.25R
+past the trigger (gap-open beyond the entry price) is skipped and logged —
+chasing a gap is not taking the setup. Evidence: on 2026-07-09, NVDA's
+vwap_pullback filled so far past its trigger that reaching the planned
+target still banked −0.15R. This also bounds the volume-confirmation rule:
+a later bar may confirm a weak break with volume, but only at a price
+within 0.25R of the original trigger.

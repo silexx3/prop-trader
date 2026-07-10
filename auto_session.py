@@ -81,6 +81,19 @@ def run() -> bool:
           f"{len(placed)} placed, {len(skipped)} skipped.")
     print(f"Balance: ${ledger['account']['balance']:,.2f} | "
           f"Expectancy: {ledger['stats']['expectancy_R']}")
+
+    if closed_today or filled_today or placed:
+        import notify
+        bits = []
+        for t in closed_today:
+            bits.append(f"{t['ticker']} closed {t['reason']} {t['r_multiple']:+.2f}R")
+        for t in filled_today:
+            bits.append(f"{t['ticker']} filled @{t['entry']}")
+        for o in placed:
+            bits.append(f"{o['ticker']} order armed @{o['entry']}")
+        notify.send(f"Swing {session_date}",
+                    "; ".join(bits) + f" · bal ${ledger['account']['balance']:,.2f}",
+                    tags=["chart_with_upwards_trend"])
     return True
 
 

@@ -98,6 +98,31 @@ def run_cached_backtest(tickers: tuple[str, ...]):
     return backtest.run_backtest(list(tickers))
 
 
+def ci_caption(source_ledger: dict):
+    """Plain-English confidence statement under an expectancy number — the
+    guard against being fooled by small samples."""
+    n = len(source_ledger["closed_trades"])
+    ci = journal.expectancy_ci(source_ledger)
+    if ci is None:
+        st.caption("Confidence: needs 2+ closed trades before an interval exists.")
+        return
+    low, high = ci
+    rng = f"95% CI {low:+.2f}R … {high:+.2f}R over {n} trades"
+    if low <= 0 <= high:
+        st.caption(f"{rng} — **too early to call**: the interval spans zero, "
+                   "so this could still be noise.")
+    elif n < 20:
+        st.caption(f"{rng} — leaning {'positive' if low > 0 else 'negative'}, "
+                   "but the sample is small; let it cook.")
+    else:
+        st.caption(f"{rng} — statistically {'positive' if low > 0 else 'negative'} at 95%.")
+
+
+def verdict_progress(source_ledger: dict):
+    n = len(source_ledger["closed_trades"])
+    st.progress(min(n, 100) / 100, text=f"Verdict progress: {n}/100 trades")
+
+
 def r_histogram(rs: list[float], height: int = 200):
     bins = pd.cut(pd.Series(rs), bins=[-5, -2, -1.5, -1, -0.5, 0, 0.5, 1, 1.5, 2, 5])
     hist = bins.value_counts().sort_index()
@@ -164,6 +189,8 @@ with left:
     st.markdown('<hr class="verdict-rule">', unsafe_allow_html=True)
     st.markdown('<div class="verdict-note">This number settles the bet — not the win rate, '
                 'not the balance on a good week.</div>', unsafe_allow_html=True)
+    ci_caption(ledger)
+    verdict_progress(ledger)
 with right:
     c1, c2, c3, c4 = st.columns(4)
     pnl = ledger["account"]["balance"] - ledger["account"]["starting_balance"]
@@ -245,8 +272,8 @@ with st.container(border=True):
 
 # ---------- the desk: three tabs ----------
 
-tab_live, tab_day, tab_league, tab_backtest, tab_practice = st.tabs(
-    ["📈 Swing desk", "⚡ Day desk", "🏆 League", "🧪 Backtest", "🧠 Practice Lab"])
+tab_live, tab_day, tab_league, tab_backtest, tab_practice, tab_digest = st.tabs(
+    ["📈 Swing desk", "⚡ Day desk", "🏆 League", "🧪 Backtest", "🧠 Practice Lab", "📰 Digest"])
 
 
 with tab_live:
@@ -457,6 +484,8 @@ with tab_day:
             st.markdown('<div class="eyebrow">Day-lane expectancy per trade</div>', unsafe_allow_html=True)
             st.markdown(f'<p class="big-expectancy" style="color:{d_color}">{d_exp_txt}</p>',
                         unsafe_allow_html=True)
+            ci_caption(day_ledger)
+            verdict_progress(day_ledger)
         with dr:
             c1, c2, c3, c4 = st.columns(4)
             d_pnl = day_ledger["account"]["balance"] - day_ledger["account"]["starting_balance"]
@@ -505,10 +534,15 @@ with tab_league:
     )
     try:
         rows = league.summary()
+        def _ci_txt(r):
+            ci = journal.expectancy_ci(r["_ledger"])
+            return f"{ci[0]:+.2f}…{ci[1]:+.2f}" if ci else "—"
+
         table = pd.DataFrame([{
             "account": r["account"],
             "balance": round(r["balance"], 2),
             "expectancy_R": r["expectancy_R"],
+            "95%_CI": _ci_txt(r),
             "trades": r["trades_closed"],
             "win_rate_%": r["win_rate_pct"],
             "total_R": r["total_R"],
@@ -574,6 +608,7 @@ with tab_backtest:
             st.markdown('<div class="eyebrow">Backtest expectancy per trade</div>', unsafe_allow_html=True)
             st.markdown(f'<p class="big-expectancy" style="color:{bt_color}">{bt_exp_txt}</p>',
                         unsafe_allow_html=True)
+            ci_caption(bt)
         with br:
             c1, c2, c3, c4 = st.columns(4)
             c1.metric("Trades", bt_stats["trades_closed"])
@@ -634,3 +669,20 @@ with tab_practice:
                     "weekday, or run `python practice.py` locally.")
     except Exception as _e:
         st.warning(f"Practice history unavailable: {_e}")
+
+with tab_digest:
+    from pathlib import Path as _Path
+
+    latest = _Path(__file__).parent / "reports" / "latest-digest.md"
+    if latest.exists():
+        st.markdown(latest.read_text())
+        weekly_dir = _Path(__file__).parent / "reports" / "weekly"
+        past = sorted(weekly_dir.glob("*.md"), reverse=True)[1:] if weekly_dir.exists() else []
+        if past:
+            with st.expander(f"Past digests ({len(past)})"):
+                for p in past:
+                    st.markdown(f"---\n\n{p.read_text()}")
+    else:
+        st.info("No digest yet — the bot writes its first week-in-review on Sunday at "
+                "21:00 UTC (or trigger the Weekly digest workflow manually from the "
+                "Actions tab).")

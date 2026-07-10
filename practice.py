@@ -228,6 +228,11 @@ if __name__ == "__main__":
                     print(f"  {p['variant']}: beat baseline in {p['beat_baseline_pct']}% of "
                           f"{p['windows_compared']} windows, avg edge {p['avg_edge_R']:+.3f}R "
                           f"over {p['trades']} trades")
+                import notify
+                notify.send("Practice Lab: promotion review ready",
+                            "; ".join(f"{p['variant']} +{p['avg_edge_R']:.3f}R edge over "
+                                      f"{p['windows_compared']} windows" for p in ready),
+                            priority="high", tags=["brain", "trophy"])
         sys.exit(0)
     except Exception as e:
         print(f"ERROR: {e}", file=sys.stderr)

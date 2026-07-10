@@ -230,3 +230,36 @@ def test_rolling_expectancy_window():
 def test_rolling_expectancy_empty_ledger():
     ledger = fresh_ledger()
     assert journal.rolling_expectancy(ledger, window=20) == []
+
+
+def test_expectancy_ci_known_values():
+    ledger = fresh_ledger()
+    # 10 alternating trades: +1.95 / -1.05, mean 0.45, sd ~1.581
+    for i in range(10):
+        trade = place_and_fill(ledger)
+        engine.close_trade(ledger, trade, exit_price=104.0 if i % 2 == 0 else 98.0,
+                           exit_date="2026-07-10", reason="x")
+    ci = journal.expectancy_ci(ledger)
+    assert ci is not None
+    low, high = ci
+    # mean 0.45, sd 1.5811, se 0.5, t(9, 0.975)=2.262 -> ±1.131
+    assert low == pytest.approx(0.45 - 1.131, abs=0.02)
+    assert high == pytest.approx(0.45 + 1.131, abs=0.02)
+    assert low < 0 < high  # spans zero: too early to call, correctly
+
+
+def test_expectancy_ci_needs_two_trades():
+    ledger = fresh_ledger()
+    assert journal.expectancy_ci(ledger) is None
+    t = place_and_fill(ledger)
+    engine.close_trade(ledger, t, exit_price=104.0, exit_date="2026-07-10", reason="x")
+    assert journal.expectancy_ci(ledger) is None  # one trade has no variance
+
+
+def test_expectancy_ci_identical_trades_zero_width():
+    ledger = fresh_ledger()
+    for _ in range(5):
+        t = place_and_fill(ledger)
+        engine.close_trade(ledger, t, exit_price=104.0, exit_date="2026-07-10", reason="x")
+    low, high = journal.expectancy_ci(ledger)
+    assert low == pytest.approx(high) == pytest.approx(1.95)

@@ -25,6 +25,11 @@ DAY_LEDGER_PATH = Path(__file__).parent / "day-trading-ledger.json"
 STARTING_BALANCE = 5000.0
 MAX_CONCURRENT = 2
 MAX_ENTRIES_PER_DAY = 3
+# Chase guard (amendment 2026-07-10): a fill more than this many R past the
+# trigger is chasing a gap, not taking the setup — skip it. Evidence: the
+# 2026-07-09 NVDA trade filled so far past its trigger that hitting the
+# planned target still banked -0.15R.
+MAX_CHASE_R = 0.25
 
 
 def new_day_ledger() -> dict:
@@ -107,6 +112,14 @@ def replay_day(ledger: dict, frames: dict, date: str) -> list[dict]:
             bar = df.iloc[k]
             volume_ok = not c["min_volume"] or bar["volume"] >= c["min_volume"]
             if bar["high"] >= c["entry"] and volume_ok:
+                fill = max(c["entry"], float(bar["open"]))  # gap over trigger fills worse
+                risk_per_share = c["entry"] - c["stop"]
+                if fill - c["entry"] > MAX_CHASE_R * risk_per_share:
+                    triggered_ids.add(idx)
+                    journal.log_skip(ledger, c, date,
+                                     reason=f"gapped past trigger ({fill:.2f} vs {c['entry']:.2f}, "
+                                            f">{MAX_CHASE_R}R) — chasing is not the setup")
+                    continue
                 try:
                     shares, risk_usd = engine.position_size(
                         ledger["account"]["balance"], c["entry"], c["stop"], rules)
@@ -114,7 +127,6 @@ def replay_day(ledger: dict, frames: dict, date: str) -> list[dict]:
                     triggered_ids.add(idx)
                     journal.log_skip(ledger, c, date, reason=f"unsizeable: {e}")
                     continue
-                fill = max(c["entry"], float(bar["open"]))  # gap over trigger fills worse
                 open_trades.append({
                     "id": f"{date}-{c['ticker']}-{idx}", "ticker": c["ticker"],
                     "setup": c["setup"], "entry": fill, "stop": c["stop"],
@@ -160,6 +172,13 @@ def run_day_session() -> bool:
     journal.save_ledger(ledger, DAY_LEDGER_PATH)
     print(f"Day session {date}: {len(closed)} trade(s), {realized:+.2f}R. "
           f"Balance ${ledger['account']['balance']:,.2f}")
+
+    if closed:
+        import notify
+        notify.send(f"Day lane {date}: {realized:+.2f}R",
+                    "; ".join(f"{t['ticker']} {t['reason']} {t['r_multiple']:+.2f}R" for t in closed)
+                    + f" · bal ${ledger['account']['balance']:,.2f}",
+                    tags=["zap"])
     return True
 
 

@@ -169,6 +169,12 @@ def run_league() -> bool:
         return False
     outcomes = run_league_from_frames(frames, date)
     print(f"\nLeague night {date} complete: {len(outcomes)} account(s) ran.")
+    if any(o.get("realized_R") or o.get("trades") for o in outcomes):
+        import notify
+        moved = [f"{o.get('variant', '?')}: {o.get('realized_R', 0):+.2f}R"
+                 for o in outcomes if o.get("realized_R")]
+        if moved:
+            notify.send(f"League night {date}", "; ".join(moved), tags=["trophy"])
     return bool(outcomes)
 
 

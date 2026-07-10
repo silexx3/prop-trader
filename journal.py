@@ -96,6 +96,32 @@ def r_distribution(ledger: dict) -> list[float]:
     return [t["r_multiple"] for t in ledger["closed_trades"]]
 
 
+# Two-sided 95% Student-t critical values by degrees of freedom; 1.96 beyond.
+_T95 = {1: 12.706, 2: 4.303, 3: 3.182, 4: 2.776, 5: 2.571, 6: 2.447, 7: 2.365,
+        8: 2.306, 9: 2.262, 10: 2.228, 11: 2.201, 12: 2.179, 13: 2.160,
+        14: 2.145, 15: 2.131, 16: 2.120, 17: 2.110, 18: 2.101, 19: 2.093,
+        20: 2.086, 21: 2.080, 22: 2.074, 23: 2.069, 24: 2.064, 25: 2.060,
+        26: 2.056, 27: 2.052, 28: 2.048, 29: 2.045, 30: 2.042}
+
+
+def expectancy_ci(ledger: dict) -> tuple[float, float] | None:
+    """95% confidence interval on expectancy (Student-t on the R-multiples).
+
+    None with fewer than 2 trades — one trade has no variance to estimate.
+    An interval spanning zero means the data can't yet distinguish edge from
+    noise; the dashboard says so in words instead of faking precision.
+    """
+    rs = [t["r_multiple"] for t in ledger["closed_trades"]]
+    n = len(rs)
+    if n < 2:
+        return None
+    mean = sum(rs) / n
+    var = sum((r - mean) ** 2 for r in rs) / (n - 1)
+    se = (var / n) ** 0.5
+    t_crit = _T95.get(n - 1, 1.96)
+    return round(mean - t_crit * se, 3), round(mean + t_crit * se, 3)
+
+
 def rolling_expectancy(ledger: dict, window: int = 20) -> list[tuple[int, float]]:
     """(trade_number, trailing-window expectancy) for each closed trade in
     order. Trade N's point averages the last `window` trades ending at N —

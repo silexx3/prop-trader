@@ -35,3 +35,10 @@ jobs:
           # The live-session workflow may have pushed meanwhile; rebase first.
           git pull --rebase origin main
           git push
+
+      - name: Ping phone on failure
+        if: failure()
+        run: |
+          curl -s -m 5 -H "Title: Practice Lab FAILED" -H "Priority: high" -H "Tags: rotating_light" \
+            -d "Practice run failed — check the Actions tab." \
+            "https://ntfy.sh/${NTFY_TOPIC:-prop-trader-abhi-1a1c6d67741009ef}" || true
