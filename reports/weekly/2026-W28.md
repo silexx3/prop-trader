@@ -1,5 +1,8 @@
 # 📰 Week 2026-W28 — Prop Trader digest
-*Covering 2026-07-02 → 2026-07-09. Simulation only — no real money.*
+*Covering 2026-07-05 → 2026-07-12. Simulation only — no real money.*
+
+## 🌍 Market Intelligence
+Regime as of 2026-07-10: **risk-on**.
 
 ## 🏆 League standings
 | account | balance | expectancy | trades |
@@ -14,19 +17,23 @@
 ### 👑 Swing (charter)
 Balance **$5,000.00** · lifetime expectancy **—** (95% CI n/a) over 0 trades.
 This week: no closed trades. Sitting out is a position.
-Discipline: 3 candidate(s) declined (guards, caps, and rules doing their job).
+Discipline: 6 candidate(s) declined (guards, caps, and rules doing their job).
 
 ### ⚡ Day lane
-Balance **$5,056.64** · lifetime expectancy **0.247** (95% CI -1.20R…+1.69R) over 6 trades.
-This week: **6 closed trades, +1.48R ($+56.64)**.
+Balance **$5,086.97** · lifetime expectancy **0.23** (95% CI -0.72R…+1.18R) over 9 trades.
+This week: **9 closed trades, +2.07R ($+86.97)**.
 - 2026-07-08 AAPL `vwap_pullback` → target **+1.95R**
 - 2026-07-08 AMD `vwap_pullback` → stop **-1.05R**
 - 2026-07-08 SPY `orb_long` → eod_flat **-0.17R**
 - 2026-07-09 AMD `vwap_pullback` → stop **-1.05R**
 - 2026-07-09 MSFT `vwap_pullback` → target **+1.95R**
 - 2026-07-09 NVDA `vwap_pullback` → target **-0.15R**
+- 2026-07-10 META `vwap_pullback` → stop **-1.05R**
+- 2026-07-10 NVDA `vwap_pullback` → eod_flat **+1.27R**
+- 2026-07-10 SPY `orb_long` → eod_flat **+0.36R**
+Discipline: 1 candidate(s) declined (guards, caps, and rules doing their job).
 
 ## 🧠 Practice Lab
-3 practice run(s) this week, 3 banked all-time.
-Current leader: **pullback-deep-swing** at 0.391R over 42 practice trades.
+4 practice run(s) this week, 4 banked all-time.
+Current leader: **pullback-deep-swing** at 0.491R over 61 practice trades.
 No variant has met the promotion bar yet — the bar is the point.
