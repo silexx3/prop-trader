@@ -26,20 +26,20 @@
   "open_trades": [],
   "pending_orders": [
     {
-      "id": "1c0f2c6f",
+      "id": "fc282ba0",
       "ticker": "SPY",
       "setup": "base_breakout",
       "entry": 756.18,
-      "stop": 730.63,
-      "target": 807.28,
-      "shares": 1,
-      "risk_usd": 25.55,
-      "placed": "2026-07-13",
-      "note": "4-week base 716.58\u2013755.42 (5.4% range) near highs; entry on break of 755.42; fill requires volume \u2265 84,785,866 (1.5\u00d7 avg) \u2014 a quiet break is not the setup.",
-      "min_volume": 84785866.0
+      "stop": 738.03,
+      "target": 792.48,
+      "shares": 2,
+      "risk_usd": 36.3,
+      "placed": "2026-07-14",
+      "note": "4-week base 716.58\u2013755.42 (5.4% range) near highs; entry on break of 755.42; fill requires volume \u2265 83,127,748 (1.5\u00d7 avg) \u2014 a quiet break is not the setup.",
+      "min_volume": 83127748.0
     },
     {
-      "id": "e543b89b",
+      "id": "e2257d78",
       "ticker": "QQQ",
       "setup": "base_breakout",
       "entry": 746.2,
@@ -47,9 +47,9 @@
       "target": 839.58,
       "shares": 1,
       "risk_usd": 46.69,
-      "placed": "2026-07-13",
-      "note": "4-week base 700.91\u2013745.45 (6.4% range) near highs; entry on break of 745.45; fill requires volume \u2265 65,526,712 (1.5\u00d7 avg) \u2014 a quiet break is not the setup.",
-      "min_volume": 65526712.0
+      "placed": "2026-07-14",
+      "note": "4-week base 700.91\u2013745.45 (6.4% range) near highs; entry on break of 745.45; fill requires volume \u2265 63,863,747 (1.5\u00d7 avg) \u2014 a quiet break is not the setup.",
+      "min_volume": 63863747.0
     }
   ],
   "closed_trades": [],
@@ -93,6 +93,20 @@
       "lessons": [
         "Orders placed, none filled yet \u2014 patience between signal and fill is part of the edge.",
         "Skipped 2 candidate(s) and logged them: skips are data too."
+      ],
+      "variant": "charter-baseline"
+    },
+    {
+      "date": "2026-07-14",
+      "regime": "SPY 751.83, uptrend (above rising 20/50); QQQ 719.69, choppy uptrend (above 50, testing 20)",
+      "actions": "SPY base_breakout order placed: entry 756.18, stop 738.03, target 792.48, 2 shares; QQQ base_breakout order placed: entry 746.2, stop 699.51, target 839.58, 1 shares; EWJ ma_pullback candidate skipped; EWT ma_pullback candidate skipped; EWA base_breakout candidate skipped.",
+      "trades": [],
+      "realized_R": 0,
+      "brutality": 2,
+      "brutality_note": "Tape moved 1.6% on average; we were flat. Sitting out is a position.",
+      "lessons": [
+        "Orders placed, none filled yet \u2014 patience between signal and fill is part of the edge.",
+        "Skipped 3 candidate(s) and logged them: skips are data too."
       ],
       "variant": "charter-baseline"
     }
@@ -156,6 +170,30 @@
     },
     {
       "date": "2026-07-13",
+      "ticker": "EWA",
+      "setup": "base_breakout",
+      "entry": 29.23,
+      "stop": 27.61,
+      "reason": "blocked by rules: Max 2 positions: 0 open + 2 pending already."
+    },
+    {
+      "date": "2026-07-14",
+      "ticker": "EWJ",
+      "setup": "ma_pullback",
+      "entry": 94.76,
+      "stop": 91.01,
+      "reason": "blocked by rules: Max 2 positions: 0 open + 2 pending already."
+    },
+    {
+      "date": "2026-07-14",
+      "ticker": "EWT",
+      "setup": "ma_pullback",
+      "entry": 102.33,
+      "stop": 100.94,
+      "reason": "blocked by rules: Max 2 positions: 0 open + 2 pending already."
+    },
+    {
+      "date": "2026-07-14",
       "ticker": "EWA",
       "setup": "base_breakout",
       "entry": 29.23,

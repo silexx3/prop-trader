@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 4963.04,
+    "balance": 4983.9,
     "open_risk_R": 0
   },
   "rules": {
@@ -35,13 +35,13 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 10,
-    "wins": 4,
-    "losses": 6,
-    "win_rate_pct": 40.0,
-    "expectancy_R": -0.113,
-    "total_R": -1.129,
-    "max_drawdown_pct": 1.96
+    "trades_closed": 12,
+    "wins": 5,
+    "losses": 7,
+    "win_rate_pct": 41.7,
+    "expectancy_R": -0.057,
+    "total_R": -0.68,
+    "max_drawdown_pct": 2.05
   },
   "open_trades": [],
   "pending_orders": [],
@@ -235,6 +235,44 @@
       "r_multiple": -0.383,
       "pnl_usd": -13.45,
       "balance_after": 4963.04
+    },
+    {
+      "id": "2026-07-14-SPY-0",
+      "ticker": "SPY",
+      "setup": "orb_long",
+      "entry": 752.17,
+      "stop": 748.69,
+      "target": 759.13,
+      "shares": 10,
+      "risk_usd": 34.799999999999045,
+      "opened": "2026-07-14",
+      "entry_bar": 12,
+      "note": "30-min opening range 749.44\u2013751.79; long on the break of 751.79 with volume \u2265 1.0\u00d7 the opening average.",
+      "exit": 751.87,
+      "closed": "2026-07-14",
+      "reason": "eod_flat",
+      "r_multiple": -0.136,
+      "pnl_usd": -4.74,
+      "balance_after": 4958.3
+    },
+    {
+      "id": "2026-07-14-GOOGL-8",
+      "ticker": "GOOGL",
+      "setup": "orb_long",
+      "entry": 356.1300048828125,
+      "stop": 350.74,
+      "target": 363.94,
+      "shares": 8,
+      "risk_usd": 35.19999999999982,
+      "opened": "2026-07-14",
+      "entry_bar": 12,
+      "note": "30-min opening range 351.09\u2013354.96; long on the break of 354.96 with volume \u2265 1.0\u00d7 the opening average.",
+      "exit": 359.55,
+      "closed": "2026-07-14",
+      "reason": "eod_flat",
+      "r_multiple": 0.585,
+      "pnl_usd": 25.6,
+      "balance_after": 4983.9
     }
   ],
   "sessions": [
@@ -270,6 +308,16 @@
       ],
       "realized_R": -2.723,
       "actions": "TSLA stop -1.05R; AMD stop -1.05R; MSFT eod_flat -0.24R; AMZN eod_flat -0.38R",
+      "personality": "rabbit"
+    },
+    {
+      "date": "2026-07-14",
+      "trades": [
+        "2026-07-14-SPY-0",
+        "2026-07-14-GOOGL-8"
+      ],
+      "realized_R": 0.449,
+      "actions": "SPY eod_flat -0.14R; GOOGL eod_flat +0.58R",
       "personality": "rabbit"
     }
   ],

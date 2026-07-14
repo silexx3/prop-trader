@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 4995.71,
+    "balance": 5011.71,
     "open_risk_R": 0
   },
   "rules": {
@@ -35,12 +35,12 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 3,
-    "wins": 1,
+    "trades_closed": 4,
+    "wins": 2,
     "losses": 2,
-    "win_rate_pct": 33.3,
-    "expectancy_R": -0.05,
-    "total_R": -0.15,
+    "win_rate_pct": 50.0,
+    "expectancy_R": 0.109,
+    "total_R": 0.435,
     "max_drawdown_pct": 1.0
   },
   "open_trades": [],
@@ -102,6 +102,25 @@
       "r_multiple": -1.05,
       "pnl_usd": -25.12,
       "balance_after": 4995.71
+    },
+    {
+      "id": "2026-07-14-GOOGL-5",
+      "ticker": "GOOGL",
+      "setup": "orb_long",
+      "entry": 356.1300048828125,
+      "stop": 350.74,
+      "target": 363.94,
+      "shares": 5,
+      "risk_usd": 21.999999999999886,
+      "opened": "2026-07-14",
+      "entry_bar": 12,
+      "note": "30-min opening range 351.09\u2013354.96; long on the break of 354.96 with volume \u2265 1.2\u00d7 the opening average.",
+      "exit": 359.55,
+      "closed": "2026-07-14",
+      "reason": "eod_flat",
+      "r_multiple": 0.585,
+      "pnl_usd": 16.0,
+      "balance_after": 5011.71
     }
   ],
   "sessions": [
@@ -130,6 +149,15 @@
       ],
       "realized_R": -1.05,
       "actions": "TSLA stop -1.05R",
+      "personality": "turtle"
+    },
+    {
+      "date": "2026-07-14",
+      "trades": [
+        "2026-07-14-GOOGL-5"
+      ],
+      "realized_R": 0.585,
+      "actions": "GOOGL eod_flat +0.58R",
       "personality": "turtle"
     }
   ],
