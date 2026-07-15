@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 5043.81,
+    "balance": 5084.69,
     "open_risk_R": 0
   },
   "rules": {
@@ -35,12 +35,12 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 6,
-    "wins": 3,
-    "losses": 3,
+    "trades_closed": 8,
+    "wins": 4,
+    "losses": 4,
     "win_rate_pct": 50.0,
-    "expectancy_R": 0.11,
-    "total_R": 0.66,
+    "expectancy_R": 0.195,
+    "total_R": 1.56,
     "max_drawdown_pct": 1.02
   },
   "open_trades": [],
@@ -159,6 +159,44 @@
       "r_multiple": 0.585,
       "pnl_usd": 35.2,
       "balance_after": 5043.81
+    },
+    {
+      "id": "2026-07-15-META-5",
+      "ticker": "META",
+      "setup": "orb_long",
+      "entry": 665.47,
+      "stop": 656.0,
+      "target": 684.41,
+      "shares": 5,
+      "risk_usd": 47.350000000000136,
+      "opened": "2026-07-15",
+      "entry_bar": 7,
+      "note": "30-min opening range 656.66\u2013665.14; long on the break of 665.14 with volume \u2265 1.2\u00d7 the opening average.",
+      "exit": 684.41,
+      "closed": "2026-07-15",
+      "reason": "target",
+      "r_multiple": 1.95,
+      "pnl_usd": 92.33,
+      "balance_after": 5136.14
+    },
+    {
+      "id": "2026-07-15-AMD-8",
+      "ticker": "AMD",
+      "setup": "vwap_pullback",
+      "entry": 530.98,
+      "stop": 527.48,
+      "target": 537.98,
+      "shares": 14,
+      "risk_usd": 49.0,
+      "opened": "2026-07-15",
+      "entry_bar": 58,
+      "note": "Held above VWAP then first pullback into it (bar 57); long on reclaim of 530.97, stop under the dip 528.01.",
+      "exit": 527.48,
+      "closed": "2026-07-15",
+      "reason": "stop",
+      "r_multiple": -1.05,
+      "pnl_usd": -51.45,
+      "balance_after": 5084.69
     }
   ],
   "sessions": [
@@ -198,7 +236,26 @@
       "realized_R": -0.465,
       "actions": "META stop -1.05R; GOOGL eod_flat +0.58R",
       "personality": "owl"
+    },
+    {
+      "date": "2026-07-15",
+      "trades": [
+        "2026-07-15-META-5",
+        "2026-07-15-AMD-8"
+      ],
+      "realized_R": 0.9,
+      "actions": "META target +1.95R; AMD stop -1.05R",
+      "personality": "owl"
     }
   ],
-  "skipped_candidates": []
+  "skipped_candidates": [
+    {
+      "date": "2026-07-15",
+      "ticker": "AAPL",
+      "setup": "orb_long",
+      "entry": 321.98,
+      "stop": 317.0,
+      "reason": "gapped past trigger (324.78 vs 321.98, >0.25R) \u2014 chasing is not the setup"
+    }
+  ]
 }
