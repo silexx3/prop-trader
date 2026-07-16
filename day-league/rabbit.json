@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 5039.94,
+    "balance": 5051.89,
     "open_risk_R": 0
   },
   "rules": {
@@ -35,12 +35,12 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 15,
-    "wins": 7,
+    "trades_closed": 16,
+    "wins": 8,
     "losses": 8,
-    "win_rate_pct": 46.7,
-    "expectancy_R": 0.086,
-    "total_R": 1.292,
+    "win_rate_pct": 50.0,
+    "expectancy_R": 0.103,
+    "total_R": 1.643,
     "max_drawdown_pct": 2.05
   },
   "open_trades": [],
@@ -330,6 +330,25 @@
       "r_multiple": 1.072,
       "pnl_usd": 37.39,
       "balance_after": 5039.94
+    },
+    {
+      "id": "2026-07-16-AAPL-3",
+      "ticker": "AAPL",
+      "setup": "orb_long",
+      "entry": 331.32,
+      "stop": 326.46,
+      "target": 341.04,
+      "shares": 7,
+      "risk_usd": 34.020000000000095,
+      "opened": "2026-07-16",
+      "entry_bar": 39,
+      "note": "30-min opening range 326.79\u2013331.15; long on the break of 331.15 with volume \u2265 1.0\u00d7 the opening average.",
+      "exit": 333.27,
+      "closed": "2026-07-16",
+      "reason": "eod_flat",
+      "r_multiple": 0.351,
+      "pnl_usd": 11.95,
+      "balance_after": 5051.89
     }
   ],
   "sessions": [
@@ -387,6 +406,15 @@
       "realized_R": 1.972,
       "actions": "META target +1.95R; AMD stop -1.05R; AAPL eod_flat +1.07R",
       "personality": "rabbit"
+    },
+    {
+      "date": "2026-07-16",
+      "trades": [
+        "2026-07-16-AAPL-3"
+      ],
+      "realized_R": 0.351,
+      "actions": "AAPL eod_flat +0.35R",
+      "personality": "rabbit"
     }
   ],
   "skipped_candidates": [
@@ -413,6 +441,14 @@
       "entry": 253.03,
       "stop": 250.11,
       "reason": "gapped past trigger (255.18 vs 253.03, >0.25R) \u2014 chasing is not the setup"
+    },
+    {
+      "date": "2026-07-16",
+      "ticker": "MSFT",
+      "setup": "orb_long",
+      "entry": 398.91,
+      "stop": 391.66,
+      "reason": "gapped past trigger (400.98 vs 398.91, >0.25R) \u2014 chasing is not the setup"
     }
   ]
 }
