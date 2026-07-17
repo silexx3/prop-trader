@@ -26,40 +26,41 @@
   "open_trades": [],
   "pending_orders": [
     {
-      "id": "f9dd8c15",
+      "id": "474e5614",
       "ticker": "SPY",
       "setup": "ma_pullback",
-      "entry": 754.57,
+      "entry": 747.29,
       "stop": 738.03,
-      "target": 787.65,
-      "shares": 5,
-      "risk_usd": 82.7,
-      "placed": "2026-07-16",
-      "note": "Uptrend pullback into 20/50 zone (SMA20 744.81 / SMA50 742.81); entry on reclaim of today's high 754.57, stop below pullback low 739.51."
+      "target": 765.81,
+      "shares": 10,
+      "risk_usd": 92.6,
+      "placed": "2026-07-17",
+      "note": "Uptrend pullback into 20/50 zone (SMA20 745.02 / SMA50 743.23); entry on reclaim of today's high 747.29, stop below pullback low 739.51."
     },
     {
-      "id": "b3bf5643",
+      "id": "99231b78",
       "ticker": "AMD",
       "setup": "ma_pullback",
-      "entry": 518.74,
-      "stop": 490.82,
-      "target": 574.58,
-      "shares": 3,
-      "risk_usd": 83.76,
-      "placed": "2026-07-16",
-      "note": "Uptrend pullback into 20/50 zone (SMA20 533.85 / SMA50 496.27); entry on reclaim of today's high 518.74, stop below pullback low 491.80."
+      "entry": 505.88,
+      "stop": 459.29,
+      "target": 599.06,
+      "shares": 2,
+      "risk_usd": 93.18,
+      "placed": "2026-07-17",
+      "note": "Uptrend pullback into 20/50 zone (SMA20 533.02 / SMA50 499.08); entry on reclaim of today's high 505.88, stop below pullback low 460.21."
     },
     {
-      "id": "d26d81e8",
+      "id": "b86400be",
       "ticker": "EWJ",
-      "setup": "ma_pullback",
-      "entry": 92.46,
-      "stop": 91.01,
-      "target": 95.36,
-      "shares": 67,
-      "risk_usd": 97.15,
-      "placed": "2026-07-16",
-      "note": "Uptrend pullback into 20/50 zone (SMA20 93.64 / SMA50 92.41); entry on reclaim of today's high 92.46, stop below pullback low 91.19."
+      "setup": "base_breakout",
+      "entry": 97.62,
+      "stop": 88.98,
+      "target": 114.9,
+      "shares": 11,
+      "risk_usd": 95.04,
+      "placed": "2026-07-17",
+      "note": "4-week base 89.16\u201397.52 (9.4% range) near highs; entry on break of 97.52; fill requires volume \u2265 7,994,845 (1.5\u00d7 avg) \u2014 a quiet break is not the setup.",
+      "min_volume": 7994845.0
     }
   ],
   "closed_trades": [
@@ -170,6 +171,20 @@
         "Skipped 2 candidate(s) and logged them: skips are data too."
       ],
       "variant": "charter-baseline"
+    },
+    {
+      "date": "2026-07-17",
+      "regime": "SPY 743.29, choppy uptrend (above 50, testing 20); QQQ 695.33, downtrend (below 20/50)",
+      "actions": "SPY ma_pullback order placed: entry 747.29, stop 738.03, target 765.81, 10 shares; AMD ma_pullback order placed: entry 505.88, stop 459.29, target 599.06, 2 shares; EWJ base_breakout order placed: entry 97.62, stop 88.98, target 114.9, 11 shares; QQQ base_breakout candidate skipped; EWA base_breakout candidate skipped.",
+      "trades": [],
+      "realized_R": 0,
+      "brutality": 1,
+      "brutality_note": "Tape moved 1.2% on average; we were flat. Sitting out is a position.",
+      "lessons": [
+        "Orders placed, none filled yet \u2014 patience between signal and fill is part of the edge.",
+        "Skipped 2 candidate(s) and logged them: skips are data too."
+      ],
+      "variant": "charter-baseline"
     }
   ],
   "skipped_candidates": [
@@ -274,6 +289,22 @@
       "ticker": "EWA",
       "setup": "base_breakout",
       "entry": 29.23,
+      "stop": 27.73,
+      "reason": "blocked by rules: Max 3 positions: 0 open + 3 pending already."
+    },
+    {
+      "date": "2026-07-17",
+      "ticker": "QQQ",
+      "setup": "base_breakout",
+      "entry": 746.2,
+      "stop": 685.39,
+      "reason": "correlation guard \u2014 QQQ moves with SPY (0.92 over 90d): one bet, two tickets"
+    },
+    {
+      "date": "2026-07-17",
+      "ticker": "EWA",
+      "setup": "base_breakout",
+      "entry": 28.94,
       "stop": 27.73,
       "reason": "blocked by rules: Max 3 positions: 0 open + 3 pending already."
     }

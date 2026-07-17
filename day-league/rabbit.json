@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 5051.89,
+    "balance": 5053.37,
     "open_risk_R": 0
   },
   "rules": {
@@ -35,12 +35,12 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 16,
-    "wins": 8,
+    "trades_closed": 17,
+    "wins": 9,
     "losses": 8,
-    "win_rate_pct": 50.0,
-    "expectancy_R": 0.103,
-    "total_R": 1.643,
+    "win_rate_pct": 52.9,
+    "expectancy_R": 0.099,
+    "total_R": 1.683,
     "max_drawdown_pct": 2.05
   },
   "open_trades": [],
@@ -349,6 +349,25 @@
       "r_multiple": 0.351,
       "pnl_usd": 11.95,
       "balance_after": 5051.89
+    },
+    {
+      "id": "2026-07-17-QQQ-1",
+      "ticker": "QQQ",
+      "setup": "orb_long",
+      "entry": 694.5399780273438,
+      "stop": 686.07,
+      "target": 709.53,
+      "shares": 4,
+      "risk_usd": 31.279999999999745,
+      "opened": "2026-07-17",
+      "entry_bar": 18,
+      "note": "30-min opening range 686.76\u2013693.54; long on the break of 693.54 with volume \u2265 1.0\u00d7 the opening average.",
+      "exit": 695.3,
+      "closed": "2026-07-17",
+      "reason": "eod_flat",
+      "r_multiple": 0.04,
+      "pnl_usd": 1.48,
+      "balance_after": 5053.37
     }
   ],
   "sessions": [
@@ -415,6 +434,15 @@
       "realized_R": 0.351,
       "actions": "AAPL eod_flat +0.35R",
       "personality": "rabbit"
+    },
+    {
+      "date": "2026-07-17",
+      "trades": [
+        "2026-07-17-QQQ-1"
+      ],
+      "realized_R": 0.04,
+      "actions": "QQQ eod_flat +0.04R",
+      "personality": "rabbit"
     }
   ],
   "skipped_candidates": [
@@ -449,6 +477,14 @@
       "entry": 398.91,
       "stop": 391.66,
       "reason": "gapped past trigger (400.98 vs 398.91, >0.25R) \u2014 chasing is not the setup"
+    },
+    {
+      "date": "2026-07-17",
+      "ticker": "SPY",
+      "setup": "orb_long",
+      "entry": 745.2,
+      "stop": 740.06,
+      "reason": "gapped past trigger (746.87 vs 745.20, >0.25R) \u2014 chasing is not the setup"
     }
   ]
 }

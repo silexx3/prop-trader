@@ -26,29 +26,28 @@
   "open_trades": [],
   "pending_orders": [
     {
-      "id": "46e13f13",
+      "id": "41e95532",
       "ticker": "SPY",
       "setup": "ma_pullback",
-      "entry": 754.57,
+      "entry": 747.29,
       "stop": 738.03,
-      "target": 787.65,
-      "shares": 3,
-      "risk_usd": 49.62,
-      "placed": "2026-07-16",
-      "note": "Uptrend pullback into 20/50 zone (SMA20 744.81 / SMA50 742.81); entry on reclaim of today's high 754.57, stop below pullback low 739.51."
+      "target": 765.81,
+      "shares": 5,
+      "risk_usd": 46.3,
+      "placed": "2026-07-17",
+      "note": "Uptrend pullback into 20/50 zone (SMA20 745.02 / SMA50 743.23); entry on reclaim of today's high 747.29, stop below pullback low 739.51."
     },
     {
-      "id": "8e882f2b",
-      "ticker": "QQQ",
-      "setup": "base_breakout",
-      "entry": 746.2,
-      "stop": 699.51,
-      "target": 839.58,
+      "id": "9f5fde8d",
+      "ticker": "AMD",
+      "setup": "ma_pullback",
+      "entry": 505.88,
+      "stop": 459.29,
+      "target": 599.06,
       "shares": 1,
-      "risk_usd": 46.69,
-      "placed": "2026-07-16",
-      "note": "4-week base 700.91\u2013745.45 (6.4% range) near highs; entry on break of 745.45; fill requires volume \u2265 62,219,523 (1.5\u00d7 avg) \u2014 a quiet break is not the setup.",
-      "min_volume": 62219523.0
+      "risk_usd": 46.59,
+      "placed": "2026-07-17",
+      "note": "Uptrend pullback into 20/50 zone (SMA20 533.02 / SMA50 499.08); entry on reclaim of today's high 505.88, stop below pullback low 460.21."
     }
   ],
   "closed_trades": [],
@@ -131,6 +130,20 @@
       "realized_R": 0,
       "brutality": 2,
       "brutality_note": "Tape moved 1.9% on average; we were flat. Sitting out is a position.",
+      "lessons": [
+        "Orders placed, none filled yet \u2014 patience between signal and fill is part of the edge.",
+        "Skipped 3 candidate(s) and logged them: skips are data too."
+      ],
+      "variant": "charter-baseline"
+    },
+    {
+      "date": "2026-07-17",
+      "regime": "SPY 743.29, choppy uptrend (above 50, testing 20); QQQ 695.33, downtrend (below 20/50)",
+      "actions": "SPY ma_pullback order placed: entry 747.29, stop 738.03, target 765.81, 5 shares; AMD ma_pullback order placed: entry 505.88, stop 459.29, target 599.06, 1 shares; QQQ base_breakout candidate skipped; EWJ base_breakout candidate skipped; EWA base_breakout candidate skipped.",
+      "trades": [],
+      "realized_R": 0,
+      "brutality": 1,
+      "brutality_note": "Tape moved 1.2% on average; we were flat. Sitting out is a position.",
       "lessons": [
         "Orders placed, none filled yet \u2014 patience between signal and fill is part of the edge.",
         "Skipped 3 candidate(s) and logged them: skips are data too."
@@ -280,6 +293,30 @@
       "ticker": "EWA",
       "setup": "base_breakout",
       "entry": 29.23,
+      "stop": 27.73,
+      "reason": "blocked by rules: Max 2 positions: 0 open + 2 pending already."
+    },
+    {
+      "date": "2026-07-17",
+      "ticker": "QQQ",
+      "setup": "base_breakout",
+      "entry": 746.2,
+      "stop": 685.39,
+      "reason": "blocked by rules: Stop is too wide: risking $50.00 at $60.81/share buys 0 shares."
+    },
+    {
+      "date": "2026-07-17",
+      "ticker": "EWJ",
+      "setup": "base_breakout",
+      "entry": 97.62,
+      "stop": 88.98,
+      "reason": "blocked by rules: Max 2 positions: 0 open + 2 pending already."
+    },
+    {
+      "date": "2026-07-17",
+      "ticker": "EWA",
+      "setup": "base_breakout",
+      "entry": 28.94,
       "stop": 27.73,
       "reason": "blocked by rules: Max 2 positions: 0 open + 2 pending already."
     }
