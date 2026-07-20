@@ -342,6 +342,13 @@
       "realized_R": -1.01,
       "actions": "GOOGL stop -1.05R; QQQ eod_flat +0.04R",
       "personality": "owl"
+    },
+    {
+      "date": "2026-07-20",
+      "trades": [],
+      "realized_R": 0,
+      "actions": "No trades \u2014 this personality found nothing worth doing.",
+      "personality": "owl"
     }
   ],
   "skipped_candidates": [
@@ -360,6 +367,14 @@
       "entry": 745.2,
       "stop": 740.06,
       "reason": "gapped past trigger (746.87 vs 745.20, >0.25R) \u2014 chasing is not the setup"
+    },
+    {
+      "date": "2026-07-20",
+      "ticker": "META",
+      "setup": "vwap_pullback",
+      "entry": 643.78,
+      "stop": 641.28,
+      "reason": "gapped past trigger (647.20 vs 643.78, >0.25R) \u2014 chasing is not the setup"
     }
   ]
 }

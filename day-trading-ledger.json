@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 4892.08,
+    "balance": 4877.58,
     "open_risk_R": 0
   },
   "rules": {
@@ -34,13 +34,13 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 25,
-    "wins": 9,
-    "losses": 16,
-    "win_rate_pct": 36.0,
-    "expectancy_R": -0.076,
-    "total_R": -1.906,
-    "max_drawdown_pct": 4.93
+    "trades_closed": 28,
+    "wins": 10,
+    "losses": 18,
+    "win_rate_pct": 35.7,
+    "expectancy_R": -0.078,
+    "total_R": -2.186,
+    "max_drawdown_pct": 6.0
   },
   "open_trades": [],
   "pending_orders": [],
@@ -519,6 +519,63 @@
       "r_multiple": 0.04,
       "pnl_usd": 2.21,
       "balance_after": 4892.08
+    },
+    {
+      "id": "2026-07-20-GOOGL-5",
+      "ticker": "GOOGL",
+      "setup": "vwap_pullback",
+      "entry": 358.12,
+      "stop": 357.04,
+      "target": 360.28,
+      "shares": 45,
+      "risk_usd": 48.599999999999284,
+      "opened": "2026-07-20",
+      "entry_bar": 14,
+      "note": "Held above VWAP then first pullback into it (bar 13); long on reclaim of 358.11, stop under the dip 357.40.",
+      "exit": 356.9,
+      "closed": "2026-07-20",
+      "reason": "stop",
+      "r_multiple": -1.18,
+      "pnl_usd": -57.33,
+      "balance_after": 4834.75
+    },
+    {
+      "id": "2026-07-20-META-6",
+      "ticker": "META",
+      "setup": "vwap_pullback",
+      "entry": 643.78,
+      "stop": 641.28,
+      "target": 648.78,
+      "shares": 19,
+      "risk_usd": 47.5,
+      "opened": "2026-07-20",
+      "entry_bar": 16,
+      "note": "Held above VWAP then first pullback into it (bar 15); long on reclaim of 643.77, stop under the dip 641.92.",
+      "exit": 648.78,
+      "closed": "2026-07-20",
+      "reason": "target",
+      "r_multiple": 1.95,
+      "pnl_usd": 92.62,
+      "balance_after": 4927.38
+    },
+    {
+      "id": "2026-07-20-AMD-7",
+      "ticker": "AMD",
+      "setup": "vwap_pullback",
+      "entry": 516.37,
+      "stop": 513.58,
+      "target": 521.95,
+      "shares": 17,
+      "risk_usd": 47.42999999999938,
+      "opened": "2026-07-20",
+      "entry_bar": 56,
+      "note": "Held above VWAP then first pullback into it (bar 35); long on reclaim of 516.36, stop under the dip 514.09.",
+      "exit": 513.58,
+      "closed": "2026-07-20",
+      "reason": "stop",
+      "r_multiple": -1.05,
+      "pnl_usd": -49.8,
+      "balance_after": 4877.58
     }
   ],
   "sessions": [
@@ -626,6 +683,19 @@
       "lessons": [
         "Replayed 10 tickers on 5-minute bars; 3 trade(s), -2.06R after costs."
       ]
+    },
+    {
+      "date": "2026-07-20",
+      "trades": [
+        "2026-07-20-GOOGL-5",
+        "2026-07-20-META-6",
+        "2026-07-20-AMD-7"
+      ],
+      "realized_R": -0.28,
+      "actions": "GOOGL vwap_pullback \u2192 stop -1.18R; META vwap_pullback \u2192 target +1.95R; AMD vwap_pullback \u2192 stop -1.05R",
+      "lessons": [
+        "Replayed 10 tickers on 5-minute bars; 3 trade(s), -0.28R after costs."
+      ]
     }
   ],
   "skipped_candidates": [
@@ -692,6 +762,14 @@
       "entry": 643.85,
       "stop": 637.73,
       "reason": "gapped past trigger (650.06 vs 643.85, >0.25R) \u2014 chasing is not the setup"
+    },
+    {
+      "date": "2026-07-20",
+      "ticker": "MSFT",
+      "setup": "orb_long",
+      "entry": 393.1,
+      "stop": 389.34,
+      "reason": "gapped past trigger (402.11 vs 393.10, >0.25R) \u2014 chasing is not the setup"
     }
   ]
 }

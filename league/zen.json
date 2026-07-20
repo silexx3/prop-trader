@@ -5,7 +5,7 @@
     "currency": "USD",
     "starting_balance": 5000.0,
     "balance": 5000.0,
-    "open_risk_R": 0.0
+    "open_risk_R": 1.0
   },
   "rules": {
     "risk_per_trade_pct": 0.5,
@@ -23,21 +23,22 @@
     "total_R": 0,
     "max_drawdown_pct": 0.0
   },
-  "open_trades": [],
-  "pending_orders": [
+  "open_trades": [
     {
       "id": "ad14cd91",
       "ticker": "SPY",
       "setup": "ma_pullback",
       "entry": 747.29,
       "stop": 738.03,
+      "initial_stop": 738.03,
       "target": 765.81,
       "shares": 2,
       "risk_usd": 18.52,
-      "placed": "2026-07-17",
+      "opened": "2026-07-20",
       "note": "Uptrend pullback into 20/50 zone (SMA20 745.02 / SMA50 743.23); entry on reclaim of today's high 747.29, stop below pullback low 739.51."
     }
   ],
+  "pending_orders": [],
   "closed_trades": [],
   "sessions": [
     {
@@ -135,6 +136,20 @@
       "lessons": [
         "Orders placed, none filled yet \u2014 patience between signal and fill is part of the edge.",
         "Skipped 4 candidate(s) and logged them: skips are data too."
+      ],
+      "variant": "charter-baseline"
+    },
+    {
+      "date": "2026-07-20",
+      "regime": "SPY 742.09, downtrend (below 20/50); QQQ 696.06, downtrend (below 20/50)",
+      "actions": "SPY order filled at 747.29 (stop 738.03, target 765.81); QQQ base_breakout candidate skipped; EWJ base_breakout candidate skipped; EWA base_breakout candidate skipped.",
+      "trades": [],
+      "realized_R": 0,
+      "brutality": 1,
+      "brutality_note": "Tape moved 1.0% on average; we were flat. Sitting out is a position.",
+      "lessons": [
+        "SPY filled at 747.29: the trade only exists because the level traded \u2014 orders wait for price, we don't chase it.",
+        "Skipped 3 candidate(s) and logged them: skips are data too."
       ],
       "variant": "charter-baseline"
     }
@@ -363,6 +378,30 @@
       "entry": 28.94,
       "stop": 27.73,
       "reason": "blocked by rules: Max 1 positions: 0 open + 1 pending already."
+    },
+    {
+      "date": "2026-07-20",
+      "ticker": "QQQ",
+      "setup": "base_breakout",
+      "entry": 746.2,
+      "stop": 685.39,
+      "reason": "regime off \u2014 SPY 742.09 below its 50-day SMA 743.44; longs stand down"
+    },
+    {
+      "date": "2026-07-20",
+      "ticker": "EWJ",
+      "setup": "base_breakout",
+      "entry": 97.62,
+      "stop": 88.98,
+      "reason": "regime off \u2014 SPY 742.09 below its 50-day SMA 743.44; longs stand down"
+    },
+    {
+      "date": "2026-07-20",
+      "ticker": "EWA",
+      "setup": "base_breakout",
+      "entry": 28.94,
+      "stop": 27.73,
+      "reason": "regime off \u2014 SPY 742.09 below its 50-day SMA 743.44; longs stand down"
     }
   ]
 }
