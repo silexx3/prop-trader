@@ -688,6 +688,86 @@
           "max_drawdown_pct": 6.04
         }
       ]
+    },
+    {
+      "run": 10,
+      "at": "2026-07-20T08:27:16+00:00",
+      "window": [
+        "2017-04-28",
+        "2019-09-10"
+      ],
+      "tickers": [
+        "AAPL",
+        "AMD",
+        "EWA",
+        "EWJ",
+        "EWT",
+        "EWY",
+        "FXI",
+        "INDA",
+        "MSFT",
+        "NVDA",
+        "QQQ",
+        "SPY"
+      ],
+      "results": [
+        {
+          "variant": "charter-baseline",
+          "trades": 26,
+          "expectancy_R": 0.209,
+          "win_rate_pct": 42.3,
+          "total_R": 5.432,
+          "max_drawdown_pct": 5.38
+        },
+        {
+          "variant": "base-6-weeks",
+          "trades": 26,
+          "expectancy_R": 0.324,
+          "win_rate_pct": 46.2,
+          "total_R": 8.425,
+          "max_drawdown_pct": 5.07
+        },
+        {
+          "variant": "base-8-weeks-tight",
+          "trades": 31,
+          "expectancy_R": 0.296,
+          "win_rate_pct": 45.2,
+          "total_R": 9.175,
+          "max_drawdown_pct": 5.17
+        },
+        {
+          "variant": "base-loose-range",
+          "trades": 24,
+          "expectancy_R": 0.189,
+          "win_rate_pct": 41.7,
+          "total_R": 4.532,
+          "max_drawdown_pct": 6.23
+        },
+        {
+          "variant": "pullback-deep-swing",
+          "trades": 18,
+          "expectancy_R": 0.273,
+          "win_rate_pct": 44.4,
+          "total_R": 4.91,
+          "max_drawdown_pct": 5.12
+        },
+        {
+          "variant": "pullback-wide-zone",
+          "trades": 19,
+          "expectancy_R": 0.038,
+          "win_rate_pct": 36.8,
+          "total_R": 0.73,
+          "max_drawdown_pct": 5.11
+        },
+        {
+          "variant": "wider-stop-buffer",
+          "trades": 17,
+          "expectancy_R": 0.183,
+          "win_rate_pct": 41.2,
+          "total_R": 3.11,
+          "max_drawdown_pct": 4.09
+        }
+      ]
     }
   ]
 }
