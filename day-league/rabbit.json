@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 5050.38,
+    "balance": 5046.89,
     "open_risk_R": 0
   },
   "rules": {
@@ -35,12 +35,12 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 18,
+    "trades_closed": 19,
     "wins": 9,
-    "losses": 9,
-    "win_rate_pct": 50.0,
-    "expectancy_R": 0.088,
-    "total_R": 1.592,
+    "losses": 10,
+    "win_rate_pct": 47.4,
+    "expectancy_R": 0.079,
+    "total_R": 1.495,
     "max_drawdown_pct": 2.05
   },
   "open_trades": [],
@@ -387,6 +387,25 @@
       "r_multiple": -0.091,
       "pnl_usd": -2.99,
       "balance_after": 5050.38
+    },
+    {
+      "id": "2026-07-21-TSLA-6",
+      "ticker": "TSLA",
+      "setup": "orb_long",
+      "entry": 379.3800048828125,
+      "stop": 369.62,
+      "target": 394.34,
+      "shares": 4,
+      "risk_usd": 32.960000000000036,
+      "opened": "2026-07-21",
+      "entry_bar": 77,
+      "note": "30-min opening range 369.99\u2013377.67; long on the break of 377.67 with volume \u2265 1.0\u00d7 the opening average.",
+      "exit": 378.9199,
+      "closed": "2026-07-21",
+      "reason": "eod_flat",
+      "r_multiple": -0.097,
+      "pnl_usd": -3.49,
+      "balance_after": 5046.89
     }
   ],
   "sessions": [
@@ -471,6 +490,15 @@
       "realized_R": -0.091,
       "actions": "META eod_flat -0.09R",
       "personality": "rabbit"
+    },
+    {
+      "date": "2026-07-21",
+      "trades": [
+        "2026-07-21-TSLA-6"
+      ],
+      "realized_R": -0.097,
+      "actions": "TSLA eod_flat -0.10R",
+      "personality": "rabbit"
     }
   ],
   "skipped_candidates": [
@@ -521,6 +549,38 @@
       "entry": 393.1,
       "stop": 389.34,
       "reason": "gapped past trigger (402.11 vs 393.10, >0.25R) \u2014 chasing is not the setup"
+    },
+    {
+      "date": "2026-07-21",
+      "ticker": "AAPL",
+      "setup": "orb_long",
+      "entry": 325.77,
+      "stop": 321.9,
+      "reason": "gapped past trigger (327.00 vs 325.77, >0.25R) \u2014 chasing is not the setup"
+    },
+    {
+      "date": "2026-07-21",
+      "ticker": "SPY",
+      "setup": "orb_long",
+      "entry": 747.05,
+      "stop": 743.44,
+      "reason": "gapped past trigger (748.59 vs 747.05, >0.25R) \u2014 chasing is not the setup"
+    },
+    {
+      "date": "2026-07-21",
+      "ticker": "QQQ",
+      "setup": "orb_long",
+      "entry": 707.48,
+      "stop": 702.8,
+      "reason": "gapped past trigger (709.52 vs 707.48, >0.25R) \u2014 chasing is not the setup"
+    },
+    {
+      "date": "2026-07-21",
+      "ticker": "AMD",
+      "setup": "orb_long",
+      "entry": 535.87,
+      "stop": 523.51,
+      "reason": "gapped past trigger (543.72 vs 535.87, >0.25R) \u2014 chasing is not the setup"
     }
   ]
 }

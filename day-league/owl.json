@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 4930.32,
+    "balance": 4830.35,
     "open_risk_R": 0
   },
   "rules": {
@@ -35,13 +35,13 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 12,
+    "trades_closed": 14,
     "wins": 5,
-    "losses": 7,
-    "win_rate_pct": 41.7,
-    "expectancy_R": -0.129,
-    "total_R": -1.55,
-    "max_drawdown_pct": 4.05
+    "losses": 9,
+    "win_rate_pct": 35.7,
+    "expectancy_R": -0.261,
+    "total_R": -3.65,
+    "max_drawdown_pct": 5.95
   },
   "open_trades": [],
   "pending_orders": [],
@@ -273,6 +273,44 @@
       "r_multiple": 0.04,
       "pnl_usd": 2.21,
       "balance_after": 4930.32
+    },
+    {
+      "id": "2026-07-21-AMD-6",
+      "ticker": "AMD",
+      "setup": "vwap_pullback",
+      "entry": 530.19,
+      "stop": 526.58,
+      "target": 537.41,
+      "shares": 13,
+      "risk_usd": 46.93000000000018,
+      "opened": "2026-07-21",
+      "entry_bar": 15,
+      "note": "Held above VWAP then first pullback into it (bar 14); long on reclaim of 530.18, stop under the dip 527.11.",
+      "exit": 526.58,
+      "closed": "2026-07-21",
+      "reason": "stop",
+      "r_multiple": -1.05,
+      "pnl_usd": -49.28,
+      "balance_after": 4881.04
+    },
+    {
+      "id": "2026-07-21-NVDA-8",
+      "ticker": "NVDA",
+      "setup": "vwap_pullback",
+      "entry": 206.51,
+      "stop": 205.8,
+      "target": 207.93,
+      "shares": 68,
+      "risk_usd": 48.27999999999861,
+      "opened": "2026-07-21",
+      "entry_bar": 31,
+      "note": "Held above VWAP then first pullback into it (bar 27); long on reclaim of 206.50, stop under the dip 206.01.",
+      "exit": 205.8,
+      "closed": "2026-07-21",
+      "reason": "stop",
+      "r_multiple": -1.05,
+      "pnl_usd": -50.69,
+      "balance_after": 4830.35
     }
   ],
   "sessions": [
@@ -348,6 +386,16 @@
       "trades": [],
       "realized_R": 0,
       "actions": "No trades \u2014 this personality found nothing worth doing.",
+      "personality": "owl"
+    },
+    {
+      "date": "2026-07-21",
+      "trades": [
+        "2026-07-21-AMD-6",
+        "2026-07-21-NVDA-8"
+      ],
+      "realized_R": -2.1,
+      "actions": "AMD stop -1.05R; NVDA stop -1.05R",
       "personality": "owl"
     }
   ],

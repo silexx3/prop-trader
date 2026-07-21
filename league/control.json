@@ -166,6 +166,19 @@
         "Skipped 3 candidate(s) and logged them: skips are data too."
       ],
       "variant": "charter-baseline"
+    },
+    {
+      "date": "2026-07-21",
+      "regime": "SPY 748.28, uptrend (above rising 20/50); QQQ 708.97, downtrend (below 20/50)",
+      "actions": "QQQ base_breakout candidate skipped; EWJ base_breakout candidate skipped; EWA base_breakout candidate skipped.",
+      "trades": [],
+      "realized_R": 0,
+      "brutality": 3,
+      "brutality_note": "Tape moved 2.5% on average; we were flat. Sitting out is a position.",
+      "lessons": [
+        "Skipped 3 candidate(s) and logged them: skips are data too."
+      ],
+      "variant": "charter-baseline"
     }
   ],
   "skipped_candidates": [
@@ -355,6 +368,30 @@
     },
     {
       "date": "2026-07-20",
+      "ticker": "EWA",
+      "setup": "base_breakout",
+      "entry": 28.94,
+      "stop": 27.73,
+      "reason": "blocked by rules: Max 2 positions: 2 open + 0 pending already."
+    },
+    {
+      "date": "2026-07-21",
+      "ticker": "QQQ",
+      "setup": "base_breakout",
+      "entry": 738.36,
+      "stop": 685.39,
+      "reason": "blocked by rules: Max 2 positions: 2 open + 0 pending already."
+    },
+    {
+      "date": "2026-07-21",
+      "ticker": "EWJ",
+      "setup": "base_breakout",
+      "entry": 95.46,
+      "stop": 88.98,
+      "reason": "blocked by rules: Max 2 positions: 2 open + 0 pending already."
+    },
+    {
+      "date": "2026-07-21",
       "ticker": "EWA",
       "setup": "base_breakout",
       "entry": 28.94,

@@ -203,6 +203,18 @@
         "AMD filled at 505.88: the trade only exists because the level traded \u2014 orders wait for price, we don't chase it.",
         "Skipped 3 candidate(s) and logged them: skips are data too."
       ]
+    },
+    {
+      "date": "2026-07-21",
+      "regime": "SPY 748.28, uptrend (above rising 20/50); QQQ 708.97, downtrend (below 20/50)",
+      "actions": "QQQ base_breakout candidate skipped; EWJ base_breakout candidate skipped; EWA base_breakout candidate skipped.",
+      "trades": [],
+      "realized_R": 0,
+      "brutality": 3,
+      "brutality_note": "Tape moved 2.5% on average; we were flat. Sitting out is a position.",
+      "lessons": [
+        "Skipped 3 candidate(s) and logged them: skips are data too."
+      ]
     }
   ],
   "skipped_candidates": [
@@ -397,6 +409,30 @@
       "entry": 28.94,
       "stop": 27.73,
       "reason": "regime off \u2014 SPY 742.09 below its 50-day SMA 743.44; longs stand down"
+    },
+    {
+      "date": "2026-07-21",
+      "ticker": "QQQ",
+      "setup": "base_breakout",
+      "entry": 738.36,
+      "stop": 685.39,
+      "reason": "correlation guard \u2014 QQQ moves with SPY (0.92 over 90d): one bet, two tickets"
+    },
+    {
+      "date": "2026-07-21",
+      "ticker": "EWJ",
+      "setup": "base_breakout",
+      "entry": 95.46,
+      "stop": 88.98,
+      "reason": "blocked by charter: Max 2 positions: 2 open + 0 pending already."
+    },
+    {
+      "date": "2026-07-21",
+      "ticker": "EWA",
+      "setup": "base_breakout",
+      "entry": 28.94,
+      "stop": 27.73,
+      "reason": "blocked by charter: Max 2 positions: 2 open + 0 pending already."
     }
   ]
 }
