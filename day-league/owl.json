@@ -397,6 +397,13 @@
       "realized_R": -2.1,
       "actions": "AMD stop -1.05R; NVDA stop -1.05R",
       "personality": "owl"
+    },
+    {
+      "date": "2026-07-22",
+      "trades": [],
+      "realized_R": 0,
+      "actions": "No trades \u2014 this personality found nothing worth doing.",
+      "personality": "owl"
     }
   ],
   "skipped_candidates": [

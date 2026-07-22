@@ -499,6 +499,13 @@
       "realized_R": -0.097,
       "actions": "TSLA eod_flat -0.10R",
       "personality": "rabbit"
+    },
+    {
+      "date": "2026-07-22",
+      "trades": [],
+      "realized_R": 0,
+      "actions": "No trades \u2014 this personality found nothing worth doing.",
+      "personality": "rabbit"
     }
   ],
   "skipped_candidates": [
@@ -581,6 +588,14 @@
       "entry": 535.87,
       "stop": 523.51,
       "reason": "gapped past trigger (543.72 vs 535.87, >0.25R) \u2014 chasing is not the setup"
+    },
+    {
+      "date": "2026-07-22",
+      "ticker": "NVDA",
+      "setup": "orb_long",
+      "entry": 208.33,
+      "stop": 204.75,
+      "reason": "gapped past trigger (209.79 vs 208.33, >0.25R) \u2014 chasing is not the setup"
     }
   ]
 }

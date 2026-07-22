@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 4378.56,
+    "balance": 4370.65,
     "open_risk_R": 0
   },
   "rules": {
@@ -35,13 +35,13 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 35,
+    "trades_closed": 36,
     "wins": 12,
-    "losses": 23,
-    "win_rate_pct": 34.3,
-    "expectancy_R": -0.171,
-    "total_R": -5.973,
-    "max_drawdown_pct": 20.86
+    "losses": 24,
+    "win_rate_pct": 33.3,
+    "expectancy_R": -0.168,
+    "total_R": -6.064,
+    "max_drawdown_pct": 21.0
   },
   "open_trades": [],
   "pending_orders": [],
@@ -710,6 +710,25 @@
       "r_multiple": -1.05,
       "pnl_usd": -93.76,
       "balance_after": 4378.56
+    },
+    {
+      "id": "2026-07-22-AMZN-6",
+      "ticker": "AMZN",
+      "setup": "vwap_pullback",
+      "entry": 244.8,
+      "stop": 244.06,
+      "target": 246.28,
+      "shares": 118,
+      "risk_usd": 87.32000000000107,
+      "opened": "2026-07-22",
+      "entry_bar": 74,
+      "note": "Held above VWAP then first pullback into it (bar 70); long on reclaim of 244.79, stop under the dip 244.30.",
+      "exit": 244.77,
+      "closed": "2026-07-22",
+      "reason": "eod_flat",
+      "r_multiple": -0.091,
+      "pnl_usd": -7.91,
+      "balance_after": 4370.65
     }
   ],
   "sessions": [
@@ -818,6 +837,15 @@
       ],
       "realized_R": -4.2,
       "actions": "AMD stop -1.05R; NVDA stop -1.05R; META stop -1.05R; TSLA stop -1.05R",
+      "personality": "shark"
+    },
+    {
+      "date": "2026-07-22",
+      "trades": [
+        "2026-07-22-AMZN-6"
+      ],
+      "realized_R": -0.091,
+      "actions": "AMZN eod_flat -0.09R",
       "personality": "shark"
     }
   ],
