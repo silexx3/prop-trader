@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 4370.65,
+    "balance": 4190.2,
     "open_risk_R": 0
   },
   "rules": {
@@ -35,13 +35,13 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 36,
+    "trades_closed": 38,
     "wins": 12,
-    "losses": 24,
-    "win_rate_pct": 33.3,
-    "expectancy_R": -0.168,
-    "total_R": -6.064,
-    "max_drawdown_pct": 21.0
+    "losses": 26,
+    "win_rate_pct": 31.6,
+    "expectancy_R": -0.215,
+    "total_R": -8.164,
+    "max_drawdown_pct": 24.26
   },
   "open_trades": [],
   "pending_orders": [],
@@ -729,6 +729,44 @@
       "r_multiple": -0.091,
       "pnl_usd": -7.91,
       "balance_after": 4370.65
+    },
+    {
+      "id": "2026-07-23-GOOGL-6",
+      "ticker": "GOOGL",
+      "setup": "vwap_pullback",
+      "entry": 320.55,
+      "stop": 319.16,
+      "target": 323.33,
+      "shares": 62,
+      "risk_usd": 86.17999999999915,
+      "opened": "2026-07-23",
+      "entry_bar": 46,
+      "note": "Held above VWAP then first pullback into it (bar 37); long on reclaim of 320.54, stop under the dip 319.48.",
+      "exit": 319.16,
+      "closed": "2026-07-23",
+      "reason": "stop",
+      "r_multiple": -1.05,
+      "pnl_usd": -90.49,
+      "balance_after": 4280.16
+    },
+    {
+      "id": "2026-07-23-META-7",
+      "ticker": "META",
+      "setup": "vwap_pullback",
+      "entry": 605.94,
+      "stop": 603.56,
+      "target": 610.7,
+      "shares": 36,
+      "risk_usd": 85.68000000000393,
+      "opened": "2026-07-23",
+      "entry_bar": 49,
+      "note": "Held above VWAP then first pullback into it (bar 48); long on reclaim of 605.93, stop under the dip 604.16.",
+      "exit": 603.56,
+      "closed": "2026-07-23",
+      "reason": "stop",
+      "r_multiple": -1.05,
+      "pnl_usd": -89.96,
+      "balance_after": 4190.2
     }
   ],
   "sessions": [
@@ -846,6 +884,16 @@
       ],
       "realized_R": -0.091,
       "actions": "AMZN eod_flat -0.09R",
+      "personality": "shark"
+    },
+    {
+      "date": "2026-07-23",
+      "trades": [
+        "2026-07-23-GOOGL-6",
+        "2026-07-23-META-7"
+      ],
+      "realized_R": -2.1,
+      "actions": "GOOGL stop -1.05R; META stop -1.05R",
       "personality": "shark"
     }
   ],

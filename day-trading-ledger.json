@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 4674.65,
+    "balance": 4579.01,
     "open_risk_R": 0
   },
   "rules": {
@@ -34,13 +34,13 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 33,
+    "trades_closed": 35,
     "wins": 10,
-    "losses": 23,
-    "win_rate_pct": 30.3,
-    "expectancy_R": -0.196,
-    "total_R": -6.477,
-    "max_drawdown_pct": 9.11
+    "losses": 25,
+    "win_rate_pct": 28.6,
+    "expectancy_R": -0.245,
+    "total_R": -8.577,
+    "max_drawdown_pct": 10.97
   },
   "open_trades": [],
   "pending_orders": [],
@@ -671,6 +671,44 @@
       "r_multiple": -0.091,
       "pnl_usd": -4.22,
       "balance_after": 4674.65
+    },
+    {
+      "id": "2026-07-23-GOOGL-6",
+      "ticker": "GOOGL",
+      "setup": "vwap_pullback",
+      "entry": 320.55,
+      "stop": 319.16,
+      "target": 323.33,
+      "shares": 33,
+      "risk_usd": 45.86999999999955,
+      "opened": "2026-07-23",
+      "entry_bar": 46,
+      "note": "Held above VWAP then first pullback into it (bar 37); long on reclaim of 320.54, stop under the dip 319.48.",
+      "exit": 319.16,
+      "closed": "2026-07-23",
+      "reason": "stop",
+      "r_multiple": -1.05,
+      "pnl_usd": -48.16,
+      "balance_after": 4626.49
+    },
+    {
+      "id": "2026-07-23-META-7",
+      "ticker": "META",
+      "setup": "vwap_pullback",
+      "entry": 605.94,
+      "stop": 603.56,
+      "target": 610.7,
+      "shares": 19,
+      "risk_usd": 45.220000000002074,
+      "opened": "2026-07-23",
+      "entry_bar": 49,
+      "note": "Held above VWAP then first pullback into it (bar 48); long on reclaim of 605.93, stop under the dip 604.16.",
+      "exit": 603.56,
+      "closed": "2026-07-23",
+      "reason": "stop",
+      "r_multiple": -1.05,
+      "pnl_usd": -47.48,
+      "balance_after": 4579.01
     }
   ],
   "sessions": [
@@ -815,6 +853,18 @@
       "actions": "AMZN vwap_pullback \u2192 eod_flat -0.09R",
       "lessons": [
         "Replayed 10 tickers on 5-minute bars; 1 trade(s), -0.09R after costs."
+      ]
+    },
+    {
+      "date": "2026-07-23",
+      "trades": [
+        "2026-07-23-GOOGL-6",
+        "2026-07-23-META-7"
+      ],
+      "realized_R": -2.1,
+      "actions": "GOOGL vwap_pullback \u2192 stop -1.05R; META vwap_pullback \u2192 stop -1.05R",
+      "lessons": [
+        "Replayed 10 tickers on 5-minute bars; 2 trade(s), -2.10R after costs."
       ]
     }
   ],

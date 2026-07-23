@@ -4,8 +4,8 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 5000.0,
-    "open_risk_R": 2.0
+    "balance": 4951.39,
+    "open_risk_R": 1.0
   },
   "rules": {
     "risk_per_trade_pct": 1.0,
@@ -15,28 +15,15 @@
   },
   "watchlist": [],
   "stats": {
-    "trades_closed": 0,
+    "trades_closed": 1,
     "wins": 0,
-    "losses": 0,
-    "win_rate_pct": null,
-    "expectancy_R": null,
-    "total_R": 0,
-    "max_drawdown_pct": 0.0
+    "losses": 1,
+    "win_rate_pct": 0.0,
+    "expectancy_R": -1.05,
+    "total_R": -1.05,
+    "max_drawdown_pct": 0.97
   },
   "open_trades": [
-    {
-      "id": "41e95532",
-      "ticker": "SPY",
-      "setup": "ma_pullback",
-      "entry": 747.29,
-      "stop": 738.03,
-      "initial_stop": 738.03,
-      "target": 765.81,
-      "shares": 5,
-      "risk_usd": 46.3,
-      "opened": "2026-07-20",
-      "note": "Uptrend pullback into 20/50 zone (SMA20 745.02 / SMA50 743.23); entry on reclaim of today's high 747.29, stop below pullback low 739.51."
-    },
     {
       "id": "9f5fde8d",
       "ticker": "AMD",
@@ -51,8 +38,42 @@
       "note": "Uptrend pullback into 20/50 zone (SMA20 533.02 / SMA50 499.08); entry on reclaim of today's high 505.88, stop below pullback low 460.21."
     }
   ],
-  "pending_orders": [],
-  "closed_trades": [],
+  "pending_orders": [
+    {
+      "id": "987dc735",
+      "ticker": "SPY",
+      "setup": "base_breakout",
+      "entry": 756.34,
+      "stop": 733.74,
+      "target": 801.54,
+      "shares": 2,
+      "risk_usd": 45.2,
+      "placed": "2026-07-23",
+      "note": "4-week base 716.58\u2013755.58 (5.4% range) near highs; entry on break of 755.58; fill requires volume \u2265 72,737,229 (1.5\u00d7 avg) \u2014 a quiet break is not the setup.",
+      "min_volume": 72737229.0
+    }
+  ],
+  "closed_trades": [
+    {
+      "id": "41e95532",
+      "ticker": "SPY",
+      "setup": "ma_pullback",
+      "entry": 747.29,
+      "stop": 738.03,
+      "initial_stop": 738.03,
+      "target": 765.81,
+      "shares": 5,
+      "risk_usd": 46.3,
+      "opened": "2026-07-20",
+      "note": "Uptrend pullback into 20/50 zone (SMA20 745.02 / SMA50 743.23); entry on reclaim of today's high 747.29, stop below pullback low 739.51.",
+      "exit": 738.03,
+      "closed": "2026-07-23",
+      "reason": "stop",
+      "r_multiple": -1.05,
+      "pnl_usd": -48.61,
+      "balance_after": 4951.39
+    }
+  ],
   "sessions": [
     {
       "date": "2026-07-09",
@@ -189,6 +210,23 @@
       "brutality": 1,
       "brutality_note": "Tape moved 1.0% on average; we were flat. Sitting out is a position.",
       "lessons": [
+        "Skipped 3 candidate(s) and logged them: skips are data too."
+      ],
+      "variant": "charter-baseline"
+    },
+    {
+      "date": "2026-07-23",
+      "regime": "SPY 738.18, downtrend (below 20/50); QQQ 691.96, downtrend (below 20/50)",
+      "actions": "SPY closed on stop at 738.03 (-1.05R); SPY base_breakout order placed: entry 756.34, stop 733.74, target 801.54, 2 shares; QQQ base_breakout candidate skipped; EWJ base_breakout candidate skipped; EWA base_breakout candidate skipped.",
+      "trades": [
+        "41e95532"
+      ],
+      "realized_R": -1.05,
+      "brutality": 3,
+      "brutality_note": "Tape moved 1.5% on average and took -1.05R from us.",
+      "lessons": [
+        "SPY stopped for -1.05R \u2014 a planned loss is tuition, not failure. The stop did its one job: define where we're wrong.",
+        "Orders placed, none filled yet \u2014 patience between signal and fill is part of the edge.",
         "Skipped 3 candidate(s) and logged them: skips are data too."
       ],
       "variant": "charter-baseline"
@@ -434,6 +472,30 @@
       "entry": 28.98,
       "stop": 28.08,
       "reason": "blocked by rules: Max 2 positions: 2 open + 0 pending already."
+    },
+    {
+      "date": "2026-07-23",
+      "ticker": "QQQ",
+      "setup": "base_breakout",
+      "entry": 738.36,
+      "stop": 685.39,
+      "reason": "blocked by rules: Max 2 positions: 1 open + 1 pending already."
+    },
+    {
+      "date": "2026-07-23",
+      "ticker": "EWJ",
+      "setup": "base_breakout",
+      "entry": 95.46,
+      "stop": 88.98,
+      "reason": "blocked by rules: Max 2 positions: 1 open + 1 pending already."
+    },
+    {
+      "date": "2026-07-23",
+      "ticker": "EWA",
+      "setup": "base_breakout",
+      "entry": 28.98,
+      "stop": 28.23,
+      "reason": "blocked by rules: Max 2 positions: 1 open + 1 pending already."
     }
   ]
 }

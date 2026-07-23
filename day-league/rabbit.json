@@ -506,6 +506,13 @@
       "realized_R": 0,
       "actions": "No trades \u2014 this personality found nothing worth doing.",
       "personality": "rabbit"
+    },
+    {
+      "date": "2026-07-23",
+      "trades": [],
+      "realized_R": 0,
+      "actions": "No trades \u2014 this personality found nothing worth doing.",
+      "personality": "rabbit"
     }
   ],
   "skipped_candidates": [
