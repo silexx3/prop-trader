@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 5046.89,
+    "balance": 4954.52,
     "open_risk_R": 0
   },
   "rules": {
@@ -35,13 +35,13 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 19,
+    "trades_closed": 22,
     "wins": 9,
-    "losses": 10,
-    "win_rate_pct": 47.4,
-    "expectancy_R": 0.079,
-    "total_R": 1.495,
-    "max_drawdown_pct": 2.05
+    "losses": 13,
+    "win_rate_pct": 40.9,
+    "expectancy_R": -0.05,
+    "total_R": -1.099,
+    "max_drawdown_pct": 2.13
   },
   "open_trades": [],
   "pending_orders": [],
@@ -406,6 +406,63 @@
       "r_multiple": -0.097,
       "pnl_usd": -3.49,
       "balance_after": 5046.89
+    },
+    {
+      "id": "2026-07-24-META-5",
+      "ticker": "META",
+      "setup": "orb_long",
+      "entry": 607.82,
+      "stop": 600.96,
+      "target": 621.54,
+      "shares": 5,
+      "risk_usd": 34.30000000000007,
+      "opened": "2026-07-24",
+      "entry_bar": 28,
+      "note": "30-min opening range 601.56\u2013607.52; long on the break of 607.52 with volume \u2265 1.0\u00d7 the opening average.",
+      "exit": 600.96,
+      "closed": "2026-07-24",
+      "reason": "stop",
+      "r_multiple": -1.05,
+      "pnl_usd": -36.02,
+      "balance_after": 5010.88
+    },
+    {
+      "id": "2026-07-24-AMD-8",
+      "ticker": "AMD",
+      "setup": "vwap_pullback",
+      "entry": 535.23,
+      "stop": 531.68,
+      "target": 542.33,
+      "shares": 10,
+      "risk_usd": 35.50000000000068,
+      "opened": "2026-07-24",
+      "entry_bar": 41,
+      "note": "Held above VWAP then first pullback into it (bar 39); long on reclaim of 535.22, stop under the dip 532.21.",
+      "exit": 531.68,
+      "closed": "2026-07-24",
+      "reason": "stop",
+      "r_multiple": -1.05,
+      "pnl_usd": -37.28,
+      "balance_after": 4973.6
+    },
+    {
+      "id": "2026-07-24-SPY-0",
+      "ticker": "SPY",
+      "setup": "orb_long",
+      "entry": 740.5900268554688,
+      "stop": 736.69,
+      "target": 747.37,
+      "shares": 10,
+      "risk_usd": 35.599999999999454,
+      "opened": "2026-07-24",
+      "entry_bar": 18,
+      "note": "30-min opening range 737.43\u2013739.88; long on the break of 739.88 with volume \u2265 1.0\u00d7 the opening average.",
+      "exit": 738.86,
+      "closed": "2026-07-24",
+      "reason": "eod_flat",
+      "r_multiple": -0.494,
+      "pnl_usd": -19.08,
+      "balance_after": 4954.52
     }
   ],
   "sessions": [
@@ -513,6 +570,17 @@
       "realized_R": 0,
       "actions": "No trades \u2014 this personality found nothing worth doing.",
       "personality": "rabbit"
+    },
+    {
+      "date": "2026-07-24",
+      "trades": [
+        "2026-07-24-META-5",
+        "2026-07-24-AMD-8",
+        "2026-07-24-SPY-0"
+      ],
+      "realized_R": -2.594,
+      "actions": "META stop -1.05R; AMD stop -1.05R; SPY eod_flat -0.49R",
+      "personality": "rabbit"
     }
   ],
   "skipped_candidates": [
@@ -603,6 +671,14 @@
       "entry": 208.33,
       "stop": 204.75,
       "reason": "gapped past trigger (209.79 vs 208.33, >0.25R) \u2014 chasing is not the setup"
+    },
+    {
+      "date": "2026-07-24",
+      "ticker": "AAPL",
+      "setup": "orb_long",
+      "entry": 327.92,
+      "stop": 321.3,
+      "reason": "gapped past trigger (332.96 vs 327.92, >0.25R) \u2014 chasing is not the setup"
     }
   ]
 }

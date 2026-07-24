@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 4780.73,
+    "balance": 4712.71,
     "open_risk_R": 0
   },
   "rules": {
@@ -35,13 +35,13 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 15,
+    "trades_closed": 17,
     "wins": 5,
-    "losses": 10,
-    "win_rate_pct": 33.3,
-    "expectancy_R": -0.313,
-    "total_R": -4.7,
-    "max_drawdown_pct": 6.92
+    "losses": 12,
+    "win_rate_pct": 29.4,
+    "expectancy_R": -0.367,
+    "total_R": -6.244,
+    "max_drawdown_pct": 8.24
   },
   "open_trades": [],
   "pending_orders": [],
@@ -330,6 +330,44 @@
       "r_multiple": -1.05,
       "pnl_usd": -49.62,
       "balance_after": 4780.73
+    },
+    {
+      "id": "2026-07-24-META-3",
+      "ticker": "META",
+      "setup": "orb_long",
+      "entry": 607.82,
+      "stop": 600.96,
+      "target": 621.54,
+      "shares": 6,
+      "risk_usd": 41.16000000000008,
+      "opened": "2026-07-24",
+      "entry_bar": 28,
+      "note": "30-min opening range 601.56\u2013607.52; long on the break of 607.52 with volume \u2265 1.2\u00d7 the opening average.",
+      "exit": 600.96,
+      "closed": "2026-07-24",
+      "reason": "stop",
+      "r_multiple": -1.05,
+      "pnl_usd": -43.22,
+      "balance_after": 4737.51
+    },
+    {
+      "id": "2026-07-24-SPY-0",
+      "ticker": "SPY",
+      "setup": "orb_long",
+      "entry": 740.5900268554688,
+      "stop": 736.69,
+      "target": 747.37,
+      "shares": 13,
+      "risk_usd": 46.27999999999929,
+      "opened": "2026-07-24",
+      "entry_bar": 18,
+      "note": "30-min opening range 737.43\u2013739.88; long on the break of 739.88 with volume \u2265 1.2\u00d7 the opening average.",
+      "exit": 738.86,
+      "closed": "2026-07-24",
+      "reason": "eod_flat",
+      "r_multiple": -0.494,
+      "pnl_usd": -24.8,
+      "balance_after": 4712.71
     }
   ],
   "sessions": [
@@ -431,6 +469,16 @@
       ],
       "realized_R": -1.05,
       "actions": "GOOGL stop -1.05R",
+      "personality": "owl"
+    },
+    {
+      "date": "2026-07-24",
+      "trades": [
+        "2026-07-24-META-3",
+        "2026-07-24-SPY-0"
+      ],
+      "realized_R": -1.544,
+      "actions": "META stop -1.05R; SPY eod_flat -0.49R",
       "personality": "owl"
     }
   ],

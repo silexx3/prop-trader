@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 4883.23,
+    "balance": 4871.78,
     "open_risk_R": 0
   },
   "rules": {
@@ -35,13 +35,13 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 11,
+    "trades_closed": 12,
     "wins": 3,
-    "losses": 8,
-    "win_rate_pct": 27.3,
-    "expectancy_R": -0.454,
-    "total_R": -4.996,
-    "max_drawdown_pct": 3.23
+    "losses": 9,
+    "win_rate_pct": 25.0,
+    "expectancy_R": -0.458,
+    "total_R": -5.49,
+    "max_drawdown_pct": 3.46
   },
   "open_trades": [],
   "pending_orders": [],
@@ -254,6 +254,25 @@
       "r_multiple": -1.05,
       "pnl_usd": -24.81,
       "balance_after": 4883.23
+    },
+    {
+      "id": "2026-07-24-SPY-0",
+      "ticker": "SPY",
+      "setup": "orb_long",
+      "entry": 740.5900268554688,
+      "stop": 736.69,
+      "target": 747.37,
+      "shares": 6,
+      "risk_usd": 21.359999999999673,
+      "opened": "2026-07-24",
+      "entry_bar": 18,
+      "note": "30-min opening range 737.43\u2013739.88; long on the break of 739.88 with volume \u2265 1.2\u00d7 the opening average.",
+      "exit": 738.86,
+      "closed": "2026-07-24",
+      "reason": "eod_flat",
+      "r_multiple": -0.494,
+      "pnl_usd": -11.45,
+      "balance_after": 4871.78
     }
   ],
   "sessions": [
@@ -354,6 +373,15 @@
       ],
       "realized_R": -1.05,
       "actions": "GOOGL stop -1.05R",
+      "personality": "turtle"
+    },
+    {
+      "date": "2026-07-24",
+      "trades": [
+        "2026-07-24-SPY-0"
+      ],
+      "realized_R": -0.494,
+      "actions": "SPY eod_flat -0.49R",
       "personality": "turtle"
     }
   ],

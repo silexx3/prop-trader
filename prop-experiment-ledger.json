@@ -249,6 +249,18 @@
         "SPY stopped for -1.05R \u2014 a planned loss is tuition, not failure. The stop did its one job: define where we're wrong.",
         "Skipped 4 candidate(s) and logged them: skips are data too."
       ]
+    },
+    {
+      "date": "2026-07-24",
+      "regime": "SPY 738.93, downtrend (below 20/50); QQQ 684.23, downtrend (below 20/50)",
+      "actions": "SPY base_breakout candidate skipped; QQQ base_breakout candidate skipped; EWJ base_breakout candidate skipped; EWA base_breakout candidate skipped.",
+      "trades": [],
+      "realized_R": 0,
+      "brutality": 2,
+      "brutality_note": "Tape moved 1.6% on average; we were flat. Sitting out is a position.",
+      "lessons": [
+        "Skipped 4 candidate(s) and logged them: skips are data too."
+      ]
     }
   ],
   "skipped_candidates": [
@@ -523,6 +535,38 @@
       "entry": 28.98,
       "stop": 28.23,
       "reason": "regime off \u2014 SPY 738.18 below its 50-day SMA 744.06; longs stand down"
+    },
+    {
+      "date": "2026-07-24",
+      "ticker": "SPY",
+      "setup": "base_breakout",
+      "entry": 756.34,
+      "stop": 733.74,
+      "reason": "regime off \u2014 SPY 738.93 below its 50-day SMA 744.11; longs stand down"
+    },
+    {
+      "date": "2026-07-24",
+      "ticker": "QQQ",
+      "setup": "base_breakout",
+      "entry": 738.36,
+      "stop": 681.12,
+      "reason": "regime off \u2014 SPY 738.93 below its 50-day SMA 744.11; longs stand down"
+    },
+    {
+      "date": "2026-07-24",
+      "ticker": "EWJ",
+      "setup": "base_breakout",
+      "entry": 95.46,
+      "stop": 88.98,
+      "reason": "regime off \u2014 SPY 738.93 below its 50-day SMA 744.11; longs stand down"
+    },
+    {
+      "date": "2026-07-24",
+      "ticker": "EWA",
+      "setup": "base_breakout",
+      "entry": 28.98,
+      "stop": 28.25,
+      "reason": "regime off \u2014 SPY 738.93 below its 50-day SMA 744.11; longs stand down"
     }
   ]
 }
