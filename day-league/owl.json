@@ -480,6 +480,13 @@
       "realized_R": -1.544,
       "actions": "META stop -1.05R; SPY eod_flat -0.49R",
       "personality": "owl"
+    },
+    {
+      "date": "2026-07-27",
+      "trades": [],
+      "realized_R": 0,
+      "actions": "No trades \u2014 this personality found nothing worth doing.",
+      "personality": "owl"
     }
   ],
   "skipped_candidates": [

@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 4871.78,
+    "balance": 4846.71,
     "open_risk_R": 0
   },
   "rules": {
@@ -35,13 +35,13 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 12,
+    "trades_closed": 13,
     "wins": 3,
-    "losses": 9,
-    "win_rate_pct": 25.0,
-    "expectancy_R": -0.458,
-    "total_R": -5.49,
-    "max_drawdown_pct": 3.46
+    "losses": 10,
+    "win_rate_pct": 23.1,
+    "expectancy_R": -0.503,
+    "total_R": -6.54,
+    "max_drawdown_pct": 3.96
   },
   "open_trades": [],
   "pending_orders": [],
@@ -273,6 +273,25 @@
       "r_multiple": -0.494,
       "pnl_usd": -11.45,
       "balance_after": 4871.78
+    },
+    {
+      "id": "2026-07-27-META-6",
+      "ticker": "META",
+      "setup": "vwap_pullback",
+      "entry": 606.0,
+      "stop": 604.01,
+      "target": 609.98,
+      "shares": 12,
+      "risk_usd": 23.88000000000011,
+      "opened": "2026-07-27",
+      "entry_bar": 22,
+      "note": "Held above VWAP then first pullback into it (bar 21); long on reclaim of 605.99, stop under the dip 604.61.",
+      "exit": 604.01,
+      "closed": "2026-07-27",
+      "reason": "stop",
+      "r_multiple": -1.05,
+      "pnl_usd": -25.07,
+      "balance_after": 4846.71
     }
   ],
   "sessions": [
@@ -382,6 +401,15 @@
       ],
       "realized_R": -0.494,
       "actions": "SPY eod_flat -0.49R",
+      "personality": "turtle"
+    },
+    {
+      "date": "2026-07-27",
+      "trades": [
+        "2026-07-27-META-6"
+      ],
+      "realized_R": -1.05,
+      "actions": "META stop -1.05R",
       "personality": "turtle"
     }
   ],

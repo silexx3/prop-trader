@@ -581,6 +581,13 @@
       "realized_R": -2.594,
       "actions": "META stop -1.05R; AMD stop -1.05R; SPY eod_flat -0.49R",
       "personality": "rabbit"
+    },
+    {
+      "date": "2026-07-27",
+      "trades": [],
+      "realized_R": 0,
+      "actions": "No trades \u2014 this personality found nothing worth doing.",
+      "personality": "rabbit"
     }
   ],
   "skipped_candidates": [
@@ -679,6 +686,14 @@
       "entry": 327.92,
       "stop": 321.3,
       "reason": "gapped past trigger (332.96 vs 327.92, >0.25R) \u2014 chasing is not the setup"
+    },
+    {
+      "date": "2026-07-27",
+      "ticker": "AAPL",
+      "setup": "orb_long",
+      "entry": 337.29,
+      "stop": 333.69,
+      "reason": "gapped past trigger (339.35 vs 337.29, >0.25R) \u2014 chasing is not the setup"
     }
   ]
 }

@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 4465.43,
+    "balance": 4419.46,
     "open_risk_R": 0
   },
   "rules": {
@@ -34,13 +34,13 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 38,
+    "trades_closed": 39,
     "wins": 10,
-    "losses": 28,
-    "win_rate_pct": 26.3,
-    "expectancy_R": -0.294,
-    "total_R": -11.171,
-    "max_drawdown_pct": 13.18
+    "losses": 29,
+    "win_rate_pct": 25.6,
+    "expectancy_R": -0.313,
+    "total_R": -12.221,
+    "max_drawdown_pct": 14.07
   },
   "open_trades": [],
   "pending_orders": [],
@@ -766,6 +766,25 @@
       "r_multiple": -0.494,
       "pnl_usd": -22.9,
       "balance_after": 4465.43
+    },
+    {
+      "id": "2026-07-27-META-6",
+      "ticker": "META",
+      "setup": "vwap_pullback",
+      "entry": 606.0,
+      "stop": 604.01,
+      "target": 609.98,
+      "shares": 22,
+      "risk_usd": 43.7800000000002,
+      "opened": "2026-07-27",
+      "entry_bar": 22,
+      "note": "Held above VWAP then first pullback into it (bar 21); long on reclaim of 605.99, stop under the dip 604.61.",
+      "exit": 604.01,
+      "closed": "2026-07-27",
+      "reason": "stop",
+      "r_multiple": -1.05,
+      "pnl_usd": -45.97,
+      "balance_after": 4419.46
     }
   ],
   "sessions": [
@@ -936,6 +955,17 @@
       "lessons": [
         "Replayed 10 tickers on 5-minute bars; 3 trade(s), -2.59R after costs."
       ]
+    },
+    {
+      "date": "2026-07-27",
+      "trades": [
+        "2026-07-27-META-6"
+      ],
+      "realized_R": -1.05,
+      "actions": "META vwap_pullback \u2192 stop -1.05R",
+      "lessons": [
+        "Replayed 10 tickers on 5-minute bars; 1 trade(s), -1.05R after costs."
+      ]
     }
   ],
   "skipped_candidates": [
@@ -1010,6 +1040,14 @@
       "entry": 393.1,
       "stop": 389.34,
       "reason": "gapped past trigger (402.11 vs 393.10, >0.25R) \u2014 chasing is not the setup"
+    },
+    {
+      "date": "2026-07-27",
+      "ticker": "AAPL",
+      "setup": "orb_long",
+      "entry": 337.29,
+      "stop": 333.69,
+      "reason": "gapped past trigger (339.35 vs 337.29, >0.25R) \u2014 chasing is not the setup"
     }
   ]
 }
