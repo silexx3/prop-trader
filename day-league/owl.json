@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 4712.71,
+    "balance": 4894.68,
     "open_risk_R": 0
   },
   "rules": {
@@ -35,12 +35,12 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 17,
-    "wins": 5,
+    "trades_closed": 19,
+    "wins": 7,
     "losses": 12,
-    "win_rate_pct": 29.4,
-    "expectancy_R": -0.367,
-    "total_R": -6.244,
+    "win_rate_pct": 36.8,
+    "expectancy_R": -0.123,
+    "total_R": -2.344,
     "max_drawdown_pct": 8.24
   },
   "open_trades": [],
@@ -368,6 +368,44 @@
       "r_multiple": -0.494,
       "pnl_usd": -24.8,
       "balance_after": 4712.71
+    },
+    {
+      "id": "2026-07-28-GOOGL-4",
+      "ticker": "GOOGL",
+      "setup": "vwap_pullback",
+      "entry": 328.01,
+      "stop": 326.88,
+      "target": 330.27,
+      "shares": 41,
+      "risk_usd": 46.329999999999814,
+      "opened": "2026-07-28",
+      "entry_bar": 14,
+      "note": "Held above VWAP then first pullback into it (bar 13); long on reclaim of 328.00, stop under the dip 327.21.",
+      "exit": 330.27,
+      "closed": "2026-07-28",
+      "reason": "target",
+      "r_multiple": 1.95,
+      "pnl_usd": 90.34,
+      "balance_after": 4803.05
+    },
+    {
+      "id": "2026-07-28-MSFT-3",
+      "ticker": "MSFT",
+      "setup": "vwap_pullback",
+      "entry": 395.78,
+      "stop": 394.51,
+      "target": 398.32,
+      "shares": 37,
+      "risk_usd": 46.98999999999933,
+      "opened": "2026-07-28",
+      "entry_bar": 14,
+      "note": "Held above VWAP then first pullback into it (bar 12); long on reclaim of 395.77, stop under the dip 394.90.",
+      "exit": 398.32,
+      "closed": "2026-07-28",
+      "reason": "target",
+      "r_multiple": 1.95,
+      "pnl_usd": 91.63,
+      "balance_after": 4894.68
     }
   ],
   "sessions": [
@@ -486,6 +524,16 @@
       "trades": [],
       "realized_R": 0,
       "actions": "No trades \u2014 this personality found nothing worth doing.",
+      "personality": "owl"
+    },
+    {
+      "date": "2026-07-28",
+      "trades": [
+        "2026-07-28-GOOGL-4",
+        "2026-07-28-MSFT-3"
+      ],
+      "realized_R": 3.9,
+      "actions": "GOOGL target +1.95R; MSFT target +1.95R",
       "personality": "owl"
     }
   ],

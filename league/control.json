@@ -4,8 +4,8 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 4951.39,
-    "open_risk_R": 1.0
+    "balance": 4902.47,
+    "open_risk_R": 0.0
   },
   "rules": {
     "risk_per_trade_pct": 1.0,
@@ -15,32 +15,18 @@
   },
   "watchlist": [],
   "stats": {
-    "trades_closed": 1,
+    "trades_closed": 2,
     "wins": 0,
-    "losses": 1,
+    "losses": 2,
     "win_rate_pct": 0.0,
     "expectancy_R": -1.05,
-    "total_R": -1.05,
-    "max_drawdown_pct": 0.97
+    "total_R": -2.1,
+    "max_drawdown_pct": 1.95
   },
-  "open_trades": [
-    {
-      "id": "9f5fde8d",
-      "ticker": "AMD",
-      "setup": "ma_pullback",
-      "entry": 505.88,
-      "stop": 459.29,
-      "initial_stop": 459.29,
-      "target": 599.06,
-      "shares": 1,
-      "risk_usd": 46.59,
-      "opened": "2026-07-20",
-      "note": "Uptrend pullback into 20/50 zone (SMA20 533.02 / SMA50 499.08); entry on reclaim of today's high 505.88, stop below pullback low 460.21."
-    }
-  ],
+  "open_trades": [],
   "pending_orders": [
     {
-      "id": "aaaa7105",
+      "id": "74188c7e",
       "ticker": "SPY",
       "setup": "base_breakout",
       "entry": 756.34,
@@ -48,9 +34,22 @@
       "target": 801.54,
       "shares": 2,
       "risk_usd": 45.2,
-      "placed": "2026-07-27",
-      "note": "4-week base 732.09\u2013755.58 (3.2% range) near highs; entry on break of 755.58; fill requires volume \u2265 69,818,919 (1.5\u00d7 avg) \u2014 a quiet break is not the setup.",
-      "min_volume": 69818919.0
+      "placed": "2026-07-28",
+      "note": "4-week base 735.21\u2013755.58 (2.8% range) near highs; entry on break of 755.58; fill requires volume \u2265 68,564,803 (1.5\u00d7 avg) \u2014 a quiet break is not the setup.",
+      "min_volume": 68564803.0
+    },
+    {
+      "id": "1698682a",
+      "ticker": "EWJ",
+      "setup": "base_breakout",
+      "entry": 95.46,
+      "stop": 88.98,
+      "target": 108.42,
+      "shares": 7,
+      "risk_usd": 45.36,
+      "placed": "2026-07-28",
+      "note": "4-week base 89.16\u201395.36 (7.0% range) near highs; entry on break of 95.36; fill requires volume \u2265 7,304,941 (1.5\u00d7 avg) \u2014 a quiet break is not the setup.",
+      "min_volume": 7304941.0
     }
   ],
   "closed_trades": [
@@ -72,6 +71,25 @@
       "r_multiple": -1.05,
       "pnl_usd": -48.61,
       "balance_after": 4951.39
+    },
+    {
+      "id": "9f5fde8d",
+      "ticker": "AMD",
+      "setup": "ma_pullback",
+      "entry": 505.88,
+      "stop": 459.29,
+      "initial_stop": 459.29,
+      "target": 599.06,
+      "shares": 1,
+      "risk_usd": 46.59,
+      "opened": "2026-07-20",
+      "note": "Uptrend pullback into 20/50 zone (SMA20 533.02 / SMA50 499.08); entry on reclaim of today's high 505.88, stop below pullback low 460.21.",
+      "exit": 459.29,
+      "closed": "2026-07-28",
+      "reason": "stop",
+      "r_multiple": -1.05,
+      "pnl_usd": -48.92,
+      "balance_after": 4902.47
     }
   ],
   "sessions": [
@@ -256,6 +274,23 @@
       "lessons": [
         "Orders placed, none filled yet \u2014 patience between signal and fill is part of the edge.",
         "Skipped 3 candidate(s) and logged them: skips are data too."
+      ],
+      "variant": "charter-baseline"
+    },
+    {
+      "date": "2026-07-28",
+      "regime": "SPY 740.86, downtrend (below 20/50); QQQ 675.49, downtrend (below 20/50)",
+      "actions": "AMD closed on stop at 459.29 (-1.05R); SPY base_breakout order placed: entry 756.34, stop 733.74, target 801.54, 2 shares; EWJ base_breakout order placed: entry 95.46, stop 88.98, target 108.42, 7 shares; EWA base_breakout candidate skipped.",
+      "trades": [
+        "9f5fde8d"
+      ],
+      "realized_R": -1.05,
+      "brutality": 3,
+      "brutality_note": "Tape moved 2.2% on average and took -1.05R from us.",
+      "lessons": [
+        "AMD stopped for -1.05R \u2014 a planned loss is tuition, not failure. The stop did its one job: define where we're wrong.",
+        "Orders placed, none filled yet \u2014 patience between signal and fill is part of the edge.",
+        "Skipped 1 candidate(s) and logged them: skips are data too."
       ],
       "variant": "charter-baseline"
     }
@@ -572,6 +607,14 @@
       "entry": 28.99,
       "stop": 28.34,
       "reason": "blocked by rules: Max 2 positions: 1 open + 1 pending already."
+    },
+    {
+      "date": "2026-07-28",
+      "ticker": "EWA",
+      "setup": "base_breakout",
+      "entry": 29.45,
+      "stop": 28.34,
+      "reason": "blocked by rules: Max 2 positions: 0 open + 2 pending already."
     }
   ]
 }
