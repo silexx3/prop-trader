@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 4700.97,
+    "balance": 4578.75,
     "open_risk_R": 0
   },
   "rules": {
@@ -34,12 +34,12 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 43,
+    "trades_closed": 47,
     "wins": 14,
-    "losses": 29,
-    "win_rate_pct": 32.6,
-    "expectancy_R": -0.137,
-    "total_R": -5.872,
+    "losses": 33,
+    "win_rate_pct": 29.8,
+    "expectancy_R": -0.18,
+    "total_R": -8.459,
     "max_drawdown_pct": 14.07
   },
   "open_trades": [],
@@ -861,6 +861,82 @@
       "r_multiple": 0.499,
       "pnl_usd": 22.53,
       "balance_after": 4700.97
+    },
+    {
+      "id": "2026-07-29-AMD-7",
+      "ticker": "AMD",
+      "setup": "vwap_pullback",
+      "entry": 438.71,
+      "stop": 435.82,
+      "target": 444.49,
+      "shares": 16,
+      "risk_usd": 46.23999999999978,
+      "opened": "2026-07-29",
+      "entry_bar": 48,
+      "note": "Held above VWAP then first pullback into it (bar 47); long on reclaim of 438.70, stop under the dip 436.25.",
+      "exit": 435.82,
+      "closed": "2026-07-29",
+      "reason": "stop",
+      "r_multiple": -1.05,
+      "pnl_usd": -48.55,
+      "balance_after": 4652.42
+    },
+    {
+      "id": "2026-07-29-AMZN-5",
+      "ticker": "AMZN",
+      "setup": "orb_long",
+      "entry": 230.57000732421875,
+      "stop": 228.18,
+      "target": 234.72,
+      "shares": 21,
+      "risk_usd": 45.78000000000014,
+      "opened": "2026-07-29",
+      "entry_bar": 54,
+      "note": "30-min opening range 228.41\u2013230.24; long on the break of 230.24 with volume \u2265 1.2\u00d7 the opening average.",
+      "exit": 228.18,
+      "closed": "2026-07-29",
+      "reason": "stop",
+      "r_multiple": -1.05,
+      "pnl_usd": -52.48,
+      "balance_after": 4599.94
+    },
+    {
+      "id": "2026-07-29-MSFT-3",
+      "ticker": "MSFT",
+      "setup": "orb_long",
+      "entry": 394.48,
+      "stop": 388.35,
+      "target": 406.74,
+      "shares": 7,
+      "risk_usd": 42.90999999999997,
+      "opened": "2026-07-29",
+      "entry_bar": 15,
+      "note": "30-min opening range 388.74\u2013394.28; long on the break of 394.28 with volume \u2265 1.2\u00d7 the opening average.",
+      "exit": 392.4,
+      "closed": "2026-07-29",
+      "reason": "eod_flat",
+      "r_multiple": -0.389,
+      "pnl_usd": -16.71,
+      "balance_after": 4583.23
+    },
+    {
+      "id": "2026-07-29-GOOGL-6",
+      "ticker": "GOOGL",
+      "setup": "orb_long",
+      "entry": 336.9200134277344,
+      "stop": 331.71,
+      "target": 346.56,
+      "shares": 9,
+      "risk_usd": 44.55000000000041,
+      "opened": "2026-07-29",
+      "entry_bar": 76,
+      "note": "30-min opening range 332.04\u2013336.49; long on the break of 336.49 with volume \u2265 1.2\u00d7 the opening average.",
+      "exit": 336.67,
+      "closed": "2026-07-29",
+      "reason": "eod_flat",
+      "r_multiple": -0.098,
+      "pnl_usd": -4.48,
+      "balance_after": 4578.75
     }
   ],
   "sessions": [
@@ -1055,6 +1131,20 @@
       "actions": "GOOGL vwap_pullback \u2192 target +1.95R; MSFT vwap_pullback \u2192 target +1.95R; AMZN vwap_pullback \u2192 target +1.95R; AAPL vwap_pullback \u2192 eod_flat +0.50R",
       "lessons": [
         "Replayed 10 tickers on 5-minute bars; 4 trade(s), +6.35R after costs."
+      ]
+    },
+    {
+      "date": "2026-07-29",
+      "trades": [
+        "2026-07-29-AMD-7",
+        "2026-07-29-AMZN-5",
+        "2026-07-29-MSFT-3",
+        "2026-07-29-GOOGL-6"
+      ],
+      "realized_R": -2.587,
+      "actions": "AMD vwap_pullback \u2192 stop -1.05R; AMZN orb_long \u2192 stop -1.05R; MSFT orb_long \u2192 eod_flat -0.39R; GOOGL orb_long \u2192 eod_flat -0.10R",
+      "lessons": [
+        "Replayed 10 tickers on 5-minute bars; 4 trade(s), -2.59R after costs."
       ]
     }
   ],

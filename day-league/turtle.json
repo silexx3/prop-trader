@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 4893.76,
+    "balance": 4886.6,
     "open_risk_R": 0
   },
   "rules": {
@@ -35,12 +35,12 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 14,
+    "trades_closed": 15,
     "wins": 4,
-    "losses": 10,
-    "win_rate_pct": 28.6,
-    "expectancy_R": -0.328,
-    "total_R": -4.59,
+    "losses": 11,
+    "win_rate_pct": 26.7,
+    "expectancy_R": -0.332,
+    "total_R": -4.979,
     "max_drawdown_pct": 3.96
   },
   "open_trades": [],
@@ -311,6 +311,25 @@
       "r_multiple": 1.95,
       "pnl_usd": 47.05,
       "balance_after": 4893.76
+    },
+    {
+      "id": "2026-07-29-MSFT-3",
+      "ticker": "MSFT",
+      "setup": "orb_long",
+      "entry": 394.48,
+      "stop": 388.35,
+      "target": 406.74,
+      "shares": 3,
+      "risk_usd": 18.389999999999986,
+      "opened": "2026-07-29",
+      "entry_bar": 15,
+      "note": "30-min opening range 388.74\u2013394.28; long on the break of 394.28 with volume \u2265 1.2\u00d7 the opening average.",
+      "exit": 392.4,
+      "closed": "2026-07-29",
+      "reason": "eod_flat",
+      "r_multiple": -0.389,
+      "pnl_usd": -7.16,
+      "balance_after": 4886.6
     }
   ],
   "sessions": [
@@ -438,6 +457,15 @@
       ],
       "realized_R": 1.95,
       "actions": "MSFT target +1.95R",
+      "personality": "turtle"
+    },
+    {
+      "date": "2026-07-29",
+      "trades": [
+        "2026-07-29-MSFT-3"
+      ],
+      "realized_R": -0.389,
+      "actions": "MSFT eod_flat -0.39R",
       "personality": "turtle"
     }
   ],

@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 4894.68,
+    "balance": 4791.15,
     "open_risk_R": 0
   },
   "rules": {
@@ -35,12 +35,12 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 19,
+    "trades_closed": 21,
     "wins": 7,
-    "losses": 12,
-    "win_rate_pct": 36.8,
-    "expectancy_R": -0.123,
-    "total_R": -2.344,
+    "losses": 14,
+    "win_rate_pct": 33.3,
+    "expectancy_R": -0.212,
+    "total_R": -4.444,
     "max_drawdown_pct": 8.24
   },
   "open_trades": [],
@@ -406,6 +406,44 @@
       "r_multiple": 1.95,
       "pnl_usd": 91.63,
       "balance_after": 4894.68
+    },
+    {
+      "id": "2026-07-29-AMD-7",
+      "ticker": "AMD",
+      "setup": "vwap_pullback",
+      "entry": 438.71,
+      "stop": 435.82,
+      "target": 444.49,
+      "shares": 16,
+      "risk_usd": 46.23999999999978,
+      "opened": "2026-07-29",
+      "entry_bar": 48,
+      "note": "Held above VWAP then first pullback into it (bar 47); long on reclaim of 438.70, stop under the dip 436.25.",
+      "exit": 435.82,
+      "closed": "2026-07-29",
+      "reason": "stop",
+      "r_multiple": -1.05,
+      "pnl_usd": -48.55,
+      "balance_after": 4846.13
+    },
+    {
+      "id": "2026-07-29-AMZN-5",
+      "ticker": "AMZN",
+      "setup": "orb_long",
+      "entry": 230.57000732421875,
+      "stop": 228.18,
+      "target": 234.72,
+      "shares": 22,
+      "risk_usd": 47.96000000000015,
+      "opened": "2026-07-29",
+      "entry_bar": 54,
+      "note": "30-min opening range 228.41\u2013230.24; long on the break of 230.24 with volume \u2265 1.2\u00d7 the opening average.",
+      "exit": 228.18,
+      "closed": "2026-07-29",
+      "reason": "stop",
+      "r_multiple": -1.05,
+      "pnl_usd": -54.98,
+      "balance_after": 4791.15
     }
   ],
   "sessions": [
@@ -535,6 +573,16 @@
       "realized_R": 3.9,
       "actions": "GOOGL target +1.95R; MSFT target +1.95R",
       "personality": "owl"
+    },
+    {
+      "date": "2026-07-29",
+      "trades": [
+        "2026-07-29-AMD-7",
+        "2026-07-29-AMZN-5"
+      ],
+      "realized_R": -2.1,
+      "actions": "AMD stop -1.05R; AMZN stop -1.05R",
+      "personality": "owl"
     }
   ],
   "skipped_candidates": [
@@ -561,6 +609,14 @@
       "entry": 643.78,
       "stop": 641.28,
       "reason": "gapped past trigger (647.20 vs 643.78, >0.25R) \u2014 chasing is not the setup"
+    },
+    {
+      "date": "2026-07-29",
+      "ticker": "MSFT",
+      "setup": "orb_long",
+      "entry": 394.48,
+      "stop": 388.35,
+      "reason": "gapped past trigger (396.50 vs 394.48, >0.25R) \u2014 chasing is not the setup"
     }
   ]
 }
