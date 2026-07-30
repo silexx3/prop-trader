@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 4886.6,
+    "balance": 4861.4,
     "open_risk_R": 0
   },
   "rules": {
@@ -35,12 +35,12 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 15,
+    "trades_closed": 16,
     "wins": 4,
-    "losses": 11,
-    "win_rate_pct": 26.7,
-    "expectancy_R": -0.332,
-    "total_R": -4.979,
+    "losses": 12,
+    "win_rate_pct": 25.0,
+    "expectancy_R": -0.377,
+    "total_R": -6.029,
     "max_drawdown_pct": 3.96
   },
   "open_trades": [],
@@ -330,6 +330,25 @@
       "r_multiple": -0.389,
       "pnl_usd": -7.16,
       "balance_after": 4886.6
+    },
+    {
+      "id": "2026-07-30-NVDA-5",
+      "ticker": "NVDA",
+      "setup": "vwap_pullback",
+      "entry": 195.05,
+      "stop": 194.05,
+      "target": 197.05,
+      "shares": 24,
+      "risk_usd": 24.0,
+      "opened": "2026-07-30",
+      "entry_bar": 18,
+      "note": "Held above VWAP then first pullback into it (bar 17); long on reclaim of 195.04, stop under the dip 194.24.",
+      "exit": 194.05,
+      "closed": "2026-07-30",
+      "reason": "stop",
+      "r_multiple": -1.05,
+      "pnl_usd": -25.2,
+      "balance_after": 4861.4
     }
   ],
   "sessions": [
@@ -467,6 +486,15 @@
       "realized_R": -0.389,
       "actions": "MSFT eod_flat -0.39R",
       "personality": "turtle"
+    },
+    {
+      "date": "2026-07-30",
+      "trades": [
+        "2026-07-30-NVDA-5"
+      ],
+      "realized_R": -1.05,
+      "actions": "NVDA stop -1.05R",
+      "personality": "turtle"
     }
   ],
   "skipped_candidates": [
@@ -493,6 +521,22 @@
       "entry": 253.03,
       "stop": 250.11,
       "reason": "gapped past trigger (254.79 vs 253.03, >0.25R) \u2014 chasing is not the setup"
+    },
+    {
+      "date": "2026-07-30",
+      "ticker": "MSFT",
+      "setup": "vwap_pullback",
+      "entry": 448.6,
+      "stop": 445.19,
+      "reason": "gapped past trigger (449.89 vs 448.60, >0.25R) \u2014 chasing is not the setup"
+    },
+    {
+      "date": "2026-07-30",
+      "ticker": "TSLA",
+      "setup": "vwap_pullback",
+      "entry": 306.78,
+      "stop": 304.9,
+      "reason": "gapped past trigger (309.08 vs 306.78, >0.25R) \u2014 chasing is not the setup"
     }
   ]
 }

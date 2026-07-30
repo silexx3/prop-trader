@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 4924.74,
+    "balance": 4879.15,
     "open_risk_R": 0
   },
   "rules": {
@@ -35,13 +35,13 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 27,
+    "trades_closed": 30,
     "wins": 10,
-    "losses": 17,
-    "win_rate_pct": 37.0,
-    "expectancy_R": -0.064,
-    "total_R": -1.736,
-    "max_drawdown_pct": 2.72
+    "losses": 20,
+    "win_rate_pct": 33.3,
+    "expectancy_R": -0.103,
+    "total_R": -3.081,
+    "max_drawdown_pct": 3.62
   },
   "open_trades": [],
   "pending_orders": [],
@@ -558,6 +558,63 @@
       "r_multiple": -0.098,
       "pnl_usd": -3.48,
       "balance_after": 4924.74
+    },
+    {
+      "id": "2026-07-30-MSFT-7",
+      "ticker": "MSFT",
+      "setup": "vwap_pullback",
+      "entry": 448.6,
+      "stop": 445.19,
+      "target": 455.42,
+      "shares": 10,
+      "risk_usd": 34.10000000000025,
+      "opened": "2026-07-30",
+      "entry_bar": 11,
+      "note": "Held above VWAP then first pullback into it (bar 9); long on reclaim of 448.59, stop under the dip 445.64.",
+      "exit": 445.19,
+      "closed": "2026-07-30",
+      "reason": "stop",
+      "r_multiple": -1.05,
+      "pnl_usd": -35.81,
+      "balance_after": 4888.93
+    },
+    {
+      "id": "2026-07-30-QQQ-1",
+      "ticker": "QQQ",
+      "setup": "orb_long",
+      "entry": 683.6900024414062,
+      "stop": 672.63,
+      "target": 700.71,
+      "shares": 3,
+      "risk_usd": 28.08000000000004,
+      "opened": "2026-07-30",
+      "entry_bar": 76,
+      "note": "30-min opening range 673.30\u2013681.65; long on the break of 681.65 with volume \u2265 1.0\u00d7 the opening average.",
+      "exit": 683.6,
+      "closed": "2026-07-30",
+      "reason": "eod_flat",
+      "r_multiple": -0.058,
+      "pnl_usd": -1.67,
+      "balance_after": 4887.26
+    },
+    {
+      "id": "2026-07-30-AAPL-3",
+      "ticker": "AAPL",
+      "setup": "orb_long",
+      "entry": 334.65,
+      "stop": 330.38,
+      "target": 343.19,
+      "shares": 8,
+      "risk_usd": 34.159999999999854,
+      "opened": "2026-07-30",
+      "entry_bar": 77,
+      "note": "30-min opening range 330.71\u2013334.48; long on the break of 334.48 with volume \u2265 1.0\u00d7 the opening average.",
+      "exit": 333.85,
+      "closed": "2026-07-30",
+      "reason": "eod_flat",
+      "r_multiple": -0.237,
+      "pnl_usd": -8.11,
+      "balance_after": 4879.15
     }
   ],
   "sessions": [
@@ -704,6 +761,17 @@
       "realized_R": -2.587,
       "actions": "AMD stop -1.05R; AMZN stop -1.05R; MSFT eod_flat -0.39R; GOOGL eod_flat -0.10R",
       "personality": "rabbit"
+    },
+    {
+      "date": "2026-07-30",
+      "trades": [
+        "2026-07-30-MSFT-7",
+        "2026-07-30-QQQ-1",
+        "2026-07-30-AAPL-3"
+      ],
+      "realized_R": -1.345,
+      "actions": "MSFT stop -1.05R; QQQ eod_flat -0.06R; AAPL eod_flat -0.24R",
+      "personality": "rabbit"
     }
   ],
   "skipped_candidates": [
@@ -834,6 +902,14 @@
       "entry": 330.47,
       "stop": 324.12,
       "reason": "gapped past trigger (333.88 vs 330.47, >0.25R) \u2014 chasing is not the setup"
+    },
+    {
+      "date": "2026-07-30",
+      "ticker": "SPY",
+      "setup": "orb_long",
+      "entry": 739.03,
+      "stop": 733.9,
+      "reason": "gapped past trigger (741.80 vs 739.03, >0.25R) \u2014 chasing is not the setup"
     }
   ]
 }
