@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 4879.15,
+    "balance": 4989.1,
     "open_risk_R": 0
   },
   "rules": {
@@ -35,13 +35,13 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 30,
-    "wins": 10,
-    "losses": 20,
-    "win_rate_pct": 33.3,
-    "expectancy_R": -0.103,
-    "total_R": -3.081,
-    "max_drawdown_pct": 3.62
+    "trades_closed": 34,
+    "wins": 13,
+    "losses": 21,
+    "win_rate_pct": 38.2,
+    "expectancy_R": 0.004,
+    "total_R": 0.149,
+    "max_drawdown_pct": 4.35
   },
   "open_trades": [],
   "pending_orders": [],
@@ -615,6 +615,82 @@
       "r_multiple": -0.237,
       "pnl_usd": -8.11,
       "balance_after": 4879.15
+    },
+    {
+      "id": "2026-07-31-AMZN-5",
+      "ticker": "AMZN",
+      "setup": "vwap_pullback",
+      "entry": 268.72,
+      "stop": 266.64,
+      "target": 272.88,
+      "shares": 17,
+      "risk_usd": 35.360000000000696,
+      "opened": "2026-07-31",
+      "entry_bar": 11,
+      "note": "Held above VWAP then first pullback into it (bar 10); long on reclaim of 268.71, stop under the dip 266.91.",
+      "exit": 266.64,
+      "closed": "2026-07-31",
+      "reason": "stop",
+      "r_multiple": -1.05,
+      "pnl_usd": -37.13,
+      "balance_after": 4842.02
+    },
+    {
+      "id": "2026-07-31-TSLA-7",
+      "ticker": "TSLA",
+      "setup": "vwap_pullback",
+      "entry": 308.11,
+      "stop": 306.54,
+      "target": 311.25,
+      "shares": 23,
+      "risk_usd": 36.10999999999984,
+      "opened": "2026-07-31",
+      "entry_bar": 30,
+      "note": "Held above VWAP then first pullback into it (bar 20); long on reclaim of 308.10, stop under the dip 306.85.",
+      "exit": 311.25,
+      "closed": "2026-07-31",
+      "reason": "target",
+      "r_multiple": 1.95,
+      "pnl_usd": 70.41,
+      "balance_after": 4912.43
+    },
+    {
+      "id": "2026-07-31-GOOGL-4",
+      "ticker": "GOOGL",
+      "setup": "orb_long",
+      "entry": 346.09,
+      "stop": 339.66,
+      "target": 358.95,
+      "shares": 5,
+      "risk_usd": 32.14999999999975,
+      "opened": "2026-07-31",
+      "entry_bar": 6,
+      "note": "30-min opening range 340.00\u2013345.92; long on the break of 345.92 with volume \u2265 1.0\u00d7 the opening average.",
+      "exit": 356.33,
+      "closed": "2026-07-31",
+      "reason": "eod_flat",
+      "r_multiple": 1.543,
+      "pnl_usd": 49.59,
+      "balance_after": 4962.02
+    },
+    {
+      "id": "2026-07-31-META-6",
+      "ticker": "META",
+      "setup": "vwap_pullback",
+      "entry": 552.9,
+      "stop": 548.6,
+      "target": 561.5,
+      "shares": 8,
+      "risk_usd": 34.399999999999636,
+      "opened": "2026-07-31",
+      "entry_bar": 68,
+      "note": "Held above VWAP then first pullback into it (bar 19); long on reclaim of 552.89, stop under the dip 549.15.",
+      "exit": 556.5,
+      "closed": "2026-07-31",
+      "reason": "eod_flat",
+      "r_multiple": 0.787,
+      "pnl_usd": 27.08,
+      "balance_after": 4989.1
     }
   ],
   "sessions": [
@@ -771,6 +847,18 @@
       ],
       "realized_R": -1.345,
       "actions": "MSFT stop -1.05R; QQQ eod_flat -0.06R; AAPL eod_flat -0.24R",
+      "personality": "rabbit"
+    },
+    {
+      "date": "2026-07-31",
+      "trades": [
+        "2026-07-31-AMZN-5",
+        "2026-07-31-TSLA-7",
+        "2026-07-31-GOOGL-4",
+        "2026-07-31-META-6"
+      ],
+      "realized_R": 3.23,
+      "actions": "AMZN stop -1.05R; TSLA target +1.95R; GOOGL eod_flat +1.54R; META eod_flat +0.79R",
       "personality": "rabbit"
     }
   ],

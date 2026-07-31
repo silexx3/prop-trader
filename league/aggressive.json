@@ -24,7 +24,47 @@
     "max_drawdown_pct": 5.92
   },
   "open_trades": [],
-  "pending_orders": [],
+  "pending_orders": [
+    {
+      "id": "c64e0b52",
+      "ticker": "SPY",
+      "setup": "base_breakout",
+      "entry": 756.34,
+      "stop": 727.64,
+      "target": 813.74,
+      "shares": 3,
+      "risk_usd": 86.1,
+      "placed": "2026-07-31",
+      "note": "4-week base 729.10\u2013755.58 (3.6% range) near highs; entry on break of 755.58; fill requires volume \u2265 71,781,690 (1.5\u00d7 avg) \u2014 a quiet break is not the setup.",
+      "min_volume": 71781690.0
+    },
+    {
+      "id": "7d6028f2",
+      "ticker": "EWJ",
+      "setup": "base_breakout",
+      "entry": 95.46,
+      "stop": 88.91,
+      "target": 108.56,
+      "shares": 14,
+      "risk_usd": 91.7,
+      "placed": "2026-07-31",
+      "note": "4-week base 89.09\u201395.36 (7.0% range) near highs; entry on break of 95.36; fill requires volume \u2265 7,123,983 (1.5\u00d7 avg) \u2014 a quiet break is not the setup.",
+      "min_volume": 7123983.0
+    },
+    {
+      "id": "a8c761c6",
+      "ticker": "EWA",
+      "setup": "base_breakout",
+      "entry": 29.85,
+      "stop": 28.34,
+      "target": 32.87,
+      "shares": 62,
+      "risk_usd": 93.62,
+      "placed": "2026-07-31",
+      "note": "4-week base 27.79\u201329.82 (7.3% range) near highs; entry on break of 29.82; fill requires volume \u2265 2,710,967 (1.5\u00d7 avg) \u2014 a quiet break is not the setup.",
+      "min_volume": 2710967.0
+    }
+  ],
   "closed_trades": [
     {
       "id": "f68af048",
@@ -310,6 +350,20 @@
       "brutality_note": "Tape moved 5.3% on average; we were flat. Sitting out is a position.",
       "lessons": [
         "Skipped 2 candidate(s) and logged them: skips are data too."
+      ],
+      "variant": "charter-baseline"
+    },
+    {
+      "date": "2026-07-31",
+      "regime": "SPY 747.03, uptrend (above rising 20/50); QQQ 687.99, downtrend (below 20/50)",
+      "actions": "SPY base_breakout order placed: entry 756.34, stop 727.64, target 813.74, 3 shares; EWJ base_breakout order placed: entry 95.46, stop 88.91, target 108.56, 14 shares; EWA base_breakout order placed: entry 29.85, stop 28.34, target 32.87, 62 shares; QQQ base_breakout candidate skipped.",
+      "trades": [],
+      "realized_R": 0,
+      "brutality": 2,
+      "brutality_note": "Tape moved 2.1% on average; we were flat. Sitting out is a position.",
+      "lessons": [
+        "Orders placed, none filled yet \u2014 patience between signal and fill is part of the edge.",
+        "Skipped 1 candidate(s) and logged them: skips are data too."
       ],
       "variant": "charter-baseline"
     }
@@ -650,6 +704,14 @@
       "entry": 95.46,
       "stop": 88.91,
       "reason": "regime off \u2014 SPY 741.69 below its 50-day SMA 743.92; longs stand down"
+    },
+    {
+      "date": "2026-07-31",
+      "ticker": "QQQ",
+      "setup": "base_breakout",
+      "entry": 727.12,
+      "stop": 659.82,
+      "reason": "correlation guard \u2014 QQQ moves with SPY (0.92 over 90d): one bet, two tickets"
     }
   ]
 }
