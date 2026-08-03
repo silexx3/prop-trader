@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 4989.1,
+    "balance": 5037.31,
     "open_risk_R": 0
   },
   "rules": {
@@ -35,12 +35,12 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 34,
-    "wins": 13,
+    "trades_closed": 36,
+    "wins": 15,
     "losses": 21,
-    "win_rate_pct": 38.2,
-    "expectancy_R": 0.004,
-    "total_R": 0.149,
+    "win_rate_pct": 41.7,
+    "expectancy_R": 0.042,
+    "total_R": 1.516,
     "max_drawdown_pct": 4.35
   },
   "open_trades": [],
@@ -691,6 +691,44 @@
       "r_multiple": 0.787,
       "pnl_usd": 27.08,
       "balance_after": 4989.1
+    },
+    {
+      "id": "2026-08-03-NVDA-2",
+      "ticker": "NVDA",
+      "setup": "orb_long",
+      "entry": 202.45,
+      "stop": 197.89,
+      "target": 211.57,
+      "shares": 8,
+      "risk_usd": 36.48000000000002,
+      "opened": "2026-08-03",
+      "entry_bar": 6,
+      "note": "30-min opening range 198.09\u2013202.35; long on the break of 202.35 with volume \u2265 1.0\u00d7 the opening average.",
+      "exit": 206.69,
+      "closed": "2026-08-03",
+      "reason": "eod_flat",
+      "r_multiple": 0.88,
+      "pnl_usd": 32.1,
+      "balance_after": 5021.2
+    },
+    {
+      "id": "2026-08-03-META-4",
+      "ticker": "META",
+      "setup": "vwap_pullback",
+      "entry": 587.57,
+      "stop": 582.06,
+      "target": 598.59,
+      "shares": 6,
+      "risk_usd": 33.06000000000063,
+      "opened": "2026-08-03",
+      "entry_bar": 14,
+      "note": "Held above VWAP then first pullback into it (bar 12); long on reclaim of 587.56, stop under the dip 582.64.",
+      "exit": 590.53,
+      "closed": "2026-08-03",
+      "reason": "eod_flat",
+      "r_multiple": 0.487,
+      "pnl_usd": 16.11,
+      "balance_after": 5037.31
     }
   ],
   "sessions": [
@@ -859,6 +897,16 @@
       ],
       "realized_R": 3.23,
       "actions": "AMZN stop -1.05R; TSLA target +1.95R; GOOGL eod_flat +1.54R; META eod_flat +0.79R",
+      "personality": "rabbit"
+    },
+    {
+      "date": "2026-08-03",
+      "trades": [
+        "2026-08-03-NVDA-2",
+        "2026-08-03-META-4"
+      ],
+      "realized_R": 1.367,
+      "actions": "NVDA eod_flat +0.88R; META eod_flat +0.49R",
       "personality": "rabbit"
     }
   ],

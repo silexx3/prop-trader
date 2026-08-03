@@ -26,30 +26,29 @@
   "open_trades": [],
   "pending_orders": [
     {
-      "id": "37ce3571",
+      "id": "af5ea45e",
       "ticker": "SPY",
       "setup": "base_breakout",
-      "entry": 756.34,
+      "entry": 759.34,
       "stop": 727.64,
-      "target": 813.74,
+      "target": 822.74,
       "shares": 1,
-      "risk_usd": 28.7,
-      "placed": "2026-07-31",
-      "note": "4-week base 729.10\u2013755.58 (3.6% range) near highs; entry on break of 755.58; fill requires volume \u2265 71,781,690 (1.5\u00d7 avg) \u2014 a quiet break is not the setup.",
-      "min_volume": 71781690.0
+      "risk_usd": 31.7,
+      "placed": "2026-08-03",
+      "note": "4-week base 729.10\u2013758.58 (4.0% range) near highs; entry on break of 758.58; fill requires volume \u2265 72,116,958 (1.5\u00d7 avg) \u2014 a quiet break is not the setup.",
+      "min_volume": 72116958.0
     },
     {
-      "id": "d6b89574",
-      "ticker": "EWJ",
-      "setup": "base_breakout",
-      "entry": 95.46,
-      "stop": 88.91,
-      "target": 108.56,
-      "shares": 7,
-      "risk_usd": 45.85,
-      "placed": "2026-07-31",
-      "note": "4-week base 89.09\u201395.36 (7.0% range) near highs; entry on break of 95.36; fill requires volume \u2265 7,123,983 (1.5\u00d7 avg) \u2014 a quiet break is not the setup.",
-      "min_volume": 7123983.0
+      "id": "de89bb0d",
+      "ticker": "AAPL",
+      "setup": "ma_pullback",
+      "entry": 311.8,
+      "stop": 299.4,
+      "target": 336.6,
+      "shares": 3,
+      "risk_usd": 37.2,
+      "placed": "2026-08-03",
+      "note": "Uptrend pullback into 20/50 zone (SMA20 323.91 / SMA50 309.52); entry on reclaim of today's high 311.80, stop below pullback low 300.00."
     }
   ],
   "closed_trades": [
@@ -332,6 +331,20 @@
       "lessons": [
         "Orders placed, none filled yet \u2014 patience between signal and fill is part of the edge.",
         "Skipped 2 candidate(s) and logged them: skips are data too."
+      ],
+      "variant": "charter-baseline"
+    },
+    {
+      "date": "2026-08-03",
+      "regime": "SPY 757.67, uptrend (above rising 20/50); QQQ 700.07, bounce attempt (above 20, below 50)",
+      "actions": "SPY base_breakout order placed: entry 759.34, stop 727.64, target 822.74, 1 shares; AAPL ma_pullback order placed: entry 311.8, stop 299.4, target 336.6, 3 shares; QQQ base_breakout candidate skipped; EWJ base_breakout candidate skipped; INDA base_breakout candidate skipped; EWA base_breakout candidate skipped.",
+      "trades": [],
+      "realized_R": 0,
+      "brutality": 2,
+      "brutality_note": "Tape moved 1.6% on average; we were flat. Sitting out is a position.",
+      "lessons": [
+        "Orders placed, none filled yet \u2014 patience between signal and fill is part of the edge.",
+        "Skipped 4 candidate(s) and logged them: skips are data too."
       ],
       "variant": "charter-baseline"
     }
@@ -675,6 +688,38 @@
     },
     {
       "date": "2026-07-31",
+      "ticker": "EWA",
+      "setup": "base_breakout",
+      "entry": 29.85,
+      "stop": 28.34,
+      "reason": "blocked by rules: Max 2 positions: 0 open + 2 pending already."
+    },
+    {
+      "date": "2026-08-03",
+      "ticker": "QQQ",
+      "setup": "base_breakout",
+      "entry": 727.12,
+      "stop": 659.82,
+      "reason": "blocked by rules: Stop is too wide: risking $49.02 at $67.30/share buys 0 shares."
+    },
+    {
+      "date": "2026-08-03",
+      "ticker": "EWJ",
+      "setup": "base_breakout",
+      "entry": 94.87,
+      "stop": 88.91,
+      "reason": "blocked by rules: Max 2 positions: 0 open + 2 pending already."
+    },
+    {
+      "date": "2026-08-03",
+      "ticker": "INDA",
+      "setup": "base_breakout",
+      "entry": 50.31,
+      "stop": 47.46,
+      "reason": "blocked by rules: Max 2 positions: 0 open + 2 pending already."
+    },
+    {
+      "date": "2026-08-03",
       "ticker": "EWA",
       "setup": "base_breakout",
       "entry": 29.85,
