@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 3531.92,
+    "balance": 3658.51,
     "open_risk_R": 0
   },
   "rules": {
@@ -35,12 +35,12 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 67,
-    "wins": 21,
-    "losses": 46,
-    "win_rate_pct": 31.3,
-    "expectancy_R": -0.239,
-    "total_R": -16.025,
+    "trades_closed": 70,
+    "wins": 23,
+    "losses": 47,
+    "win_rate_pct": 32.9,
+    "expectancy_R": -0.203,
+    "total_R": -14.175,
     "max_drawdown_pct": 39.35
   },
   "open_trades": [],
@@ -1318,6 +1318,63 @@
       "r_multiple": -0.182,
       "pnl_usd": -12.35,
       "balance_after": 3531.92
+    },
+    {
+      "id": "2026-08-04-TSLA-6",
+      "ticker": "TSLA",
+      "setup": "vwap_pullback",
+      "entry": 323.91,
+      "stop": 322.45,
+      "target": 326.83,
+      "shares": 48,
+      "risk_usd": 70.08000000000175,
+      "opened": "2026-08-04",
+      "entry_bar": 11,
+      "note": "Held above VWAP then first pullback into it (bar 10); long on reclaim of 323.90, stop under the dip 322.77.",
+      "exit": 326.83,
+      "closed": "2026-08-04",
+      "reason": "target",
+      "r_multiple": 1.95,
+      "pnl_usd": 136.66,
+      "balance_after": 3668.58
+    },
+    {
+      "id": "2026-08-04-AMZN-7",
+      "ticker": "AMZN",
+      "setup": "vwap_pullback",
+      "entry": 278.67,
+      "stop": 277.73,
+      "target": 280.55,
+      "shares": 75,
+      "risk_usd": 70.49999999999983,
+      "opened": "2026-08-04",
+      "entry_bar": 42,
+      "note": "Held above VWAP then first pullback into it (bar 41); long on reclaim of 278.66, stop under the dip 278.01.",
+      "exit": 277.73,
+      "closed": "2026-08-04",
+      "reason": "stop",
+      "r_multiple": -1.05,
+      "pnl_usd": -74.02,
+      "balance_after": 3594.56
+    },
+    {
+      "id": "2026-08-04-QQQ-1",
+      "ticker": "QQQ",
+      "setup": "orb_long",
+      "entry": 715.280029296875,
+      "stop": 706.88,
+      "target": 731.27,
+      "shares": 8,
+      "risk_usd": 65.03999999999996,
+      "opened": "2026-08-04",
+      "entry_bar": 14,
+      "note": "30-min opening range 707.59\u2013714.65; long on the break of 714.65 with volume \u2265 1.2\u00d7 the opening average.",
+      "exit": 723.68,
+      "closed": "2026-08-04",
+      "reason": "eod_flat",
+      "r_multiple": 0.95,
+      "pnl_usd": 63.95,
+      "balance_after": 3658.51
     }
   ],
   "sessions": [
@@ -1531,6 +1588,17 @@
       "realized_R": -0.452,
       "actions": "AMZN stop -1.05R; META eod_flat +0.49R; SPY eod_flat +0.29R; MSFT eod_flat -0.18R",
       "personality": "shark"
+    },
+    {
+      "date": "2026-08-04",
+      "trades": [
+        "2026-08-04-TSLA-6",
+        "2026-08-04-AMZN-7",
+        "2026-08-04-QQQ-1"
+      ],
+      "realized_R": 1.85,
+      "actions": "TSLA target +1.95R; AMZN stop -1.05R; QQQ eod_flat +0.95R",
+      "personality": "shark"
     }
   ],
   "skipped_candidates": [
@@ -1653,6 +1721,30 @@
       "entry": 337.29,
       "stop": 333.69,
       "reason": "gapped past trigger (339.35 vs 337.29, >0.35R) \u2014 chasing is not the setup"
+    },
+    {
+      "date": "2026-08-04",
+      "ticker": "SPY",
+      "setup": "orb_long",
+      "entry": 763.86,
+      "stop": 759.76,
+      "reason": "gapped past trigger (767.78 vs 763.86, >0.35R) \u2014 chasing is not the setup"
+    },
+    {
+      "date": "2026-08-04",
+      "ticker": "META",
+      "setup": "orb_long",
+      "entry": 586.66,
+      "stop": 579.37,
+      "reason": "gapped past trigger (592.44 vs 586.66, >0.35R) \u2014 chasing is not the setup"
+    },
+    {
+      "date": "2026-08-04",
+      "ticker": "MSFT",
+      "setup": "orb_long",
+      "entry": 491.42,
+      "stop": 483.48,
+      "reason": "gapped past trigger (494.49 vs 491.42, >0.35R) \u2014 chasing is not the setup"
     }
   ]
 }

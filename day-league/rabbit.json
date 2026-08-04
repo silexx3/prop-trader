@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 5037.31,
+    "balance": 5073.84,
     "open_risk_R": 0
   },
   "rules": {
@@ -35,12 +35,12 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 36,
-    "wins": 15,
+    "trades_closed": 38,
+    "wins": 17,
     "losses": 21,
-    "win_rate_pct": 41.7,
-    "expectancy_R": 0.042,
-    "total_R": 1.516,
+    "win_rate_pct": 44.7,
+    "expectancy_R": 0.068,
+    "total_R": 2.592,
     "max_drawdown_pct": 4.35
   },
   "open_trades": [],
@@ -729,6 +729,44 @@
       "r_multiple": 0.487,
       "pnl_usd": 16.11,
       "balance_after": 5037.31
+    },
+    {
+      "id": "2026-08-04-QQQ-1",
+      "ticker": "QQQ",
+      "setup": "orb_long",
+      "entry": 715.280029296875,
+      "stop": 706.88,
+      "target": 731.27,
+      "shares": 4,
+      "risk_usd": 32.51999999999998,
+      "opened": "2026-08-04",
+      "entry_bar": 14,
+      "note": "30-min opening range 707.59\u2013714.65; long on the break of 714.65 with volume \u2265 1.0\u00d7 the opening average.",
+      "exit": 723.68,
+      "closed": "2026-08-04",
+      "reason": "eod_flat",
+      "r_multiple": 0.95,
+      "pnl_usd": 31.97,
+      "balance_after": 5069.28
+    },
+    {
+      "id": "2026-08-04-GOOGL-9",
+      "ticker": "GOOGL",
+      "setup": "orb_long",
+      "entry": 376.20001220703125,
+      "stop": 367.17,
+      "target": 394.23,
+      "shares": 4,
+      "risk_usd": 36.07999999999993,
+      "opened": "2026-08-04",
+      "entry_bar": 18,
+      "note": "30-min opening range 367.54\u2013376.00; long on the break of 376.00 with volume \u2265 1.0\u00d7 the opening average.",
+      "exit": 377.79,
+      "closed": "2026-08-04",
+      "reason": "eod_flat",
+      "r_multiple": 0.126,
+      "pnl_usd": 4.56,
+      "balance_after": 5073.84
     }
   ],
   "sessions": [
@@ -907,6 +945,16 @@
       ],
       "realized_R": 1.367,
       "actions": "NVDA eod_flat +0.88R; META eod_flat +0.49R",
+      "personality": "rabbit"
+    },
+    {
+      "date": "2026-08-04",
+      "trades": [
+        "2026-08-04-QQQ-1",
+        "2026-08-04-GOOGL-9"
+      ],
+      "realized_R": 1.076,
+      "actions": "QQQ eod_flat +0.95R; GOOGL eod_flat +0.13R",
       "personality": "rabbit"
     }
   ],
