@@ -775,6 +775,13 @@
       "realized_R": 2.9,
       "actions": "TSLA target +1.95R; QQQ eod_flat +0.95R",
       "personality": "owl"
+    },
+    {
+      "date": "2026-08-05",
+      "trades": [],
+      "realized_R": 0,
+      "actions": "No trades \u2014 this personality found nothing worth doing.",
+      "personality": "owl"
     }
   ],
   "skipped_candidates": [

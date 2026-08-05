@@ -956,6 +956,13 @@
       "realized_R": 1.076,
       "actions": "QQQ eod_flat +0.95R; GOOGL eod_flat +0.13R",
       "personality": "rabbit"
+    },
+    {
+      "date": "2026-08-05",
+      "trades": [],
+      "realized_R": 0,
+      "actions": "No trades \u2014 this personality found nothing worth doing.",
+      "personality": "rabbit"
     }
   ],
   "skipped_candidates": [
@@ -1094,6 +1101,14 @@
       "entry": 739.03,
       "stop": 733.9,
       "reason": "gapped past trigger (741.80 vs 739.03, >0.25R) \u2014 chasing is not the setup"
+    },
+    {
+      "date": "2026-08-05",
+      "ticker": "AAPL",
+      "setup": "orb_long",
+      "entry": 309.53,
+      "stop": 305.36,
+      "reason": "gapped past trigger (310.93 vs 309.53, >0.25R) \u2014 chasing is not the setup"
     }
   ]
 }
