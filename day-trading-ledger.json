@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 4245.16,
+    "balance": 4158.29,
     "open_risk_R": 0
   },
   "rules": {
@@ -34,13 +34,13 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 68,
-    "wins": 20,
-    "losses": 48,
-    "win_rate_pct": 29.4,
-    "expectancy_R": -0.231,
-    "total_R": -15.68,
-    "max_drawdown_pct": 19.01
+    "trades_closed": 72,
+    "wins": 21,
+    "losses": 51,
+    "win_rate_pct": 29.2,
+    "expectancy_R": -0.247,
+    "total_R": -17.805,
+    "max_drawdown_pct": 19.15
   },
   "open_trades": [],
   "pending_orders": [],
@@ -1336,6 +1336,82 @@
       "r_multiple": 1.95,
       "pnl_usd": 79.58,
       "balance_after": 4245.16
+    },
+    {
+      "id": "2026-08-07-META-6",
+      "ticker": "META",
+      "setup": "vwap_pullback",
+      "entry": 594.63,
+      "stop": 593.2,
+      "target": 597.49,
+      "shares": 29,
+      "risk_usd": 41.46999999999855,
+      "opened": "2026-08-07",
+      "entry_bar": 31,
+      "note": "Held above VWAP then first pullback into it (bar 30); long on reclaim of 594.62, stop under the dip 593.79.",
+      "exit": 593.2,
+      "closed": "2026-08-07",
+      "reason": "stop",
+      "r_multiple": -1.05,
+      "pnl_usd": -43.54,
+      "balance_after": 4201.62
+    },
+    {
+      "id": "2026-08-07-TSLA-8",
+      "ticker": "TSLA",
+      "setup": "vwap_pullback",
+      "entry": 329.43,
+      "stop": 327.87,
+      "target": 332.55,
+      "shares": 26,
+      "risk_usd": 40.56000000000006,
+      "opened": "2026-08-07",
+      "entry_bar": 37,
+      "note": "Held above VWAP then first pullback into it (bar 36); long on reclaim of 329.42, stop under the dip 328.20.",
+      "exit": 327.87,
+      "closed": "2026-08-07",
+      "reason": "stop",
+      "r_multiple": -1.05,
+      "pnl_usd": -42.59,
+      "balance_after": 4159.03
+    },
+    {
+      "id": "2026-08-07-SPY-0",
+      "ticker": "SPY",
+      "setup": "orb_long",
+      "entry": 772.8499755859375,
+      "stop": 769.69,
+      "target": 778.9,
+      "shares": 13,
+      "risk_usd": 39.90999999999917,
+      "opened": "2026-08-07",
+      "entry_bar": 76,
+      "note": "30-min opening range 770.46\u2013772.37; long on the break of 772.37 with volume \u2265 1.2\u00d7 the opening average.",
+      "exit": 773.12,
+      "closed": "2026-08-07",
+      "reason": "eod_flat",
+      "r_multiple": 0.035,
+      "pnl_usd": 1.51,
+      "balance_after": 4160.54
+    },
+    {
+      "id": "2026-08-07-QQQ-1",
+      "ticker": "QQQ",
+      "setup": "orb_long",
+      "entry": 723.07,
+      "stop": 717.74,
+      "target": 733.73,
+      "shares": 7,
+      "risk_usd": 37.31000000000029,
+      "opened": "2026-08-07",
+      "entry_bar": 77,
+      "note": "30-min opening range 718.46\u2013722.71; long on the break of 722.71 with volume \u2265 1.2\u00d7 the opening average.",
+      "exit": 723.015,
+      "closed": "2026-08-07",
+      "reason": "eod_flat",
+      "r_multiple": -0.06,
+      "pnl_usd": -2.25,
+      "balance_after": 4158.29
     }
   ],
   "sessions": [
@@ -1625,6 +1701,20 @@
       "actions": "TSLA vwap_pullback \u2192 stop -1.05R; MSFT vwap_pullback \u2192 stop -1.05R; AMD vwap_pullback \u2192 target +1.95R",
       "lessons": [
         "Replayed 10 tickers on 5-minute bars; 3 trade(s), -0.15R after costs."
+      ]
+    },
+    {
+      "date": "2026-08-07",
+      "trades": [
+        "2026-08-07-META-6",
+        "2026-08-07-TSLA-8",
+        "2026-08-07-SPY-0",
+        "2026-08-07-QQQ-1"
+      ],
+      "realized_R": -2.125,
+      "actions": "META vwap_pullback \u2192 stop -1.05R; TSLA vwap_pullback \u2192 stop -1.05R; SPY orb_long \u2192 eod_flat +0.04R; QQQ orb_long \u2192 eod_flat -0.06R",
+      "lessons": [
+        "Replayed 10 tickers on 5-minute bars; 4 trade(s), -2.12R after costs."
       ]
     }
   ],
