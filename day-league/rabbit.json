@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 5073.84,
+    "balance": 5144.5,
     "open_risk_R": 0
   },
   "rules": {
@@ -35,12 +35,12 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 38,
-    "wins": 17,
-    "losses": 21,
-    "win_rate_pct": 44.7,
-    "expectancy_R": 0.068,
-    "total_R": 2.592,
+    "trades_closed": 40,
+    "wins": 18,
+    "losses": 22,
+    "win_rate_pct": 45.0,
+    "expectancy_R": 0.112,
+    "total_R": 4.496,
     "max_drawdown_pct": 4.35
   },
   "open_trades": [],
@@ -767,6 +767,44 @@
       "r_multiple": 0.126,
       "pnl_usd": 4.56,
       "balance_after": 5073.84
+    },
+    {
+      "id": "2026-08-06-AMD-9",
+      "ticker": "AMD",
+      "setup": "vwap_pullback",
+      "entry": 488.77,
+      "stop": 485.06,
+      "target": 496.19,
+      "shares": 10,
+      "risk_usd": 37.099999999999795,
+      "opened": "2026-08-06",
+      "entry_bar": 36,
+      "note": "Held above VWAP then first pullback into it (bar 34); long on reclaim of 488.76, stop under the dip 485.55.",
+      "exit": 496.19,
+      "closed": "2026-08-06",
+      "reason": "target",
+      "r_multiple": 1.95,
+      "pnl_usd": 72.35,
+      "balance_after": 5146.19
+    },
+    {
+      "id": "2026-08-06-MSFT-4",
+      "ticker": "MSFT",
+      "setup": "orb_long",
+      "entry": 499.80999755859375,
+      "stop": 488.04,
+      "target": 516.45,
+      "shares": 4,
+      "risk_usd": 37.87999999999988,
+      "opened": "2026-08-06",
+      "entry_bar": 77,
+      "note": "30-min opening range 488.52\u2013497.27; long on the break of 497.27 with volume \u2265 1.0\u00d7 the opening average.",
+      "exit": 499.86,
+      "closed": "2026-08-06",
+      "reason": "eod_flat",
+      "r_multiple": -0.046,
+      "pnl_usd": -1.69,
+      "balance_after": 5144.5
     }
   ],
   "sessions": [
@@ -962,6 +1000,16 @@
       "trades": [],
       "realized_R": 0,
       "actions": "No trades \u2014 this personality found nothing worth doing.",
+      "personality": "rabbit"
+    },
+    {
+      "date": "2026-08-06",
+      "trades": [
+        "2026-08-06-AMD-9",
+        "2026-08-06-MSFT-4"
+      ],
+      "realized_R": 1.904,
+      "actions": "AMD target +1.95R; MSFT eod_flat -0.05R",
       "personality": "rabbit"
     }
   ],

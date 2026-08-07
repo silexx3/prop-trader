@@ -335,6 +335,19 @@
         "Skipped 4 candidate(s) and logged them: skips are data too."
       ],
       "variant": "charter-baseline"
+    },
+    {
+      "date": "2026-08-06",
+      "regime": "SPY 768.56, uptrend (above rising 20/50); QQQ 714.65, choppy uptrend (above 50, testing 20)",
+      "actions": "SPY base_breakout candidate skipped; EWJ base_breakout candidate skipped; INDA base_breakout candidate skipped; EWA base_breakout candidate skipped.",
+      "trades": [],
+      "realized_R": 0,
+      "brutality": 1,
+      "brutality_note": "Tape moved 0.8% on average; we were flat. Sitting out is a position.",
+      "lessons": [
+        "Skipped 4 candidate(s) and logged them: skips are data too."
+      ],
+      "variant": "charter-baseline"
     }
   ],
   "skipped_candidates": [
@@ -936,6 +949,38 @@
       "setup": "base_breakout",
       "entry": 30.27,
       "stop": 28.34,
+      "reason": "blocked by rules: Max 1 positions: 1 open + 0 pending already."
+    },
+    {
+      "date": "2026-08-06",
+      "ticker": "SPY",
+      "setup": "base_breakout",
+      "entry": 777.63,
+      "stop": 727.64,
+      "reason": "blocked by rules: Max 1 positions: 1 open + 0 pending already."
+    },
+    {
+      "date": "2026-08-06",
+      "ticker": "EWJ",
+      "setup": "base_breakout",
+      "entry": 96.42,
+      "stop": 88.91,
+      "reason": "blocked by rules: Max 1 positions: 1 open + 0 pending already."
+    },
+    {
+      "date": "2026-08-06",
+      "ticker": "INDA",
+      "setup": "base_breakout",
+      "entry": 50.67,
+      "stop": 47.9,
+      "reason": "blocked by rules: Max 1 positions: 1 open + 0 pending already."
+    },
+    {
+      "date": "2026-08-06",
+      "ticker": "EWA",
+      "setup": "base_breakout",
+      "entry": 30.35,
+      "stop": 28.55,
       "reason": "blocked by rules: Max 1 positions: 1 open + 0 pending already."
     }
   ]

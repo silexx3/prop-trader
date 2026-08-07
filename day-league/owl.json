@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 4762.65,
+    "balance": 4802.53,
     "open_risk_R": 0
   },
   "rules": {
@@ -35,12 +35,12 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 29,
-    "wins": 11,
-    "losses": 18,
-    "win_rate_pct": 37.9,
-    "expectancy_R": -0.168,
-    "total_R": -4.883,
+    "trades_closed": 31,
+    "wins": 12,
+    "losses": 19,
+    "win_rate_pct": 38.7,
+    "expectancy_R": -0.132,
+    "total_R": -4.095,
     "max_drawdown_pct": 10.19
   },
   "open_trades": [],
@@ -596,6 +596,44 @@
       "r_multiple": 0.95,
       "pnl_usd": 39.97,
       "balance_after": 4762.65
+    },
+    {
+      "id": "2026-08-06-TSLA-5",
+      "ticker": "TSLA",
+      "setup": "vwap_pullback",
+      "entry": 320.4,
+      "stop": 318.74,
+      "target": 323.72,
+      "shares": 28,
+      "risk_usd": 46.47999999999911,
+      "opened": "2026-08-06",
+      "entry_bar": 17,
+      "note": "Held above VWAP then first pullback into it (bar 15); long on reclaim of 320.39, stop under the dip 319.06.",
+      "exit": 318.74,
+      "closed": "2026-08-06",
+      "reason": "stop",
+      "r_multiple": -1.05,
+      "pnl_usd": -48.8,
+      "balance_after": 4713.85
+    },
+    {
+      "id": "2026-08-06-MSFT-7",
+      "ticker": "MSFT",
+      "setup": "vwap_pullback",
+      "entry": 496.6700134277344,
+      "stop": 494.26,
+      "target": 501.22,
+      "shares": 20,
+      "risk_usd": 46.399999999999864,
+      "opened": "2026-08-06",
+      "entry_bar": 58,
+      "note": "Held above VWAP then first pullback into it (bar 21); long on reclaim of 496.57, stop under the dip 494.75.",
+      "exit": 501.22,
+      "closed": "2026-08-06",
+      "reason": "target",
+      "r_multiple": 1.838,
+      "pnl_usd": 88.68,
+      "balance_after": 4802.53
     }
   ],
   "sessions": [
@@ -781,6 +819,16 @@
       "trades": [],
       "realized_R": 0,
       "actions": "No trades \u2014 this personality found nothing worth doing.",
+      "personality": "owl"
+    },
+    {
+      "date": "2026-08-06",
+      "trades": [
+        "2026-08-06-TSLA-5",
+        "2026-08-06-MSFT-7"
+      ],
+      "realized_R": 0.788,
+      "actions": "TSLA stop -1.05R; MSFT target +1.84R",
       "personality": "owl"
     }
   ],
