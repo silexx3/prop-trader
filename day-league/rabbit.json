@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 5132.42,
+    "balance": 5084.95,
     "open_risk_R": 0
   },
   "rules": {
@@ -35,12 +35,12 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 42,
+    "trades_closed": 44,
     "wins": 18,
-    "losses": 24,
-    "win_rate_pct": 42.9,
-    "expectancy_R": 0.099,
-    "total_R": 4.146,
+    "losses": 26,
+    "win_rate_pct": 40.9,
+    "expectancy_R": 0.065,
+    "total_R": 2.859,
     "max_drawdown_pct": 4.35
   },
   "open_trades": [],
@@ -843,6 +843,44 @@
       "r_multiple": -0.239,
       "pnl_usd": -8.47,
       "balance_after": 5132.42
+    },
+    {
+      "id": "2026-08-10-QQQ-1",
+      "ticker": "QQQ",
+      "setup": "orb_long",
+      "entry": 723.61,
+      "stop": 719.62,
+      "target": 731.59,
+      "shares": 9,
+      "risk_usd": 35.91000000000008,
+      "opened": "2026-08-10",
+      "entry_bar": 7,
+      "note": "30-min opening range 720.34\u2013723.25; long on the break of 723.25 with volume \u2265 1.0\u00d7 the opening average.",
+      "exit": 720.805,
+      "closed": "2026-08-10",
+      "reason": "eod_flat",
+      "r_multiple": -0.753,
+      "pnl_usd": -27.04,
+      "balance_after": 5105.38
+    },
+    {
+      "id": "2026-08-10-MSFT-4",
+      "ticker": "MSFT",
+      "setup": "orb_long",
+      "entry": 509.70001220703125,
+      "stop": 502.0,
+      "target": 523.39,
+      "shares": 5,
+      "risk_usd": 35.64999999999998,
+      "opened": "2026-08-10",
+      "entry_bar": 9,
+      "note": "30-min opening range 502.50\u2013508.88; long on the break of 508.88 with volume \u2265 1.0\u00d7 the opening average.",
+      "exit": 505.97,
+      "closed": "2026-08-10",
+      "reason": "eod_flat",
+      "r_multiple": -0.534,
+      "pnl_usd": -20.43,
+      "balance_after": 5084.95
     }
   ],
   "sessions": [
@@ -1058,6 +1096,16 @@
       ],
       "realized_R": -0.35,
       "actions": "TSLA eod_flat -0.11R; AAPL eod_flat -0.24R",
+      "personality": "rabbit"
+    },
+    {
+      "date": "2026-08-10",
+      "trades": [
+        "2026-08-10-QQQ-1",
+        "2026-08-10-MSFT-4"
+      ],
+      "realized_R": -1.287,
+      "actions": "QQQ eod_flat -0.75R; MSFT eod_flat -0.53R",
       "personality": "rabbit"
     }
   ],
