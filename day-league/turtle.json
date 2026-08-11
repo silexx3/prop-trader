@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 4795.84,
+    "balance": 4770.82,
     "open_risk_R": 0
   },
   "rules": {
@@ -35,13 +35,13 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 23,
+    "trades_closed": 24,
     "wins": 6,
-    "losses": 17,
-    "win_rate_pct": 26.1,
-    "expectancy_R": -0.384,
-    "total_R": -8.842,
-    "max_drawdown_pct": 4.97
+    "losses": 18,
+    "win_rate_pct": 25.0,
+    "expectancy_R": -0.412,
+    "total_R": -9.899,
+    "max_drawdown_pct": 5.46
   },
   "open_trades": [],
   "pending_orders": [],
@@ -482,6 +482,25 @@
       "r_multiple": -1.05,
       "pnl_usd": -23.35,
       "balance_after": 4795.84
+    },
+    {
+      "id": "2026-08-11-GOOGL-6",
+      "ticker": "GOOGL",
+      "setup": "vwap_pullback",
+      "entry": 352.43,
+      "stop": 351.69,
+      "target": 353.91,
+      "shares": 32,
+      "risk_usd": 23.68000000000029,
+      "opened": "2026-08-11",
+      "entry_bar": 20,
+      "note": "Held above VWAP then first pullback into it (bar 19); long on reclaim of 352.42, stop under the dip 352.04.",
+      "exit": 351.685,
+      "closed": "2026-08-11",
+      "reason": "stop",
+      "r_multiple": -1.057,
+      "pnl_usd": -25.02,
+      "balance_after": 4770.82
     }
   ],
   "sessions": [
@@ -690,6 +709,15 @@
       ],
       "realized_R": -1.05,
       "actions": "AMD stop -1.05R",
+      "personality": "turtle"
+    },
+    {
+      "date": "2026-08-11",
+      "trades": [
+        "2026-08-11-GOOGL-6"
+      ],
+      "realized_R": -1.057,
+      "actions": "GOOGL stop -1.06R",
       "personality": "turtle"
     }
   ],
