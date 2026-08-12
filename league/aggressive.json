@@ -40,30 +40,30 @@
   ],
   "pending_orders": [
     {
-      "id": "8e02fc4f",
+      "id": "c7b2c1dc",
       "ticker": "SPY",
       "setup": "base_breakout",
       "entry": 777.63,
-      "stop": 727.64,
-      "target": 877.61,
-      "shares": 1,
-      "risk_usd": 49.99,
-      "placed": "2026-08-11",
-      "note": "4-week base 729.10\u2013776.85 (6.5% range) near highs; entry on break of 776.85; fill requires volume \u2265 74,301,444 (1.5\u00d7 avg) \u2014 a quiet break is not the setup.",
-      "min_volume": 74301444.0
+      "stop": 733.12,
+      "target": 866.65,
+      "shares": 2,
+      "risk_usd": 89.02,
+      "placed": "2026-08-12",
+      "note": "4-week base 729.10\u2013776.85 (6.5% range) near highs; entry on break of 776.85; fill requires volume \u2265 73,510,262 (1.5\u00d7 avg) \u2014 a quiet break is not the setup.",
+      "min_volume": 73510262.0
     },
     {
-      "id": "9d26952a",
-      "ticker": "EWJ",
+      "id": "74a5742e",
+      "ticker": "INDA",
       "setup": "base_breakout",
-      "entry": 97.06,
-      "stop": 88.91,
-      "target": 113.36,
-      "shares": 11,
-      "risk_usd": 89.65,
-      "placed": "2026-08-11",
-      "note": "4-week base 89.09\u201396.96 (8.8% range) near highs; entry on break of 96.96; fill requires volume \u2265 6,300,093 (1.5\u00d7 avg) \u2014 a quiet break is not the setup.",
-      "min_volume": 6300093.0
+      "entry": 50.67,
+      "stop": 48.99,
+      "target": 54.03,
+      "shares": 56,
+      "risk_usd": 94.08,
+      "placed": "2026-08-12",
+      "note": "4-week base 47.56\u201350.62 (6.4% range) near highs; entry on break of 50.62; fill requires volume \u2265 9,106,099 (1.5\u00d7 avg) \u2014 a quiet break is not the setup.",
+      "min_volume": 9106099.0
     }
   ],
   "closed_trades": [
@@ -463,6 +463,20 @@
       "lessons": [
         "Orders placed, none filled yet \u2014 patience between signal and fill is part of the edge.",
         "Skipped 2 candidate(s) and logged them: skips are data too."
+      ],
+      "variant": "charter-baseline"
+    },
+    {
+      "date": "2026-08-12",
+      "regime": "SPY 772.49, uptrend (above rising 20/50); QQQ 723.70, choppy uptrend (above 50, testing 20)",
+      "actions": "SPY base_breakout order placed: entry 777.63, stop 733.12, target 866.65, 2 shares; INDA base_breakout order placed: entry 50.67, stop 48.99, target 54.03, 56 shares; EWA base_breakout candidate skipped.",
+      "trades": [],
+      "realized_R": 0,
+      "brutality": 2,
+      "brutality_note": "Tape moved 1.6% on average; we were flat. Sitting out is a position.",
+      "lessons": [
+        "Orders placed, none filled yet \u2014 patience between signal and fill is part of the edge.",
+        "Skipped 1 candidate(s) and logged them: skips are data too."
       ],
       "variant": "charter-baseline"
     }
@@ -934,6 +948,14 @@
     },
     {
       "date": "2026-08-11",
+      "ticker": "EWA",
+      "setup": "base_breakout",
+      "entry": 30.48,
+      "stop": 28.96,
+      "reason": "blocked by rules: Max 3 positions: 1 open + 2 pending already."
+    },
+    {
+      "date": "2026-08-12",
       "ticker": "EWA",
       "setup": "base_breakout",
       "entry": 30.48,

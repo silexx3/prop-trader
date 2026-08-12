@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 5057.5,
+    "balance": 5048.56,
     "open_risk_R": 0
   },
   "rules": {
@@ -35,12 +35,12 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 46,
+    "trades_closed": 48,
     "wins": 18,
-    "losses": 28,
-    "win_rate_pct": 39.1,
-    "expectancy_R": 0.045,
-    "total_R": 2.05,
+    "losses": 30,
+    "win_rate_pct": 37.5,
+    "expectancy_R": 0.038,
+    "total_R": 1.809,
     "max_drawdown_pct": 4.35
   },
   "open_trades": [],
@@ -919,6 +919,44 @@
       "r_multiple": -0.466,
       "pnl_usd": -15.32,
       "balance_after": 5057.5
+    },
+    {
+      "id": "2026-08-12-TSLA-8",
+      "ticker": "TSLA",
+      "setup": "vwap_pullback",
+      "entry": 327.63,
+      "stop": 326.68,
+      "target": 329.53,
+      "shares": 39,
+      "risk_usd": 37.04999999999956,
+      "opened": "2026-08-12",
+      "entry_bar": 71,
+      "note": "Held above VWAP then first pullback into it (bar 70); long on reclaim of 327.62, stop under the dip 327.01.",
+      "exit": 327.45,
+      "closed": "2026-08-12",
+      "reason": "eod_flat",
+      "r_multiple": -0.239,
+      "pnl_usd": -8.87,
+      "balance_after": 5048.63
+    },
+    {
+      "id": "2026-08-12-NVDA-2",
+      "ticker": "NVDA",
+      "setup": "orb_long",
+      "entry": 223.94,
+      "stop": 219.98,
+      "target": 231.86,
+      "shares": 9,
+      "risk_usd": 35.64000000000007,
+      "opened": "2026-08-12",
+      "entry_bar": 77,
+      "note": "30-min opening range 220.20\u2013223.83; long on the break of 223.83 with volume \u2265 1.0\u00d7 the opening average.",
+      "exit": 224.13,
+      "closed": "2026-08-12",
+      "reason": "eod_flat",
+      "r_multiple": -0.002,
+      "pnl_usd": -0.07,
+      "balance_after": 5048.56
     }
   ],
   "sessions": [
@@ -1154,6 +1192,16 @@
       ],
       "realized_R": -0.809,
       "actions": "TSLA eod_flat -0.34R; META eod_flat -0.47R",
+      "personality": "rabbit"
+    },
+    {
+      "date": "2026-08-12",
+      "trades": [
+        "2026-08-12-TSLA-8",
+        "2026-08-12-NVDA-2"
+      ],
+      "realized_R": -0.241,
+      "actions": "TSLA eod_flat -0.24R; NVDA eod_flat -0.00R",
       "personality": "rabbit"
     }
   ],

@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 4641.55,
+    "balance": 4545.25,
     "open_risk_R": 0
   },
   "rules": {
@@ -35,13 +35,13 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 35,
+    "trades_closed": 37,
     "wins": 12,
-    "losses": 23,
-    "win_rate_pct": 34.3,
-    "expectancy_R": -0.217,
-    "total_R": -7.588,
-    "max_drawdown_pct": 10.19
+    "losses": 25,
+    "win_rate_pct": 32.4,
+    "expectancy_R": -0.262,
+    "total_R": -9.688,
+    "max_drawdown_pct": 11.5
   },
   "open_trades": [],
   "pending_orders": [],
@@ -710,6 +710,44 @@
       "r_multiple": -0.343,
       "pnl_usd": -15.59,
       "balance_after": 4641.55
+    },
+    {
+      "id": "2026-08-12-AMD-5",
+      "ticker": "AMD",
+      "setup": "vwap_pullback",
+      "entry": 488.01,
+      "stop": 486.31,
+      "target": 491.41,
+      "shares": 27,
+      "risk_usd": 45.89999999999969,
+      "opened": "2026-08-12",
+      "entry_bar": 40,
+      "note": "Held above VWAP then first pullback into it (bar 18); long on reclaim of 488.00, stop under the dip 486.80.",
+      "exit": 486.31,
+      "closed": "2026-08-12",
+      "reason": "stop",
+      "r_multiple": -1.05,
+      "pnl_usd": -48.19,
+      "balance_after": 4593.36
+    },
+    {
+      "id": "2026-08-12-NVDA-6",
+      "ticker": "NVDA",
+      "setup": "vwap_pullback",
+      "entry": 223.46,
+      "stop": 222.67,
+      "target": 225.04,
+      "shares": 58,
+      "risk_usd": 45.82000000000119,
+      "opened": "2026-08-12",
+      "entry_bar": 40,
+      "note": "Held above VWAP then first pullback into it (bar 27); long on reclaim of 223.45, stop under the dip 222.89.",
+      "exit": 222.67,
+      "closed": "2026-08-12",
+      "reason": "stop",
+      "r_multiple": -1.05,
+      "pnl_usd": -48.11,
+      "balance_after": 4545.25
     }
   ],
   "sessions": [
@@ -933,6 +971,16 @@
       ],
       "realized_R": -0.343,
       "actions": "TSLA eod_flat -0.34R",
+      "personality": "owl"
+    },
+    {
+      "date": "2026-08-12",
+      "trades": [
+        "2026-08-12-AMD-5",
+        "2026-08-12-NVDA-6"
+      ],
+      "realized_R": -2.1,
+      "actions": "AMD stop -1.05R; NVDA stop -1.05R",
       "personality": "owl"
     }
   ],
