@@ -1030,6 +1030,13 @@
       "realized_R": -1.228,
       "actions": "META stop -1.05R; GOOGL eod_flat -0.18R",
       "personality": "owl"
+    },
+    {
+      "date": "2026-08-14",
+      "trades": [],
+      "realized_R": 0,
+      "actions": "No trades \u2014 this personality found nothing worth doing.",
+      "personality": "owl"
     }
   ],
   "skipped_candidates": [

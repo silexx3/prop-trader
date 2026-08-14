@@ -40,17 +40,17 @@
   ],
   "pending_orders": [
     {
-      "id": "731f6d4a",
+      "id": "7eccd490",
       "ticker": "SPY",
       "setup": "base_breakout",
       "entry": 780.15,
-      "stop": 736.2,
-      "target": 868.05,
+      "stop": 747.3,
+      "target": 845.85,
       "shares": 1,
-      "risk_usd": 43.95,
-      "placed": "2026-08-13",
-      "note": "4-week base 729.10\u2013779.37 (6.9% range) near highs; entry on break of 779.37; fill requires volume \u2265 72,329,522 (1.5\u00d7 avg) \u2014 a quiet break is not the setup.",
-      "min_volume": 72329522.0
+      "risk_usd": 32.85,
+      "placed": "2026-08-14",
+      "note": "4-week base 729.10\u2013779.37 (6.9% range) near highs; entry on break of 779.37; fill requires volume \u2265 70,279,384 (1.5\u00d7 avg) \u2014 a quiet break is not the setup.",
+      "min_volume": 70279384.0
     }
   ],
   "closed_trades": [
@@ -459,6 +459,20 @@
       "lessons": [
         "Orders placed, none filled yet \u2014 patience between signal and fill is part of the edge.",
         "Skipped 2 candidate(s) and logged them: skips are data too."
+      ],
+      "variant": "charter-baseline"
+    },
+    {
+      "date": "2026-08-14",
+      "regime": "SPY 776.34, uptrend (above rising 20/50); QQQ 731.07, choppy uptrend (above 50, testing 20)",
+      "actions": "SPY base_breakout order placed: entry 780.15, stop 747.3, target 845.85, 1 shares; EWA ma_pullback candidate skipped.",
+      "trades": [],
+      "realized_R": 0,
+      "brutality": 1,
+      "brutality_note": "Tape moved 0.8% on average; we were flat. Sitting out is a position.",
+      "lessons": [
+        "Orders placed, none filled yet \u2014 patience between signal and fill is part of the edge.",
+        "Skipped 1 candidate(s) and logged them: skips are data too."
       ],
       "variant": "charter-baseline"
     }
@@ -1022,6 +1036,14 @@
       "setup": "base_breakout",
       "entry": 30.48,
       "stop": 28.96,
+      "reason": "blocked by rules: Max 2 positions: 1 open + 1 pending already."
+    },
+    {
+      "date": "2026-08-14",
+      "ticker": "EWA",
+      "setup": "ma_pullback",
+      "entry": 29.76,
+      "stop": 29.19,
       "reason": "blocked by rules: Max 2 positions: 1 open + 1 pending already."
     }
   ]

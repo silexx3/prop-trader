@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 5041.94,
+    "balance": 4980.72,
     "open_risk_R": 0
   },
   "rules": {
@@ -35,12 +35,12 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 50,
+    "trades_closed": 52,
     "wins": 18,
-    "losses": 32,
-    "win_rate_pct": 36.0,
-    "expectancy_R": 0.033,
-    "total_R": 1.627,
+    "losses": 34,
+    "win_rate_pct": 34.6,
+    "expectancy_R": -0.002,
+    "total_R": -0.112,
     "max_drawdown_pct": 4.35
   },
   "open_trades": [],
@@ -995,6 +995,44 @@
       "r_multiple": -0.027,
       "pnl_usd": -0.93,
       "balance_after": 5041.94
+    },
+    {
+      "id": "2026-08-14-AMD-9",
+      "ticker": "AMD",
+      "setup": "vwap_pullback",
+      "entry": 501.33,
+      "stop": 499.18,
+      "target": 505.63,
+      "shares": 17,
+      "risk_usd": 36.54999999999961,
+      "opened": "2026-08-14",
+      "entry_bar": 34,
+      "note": "Held above VWAP then first pullback into it (bar 23); long on reclaim of 501.32, stop under the dip 499.68.",
+      "exit": 499.18,
+      "closed": "2026-08-14",
+      "reason": "stop",
+      "r_multiple": -1.05,
+      "pnl_usd": -38.38,
+      "balance_after": 5003.56
+    },
+    {
+      "id": "2026-08-14-MSFT-4",
+      "ticker": "MSFT",
+      "setup": "orb_long",
+      "entry": 498.95,
+      "stop": 493.43,
+      "target": 509.99,
+      "shares": 6,
+      "risk_usd": 33.11999999999989,
+      "opened": "2026-08-14",
+      "entry_bar": 10,
+      "note": "30-min opening range 493.92\u2013498.70; long on the break of 498.70 with volume \u2265 1.0\u00d7 the opening average.",
+      "exit": 495.42,
+      "closed": "2026-08-14",
+      "reason": "eod_flat",
+      "r_multiple": -0.689,
+      "pnl_usd": -22.84,
+      "balance_after": 4980.72
     }
   ],
   "sessions": [
@@ -1250,6 +1288,16 @@
       ],
       "realized_R": -0.182,
       "actions": "GOOGL eod_flat -0.15R; AAPL eod_flat -0.03R",
+      "personality": "rabbit"
+    },
+    {
+      "date": "2026-08-14",
+      "trades": [
+        "2026-08-14-AMD-9",
+        "2026-08-14-MSFT-4"
+      ],
+      "realized_R": -1.739,
+      "actions": "AMD stop -1.05R; MSFT eod_flat -0.69R",
       "personality": "rabbit"
     }
   ],
