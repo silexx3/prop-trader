@@ -40,29 +40,29 @@
   ],
   "pending_orders": [
     {
-      "id": "52b58851",
+      "id": "da1179f7",
       "ticker": "SPY",
       "setup": "base_breakout",
       "entry": 780.15,
-      "stop": 747.3,
-      "target": 845.85,
-      "shares": 2,
-      "risk_usd": 65.7,
-      "placed": "2026-08-14",
-      "note": "4-week base 729.10\u2013779.37 (6.9% range) near highs; entry on break of 779.37; fill requires volume \u2265 70,279,384 (1.5\u00d7 avg) \u2014 a quiet break is not the setup.",
-      "min_volume": 70279384.0
+      "stop": 759.0,
+      "target": 822.45,
+      "shares": 4,
+      "risk_usd": 84.6,
+      "placed": "2026-08-17",
+      "note": "4-week base 729.10\u2013779.37 (6.9% range) near highs; entry on break of 779.37; fill requires volume \u2265 69,098,559 (1.5\u00d7 avg) \u2014 a quiet break is not the setup.",
+      "min_volume": 69098559.0
     },
     {
-      "id": "10647e52",
+      "id": "b185d403",
       "ticker": "EWA",
       "setup": "ma_pullback",
-      "entry": 29.76,
-      "stop": 29.19,
-      "target": 30.9,
-      "shares": 165,
-      "risk_usd": 94.05,
-      "placed": "2026-08-14",
-      "note": "Uptrend pullback into 20/50 zone (SMA20 29.46 / SMA50 28.76); entry on reclaim of today's high 29.76, stop below pullback low 29.25."
+      "entry": 29.65,
+      "stop": 29.43,
+      "target": 30.09,
+      "shares": 427,
+      "risk_usd": 93.94,
+      "placed": "2026-08-17",
+      "note": "Uptrend pullback into 20/50 zone (SMA20 29.51 / SMA50 28.78); entry on reclaim of today's high 29.65, stop below pullback low 29.49."
     }
   ],
   "closed_trades": [
@@ -501,6 +501,19 @@
       "realized_R": 0,
       "brutality": 1,
       "brutality_note": "Tape moved 0.8% on average; we were flat. Sitting out is a position.",
+      "lessons": [
+        "Orders placed, none filled yet \u2014 patience between signal and fill is part of the edge."
+      ],
+      "variant": "charter-baseline"
+    },
+    {
+      "date": "2026-08-17",
+      "regime": "SPY 772.67, uptrend (above rising 20/50); QQQ 729.87, choppy uptrend (above 50, testing 20)",
+      "actions": "SPY base_breakout order placed: entry 780.15, stop 759.0, target 822.45, 4 shares; EWA ma_pullback order placed: entry 29.65, stop 29.43, target 30.09, 427 shares.",
+      "trades": [],
+      "realized_R": 0,
+      "brutality": 1,
+      "brutality_note": "Tape moved 0.9% on average; we were flat. Sitting out is a position.",
       "lessons": [
         "Orders placed, none filled yet \u2014 patience between signal and fill is part of the edge."
       ],
