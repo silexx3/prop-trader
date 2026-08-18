@@ -1044,6 +1044,13 @@
       "realized_R": 0,
       "actions": "No trades \u2014 this personality found nothing worth doing.",
       "personality": "owl"
+    },
+    {
+      "date": "2026-08-18",
+      "trades": [],
+      "realized_R": 0,
+      "actions": "No trades \u2014 this personality found nothing worth doing.",
+      "personality": "owl"
     }
   ],
   "skipped_candidates": [
@@ -1094,6 +1101,14 @@
       "entry": 774.02,
       "stop": 771.73,
       "reason": "gapped past trigger (774.60 vs 774.02, >0.25R) \u2014 chasing is not the setup"
+    },
+    {
+      "date": "2026-08-18",
+      "ticker": "TSLA",
+      "setup": "vwap_pullback",
+      "entry": 338.01,
+      "stop": 336.16,
+      "reason": "gapped past trigger (338.72 vs 338.01, >0.25R) \u2014 chasing is not the setup"
     }
   ]
 }

@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 4955.3,
+    "balance": 4943.37,
     "open_risk_R": 0
   },
   "rules": {
@@ -35,13 +35,13 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 53,
-    "wins": 18,
-    "losses": 35,
-    "win_rate_pct": 34.0,
-    "expectancy_R": -0.015,
-    "total_R": -0.804,
-    "max_drawdown_pct": 4.35
+    "trades_closed": 56,
+    "wins": 19,
+    "losses": 37,
+    "win_rate_pct": 33.9,
+    "expectancy_R": -0.02,
+    "total_R": -1.123,
+    "max_drawdown_pct": 4.46
   },
   "open_trades": [],
   "pending_orders": [],
@@ -1052,6 +1052,63 @@
       "r_multiple": -0.692,
       "pnl_usd": -25.42,
       "balance_after": 4955.3
+    },
+    {
+      "id": "2026-08-18-TSLA-7",
+      "ticker": "TSLA",
+      "setup": "vwap_pullback",
+      "entry": 338.01,
+      "stop": 336.16,
+      "target": 341.71,
+      "shares": 20,
+      "risk_usd": 36.99999999999932,
+      "opened": "2026-08-18",
+      "entry_bar": 14,
+      "note": "Held above VWAP then first pullback into it (bar 13); long on reclaim of 338.00, stop under the dip 336.50.",
+      "exit": 336.16,
+      "closed": "2026-08-18",
+      "reason": "stop",
+      "r_multiple": -1.05,
+      "pnl_usd": -38.85,
+      "balance_after": 4916.45
+    },
+    {
+      "id": "2026-08-18-AAPL-3",
+      "ticker": "AAPL",
+      "setup": "orb_long",
+      "entry": 308.05,
+      "stop": 305.43,
+      "target": 313.29,
+      "shares": 14,
+      "risk_usd": 36.680000000000064,
+      "opened": "2026-08-18",
+      "entry_bar": 6,
+      "note": "30-min opening range 305.74\u2013307.90; long on the break of 307.90 with volume \u2265 1.0\u00d7 the opening average.",
+      "exit": 310.2,
+      "closed": "2026-08-18",
+      "reason": "eod_flat",
+      "r_multiple": 0.771,
+      "pnl_usd": 28.27,
+      "balance_after": 4944.72
+    },
+    {
+      "id": "2026-08-18-GOOGL-6",
+      "ticker": "GOOGL",
+      "setup": "orb_long",
+      "entry": 344.0299987792969,
+      "stop": 339.85,
+      "target": 350.35,
+      "shares": 10,
+      "risk_usd": 35.0,
+      "opened": "2026-08-18",
+      "entry_bar": 76,
+      "note": "30-min opening range 340.19\u2013343.18; long on the break of 343.18 with volume \u2265 1.0\u00d7 the opening average.",
+      "exit": 344.07,
+      "closed": "2026-08-18",
+      "reason": "eod_flat",
+      "r_multiple": -0.04,
+      "pnl_usd": -1.35,
+      "balance_after": 4943.37
     }
   ],
   "sessions": [
@@ -1326,6 +1383,17 @@
       ],
       "realized_R": -0.692,
       "actions": "TSLA eod_flat -0.69R",
+      "personality": "rabbit"
+    },
+    {
+      "date": "2026-08-18",
+      "trades": [
+        "2026-08-18-TSLA-7",
+        "2026-08-18-AAPL-3",
+        "2026-08-18-GOOGL-6"
+      ],
+      "realized_R": -0.319,
+      "actions": "TSLA stop -1.05R; AAPL eod_flat +0.77R; GOOGL eod_flat -0.04R",
       "personality": "rabbit"
     }
   ],

@@ -60,17 +60,17 @@
   ],
   "pending_orders": [
     {
-      "id": "126cac51",
+      "id": "a70a127e",
       "ticker": "SPY",
       "setup": "base_breakout",
       "entry": 780.15,
-      "stop": 759.0,
-      "target": 822.45,
-      "shares": 2,
-      "risk_usd": 42.3,
-      "placed": "2026-08-17",
-      "note": "4-week base 729.10\u2013779.37 (6.9% range) near highs; entry on break of 779.37; fill requires volume \u2265 69,098,559 (1.5\u00d7 avg) \u2014 a quiet break is not the setup.",
-      "min_volume": 69098559.0
+      "stop": 765.39,
+      "target": 809.67,
+      "shares": 3,
+      "risk_usd": 44.28,
+      "placed": "2026-08-18",
+      "note": "4-week base 729.10\u2013779.37 (6.9% range) near highs; entry on break of 779.37; fill requires volume \u2265 69,850,510 (1.5\u00d7 avg) \u2014 a quiet break is not the setup.",
+      "min_volume": 69850510.0
     }
   ],
   "closed_trades": [
@@ -500,6 +500,19 @@
       "lessons": [
         "Orders placed, none filled yet \u2014 patience between signal and fill is part of the edge.",
         "Skipped 1 candidate(s) and logged them: skips are data too."
+      ]
+    },
+    {
+      "date": "2026-08-18",
+      "regime": "SPY 767.45, uptrend (above rising 20/50)",
+      "actions": "SPY base_breakout order placed: entry 780.15, stop 765.39, target 809.67, 3 shares; FXI ma_pullback candidate skipped; EWA ma_pullback candidate skipped.",
+      "trades": [],
+      "realized_R": 0,
+      "brutality": 2,
+      "brutality_note": "Tape moved 2.2% on average; we were flat. Sitting out is a position.",
+      "lessons": [
+        "Orders placed, none filled yet \u2014 patience between signal and fill is part of the edge.",
+        "Skipped 2 candidate(s) and logged them: skips are data too."
       ]
     }
   ],
@@ -1149,6 +1162,22 @@
       "ticker": "EWA",
       "setup": "ma_pullback",
       "entry": 29.65,
+      "stop": 29.43,
+      "reason": "blocked by charter: Max 2 positions: 1 open + 1 pending already."
+    },
+    {
+      "date": "2026-08-18",
+      "ticker": "FXI",
+      "setup": "ma_pullback",
+      "entry": 35.33,
+      "stop": 34.72,
+      "reason": "blocked by charter: Max 2 positions: 1 open + 1 pending already."
+    },
+    {
+      "date": "2026-08-18",
+      "ticker": "EWA",
+      "setup": "ma_pullback",
+      "entry": 29.85,
       "stop": 29.43,
       "reason": "blocked by charter: Max 2 positions: 1 open + 1 pending already."
     }
