@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 4491.64,
+    "balance": 4444.55,
     "open_risk_R": 0
   },
   "rules": {
@@ -35,13 +35,13 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 39,
+    "trades_closed": 40,
     "wins": 12,
-    "losses": 27,
-    "win_rate_pct": 30.8,
-    "expectancy_R": -0.28,
-    "total_R": -10.916,
-    "max_drawdown_pct": 12.55
+    "losses": 28,
+    "win_rate_pct": 30.0,
+    "expectancy_R": -0.299,
+    "total_R": -11.966,
+    "max_drawdown_pct": 13.47
   },
   "open_trades": [],
   "pending_orders": [],
@@ -786,6 +786,25 @@
       "r_multiple": -0.178,
       "pnl_usd": -7.89,
       "balance_after": 4491.64
+    },
+    {
+      "id": "2026-08-19-NVDA-4",
+      "ticker": "NVDA",
+      "setup": "vwap_pullback",
+      "entry": 219.79,
+      "stop": 219.14,
+      "target": 221.09,
+      "shares": 69,
+      "risk_usd": 44.85000000000039,
+      "opened": "2026-08-19",
+      "entry_bar": 72,
+      "note": "Held above VWAP then first pullback into it (bar 35); long on reclaim of 219.78, stop under the dip 219.36.",
+      "exit": 219.14,
+      "closed": "2026-08-19",
+      "reason": "stop",
+      "r_multiple": -1.05,
+      "pnl_usd": -47.09,
+      "balance_after": 4444.55
     }
   ],
   "sessions": [
@@ -1051,6 +1070,15 @@
       "realized_R": 0,
       "actions": "No trades \u2014 this personality found nothing worth doing.",
       "personality": "owl"
+    },
+    {
+      "date": "2026-08-19",
+      "trades": [
+        "2026-08-19-NVDA-4"
+      ],
+      "realized_R": -1.05,
+      "actions": "NVDA stop -1.05R",
+      "personality": "owl"
     }
   ],
   "skipped_candidates": [
@@ -1109,6 +1137,14 @@
       "entry": 338.01,
       "stop": 336.16,
       "reason": "gapped past trigger (338.72 vs 338.01, >0.25R) \u2014 chasing is not the setup"
+    },
+    {
+      "date": "2026-08-19",
+      "ticker": "AAPL",
+      "setup": "vwap_pullback",
+      "entry": 316.29,
+      "stop": 314.97,
+      "reason": "gapped past trigger (316.66 vs 316.29, >0.25R) \u2014 chasing is not the setup"
     }
   ]
 }
