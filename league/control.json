@@ -40,17 +40,16 @@
   ],
   "pending_orders": [
     {
-      "id": "d6beecf0",
+      "id": "a41824a2",
       "ticker": "SPY",
-      "setup": "base_breakout",
-      "entry": 780.15,
-      "stop": 765.39,
-      "target": 809.67,
-      "shares": 3,
-      "risk_usd": 44.28,
-      "placed": "2026-08-19",
-      "note": "4-week base 729.10\u2013779.37 (6.9% range) near highs; entry on break of 779.37; fill requires volume \u2265 70,423,983 (1.5\u00d7 avg) \u2014 a quiet break is not the setup.",
-      "min_volume": 70423983.0
+      "setup": "ma_pullback",
+      "entry": 768.15,
+      "stop": 760.53,
+      "target": 783.39,
+      "shares": 6,
+      "risk_usd": 45.72,
+      "placed": "2026-08-20",
+      "note": "Uptrend pullback into 20/50 zone (SMA20 760.99 / SMA50 750.72); entry on reclaim of today's high 768.15, stop below pullback low 762.05."
     }
   ],
   "closed_trades": [
@@ -512,6 +511,20 @@
       "realized_R": 0,
       "brutality": 1,
       "brutality_note": "Tape moved 1.2% on average; we were flat. Sitting out is a position.",
+      "lessons": [
+        "Orders placed, none filled yet \u2014 patience between signal and fill is part of the edge.",
+        "Skipped 2 candidate(s) and logged them: skips are data too."
+      ],
+      "variant": "charter-baseline"
+    },
+    {
+      "date": "2026-08-20",
+      "regime": "SPY 762.60, uptrend (above rising 20/50); QQQ 710.93, bounce attempt (above 20, below 50)",
+      "actions": "SPY ma_pullback order placed: entry 768.15, stop 760.53, target 783.39, 6 shares; FXI ma_pullback candidate skipped; EWA ma_pullback candidate skipped.",
+      "trades": [],
+      "realized_R": 0,
+      "brutality": 1,
+      "brutality_note": "Tape moved 0.8% on average; we were flat. Sitting out is a position.",
       "lessons": [
         "Orders placed, none filled yet \u2014 patience between signal and fill is part of the edge.",
         "Skipped 2 candidate(s) and logged them: skips are data too."
@@ -1117,6 +1130,22 @@
       "ticker": "EWA",
       "setup": "ma_pullback",
       "entry": 30.03,
+      "stop": 29.43,
+      "reason": "blocked by rules: Max 2 positions: 1 open + 1 pending already."
+    },
+    {
+      "date": "2026-08-20",
+      "ticker": "FXI",
+      "setup": "ma_pullback",
+      "entry": 35.67,
+      "stop": 34.72,
+      "reason": "blocked by rules: Max 2 positions: 1 open + 1 pending already."
+    },
+    {
+      "date": "2026-08-20",
+      "ticker": "EWA",
+      "setup": "ma_pullback",
+      "entry": 29.86,
       "stop": 29.43,
       "reason": "blocked by rules: Max 2 positions: 1 open + 1 pending already."
     }
