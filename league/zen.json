@@ -478,6 +478,19 @@
         "Skipped 3 candidate(s) and logged them: skips are data too."
       ],
       "variant": "charter-baseline"
+    },
+    {
+      "date": "2026-08-21",
+      "regime": "SPY 765.72, uptrend (above rising 20/50); QQQ 713.44, choppy uptrend (above 50, testing 20)",
+      "actions": "SPY base_breakout candidate skipped; FXI ma_pullback candidate skipped; EWA ma_pullback candidate skipped.",
+      "trades": [],
+      "realized_R": 0,
+      "brutality": 0,
+      "brutality_note": "Tape moved 0.6% on average; we were flat. Sitting out is a position.",
+      "lessons": [
+        "Skipped 3 candidate(s) and logged them: skips are data too."
+      ],
+      "variant": "charter-baseline"
     }
   ],
   "skipped_candidates": [
@@ -1350,6 +1363,30 @@
       "ticker": "EWA",
       "setup": "ma_pullback",
       "entry": 29.86,
+      "stop": 29.43,
+      "reason": "blocked by rules: Max 1 positions: 1 open + 0 pending already."
+    },
+    {
+      "date": "2026-08-21",
+      "ticker": "SPY",
+      "setup": "base_breakout",
+      "entry": 780.15,
+      "stop": 760.52,
+      "reason": "blocked by rules: Max 1 positions: 1 open + 0 pending already."
+    },
+    {
+      "date": "2026-08-21",
+      "ticker": "FXI",
+      "setup": "ma_pullback",
+      "entry": 36.12,
+      "stop": 34.72,
+      "reason": "blocked by rules: Max 1 positions: 1 open + 0 pending already."
+    },
+    {
+      "date": "2026-08-21",
+      "ticker": "EWA",
+      "setup": "ma_pullback",
+      "entry": 30.17,
       "stop": 29.43,
       "reason": "blocked by rules: Max 1 positions: 1 open + 0 pending already."
     }

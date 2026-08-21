@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 4977.18,
+    "balance": 4997.72,
     "open_risk_R": 0
   },
   "rules": {
@@ -35,12 +35,12 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 59,
-    "wins": 21,
-    "losses": 38,
-    "win_rate_pct": 35.6,
-    "expectancy_R": -0.007,
-    "total_R": -0.401,
+    "trades_closed": 61,
+    "wins": 22,
+    "losses": 39,
+    "win_rate_pct": 36.1,
+    "expectancy_R": 0.003,
+    "total_R": 0.201,
     "max_drawdown_pct": 4.46
   },
   "open_trades": [],
@@ -1166,6 +1166,44 @@
       "r_multiple": -1.05,
       "pnl_usd": -38.3,
       "balance_after": 4977.18
+    },
+    {
+      "id": "2026-08-21-TSLA-6",
+      "ticker": "TSLA",
+      "setup": "orb_long",
+      "entry": 355.06,
+      "stop": 346.55,
+      "target": 372.08,
+      "shares": 4,
+      "risk_usd": 34.039999999999964,
+      "opened": "2026-08-21",
+      "entry_bar": 6,
+      "note": "30-min opening range 346.90\u2013354.88; long on the break of 354.88 with volume \u2265 1.0\u00d7 the opening average.",
+      "exit": 362.88,
+      "closed": "2026-08-21",
+      "reason": "eod_flat",
+      "r_multiple": 0.869,
+      "pnl_usd": 29.58,
+      "balance_after": 5006.76
+    },
+    {
+      "id": "2026-08-21-MSFT-4",
+      "ticker": "MSFT",
+      "setup": "orb_long",
+      "entry": 484.82,
+      "stop": 478.05,
+      "target": 498.36,
+      "shares": 5,
+      "risk_usd": 33.84999999999991,
+      "opened": "2026-08-21",
+      "entry_bar": 8,
+      "note": "30-min opening range 478.53\u2013484.58; long on the break of 484.58 with volume \u2265 1.0\u00d7 the opening average.",
+      "exit": 483.35,
+      "closed": "2026-08-21",
+      "reason": "eod_flat",
+      "r_multiple": -0.267,
+      "pnl_usd": -9.04,
+      "balance_after": 4997.72
     }
   ],
   "sessions": [
@@ -1470,6 +1508,16 @@
       ],
       "realized_R": -1.05,
       "actions": "SPY stop -1.05R",
+      "personality": "rabbit"
+    },
+    {
+      "date": "2026-08-21",
+      "trades": [
+        "2026-08-21-TSLA-6",
+        "2026-08-21-MSFT-4"
+      ],
+      "realized_R": 0.602,
+      "actions": "TSLA eod_flat +0.87R; MSFT eod_flat -0.27R",
       "personality": "rabbit"
     }
   ],
