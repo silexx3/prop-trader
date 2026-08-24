@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 2571.88,
+    "balance": 2503.63,
     "open_risk_R": 0
   },
   "rules": {
@@ -35,12 +35,12 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 110,
+    "trades_closed": 113,
     "wins": 33,
-    "losses": 77,
-    "win_rate_pct": 30.0,
-    "expectancy_R": -0.285,
-    "total_R": -31.381,
+    "losses": 80,
+    "win_rate_pct": 29.2,
+    "expectancy_R": -0.288,
+    "total_R": -32.553,
     "max_drawdown_pct": 55.8
   },
   "open_trades": [],
@@ -2135,6 +2135,63 @@
       "r_multiple": 0.897,
       "pnl_usd": 42.57,
       "balance_after": 2571.88
+    },
+    {
+      "id": "2026-08-24-AMZN-5",
+      "ticker": "AMZN",
+      "setup": "orb_long",
+      "entry": 262.98,
+      "stop": 258.79,
+      "target": 271.36,
+      "shares": 12,
+      "risk_usd": 50.27999999999997,
+      "opened": "2026-08-24",
+      "entry_bar": 6,
+      "note": "30-min opening range 259.05\u2013262.85; long on the break of 262.85 with volume \u2265 1.2\u00d7 the opening average.",
+      "exit": 262.0304,
+      "closed": "2026-08-24",
+      "reason": "eod_flat",
+      "r_multiple": -0.277,
+      "pnl_usd": -13.91,
+      "balance_after": 2557.97
+    },
+    {
+      "id": "2026-08-24-AAPL-2",
+      "ticker": "AAPL",
+      "setup": "orb_long",
+      "entry": 313.1099853515625,
+      "stop": 309.66,
+      "target": 318.18,
+      "shares": 18,
+      "risk_usd": 51.11999999999955,
+      "opened": "2026-08-24",
+      "entry_bar": 15,
+      "note": "30-min opening range 309.97\u2013312.34; long on the break of 312.34 with volume \u2265 1.2\u00d7 the opening average.",
+      "exit": 310.35,
+      "closed": "2026-08-24",
+      "reason": "eod_flat",
+      "r_multiple": -0.85,
+      "pnl_usd": -52.24,
+      "balance_after": 2505.73
+    },
+    {
+      "id": "2026-08-24-MSFT-3",
+      "ticker": "MSFT",
+      "setup": "orb_long",
+      "entry": 487.30999755859375,
+      "stop": 481.38,
+      "target": 498.93,
+      "shares": 8,
+      "risk_usd": 46.80000000000018,
+      "opened": "2026-08-24",
+      "entry_bar": 17,
+      "note": "30-min opening range 481.86\u2013486.99; long on the break of 486.99 with volume \u2265 1.2\u00d7 the opening average.",
+      "exit": 487.34,
+      "closed": "2026-08-24",
+      "reason": "eod_flat",
+      "r_multiple": -0.045,
+      "pnl_usd": -2.1,
+      "balance_after": 2503.63
     }
   ],
   "sessions": [
@@ -2502,6 +2559,17 @@
       ],
       "realized_R": 1.53,
       "actions": "AMZN stop -1.05R; TSLA target +1.95R; MSFT eod_flat -0.27R; AMD eod_flat +0.90R",
+      "personality": "shark"
+    },
+    {
+      "date": "2026-08-24",
+      "trades": [
+        "2026-08-24-AMZN-5",
+        "2026-08-24-AAPL-2",
+        "2026-08-24-MSFT-3"
+      ],
+      "realized_R": -1.172,
+      "actions": "AMZN eod_flat -0.28R; AAPL eod_flat -0.85R; MSFT eod_flat -0.04R",
       "personality": "shark"
     }
   ],
