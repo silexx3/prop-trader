@@ -518,6 +518,19 @@
         "Skipped 2 candidate(s) and logged them: skips are data too."
       ],
       "variant": "pullback-deep-swing"
+    },
+    {
+      "date": "2026-08-25",
+      "regime": "SPY 765.91, uptrend (above rising 20/50); QQQ 710.72, downtrend (below 20/50)",
+      "actions": "FXI ma_pullback candidate skipped; INDA ma_pullback candidate skipped; EWA base_breakout candidate skipped.",
+      "trades": [],
+      "realized_R": 0,
+      "brutality": 2,
+      "brutality_note": "Tape moved 1.6% on average; we were flat. Sitting out is a position.",
+      "lessons": [
+        "Skipped 3 candidate(s) and logged them: skips are data too."
+      ],
+      "variant": "pullback-deep-swing"
     }
   ],
   "skipped_candidates": [
@@ -1190,6 +1203,30 @@
       "ticker": "EWA",
       "setup": "ma_pullback",
       "entry": 30.15,
+      "stop": 29.43,
+      "reason": "blocked by rules: Max 2 positions: 2 open + 0 pending already."
+    },
+    {
+      "date": "2026-08-25",
+      "ticker": "FXI",
+      "setup": "ma_pullback",
+      "entry": 35.58,
+      "stop": 34.72,
+      "reason": "blocked by rules: Max 2 positions: 2 open + 0 pending already."
+    },
+    {
+      "date": "2026-08-25",
+      "ticker": "INDA",
+      "setup": "ma_pullback",
+      "entry": 50.28,
+      "stop": 49.2,
+      "reason": "blocked by rules: Max 2 positions: 2 open + 0 pending already."
+    },
+    {
+      "date": "2026-08-25",
+      "ticker": "EWA",
+      "setup": "base_breakout",
+      "entry": 30.48,
       "stop": 29.43,
       "reason": "blocked by rules: Max 2 positions: 2 open + 0 pending already."
     }
