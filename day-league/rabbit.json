@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 4935.32,
+    "balance": 4928.7,
     "open_risk_R": 0
   },
   "rules": {
@@ -35,12 +35,12 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 65,
-    "wins": 23,
-    "losses": 42,
-    "win_rate_pct": 35.4,
-    "expectancy_R": -0.024,
-    "total_R": -1.539,
+    "trades_closed": 67,
+    "wins": 24,
+    "losses": 43,
+    "win_rate_pct": 35.8,
+    "expectancy_R": -0.026,
+    "total_R": -1.718,
     "max_drawdown_pct": 4.46
   },
   "open_trades": [],
@@ -1280,6 +1280,44 @@
       "r_multiple": 0.103,
       "pnl_usd": 3.82,
       "balance_after": 4935.32
+    },
+    {
+      "id": "2026-08-26-AAPL-3",
+      "ticker": "AAPL",
+      "setup": "orb_long",
+      "entry": 312.86,
+      "stop": 308.49,
+      "target": 321.6,
+      "shares": 8,
+      "risk_usd": 34.960000000000036,
+      "opened": "2026-08-26",
+      "entry_bar": 19,
+      "note": "30-min opening range 308.80\u2013312.70; long on the break of 312.70 with volume \u2265 1.0\u00d7 the opening average.",
+      "exit": 313.49,
+      "closed": "2026-08-26",
+      "reason": "eod_flat",
+      "r_multiple": 0.094,
+      "pnl_usd": 3.29,
+      "balance_after": 4938.61
+    },
+    {
+      "id": "2026-08-26-TSLA-8",
+      "ticker": "TSLA",
+      "setup": "vwap_pullback",
+      "entry": 346.15,
+      "stop": 344.94,
+      "target": 348.57,
+      "shares": 30,
+      "risk_usd": 36.299999999999386,
+      "opened": "2026-08-26",
+      "entry_bar": 72,
+      "note": "Held above VWAP then first pullback into it (bar 69); long on reclaim of 346.14, stop under the dip 345.29.",
+      "exit": 345.88,
+      "closed": "2026-08-26",
+      "reason": "eod_flat",
+      "r_multiple": -0.273,
+      "pnl_usd": -9.91,
+      "balance_after": 4928.7
     }
   ],
   "sessions": [
@@ -1614,6 +1652,16 @@
       ],
       "realized_R": -0.656,
       "actions": "TSLA eod_flat -0.76R; META eod_flat +0.10R",
+      "personality": "rabbit"
+    },
+    {
+      "date": "2026-08-26",
+      "trades": [
+        "2026-08-26-AAPL-3",
+        "2026-08-26-TSLA-8"
+      ],
+      "realized_R": -0.179,
+      "actions": "AAPL eod_flat +0.09R; TSLA eod_flat -0.27R",
       "personality": "rabbit"
     }
   ],

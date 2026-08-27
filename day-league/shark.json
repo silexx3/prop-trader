@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 2601.41,
+    "balance": 2639.5,
     "open_risk_R": 0
   },
   "rules": {
@@ -35,12 +35,12 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 116,
-    "wins": 35,
-    "losses": 81,
-    "win_rate_pct": 30.2,
-    "expectancy_R": -0.264,
-    "total_R": -30.59,
+    "trades_closed": 119,
+    "wins": 37,
+    "losses": 82,
+    "win_rate_pct": 31.1,
+    "expectancy_R": -0.251,
+    "total_R": -29.824,
     "max_drawdown_pct": 55.8
   },
   "open_trades": [],
@@ -2249,6 +2249,63 @@
       "r_multiple": -0.09,
       "pnl_usd": -4.58,
       "balance_after": 2601.41
+    },
+    {
+      "id": "2026-08-26-MSFT-6",
+      "ticker": "MSFT",
+      "setup": "vwap_pullback",
+      "entry": 494.32,
+      "stop": 492.46,
+      "target": 498.04,
+      "shares": 27,
+      "risk_usd": 50.22000000000037,
+      "opened": "2026-08-26",
+      "entry_bar": 12,
+      "note": "Held above VWAP then first pullback into it (bar 11); long on reclaim of 494.31, stop under the dip 492.95.",
+      "exit": 496.17,
+      "closed": "2026-08-26",
+      "reason": "eod_flat",
+      "r_multiple": 0.945,
+      "pnl_usd": 47.44,
+      "balance_after": 2648.85
+    },
+    {
+      "id": "2026-08-26-AAPL-3",
+      "ticker": "AAPL",
+      "setup": "orb_long",
+      "entry": 312.86,
+      "stop": 308.49,
+      "target": 321.6,
+      "shares": 11,
+      "risk_usd": 48.07000000000005,
+      "opened": "2026-08-26",
+      "entry_bar": 19,
+      "note": "30-min opening range 308.80\u2013312.70; long on the break of 312.70 with volume \u2265 1.2\u00d7 the opening average.",
+      "exit": 313.49,
+      "closed": "2026-08-26",
+      "reason": "eod_flat",
+      "r_multiple": 0.094,
+      "pnl_usd": 4.53,
+      "balance_after": 2653.38
+    },
+    {
+      "id": "2026-08-26-TSLA-8",
+      "ticker": "TSLA",
+      "setup": "vwap_pullback",
+      "entry": 346.15,
+      "stop": 344.94,
+      "target": 348.57,
+      "shares": 42,
+      "risk_usd": 50.81999999999914,
+      "opened": "2026-08-26",
+      "entry_bar": 72,
+      "note": "Held above VWAP then first pullback into it (bar 69); long on reclaim of 346.14, stop under the dip 345.29.",
+      "exit": 345.88,
+      "closed": "2026-08-26",
+      "reason": "eod_flat",
+      "r_multiple": -0.273,
+      "pnl_usd": -13.88,
+      "balance_after": 2639.5
     }
   ],
   "sessions": [
@@ -2638,6 +2695,17 @@
       ],
       "realized_R": 1.963,
       "actions": "AMD target +1.95R; META eod_flat +0.10R; MSFT eod_flat -0.09R",
+      "personality": "shark"
+    },
+    {
+      "date": "2026-08-26",
+      "trades": [
+        "2026-08-26-MSFT-6",
+        "2026-08-26-AAPL-3",
+        "2026-08-26-TSLA-8"
+      ],
+      "realized_R": 0.766,
+      "actions": "MSFT eod_flat +0.94R; AAPL eod_flat +0.09R; TSLA eod_flat -0.27R",
       "personality": "shark"
     }
   ],
