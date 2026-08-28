@@ -530,6 +530,19 @@
         "Skipped 6 candidate(s) and logged them: skips are data too."
       ],
       "variant": "charter-baseline"
+    },
+    {
+      "date": "2026-08-27",
+      "regime": "SPY 771.10, uptrend (above rising 20/50); QQQ 721.11, uptrend (above rising 20/50)",
+      "actions": "SPY base_breakout candidate skipped; QQQ base_breakout candidate skipped; EWJ base_breakout candidate skipped; INDA ma_pullback candidate skipped; EWA ma_pullback candidate skipped.",
+      "trades": [],
+      "realized_R": 0,
+      "brutality": 2,
+      "brutality_note": "Tape moved 1.6% on average; we were flat. Sitting out is a position.",
+      "lessons": [
+        "Skipped 5 candidate(s) and logged them: skips are data too."
+      ],
+      "variant": "charter-baseline"
     }
   ],
   "skipped_candidates": [
@@ -1530,6 +1543,46 @@
       "ticker": "EWA",
       "setup": "ma_pullback",
       "entry": 30.31,
+      "stop": 29.43,
+      "reason": "blocked by rules: Max 1 positions: 1 open + 0 pending already."
+    },
+    {
+      "date": "2026-08-27",
+      "ticker": "SPY",
+      "setup": "base_breakout",
+      "entry": 780.15,
+      "stop": 760.52,
+      "reason": "blocked by rules: Max 1 positions: 1 open + 0 pending already."
+    },
+    {
+      "date": "2026-08-27",
+      "ticker": "QQQ",
+      "setup": "base_breakout",
+      "entry": 735.31,
+      "stop": 701.29,
+      "reason": "correlation guard \u2014 QQQ moves with SPY (0.92 over 90d): one bet, two tickets"
+    },
+    {
+      "date": "2026-08-27",
+      "ticker": "EWJ",
+      "setup": "base_breakout",
+      "entry": 98.89,
+      "stop": 93.86,
+      "reason": "blocked by rules: Max 1 positions: 1 open + 0 pending already."
+    },
+    {
+      "date": "2026-08-27",
+      "ticker": "INDA",
+      "setup": "ma_pullback",
+      "entry": 49.67,
+      "stop": 49.2,
+      "reason": "blocked by rules: Max 1 positions: 1 open + 0 pending already."
+    },
+    {
+      "date": "2026-08-27",
+      "ticker": "EWA",
+      "setup": "ma_pullback",
+      "entry": 30.11,
       "stop": 29.43,
       "reason": "blocked by rules: Max 1 positions: 1 open + 0 pending already."
     }

@@ -40,7 +40,7 @@
   ],
   "pending_orders": [
     {
-      "id": "0d6b00e7",
+      "id": "5e4caca2",
       "ticker": "SPY",
       "setup": "base_breakout",
       "entry": 780.15,
@@ -48,9 +48,9 @@
       "target": 819.41,
       "shares": 2,
       "risk_usd": 39.26,
-      "placed": "2026-08-26",
-      "note": "4-week base 734.59\u2013779.37 (6.1% range) near highs; entry on break of 779.37; fill requires volume \u2265 63,870,752 (1.5\u00d7 avg) \u2014 a quiet break is not the setup.",
-      "min_volume": 63870752.0
+      "placed": "2026-08-27",
+      "note": "4-week base 737.68\u2013779.37 (5.7% range) near highs; entry on break of 779.37; fill requires volume \u2265 61,559,408 (1.5\u00d7 avg) \u2014 a quiet break is not the setup.",
+      "min_volume": 61559408.0
     }
   ],
   "closed_trades": [
@@ -585,6 +585,20 @@
       "lessons": [
         "Orders placed, none filled yet \u2014 patience between signal and fill is part of the edge.",
         "Skipped 5 candidate(s) and logged them: skips are data too."
+      ],
+      "variant": "charter-baseline"
+    },
+    {
+      "date": "2026-08-27",
+      "regime": "SPY 771.10, uptrend (above rising 20/50); QQQ 721.11, uptrend (above rising 20/50)",
+      "actions": "SPY base_breakout order placed: entry 780.15, stop 760.52, target 819.41, 2 shares; QQQ base_breakout candidate skipped; EWJ base_breakout candidate skipped; INDA ma_pullback candidate skipped; EWA ma_pullback candidate skipped.",
+      "trades": [],
+      "realized_R": 0,
+      "brutality": 2,
+      "brutality_note": "Tape moved 1.6% on average; we were flat. Sitting out is a position.",
+      "lessons": [
+        "Orders placed, none filled yet \u2014 patience between signal and fill is part of the edge.",
+        "Skipped 4 candidate(s) and logged them: skips are data too."
       ],
       "variant": "charter-baseline"
     }
@@ -1299,6 +1313,38 @@
       "ticker": "EWA",
       "setup": "ma_pullback",
       "entry": 30.31,
+      "stop": 29.43,
+      "reason": "blocked by rules: Max 2 positions: 1 open + 1 pending already."
+    },
+    {
+      "date": "2026-08-27",
+      "ticker": "QQQ",
+      "setup": "base_breakout",
+      "entry": 735.31,
+      "stop": 701.29,
+      "reason": "blocked by rules: Max 2 positions: 1 open + 1 pending already."
+    },
+    {
+      "date": "2026-08-27",
+      "ticker": "EWJ",
+      "setup": "base_breakout",
+      "entry": 98.89,
+      "stop": 93.86,
+      "reason": "blocked by rules: Max 2 positions: 1 open + 1 pending already."
+    },
+    {
+      "date": "2026-08-27",
+      "ticker": "INDA",
+      "setup": "ma_pullback",
+      "entry": 49.67,
+      "stop": 49.2,
+      "reason": "blocked by rules: Max 2 positions: 1 open + 1 pending already."
+    },
+    {
+      "date": "2026-08-27",
+      "ticker": "EWA",
+      "setup": "ma_pullback",
+      "entry": 30.11,
       "stop": 29.43,
       "reason": "blocked by rules: Max 2 positions: 1 open + 1 pending already."
     }

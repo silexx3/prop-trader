@@ -1663,6 +1663,13 @@
       "realized_R": -0.179,
       "actions": "AAPL eod_flat +0.09R; TSLA eod_flat -0.27R",
       "personality": "rabbit"
+    },
+    {
+      "date": "2026-08-27",
+      "trades": [],
+      "realized_R": 0,
+      "actions": "No trades \u2014 this personality found nothing worth doing.",
+      "personality": "rabbit"
     }
   ],
   "skipped_candidates": [
@@ -1809,6 +1816,46 @@
       "entry": 309.53,
       "stop": 305.36,
       "reason": "gapped past trigger (310.93 vs 309.53, >0.25R) \u2014 chasing is not the setup"
+    },
+    {
+      "date": "2026-08-27",
+      "ticker": "SPY",
+      "setup": "orb_long",
+      "entry": 770.07,
+      "stop": 766.39,
+      "reason": "gapped past trigger (771.22 vs 770.07, >0.25R) \u2014 chasing is not the setup"
+    },
+    {
+      "date": "2026-08-27",
+      "ticker": "QQQ",
+      "setup": "orb_long",
+      "entry": 719.19,
+      "stop": 713.81,
+      "reason": "gapped past trigger (720.83 vs 719.19, >0.25R) \u2014 chasing is not the setup"
+    },
+    {
+      "date": "2026-08-27",
+      "ticker": "AAPL",
+      "setup": "orb_long",
+      "entry": 312.26,
+      "stop": 309.09,
+      "reason": "gapped past trigger (314.88 vs 312.26, >0.25R) \u2014 chasing is not the setup"
+    },
+    {
+      "date": "2026-08-27",
+      "ticker": "MSFT",
+      "setup": "orb_long",
+      "entry": 500.15,
+      "stop": 489.59,
+      "reason": "gapped past trigger (505.55 vs 500.15, >0.25R) \u2014 chasing is not the setup"
+    },
+    {
+      "date": "2026-08-27",
+      "ticker": "TSLA",
+      "setup": "orb_long",
+      "entry": 352.61,
+      "stop": 345.1,
+      "reason": "gapped past trigger (355.23 vs 352.61, >0.25R) \u2014 chasing is not the setup"
     }
   ]
 }

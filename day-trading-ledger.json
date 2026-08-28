@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 3810.2,
+    "balance": 3953.53,
     "open_risk_R": 0
   },
   "rules": {
@@ -34,12 +34,12 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 101,
-    "wins": 30,
+    "trades_closed": 103,
+    "wins": 32,
     "losses": 71,
-    "win_rate_pct": 29.7,
-    "expectancy_R": -0.262,
-    "total_R": -26.425,
+    "win_rate_pct": 31.1,
+    "expectancy_R": -0.219,
+    "total_R": -22.525,
     "max_drawdown_pct": 28.04
   },
   "open_trades": [],
@@ -1963,6 +1963,44 @@
       "r_multiple": 0.094,
       "pnl_usd": 3.29,
       "balance_after": 3810.2
+    },
+    {
+      "id": "2026-08-27-NVDA-5",
+      "ticker": "NVDA",
+      "setup": "vwap_pullback",
+      "entry": 225.41,
+      "stop": 223.28,
+      "target": 229.67,
+      "shares": 17,
+      "risk_usd": 36.20999999999992,
+      "opened": "2026-08-27",
+      "entry_bar": 16,
+      "note": "Held above VWAP then first pullback into it (bar 13); long on reclaim of 225.40, stop under the dip 223.50.",
+      "exit": 229.67,
+      "closed": "2026-08-27",
+      "reason": "target",
+      "r_multiple": 1.95,
+      "pnl_usd": 70.61,
+      "balance_after": 3880.81
+    },
+    {
+      "id": "2026-08-27-TSLA-7",
+      "ticker": "TSLA",
+      "setup": "vwap_pullback",
+      "entry": 351.43,
+      "stop": 350.3,
+      "target": 353.69,
+      "shares": 33,
+      "risk_usd": 37.28999999999985,
+      "opened": "2026-08-27",
+      "entry_bar": 28,
+      "note": "Held above VWAP then first pullback into it (bar 27); long on reclaim of 351.42, stop under the dip 350.65.",
+      "exit": 353.69,
+      "closed": "2026-08-27",
+      "reason": "target",
+      "r_multiple": 1.95,
+      "pnl_usd": 72.72,
+      "balance_after": 3953.53
     }
   ],
   "sessions": [
@@ -2426,6 +2464,18 @@
       "lessons": [
         "Replayed 10 tickers on 5-minute bars; 2 trade(s), +1.04R after costs."
       ]
+    },
+    {
+      "date": "2026-08-27",
+      "trades": [
+        "2026-08-27-NVDA-5",
+        "2026-08-27-TSLA-7"
+      ],
+      "realized_R": 3.9,
+      "actions": "NVDA vwap_pullback \u2192 target +1.95R; TSLA vwap_pullback \u2192 target +1.95R",
+      "lessons": [
+        "Replayed 10 tickers on 5-minute bars; 2 trade(s), +3.90R after costs."
+      ]
     }
   ],
   "skipped_candidates": [
@@ -2564,6 +2614,30 @@
       "entry": 470.61,
       "stop": 468.35,
       "reason": "gapped past trigger (472.01 vs 470.61, >0.25R) \u2014 chasing is not the setup"
+    },
+    {
+      "date": "2026-08-27",
+      "ticker": "SPY",
+      "setup": "orb_long",
+      "entry": 770.07,
+      "stop": 766.39,
+      "reason": "gapped past trigger (771.22 vs 770.07, >0.25R) \u2014 chasing is not the setup"
+    },
+    {
+      "date": "2026-08-27",
+      "ticker": "QQQ",
+      "setup": "orb_long",
+      "entry": 719.19,
+      "stop": 713.81,
+      "reason": "gapped past trigger (720.83 vs 719.19, >0.25R) \u2014 chasing is not the setup"
+    },
+    {
+      "date": "2026-08-27",
+      "ticker": "AAPL",
+      "setup": "orb_long",
+      "entry": 312.26,
+      "stop": 309.09,
+      "reason": "gapped past trigger (314.88 vs 312.26, >0.25R) \u2014 chasing is not the setup"
     }
   ]
 }
