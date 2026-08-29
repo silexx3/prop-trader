@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 4928.7,
+    "balance": 4973.36,
     "open_risk_R": 0
   },
   "rules": {
@@ -35,12 +35,12 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 67,
-    "wins": 24,
-    "losses": 43,
-    "win_rate_pct": 35.8,
-    "expectancy_R": -0.026,
-    "total_R": -1.718,
+    "trades_closed": 71,
+    "wins": 26,
+    "losses": 45,
+    "win_rate_pct": 36.6,
+    "expectancy_R": -0.005,
+    "total_R": -0.385,
     "max_drawdown_pct": 4.46
   },
   "open_trades": [],
@@ -1318,6 +1318,82 @@
       "r_multiple": -0.273,
       "pnl_usd": -9.91,
       "balance_after": 4928.7
+    },
+    {
+      "id": "2026-08-28-AMZN-8",
+      "ticker": "AMZN",
+      "setup": "orb_long",
+      "entry": 259.9,
+      "stop": 257.52,
+      "target": 264.66,
+      "shares": 15,
+      "risk_usd": 35.69999999999993,
+      "opened": "2026-08-28",
+      "entry_bar": 6,
+      "note": "30-min opening range 257.78\u2013259.77; long on the break of 259.77 with volume \u2265 1.0\u00d7 the opening average.",
+      "exit": 264.66,
+      "closed": "2026-08-28",
+      "reason": "target",
+      "r_multiple": 1.95,
+      "pnl_usd": 69.62,
+      "balance_after": 4998.32
+    },
+    {
+      "id": "2026-08-28-SPY-0",
+      "ticker": "SPY",
+      "setup": "orb_long",
+      "entry": 773.4299926757812,
+      "stop": 770.7,
+      "target": 778.38,
+      "shares": 14,
+      "risk_usd": 35.839999999999236,
+      "opened": "2026-08-28",
+      "entry_bar": 15,
+      "note": "30-min opening range 771.47\u2013772.87; long on the break of 772.87 with volume \u2265 1.0\u00d7 the opening average.",
+      "exit": 770.7,
+      "closed": "2026-08-28",
+      "reason": "stop",
+      "r_multiple": -1.05,
+      "pnl_usd": -40.01,
+      "balance_after": 4958.31
+    },
+    {
+      "id": "2026-08-28-GOOGL-9",
+      "ticker": "GOOGL",
+      "setup": "orb_long",
+      "entry": 344.28,
+      "stop": 339.93,
+      "target": 352.98,
+      "shares": 8,
+      "risk_usd": 34.79999999999973,
+      "opened": "2026-08-28",
+      "entry_bar": 6,
+      "note": "30-min opening range 340.27\u2013344.11; long on the break of 344.11 with volume \u2265 1.0\u00d7 the opening average.",
+      "exit": 346.47,
+      "closed": "2026-08-28",
+      "reason": "eod_flat",
+      "r_multiple": 0.453,
+      "pnl_usd": 15.78,
+      "balance_after": 4974.09
+    },
+    {
+      "id": "2026-08-28-MSFT-4",
+      "ticker": "MSFT",
+      "setup": "orb_long",
+      "entry": 513.4,
+      "stop": 504.36,
+      "target": 531.48,
+      "shares": 4,
+      "risk_usd": 36.159999999999854,
+      "opened": "2026-08-28",
+      "entry_bar": 76,
+      "note": "30-min opening range 504.87\u2013513.14; long on the break of 513.14 with volume \u2265 1.0\u00d7 the opening average.",
+      "exit": 513.67,
+      "closed": "2026-08-28",
+      "reason": "eod_flat",
+      "r_multiple": -0.02,
+      "pnl_usd": -0.73,
+      "balance_after": 4973.36
     }
   ],
   "sessions": [
@@ -1670,6 +1746,18 @@
       "realized_R": 0,
       "actions": "No trades \u2014 this personality found nothing worth doing.",
       "personality": "rabbit"
+    },
+    {
+      "date": "2026-08-28",
+      "trades": [
+        "2026-08-28-AMZN-8",
+        "2026-08-28-SPY-0",
+        "2026-08-28-GOOGL-9",
+        "2026-08-28-MSFT-4"
+      ],
+      "realized_R": 1.333,
+      "actions": "AMZN target +1.95R; SPY stop -1.05R; GOOGL eod_flat +0.45R; MSFT eod_flat -0.02R",
+      "personality": "rabbit"
     }
   ],
   "skipped_candidates": [
@@ -1856,6 +1944,14 @@
       "entry": 352.61,
       "stop": 345.1,
       "reason": "gapped past trigger (355.23 vs 352.61, >0.25R) \u2014 chasing is not the setup"
+    },
+    {
+      "date": "2026-08-28",
+      "ticker": "AAPL",
+      "setup": "orb_long",
+      "entry": 318.29,
+      "stop": 315.13,
+      "reason": "gapped past trigger (319.59 vs 318.29, >0.25R) \u2014 chasing is not the setup"
     }
   ]
 }

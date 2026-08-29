@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 4681.02,
+    "balance": 4689.36,
     "open_risk_R": 0
   },
   "rules": {
@@ -35,12 +35,12 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 36,
-    "wins": 9,
+    "trades_closed": 37,
+    "wins": 10,
     "losses": 27,
-    "win_rate_pct": 25.0,
-    "expectancy_R": -0.377,
-    "total_R": -13.57,
+    "win_rate_pct": 27.0,
+    "expectancy_R": -0.357,
+    "total_R": -13.193,
     "max_drawdown_pct": 9.33
   },
   "open_trades": [],
@@ -729,6 +729,25 @@
       "r_multiple": 1.95,
       "pnl_usd": 41.53,
       "balance_after": 4681.02
+    },
+    {
+      "id": "2026-08-28-AAPL-2",
+      "ticker": "AAPL",
+      "setup": "orb_long",
+      "entry": 318.29,
+      "stop": 315.13,
+      "target": 324.61,
+      "shares": 7,
+      "risk_usd": 22.120000000000175,
+      "opened": "2026-08-28",
+      "entry_bar": 14,
+      "note": "30-min opening range 315.45\u2013318.13; long on the break of 318.13 with volume \u2265 1.2\u00d7 the opening average.",
+      "exit": 319.64,
+      "closed": "2026-08-28",
+      "reason": "eod_flat",
+      "r_multiple": 0.377,
+      "pnl_usd": 8.34,
+      "balance_after": 4689.36
     }
   ],
   "sessions": [
@@ -1054,6 +1073,15 @@
       ],
       "realized_R": 1.95,
       "actions": "NVDA target +1.95R",
+      "personality": "turtle"
+    },
+    {
+      "date": "2026-08-28",
+      "trades": [
+        "2026-08-28-AAPL-2"
+      ],
+      "realized_R": 0.377,
+      "actions": "AAPL eod_flat +0.38R",
       "personality": "turtle"
     }
   ],
