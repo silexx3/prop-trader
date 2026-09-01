@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 5022.99,
+    "balance": 4982.71,
     "open_risk_R": 0
   },
   "rules": {
@@ -35,12 +35,12 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 73,
+    "trades_closed": 75,
     "wins": 28,
-    "losses": 45,
-    "win_rate_pct": 38.4,
-    "expectancy_R": 0.013,
-    "total_R": 0.978,
+    "losses": 47,
+    "win_rate_pct": 37.3,
+    "expectancy_R": -0.002,
+    "total_R": -0.118,
     "max_drawdown_pct": 4.46
   },
   "open_trades": [],
@@ -1432,6 +1432,44 @@
       "r_multiple": 1.095,
       "pnl_usd": 39.56,
       "balance_after": 5022.99
+    },
+    {
+      "id": "2026-09-01-TSLA-8",
+      "ticker": "TSLA",
+      "setup": "vwap_pullback",
+      "entry": 358.53,
+      "stop": 357.17,
+      "target": 361.25,
+      "shares": 27,
+      "risk_usd": 36.719999999998834,
+      "opened": "2026-09-01",
+      "entry_bar": 18,
+      "note": "Held above VWAP then first pullback into it (bar 16); long on reclaim of 358.52, stop under the dip 357.53.",
+      "exit": 357.17,
+      "closed": "2026-09-01",
+      "reason": "stop",
+      "r_multiple": -1.05,
+      "pnl_usd": -38.56,
+      "balance_after": 4984.43
+    },
+    {
+      "id": "2026-09-01-NVDA-2",
+      "ticker": "NVDA",
+      "setup": "orb_long",
+      "entry": 217.53,
+      "stop": 214.88,
+      "target": 222.83,
+      "shares": 14,
+      "risk_usd": 37.10000000000008,
+      "opened": "2026-09-01",
+      "entry_bar": 77,
+      "note": "30-min opening range 215.10\u2013217.42; long on the break of 217.42 with volume \u2265 1.0\u00d7 the opening average.",
+      "exit": 217.54,
+      "closed": "2026-09-01",
+      "reason": "eod_flat",
+      "r_multiple": -0.046,
+      "pnl_usd": -1.72,
+      "balance_after": 4982.71
     }
   ],
   "sessions": [
@@ -1806,6 +1844,16 @@
       "realized_R": 1.363,
       "actions": "NVDA eod_flat +0.27R; TSLA eod_flat +1.09R",
       "personality": "rabbit"
+    },
+    {
+      "date": "2026-09-01",
+      "trades": [
+        "2026-09-01-TSLA-8",
+        "2026-09-01-NVDA-2"
+      ],
+      "realized_R": -1.096,
+      "actions": "TSLA stop -1.05R; NVDA eod_flat -0.05R",
+      "personality": "rabbit"
     }
   ],
   "skipped_candidates": [
@@ -2000,6 +2048,14 @@
       "entry": 318.29,
       "stop": 315.13,
       "reason": "gapped past trigger (319.59 vs 318.29, >0.25R) \u2014 chasing is not the setup"
+    },
+    {
+      "date": "2026-09-01",
+      "ticker": "META",
+      "setup": "orb_long",
+      "entry": 568.53,
+      "stop": 555.74,
+      "reason": "gapped past trigger (579.59 vs 568.53, >0.25R) \u2014 chasing is not the setup"
     }
   ]
 }

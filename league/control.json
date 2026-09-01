@@ -40,16 +40,16 @@
   ],
   "pending_orders": [
     {
-      "id": "4c34302a",
+      "id": "5f098df9",
       "ticker": "SPY",
       "setup": "ma_pullback",
-      "entry": 767.99,
-      "stop": 760.52,
-      "target": 782.93,
-      "shares": 6,
-      "risk_usd": 44.82,
-      "placed": "2026-08-31",
-      "note": "Uptrend pullback into 20/50 zone (SMA20 769.68 / SMA50 754.36); entry on reclaim of today's high 767.99, stop below pullback low 762.04."
+      "entry": 764.67,
+      "stop": 757.96,
+      "target": 778.09,
+      "shares": 7,
+      "risk_usd": 46.97,
+      "placed": "2026-09-01",
+      "note": "Uptrend pullback into 20/50 zone (SMA20 769.21 / SMA50 754.71); entry on reclaim of today's high 764.67, stop below pullback low 759.48."
     }
   ],
   "closed_trades": [
@@ -623,6 +623,20 @@
       "realized_R": 0,
       "brutality": 0,
       "brutality_note": "Tape moved 0.5% on average; we were flat. Sitting out is a position.",
+      "lessons": [
+        "Orders placed, none filled yet \u2014 patience between signal and fill is part of the edge.",
+        "Skipped 6 candidate(s) and logged them: skips are data too."
+      ],
+      "variant": "charter-baseline"
+    },
+    {
+      "date": "2026-09-01",
+      "regime": "SPY 761.78, choppy uptrend (above 50, testing 20); QQQ 707.64, downtrend (below 20/50)",
+      "actions": "SPY ma_pullback order placed: entry 764.67, stop 757.96, target 778.09, 7 shares; QQQ base_breakout candidate skipped; NVDA ma_pullback candidate skipped; MSFT ma_pullback candidate skipped; EWJ base_breakout candidate skipped; INDA ma_pullback candidate skipped; EWA ma_pullback candidate skipped.",
+      "trades": [],
+      "realized_R": 0,
+      "brutality": 1,
+      "brutality_note": "Tape moved 1.4% on average; we were flat. Sitting out is a position.",
       "lessons": [
         "Orders placed, none filled yet \u2014 patience between signal and fill is part of the edge.",
         "Skipped 6 candidate(s) and logged them: skips are data too."
@@ -1460,6 +1474,54 @@
       "ticker": "EWA",
       "setup": "ma_pullback",
       "entry": 30.08,
+      "stop": 29.55,
+      "reason": "blocked by rules: Max 2 positions: 1 open + 1 pending already."
+    },
+    {
+      "date": "2026-09-01",
+      "ticker": "QQQ",
+      "setup": "base_breakout",
+      "entry": 735.31,
+      "stop": 701.29,
+      "reason": "blocked by rules: Max 2 positions: 1 open + 1 pending already."
+    },
+    {
+      "date": "2026-09-01",
+      "ticker": "NVDA",
+      "setup": "ma_pullback",
+      "entry": 220.41,
+      "stop": 206.84,
+      "reason": "blocked by rules: Max 2 positions: 1 open + 1 pending already."
+    },
+    {
+      "date": "2026-09-01",
+      "ticker": "MSFT",
+      "setup": "ma_pullback",
+      "entry": 505.97,
+      "stop": 477.5,
+      "reason": "blocked by rules: Max 2 positions: 1 open + 1 pending already."
+    },
+    {
+      "date": "2026-09-01",
+      "ticker": "EWJ",
+      "setup": "base_breakout",
+      "entry": 98.89,
+      "stop": 93.86,
+      "reason": "blocked by rules: Max 2 positions: 1 open + 1 pending already."
+    },
+    {
+      "date": "2026-09-01",
+      "ticker": "INDA",
+      "setup": "ma_pullback",
+      "entry": 49.83,
+      "stop": 49.2,
+      "reason": "blocked by rules: Max 2 positions: 1 open + 1 pending already."
+    },
+    {
+      "date": "2026-09-01",
+      "ticker": "EWA",
+      "setup": "ma_pullback",
+      "entry": 29.99,
       "stop": 29.55,
       "reason": "blocked by rules: Max 2 positions: 1 open + 1 pending already."
     }
