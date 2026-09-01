@@ -556,6 +556,19 @@
         "Skipped 6 candidate(s) and logged them: skips are data too."
       ],
       "variant": "charter-baseline"
+    },
+    {
+      "date": "2026-08-31",
+      "regime": "SPY 767.05, choppy uptrend (above 50, testing 20); QQQ 716.76, choppy uptrend (above 50, testing 20)",
+      "actions": "SPY ma_pullback candidate skipped; QQQ base_breakout candidate skipped; MSFT base_breakout candidate skipped; EWJ base_breakout candidate skipped; EWT base_breakout candidate skipped; INDA ma_pullback candidate skipped; EWA ma_pullback candidate skipped.",
+      "trades": [],
+      "realized_R": 0,
+      "brutality": 0,
+      "brutality_note": "Tape moved 0.5% on average; we were flat. Sitting out is a position.",
+      "lessons": [
+        "Skipped 7 candidate(s) and logged them: skips are data too."
+      ],
+      "variant": "charter-baseline"
     }
   ],
   "skipped_candidates": [
@@ -1645,6 +1658,62 @@
       "setup": "ma_pullback",
       "entry": 30.32,
       "stop": 29.43,
+      "reason": "blocked by rules: Max 1 positions: 1 open + 0 pending already."
+    },
+    {
+      "date": "2026-08-31",
+      "ticker": "SPY",
+      "setup": "ma_pullback",
+      "entry": 767.99,
+      "stop": 760.52,
+      "reason": "blocked by rules: Max 1 positions: 1 open + 0 pending already."
+    },
+    {
+      "date": "2026-08-31",
+      "ticker": "QQQ",
+      "setup": "base_breakout",
+      "entry": 735.31,
+      "stop": 701.29,
+      "reason": "correlation guard \u2014 QQQ moves with SPY (0.92 over 90d): one bet, two tickets"
+    },
+    {
+      "date": "2026-08-31",
+      "ticker": "MSFT",
+      "setup": "base_breakout",
+      "entry": 518.3,
+      "stop": 475.3,
+      "reason": "blocked by rules: Max 1 positions: 1 open + 0 pending already."
+    },
+    {
+      "date": "2026-08-31",
+      "ticker": "EWJ",
+      "setup": "base_breakout",
+      "entry": 98.89,
+      "stop": 93.86,
+      "reason": "blocked by rules: Max 1 positions: 1 open + 0 pending already."
+    },
+    {
+      "date": "2026-08-31",
+      "ticker": "EWT",
+      "setup": "base_breakout",
+      "entry": 109.9,
+      "stop": 102.41,
+      "reason": "blocked by rules: Max 1 positions: 1 open + 0 pending already."
+    },
+    {
+      "date": "2026-08-31",
+      "ticker": "INDA",
+      "setup": "ma_pullback",
+      "entry": 49.87,
+      "stop": 49.2,
+      "reason": "blocked by rules: Max 1 positions: 1 open + 0 pending already."
+    },
+    {
+      "date": "2026-08-31",
+      "ticker": "EWA",
+      "setup": "ma_pullback",
+      "entry": 30.08,
+      "stop": 29.55,
       "reason": "blocked by rules: Max 1 positions: 1 open + 0 pending already."
     }
   ]
