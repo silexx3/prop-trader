@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 4982.71,
+    "balance": 5004.39,
     "open_risk_R": 0
   },
   "rules": {
@@ -35,12 +35,12 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 75,
-    "wins": 28,
-    "losses": 47,
-    "win_rate_pct": 37.3,
-    "expectancy_R": -0.002,
-    "total_R": -0.118,
+    "trades_closed": 77,
+    "wins": 29,
+    "losses": 48,
+    "win_rate_pct": 37.7,
+    "expectancy_R": 0.007,
+    "total_R": 0.533,
     "max_drawdown_pct": 4.46
   },
   "open_trades": [],
@@ -1470,6 +1470,44 @@
       "r_multiple": -0.046,
       "pnl_usd": -1.72,
       "balance_after": 4982.71
+    },
+    {
+      "id": "2026-09-02-NVDA-2",
+      "ticker": "NVDA",
+      "setup": "orb_long",
+      "entry": 221.66,
+      "stop": 218.26,
+      "target": 228.46,
+      "shares": 10,
+      "risk_usd": 34.00000000000006,
+      "opened": "2026-09-02",
+      "entry_bar": 6,
+      "note": "30-min opening range 218.48\u2013221.55; long on the break of 221.55 with volume \u2265 1.0\u00d7 the opening average.",
+      "exit": 224.4,
+      "closed": "2026-09-02",
+      "reason": "eod_flat",
+      "r_multiple": 0.756,
+      "pnl_usd": 25.7,
+      "balance_after": 5008.41
+    },
+    {
+      "id": "2026-09-02-GOOGL-7",
+      "ticker": "GOOGL",
+      "setup": "orb_long",
+      "entry": 337.3999938964844,
+      "stop": 332.49,
+      "target": 346.41,
+      "shares": 8,
+      "risk_usd": 37.11999999999989,
+      "opened": "2026-09-02",
+      "entry_bar": 8,
+      "note": "30-min opening range 332.82\u2013336.96; long on the break of 336.96 with volume \u2265 1.0\u00d7 the opening average.",
+      "exit": 337.13,
+      "closed": "2026-09-02",
+      "reason": "eod_flat",
+      "r_multiple": -0.105,
+      "pnl_usd": -4.02,
+      "balance_after": 5004.39
     }
   ],
   "sessions": [
@@ -1853,6 +1891,16 @@
       ],
       "realized_R": -1.096,
       "actions": "TSLA stop -1.05R; NVDA eod_flat -0.05R",
+      "personality": "rabbit"
+    },
+    {
+      "date": "2026-09-02",
+      "trades": [
+        "2026-09-02-NVDA-2",
+        "2026-09-02-GOOGL-7"
+      ],
+      "realized_R": 0.651,
+      "actions": "NVDA eod_flat +0.76R; GOOGL eod_flat -0.10R",
       "personality": "rabbit"
     }
   ],
