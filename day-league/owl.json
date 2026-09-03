@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 4653.08,
+    "balance": 4704.14,
     "open_risk_R": 0
   },
   "rules": {
@@ -35,12 +35,12 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 58,
-    "wins": 22,
-    "losses": 36,
-    "win_rate_pct": 37.9,
-    "expectancy_R": -0.117,
-    "total_R": -6.8,
+    "trades_closed": 60,
+    "wins": 23,
+    "losses": 37,
+    "win_rate_pct": 38.3,
+    "expectancy_R": -0.094,
+    "total_R": -5.668,
     "max_drawdown_pct": 13.47
   },
   "open_trades": [],
@@ -1147,6 +1147,44 @@
       "r_multiple": -0.105,
       "pnl_usd": -5.02,
       "balance_after": 4653.08
+    },
+    {
+      "id": "2026-09-03-NVDA-5",
+      "ticker": "NVDA",
+      "setup": "vwap_pullback",
+      "entry": 228.16,
+      "stop": 227.1,
+      "target": 230.28,
+      "shares": 43,
+      "risk_usd": 45.5800000000001,
+      "opened": "2026-09-03",
+      "entry_bar": 49,
+      "note": "Held above VWAP then first pullback into it (bar 11); long on reclaim of 228.15, stop under the dip 227.33.",
+      "exit": 230.28,
+      "closed": "2026-09-03",
+      "reason": "target",
+      "r_multiple": 1.95,
+      "pnl_usd": 88.88,
+      "balance_after": 4741.96
+    },
+    {
+      "id": "2026-09-03-MSFT-6",
+      "ticker": "MSFT",
+      "setup": "vwap_pullback",
+      "entry": 512.2999877929688,
+      "stop": 509.41,
+      "target": 518.02,
+      "shares": 16,
+      "risk_usd": 45.91999999999916,
+      "opened": "2026-09-03",
+      "entry_bar": 21,
+      "note": "Held above VWAP then first pullback into it (bar 11); long on reclaim of 512.27, stop under the dip 509.92.",
+      "exit": 510.08,
+      "closed": "2026-09-03",
+      "reason": "eod_flat",
+      "r_multiple": -0.818,
+      "pnl_usd": -37.82,
+      "balance_after": 4704.14
     }
   ],
   "sessions": [
@@ -1517,6 +1555,16 @@
       ],
       "realized_R": -1.155,
       "actions": "META stop -1.05R; GOOGL eod_flat -0.10R",
+      "personality": "owl"
+    },
+    {
+      "date": "2026-09-03",
+      "trades": [
+        "2026-09-03-NVDA-5",
+        "2026-09-03-MSFT-6"
+      ],
+      "realized_R": 1.132,
+      "actions": "NVDA target +1.95R; MSFT eod_flat -0.82R",
       "personality": "owl"
     }
   ],
