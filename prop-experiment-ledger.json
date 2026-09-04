@@ -668,6 +668,18 @@
       "lessons": [
         "Skipped 5 candidate(s) and logged them: skips are data too."
       ]
+    },
+    {
+      "date": "2026-09-04",
+      "regime": "SPY 770.19, uptrend (above rising 20/50); QQQ 718.96, uptrend (above rising 20/50)",
+      "actions": "QQQ base_breakout candidate skipped; MSFT ma_pullback candidate skipped; EWJ base_breakout candidate skipped; EWA ma_pullback candidate skipped.",
+      "trades": [],
+      "realized_R": 0,
+      "brutality": 2,
+      "brutality_note": "Tape moved 1.6% on average; we were flat. Sitting out is a position.",
+      "lessons": [
+        "Skipped 4 candidate(s) and logged them: skips are data too."
+      ]
     }
   ],
   "skipped_candidates": [
@@ -1716,6 +1728,38 @@
       "ticker": "EWA",
       "setup": "ma_pullback",
       "entry": 30.4,
+      "stop": 29.6,
+      "reason": "blocked by charter: Max 2 positions: 2 open + 0 pending already."
+    },
+    {
+      "date": "2026-09-04",
+      "ticker": "QQQ",
+      "setup": "base_breakout",
+      "entry": 735.31,
+      "stop": 701.29,
+      "reason": "correlation guard \u2014 QQQ moves with SPY (0.91 over 90d): one bet, two tickets"
+    },
+    {
+      "date": "2026-09-04",
+      "ticker": "MSFT",
+      "setup": "ma_pullback",
+      "entry": 511.0,
+      "stop": 480.9,
+      "reason": "blocked by charter: Max 2 positions: 2 open + 0 pending already."
+    },
+    {
+      "date": "2026-09-04",
+      "ticker": "EWJ",
+      "setup": "base_breakout",
+      "entry": 98.89,
+      "stop": 94.18,
+      "reason": "blocked by charter: Max 2 positions: 2 open + 0 pending already."
+    },
+    {
+      "date": "2026-09-04",
+      "ticker": "EWA",
+      "setup": "ma_pullback",
+      "entry": 30.25,
       "stop": 29.6,
       "reason": "blocked by charter: Max 2 positions: 2 open + 0 pending already."
     }

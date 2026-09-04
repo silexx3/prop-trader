@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 4996.29,
+    "balance": 5066.66,
     "open_risk_R": 0
   },
   "rules": {
@@ -35,12 +35,12 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 78,
-    "wins": 29,
-    "losses": 49,
-    "win_rate_pct": 37.2,
-    "expectancy_R": 0.004,
-    "total_R": 0.315,
+    "trades_closed": 80,
+    "wins": 30,
+    "losses": 50,
+    "win_rate_pct": 37.5,
+    "expectancy_R": 0.028,
+    "total_R": 2.206,
     "max_drawdown_pct": 4.46
   },
   "open_trades": [],
@@ -1527,6 +1527,44 @@
       "r_multiple": -0.218,
       "pnl_usd": -8.1,
       "balance_after": 4996.29
+    },
+    {
+      "id": "2026-09-04-AMD-9",
+      "ticker": "AMD",
+      "setup": "vwap_pullback",
+      "entry": 470.76,
+      "stop": 467.38,
+      "target": 477.52,
+      "shares": 11,
+      "risk_usd": 37.17999999999995,
+      "opened": "2026-09-04",
+      "entry_bar": 17,
+      "note": "Held above VWAP then first pullback into it (bar 10); long on reclaim of 470.75, stop under the dip 467.85.",
+      "exit": 477.52,
+      "closed": "2026-09-04",
+      "reason": "target",
+      "r_multiple": 1.95,
+      "pnl_usd": 72.5,
+      "balance_after": 5068.79
+    },
+    {
+      "id": "2026-09-04-META-6",
+      "ticker": "META",
+      "setup": "orb_long",
+      "entry": 616.8599853515625,
+      "stop": 604.66,
+      "target": 640.6,
+      "shares": 3,
+      "risk_usd": 35.940000000000055,
+      "opened": "2026-09-04",
+      "entry_bar": 77,
+      "note": "30-min opening range 605.27\u2013616.33; long on the break of 616.33 with volume \u2265 1.0\u00d7 the opening average.",
+      "exit": 616.75,
+      "closed": "2026-09-04",
+      "reason": "eod_flat",
+      "r_multiple": -0.059,
+      "pnl_usd": -2.13,
+      "balance_after": 5066.66
     }
   ],
   "sessions": [
@@ -1929,6 +1967,16 @@
       ],
       "realized_R": -0.218,
       "actions": "NVDA eod_flat -0.22R",
+      "personality": "rabbit"
+    },
+    {
+      "date": "2026-09-04",
+      "trades": [
+        "2026-09-04-AMD-9",
+        "2026-09-04-META-6"
+      ],
+      "realized_R": 1.891,
+      "actions": "AMD target +1.95R; META eod_flat -0.06R",
       "personality": "rabbit"
     }
   ],
