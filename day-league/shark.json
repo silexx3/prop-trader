@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 2746.66,
+    "balance": 2690.44,
     "open_risk_R": 0
   },
   "rules": {
@@ -35,12 +35,12 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 144,
-    "wins": 48,
-    "losses": 96,
-    "win_rate_pct": 33.3,
-    "expectancy_R": -0.19,
-    "total_R": -27.408,
+    "trades_closed": 146,
+    "wins": 49,
+    "losses": 97,
+    "win_rate_pct": 33.6,
+    "expectancy_R": -0.195,
+    "total_R": -28.452,
     "max_drawdown_pct": 55.8
   },
   "open_trades": [],
@@ -2781,6 +2781,44 @@
       "r_multiple": 1.95,
       "pnl_usd": 98.86,
       "balance_after": 2746.66
+    },
+    {
+      "id": "2026-09-08-META-3",
+      "ticker": "META",
+      "setup": "orb_long",
+      "entry": 623.53,
+      "stop": 614.44,
+      "target": 641.71,
+      "shares": 6,
+      "risk_usd": 54.53999999999951,
+      "opened": "2026-09-08",
+      "entry_bar": 66,
+      "note": "30-min opening range 615.05\u2013623.22; long on the break of 623.22 with volume \u2265 1.2\u00d7 the opening average.",
+      "exit": 614.44,
+      "closed": "2026-09-08",
+      "reason": "stop",
+      "r_multiple": -1.05,
+      "pnl_usd": -57.27,
+      "balance_after": 2689.39
+    },
+    {
+      "id": "2026-09-08-GOOGL-5",
+      "ticker": "GOOGL",
+      "setup": "orb_long",
+      "entry": 338.1499938964844,
+      "stop": 333.17,
+      "target": 345.14,
+      "shares": 13,
+      "risk_usd": 51.87000000000012,
+      "opened": "2026-09-08",
+      "entry_bar": 77,
+      "note": "30-min opening range 333.50\u2013336.99; long on the break of 336.99 with volume \u2265 1.2\u00d7 the opening average.",
+      "exit": 338.43,
+      "closed": "2026-09-08",
+      "reason": "eod_flat",
+      "r_multiple": 0.006,
+      "pnl_usd": 1.05,
+      "balance_after": 2690.44
     }
   ],
   "sessions": [
@@ -3262,6 +3300,16 @@
       ],
       "realized_R": 0.9,
       "actions": "META stop -1.05R; AMD target +1.95R",
+      "personality": "shark"
+    },
+    {
+      "date": "2026-09-08",
+      "trades": [
+        "2026-09-08-META-3",
+        "2026-09-08-GOOGL-5"
+      ],
+      "realized_R": -1.044,
+      "actions": "META stop -1.05R; GOOGL eod_flat +0.01R",
       "personality": "shark"
     }
   ],

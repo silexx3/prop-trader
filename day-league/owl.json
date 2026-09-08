@@ -1594,6 +1594,13 @@
       "realized_R": -1.05,
       "actions": "META stop -1.05R",
       "personality": "owl"
+    },
+    {
+      "date": "2026-09-08",
+      "trades": [],
+      "realized_R": 0,
+      "actions": "No trades \u2014 this personality found nothing worth doing.",
+      "personality": "owl"
     }
   ],
   "skipped_candidates": [

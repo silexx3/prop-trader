@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 5066.66,
+    "balance": 5029.2,
     "open_risk_R": 0
   },
   "rules": {
@@ -35,12 +35,12 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 80,
-    "wins": 30,
-    "losses": 50,
-    "win_rate_pct": 37.5,
-    "expectancy_R": 0.028,
-    "total_R": 2.206,
+    "trades_closed": 82,
+    "wins": 31,
+    "losses": 51,
+    "win_rate_pct": 37.8,
+    "expectancy_R": 0.014,
+    "total_R": 1.162,
     "max_drawdown_pct": 4.46
   },
   "open_trades": [],
@@ -1565,6 +1565,44 @@
       "r_multiple": -0.059,
       "pnl_usd": -2.13,
       "balance_after": 5066.66
+    },
+    {
+      "id": "2026-09-08-META-7",
+      "ticker": "META",
+      "setup": "orb_long",
+      "entry": 623.53,
+      "stop": 614.44,
+      "target": 641.71,
+      "shares": 4,
+      "risk_usd": 36.35999999999967,
+      "opened": "2026-09-08",
+      "entry_bar": 66,
+      "note": "30-min opening range 615.05\u2013623.22; long on the break of 623.22 with volume \u2265 1.0\u00d7 the opening average.",
+      "exit": 614.44,
+      "closed": "2026-09-08",
+      "reason": "stop",
+      "r_multiple": -1.05,
+      "pnl_usd": -38.18,
+      "balance_after": 5028.48
+    },
+    {
+      "id": "2026-09-08-GOOGL-9",
+      "ticker": "GOOGL",
+      "setup": "orb_long",
+      "entry": 338.1499938964844,
+      "stop": 333.17,
+      "target": 345.14,
+      "shares": 9,
+      "risk_usd": 35.91000000000008,
+      "opened": "2026-09-08",
+      "entry_bar": 77,
+      "note": "30-min opening range 333.50\u2013336.99; long on the break of 336.99 with volume \u2265 1.0\u00d7 the opening average.",
+      "exit": 338.43,
+      "closed": "2026-09-08",
+      "reason": "eod_flat",
+      "r_multiple": 0.006,
+      "pnl_usd": 0.72,
+      "balance_after": 5029.2
     }
   ],
   "sessions": [
@@ -1978,6 +2016,16 @@
       "realized_R": 1.891,
       "actions": "AMD target +1.95R; META eod_flat -0.06R",
       "personality": "rabbit"
+    },
+    {
+      "date": "2026-09-08",
+      "trades": [
+        "2026-09-08-META-7",
+        "2026-09-08-GOOGL-9"
+      ],
+      "realized_R": -1.044,
+      "actions": "META stop -1.05R; GOOGL eod_flat +0.01R",
+      "personality": "rabbit"
     }
   ],
   "skipped_candidates": [
@@ -2204,6 +2252,14 @@
       "entry": 714.21,
       "stop": 708.98,
       "reason": "gapped past trigger (717.58 vs 714.21, >0.25R) \u2014 chasing is not the setup"
+    },
+    {
+      "date": "2026-09-08",
+      "ticker": "AMD",
+      "setup": "orb_long",
+      "entry": 497.02,
+      "stop": 486.08,
+      "reason": "gapped past trigger (503.70 vs 497.02, >0.25R) \u2014 chasing is not the setup"
     }
   ]
 }
