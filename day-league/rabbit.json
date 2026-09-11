@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 4888.2,
+    "balance": 4900.71,
     "open_risk_R": 0
   },
   "rules": {
@@ -35,12 +35,12 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 86,
-    "wins": 31,
-    "losses": 55,
-    "win_rate_pct": 36.0,
-    "expectancy_R": -0.033,
-    "total_R": -2.842,
+    "trades_closed": 88,
+    "wins": 32,
+    "losses": 56,
+    "win_rate_pct": 36.4,
+    "expectancy_R": -0.028,
+    "total_R": -2.488,
     "max_drawdown_pct": 5.01
   },
   "open_trades": [],
@@ -1679,6 +1679,44 @@
       "r_multiple": -1.05,
       "pnl_usd": -38.2,
       "balance_after": 4888.2
+    },
+    {
+      "id": "2026-09-11-AMD-9",
+      "ticker": "AMD",
+      "setup": "vwap_pullback",
+      "entry": 514.21,
+      "stop": 510.58,
+      "target": 521.47,
+      "shares": 10,
+      "risk_usd": 36.30000000000052,
+      "opened": "2026-09-11",
+      "entry_bar": 19,
+      "note": "Held above VWAP then first pullback into it (bar 15); long on reclaim of 514.20, stop under the dip 511.09.",
+      "exit": 516.28,
+      "closed": "2026-09-11",
+      "reason": "eod_flat",
+      "r_multiple": 0.52,
+      "pnl_usd": 18.89,
+      "balance_after": 4907.09
+    },
+    {
+      "id": "2026-09-11-AMZN-7",
+      "ticker": "AMZN",
+      "setup": "orb_long",
+      "entry": 257.29998779296875,
+      "stop": 252.89,
+      "target": 264.83,
+      "shares": 9,
+      "risk_usd": 35.820000000000164,
+      "opened": "2026-09-11",
+      "entry_bar": 76,
+      "note": "30-min opening range 253.14\u2013256.74; long on the break of 256.74 with volume \u2265 1.0\u00d7 the opening average.",
+      "exit": 256.79,
+      "closed": "2026-09-11",
+      "reason": "eod_flat",
+      "r_multiple": -0.166,
+      "pnl_usd": -6.38,
+      "balance_after": 4900.71
     }
   ],
   "sessions": [
@@ -2121,6 +2159,16 @@
       ],
       "realized_R": -2.1,
       "actions": "META stop -1.05R; TSLA stop -1.05R",
+      "personality": "rabbit"
+    },
+    {
+      "date": "2026-09-11",
+      "trades": [
+        "2026-09-11-AMD-9",
+        "2026-09-11-AMZN-7"
+      ],
+      "realized_R": 0.354,
+      "actions": "AMD eod_flat +0.52R; AMZN eod_flat -0.17R",
       "personality": "rabbit"
     }
   ],
