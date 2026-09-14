@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 4451.69,
+    "balance": 4533.82,
     "open_risk_R": 0
   },
   "rules": {
@@ -35,12 +35,12 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 67,
-    "wins": 24,
+    "trades_closed": 68,
+    "wins": 25,
     "losses": 43,
-    "win_rate_pct": 35.8,
-    "expectancy_R": -0.168,
-    "total_R": -11.252,
+    "win_rate_pct": 36.8,
+    "expectancy_R": -0.137,
+    "total_R": -9.302,
     "max_drawdown_pct": 13.77
   },
   "open_trades": [],
@@ -1318,6 +1318,25 @@
       "r_multiple": 0.52,
       "pnl_usd": 22.66,
       "balance_after": 4451.69
+    },
+    {
+      "id": "2026-09-14-AMD-6",
+      "ticker": "AMD",
+      "setup": "vwap_pullback",
+      "entry": 489.3,
+      "stop": 486.06,
+      "target": 495.78,
+      "shares": 13,
+      "risk_usd": 42.12000000000012,
+      "opened": "2026-09-14",
+      "entry_bar": 24,
+      "note": "Held above VWAP then first pullback into it (bar 11); long on reclaim of 489.29, stop under the dip 486.55.",
+      "exit": 495.78,
+      "closed": "2026-09-14",
+      "reason": "target",
+      "r_multiple": 1.95,
+      "pnl_usd": 82.13,
+      "balance_after": 4533.82
     }
   ],
   "sessions": [
@@ -1745,6 +1764,15 @@
       "realized_R": -0.53,
       "actions": "GOOGL stop -1.05R; AMD eod_flat +0.52R",
       "personality": "owl"
+    },
+    {
+      "date": "2026-09-14",
+      "trades": [
+        "2026-09-14-AMD-6"
+      ],
+      "realized_R": 1.95,
+      "actions": "AMD target +1.95R",
+      "personality": "owl"
     }
   ],
   "skipped_candidates": [
@@ -1843,6 +1871,14 @@
       "entry": 470.76,
       "stop": 467.38,
       "reason": "gapped past trigger (475.30 vs 470.76, >0.25R) \u2014 chasing is not the setup"
+    },
+    {
+      "date": "2026-09-14",
+      "ticker": "SPY",
+      "setup": "orb_long",
+      "entry": 760.97,
+      "stop": 757.7,
+      "reason": "gapped past trigger (762.35 vs 760.97, >0.25R) \u2014 chasing is not the setup"
     }
   ]
 }

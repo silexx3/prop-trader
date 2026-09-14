@@ -26,32 +26,20 @@
   "open_trades": [],
   "pending_orders": [
     {
-      "id": "dd2ffcdf",
+      "id": "4a09effd",
       "ticker": "SPY",
       "setup": "base_breakout",
-      "entry": 779.58,
+      "entry": 777.56,
       "stop": 755.13,
-      "target": 828.48,
-      "shares": 3,
-      "risk_usd": 73.35,
-      "placed": "2026-09-11",
-      "note": "4-week base 756.64\u2013778.80 (2.9% range) near highs; entry on break of 778.80; fill requires volume \u2265 56,029,113 (1.5\u00d7 avg) \u2014 a quiet break is not the setup.",
-      "min_volume": 56029113.0
+      "target": 822.42,
+      "shares": 4,
+      "risk_usd": 89.72,
+      "placed": "2026-09-14",
+      "note": "4-week base 756.64\u2013776.78 (2.7% range) near highs; entry on break of 776.78; fill requires volume \u2265 56,970,502 (1.5\u00d7 avg) \u2014 a quiet break is not the setup.",
+      "min_volume": 56970502.0
     },
     {
-      "id": "1091070c",
-      "ticker": "NVDA",
-      "setup": "ma_pullback",
-      "entry": 222.0,
-      "stop": 214.43,
-      "target": 237.14,
-      "shares": 12,
-      "risk_usd": 90.84,
-      "placed": "2026-09-11",
-      "note": "Uptrend pullback into 20/50 zone (SMA20 219.94 / SMA50 212.36); entry on reclaim of today's high 222.00, stop below pullback low 214.86."
-    },
-    {
-      "id": "11c5555e",
+      "id": "6c1f30a9",
       "ticker": "MSFT",
       "setup": "base_breakout",
       "entry": 518.3,
@@ -59,9 +47,21 @@
       "target": 584.84,
       "shares": 2,
       "risk_usd": 66.54,
-      "placed": "2026-09-11",
-      "note": "4-week base 476.25\u2013517.78 (8.7% range) near highs; entry on break of 517.78; fill requires volume \u2265 31,181,188 (1.5\u00d7 avg) \u2014 a quiet break is not the setup.",
-      "min_volume": 31181188.0
+      "placed": "2026-09-14",
+      "note": "4-week base 476.25\u2013517.78 (8.7% range) near highs; entry on break of 517.78; fill requires volume \u2265 31,708,759 (1.5\u00d7 avg) \u2014 a quiet break is not the setup.",
+      "min_volume": 31708759.0
+    },
+    {
+      "id": "6f60d583",
+      "ticker": "EWJ",
+      "setup": "ma_pullback",
+      "entry": 98.07,
+      "stop": 94.8,
+      "target": 104.61,
+      "shares": 29,
+      "risk_usd": 94.83,
+      "placed": "2026-09-14",
+      "note": "Uptrend pullback into 20/50 zone (SMA20 96.31 / SMA50 94.67); entry on reclaim of today's high 98.07, stop below pullback low 94.99."
     }
   ],
   "closed_trades": [
@@ -850,6 +850,20 @@
         "AAPL hit target for +1.95R \u2014 the 2R minimum is what lets a sub-50% win rate still print positive expectancy.",
         "Orders placed, none filled yet \u2014 patience between signal and fill is part of the edge.",
         "Skipped 4 candidate(s) and logged them: skips are data too."
+      ],
+      "variant": "charter-baseline"
+    },
+    {
+      "date": "2026-09-14",
+      "regime": "SPY 760.88, choppy uptrend (above 50, testing 20); QQQ 709.18, downtrend (below 20/50)",
+      "actions": "SPY base_breakout order placed: entry 777.56, stop 755.13, target 822.42, 4 shares; MSFT base_breakout order placed: entry 518.3, stop 485.03, target 584.84, 2 shares; EWJ ma_pullback order placed: entry 98.07, stop 94.8, target 104.61, 29 shares; QQQ base_breakout candidate skipped; EWT ma_pullback candidate skipped; EWA base_breakout candidate skipped.",
+      "trades": [],
+      "realized_R": 0,
+      "brutality": 2,
+      "brutality_note": "Tape moved 2.0% on average; we were flat. Sitting out is a position.",
+      "lessons": [
+        "Orders placed, none filled yet \u2014 patience between signal and fill is part of the edge.",
+        "Skipped 3 candidate(s) and logged them: skips are data too."
       ],
       "variant": "charter-baseline"
     }
@@ -1853,6 +1867,30 @@
       "setup": "base_breakout",
       "entry": 30.47,
       "stop": 28.95,
+      "reason": "blocked by rules: Max 3 positions: 0 open + 3 pending already."
+    },
+    {
+      "date": "2026-09-14",
+      "ticker": "QQQ",
+      "setup": "base_breakout",
+      "entry": 735.31,
+      "stop": 701.34,
+      "reason": "correlation guard \u2014 QQQ moves with SPY (0.91 over 90d): one bet, two tickets"
+    },
+    {
+      "date": "2026-09-14",
+      "ticker": "EWT",
+      "setup": "ma_pullback",
+      "entry": 108.14,
+      "stop": 106.53,
+      "reason": "blocked by rules: Max 3 positions: 0 open + 3 pending already."
+    },
+    {
+      "date": "2026-09-14",
+      "ticker": "EWA",
+      "setup": "base_breakout",
+      "entry": 30.47,
+      "stop": 28.86,
       "reason": "blocked by rules: Max 3 positions: 0 open + 3 pending already."
     }
   ]
