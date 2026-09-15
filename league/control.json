@@ -26,30 +26,30 @@
   "open_trades": [],
   "pending_orders": [
     {
-      "id": "f68f29ce",
+      "id": "bd8b092a",
       "ticker": "SPY",
       "setup": "base_breakout",
-      "entry": 777.56,
-      "stop": 755.13,
-      "target": 822.42,
+      "entry": 776.08,
+      "stop": 754.64,
+      "target": 818.96,
       "shares": 2,
-      "risk_usd": 44.86,
-      "placed": "2026-09-14",
-      "note": "4-week base 756.64\u2013776.78 (2.7% range) near highs; entry on break of 776.78; fill requires volume \u2265 56,970,502 (1.5\u00d7 avg) \u2014 a quiet break is not the setup.",
-      "min_volume": 56970502.0
+      "risk_usd": 42.88,
+      "placed": "2026-09-15",
+      "note": "4-week base 756.15\u2013775.30 (2.5% range) near highs; entry on break of 775.30; fill requires volume \u2265 57,784,770 (1.5\u00d7 avg) \u2014 a quiet break is not the setup.",
+      "min_volume": 57784770.0
     },
     {
-      "id": "a95ee3fa",
+      "id": "03578bc4",
       "ticker": "QQQ",
       "setup": "base_breakout",
-      "entry": 735.31,
-      "stop": 701.34,
-      "target": 803.25,
-      "shares": 1,
-      "risk_usd": 33.97,
-      "placed": "2026-09-14",
-      "note": "4-week base 702.70\u2013734.58 (4.5% range) near highs; entry on break of 734.58; fill requires volume \u2265 46,769,078 (1.5\u00d7 avg) \u2014 a quiet break is not the setup.",
-      "min_volume": 46769078.0
+      "entry": 724.85,
+      "stop": 701.33,
+      "target": 771.89,
+      "shares": 2,
+      "risk_usd": 47.04,
+      "placed": "2026-09-15",
+      "note": "4-week base 702.70\u2013724.13 (3.0% range) near highs; entry on break of 724.13; fill requires volume \u2265 46,796,493 (1.5\u00d7 avg) \u2014 a quiet break is not the setup.",
+      "min_volume": 46796493.0
     }
   ],
   "closed_trades": [
@@ -792,6 +792,20 @@
       "lessons": [
         "Orders placed, none filled yet \u2014 patience between signal and fill is part of the edge.",
         "Skipped 4 candidate(s) and logged them: skips are data too."
+      ],
+      "variant": "charter-baseline"
+    },
+    {
+      "date": "2026-09-15",
+      "regime": "SPY 757.39, downtrend (below 20/50); QQQ 704.54, downtrend (below 20/50)",
+      "actions": "SPY base_breakout order placed: entry 776.08, stop 754.64, target 818.96, 2 shares; QQQ base_breakout order placed: entry 724.85, stop 701.33, target 771.89, 2 shares; AAPL base_breakout candidate skipped; MSFT ma_pullback candidate skipped; EWJ base_breakout candidate skipped; EWT ma_pullback candidate skipped; EWA base_breakout candidate skipped.",
+      "trades": [],
+      "realized_R": 0,
+      "brutality": 1,
+      "brutality_note": "Tape moved 0.9% on average; we were flat. Sitting out is a position.",
+      "lessons": [
+        "Orders placed, none filled yet \u2014 patience between signal and fill is part of the edge.",
+        "Skipped 5 candidate(s) and logged them: skips are data too."
       ],
       "variant": "charter-baseline"
     }
@@ -1979,6 +1993,46 @@
       "setup": "base_breakout",
       "entry": 30.47,
       "stop": 28.86,
+      "reason": "blocked by rules: Max 2 positions: 0 open + 2 pending already."
+    },
+    {
+      "date": "2026-09-15",
+      "ticker": "AAPL",
+      "setup": "base_breakout",
+      "entry": 336.56,
+      "stop": 309.28,
+      "reason": "blocked by rules: Max 2 positions: 0 open + 2 pending already."
+    },
+    {
+      "date": "2026-09-15",
+      "ticker": "MSFT",
+      "setup": "ma_pullback",
+      "entry": 505.9,
+      "stop": 485.03,
+      "reason": "blocked by rules: Max 2 positions: 0 open + 2 pending already."
+    },
+    {
+      "date": "2026-09-15",
+      "ticker": "EWJ",
+      "setup": "base_breakout",
+      "entry": 98.86,
+      "stop": 94.8,
+      "reason": "blocked by rules: Max 2 positions: 0 open + 2 pending already."
+    },
+    {
+      "date": "2026-09-15",
+      "ticker": "EWT",
+      "setup": "ma_pullback",
+      "entry": 107.21,
+      "stop": 105.97,
+      "reason": "blocked by rules: Max 2 positions: 0 open + 2 pending already."
+    },
+    {
+      "date": "2026-09-15",
+      "ticker": "EWA",
+      "setup": "base_breakout",
+      "entry": 30.47,
+      "stop": 28.74,
       "reason": "blocked by rules: Max 2 positions: 0 open + 2 pending already."
     }
   ]

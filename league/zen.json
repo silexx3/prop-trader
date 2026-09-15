@@ -24,21 +24,7 @@
     "max_drawdown_pct": 0.39
   },
   "open_trades": [],
-  "pending_orders": [
-    {
-      "id": "81fddbd7",
-      "ticker": "SPY",
-      "setup": "base_breakout",
-      "entry": 777.56,
-      "stop": 755.13,
-      "target": 822.42,
-      "shares": 1,
-      "risk_usd": 22.43,
-      "placed": "2026-09-14",
-      "note": "4-week base 756.64\u2013776.78 (2.7% range) near highs; entry on break of 776.78; fill requires volume \u2265 56,970,502 (1.5\u00d7 avg) \u2014 a quiet break is not the setup.",
-      "min_volume": 56970502.0
-    }
-  ],
+  "pending_orders": [],
   "closed_trades": [
     {
       "id": "ad14cd91",
@@ -708,6 +694,19 @@
       "lessons": [
         "Orders placed, none filled yet \u2014 patience between signal and fill is part of the edge.",
         "Skipped 5 candidate(s) and logged them: skips are data too."
+      ],
+      "variant": "charter-baseline"
+    },
+    {
+      "date": "2026-09-15",
+      "regime": "SPY 757.39, downtrend (below 20/50); QQQ 704.54, downtrend (below 20/50)",
+      "actions": "SPY base_breakout candidate skipped; QQQ base_breakout candidate skipped; AAPL base_breakout candidate skipped; MSFT ma_pullback candidate skipped; EWJ base_breakout candidate skipped; EWT ma_pullback candidate skipped; EWA base_breakout candidate skipped.",
+      "trades": [],
+      "realized_R": 0,
+      "brutality": 1,
+      "brutality_note": "Tape moved 0.9% on average; we were flat. Sitting out is a position.",
+      "lessons": [
+        "Skipped 7 candidate(s) and logged them: skips are data too."
       ],
       "variant": "charter-baseline"
     }
@@ -2280,6 +2279,62 @@
       "entry": 30.47,
       "stop": 28.86,
       "reason": "blocked by rules: Max 1 positions: 0 open + 1 pending already."
+    },
+    {
+      "date": "2026-09-15",
+      "ticker": "SPY",
+      "setup": "base_breakout",
+      "entry": 776.08,
+      "stop": 754.64,
+      "reason": "regime off \u2014 SPY 757.39 below its 50-day SMA 759.06; longs stand down"
+    },
+    {
+      "date": "2026-09-15",
+      "ticker": "QQQ",
+      "setup": "base_breakout",
+      "entry": 724.85,
+      "stop": 701.33,
+      "reason": "regime off \u2014 SPY 757.39 below its 50-day SMA 759.06; longs stand down"
+    },
+    {
+      "date": "2026-09-15",
+      "ticker": "AAPL",
+      "setup": "base_breakout",
+      "entry": 336.56,
+      "stop": 309.28,
+      "reason": "regime off \u2014 SPY 757.39 below its 50-day SMA 759.06; longs stand down"
+    },
+    {
+      "date": "2026-09-15",
+      "ticker": "MSFT",
+      "setup": "ma_pullback",
+      "entry": 505.9,
+      "stop": 485.03,
+      "reason": "regime off \u2014 SPY 757.39 below its 50-day SMA 759.06; longs stand down"
+    },
+    {
+      "date": "2026-09-15",
+      "ticker": "EWJ",
+      "setup": "base_breakout",
+      "entry": 98.86,
+      "stop": 94.8,
+      "reason": "regime off \u2014 SPY 757.39 below its 50-day SMA 759.06; longs stand down"
+    },
+    {
+      "date": "2026-09-15",
+      "ticker": "EWT",
+      "setup": "ma_pullback",
+      "entry": 107.21,
+      "stop": 105.97,
+      "reason": "regime off \u2014 SPY 757.39 below its 50-day SMA 759.06; longs stand down"
+    },
+    {
+      "date": "2026-09-15",
+      "ticker": "EWA",
+      "setup": "base_breakout",
+      "entry": 30.47,
+      "stop": 28.74,
+      "reason": "regime off \u2014 SPY 757.39 below its 50-day SMA 759.06; longs stand down"
     }
   ]
 }

@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 3602.6,
+    "balance": 3519.95,
     "open_risk_R": 0
   },
   "rules": {
@@ -34,13 +34,13 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 133,
+    "trades_closed": 137,
     "wins": 42,
-    "losses": 91,
-    "win_rate_pct": 31.6,
-    "expectancy_R": -0.24,
-    "total_R": -31.962,
-    "max_drawdown_pct": 31.18
+    "losses": 95,
+    "win_rate_pct": 30.7,
+    "expectancy_R": -0.251,
+    "total_R": -34.377,
+    "max_drawdown_pct": 31.56
   },
   "open_trades": [],
   "pending_orders": [],
@@ -2571,6 +2571,82 @@
       "r_multiple": 1.95,
       "pnl_usd": 63.18,
       "balance_after": 3602.6
+    },
+    {
+      "id": "2026-09-15-AMD-7",
+      "ticker": "AMD",
+      "setup": "vwap_pullback",
+      "entry": 509.81,
+      "stop": 506.13,
+      "target": 517.17,
+      "shares": 9,
+      "risk_usd": 33.12000000000006,
+      "opened": "2026-09-15",
+      "entry_bar": 15,
+      "note": "Held above VWAP then first pullback into it (bar 10); long on reclaim of 509.80, stop under the dip 506.64.",
+      "exit": 506.13,
+      "closed": "2026-09-15",
+      "reason": "stop",
+      "r_multiple": -1.05,
+      "pnl_usd": -34.78,
+      "balance_after": 3567.82
+    },
+    {
+      "id": "2026-09-15-TSLA-8",
+      "ticker": "TSLA",
+      "setup": "vwap_pullback",
+      "entry": 361.3,
+      "stop": 359.44,
+      "target": 365.02,
+      "shares": 19,
+      "risk_usd": 35.34000000000026,
+      "opened": "2026-09-15",
+      "entry_bar": 40,
+      "note": "Held above VWAP then first pullback into it (bar 38); long on reclaim of 361.29, stop under the dip 359.80.",
+      "exit": 359.44,
+      "closed": "2026-09-15",
+      "reason": "stop",
+      "r_multiple": -1.05,
+      "pnl_usd": -37.11,
+      "balance_after": 3530.71
+    },
+    {
+      "id": "2026-09-15-META-9",
+      "ticker": "META",
+      "setup": "vwap_pullback",
+      "entry": 670.76,
+      "stop": 668.09,
+      "target": 676.1,
+      "shares": 13,
+      "risk_usd": 34.70999999999947,
+      "opened": "2026-09-15",
+      "entry_bar": 65,
+      "note": "Held above VWAP then first pullback into it (bar 59); long on reclaim of 670.75, stop under the dip 668.76.",
+      "exit": 670.49,
+      "closed": "2026-09-15",
+      "reason": "eod_flat",
+      "r_multiple": -0.151,
+      "pnl_usd": -5.25,
+      "balance_after": 3525.46
+    },
+    {
+      "id": "2026-09-15-AAPL-3",
+      "ticker": "AAPL",
+      "setup": "orb_long",
+      "entry": 331.76,
+      "stop": 328.02,
+      "target": 339.24,
+      "shares": 9,
+      "risk_usd": 33.66000000000008,
+      "opened": "2026-09-15",
+      "entry_bar": 76,
+      "note": "30-min opening range 328.35\u2013331.59; long on the break of 331.59 with volume \u2265 1.2\u00d7 the opening average.",
+      "exit": 331.335,
+      "closed": "2026-09-15",
+      "reason": "eod_flat",
+      "r_multiple": -0.164,
+      "pnl_usd": -5.51,
+      "balance_after": 3519.95
     }
   ],
   "sessions": [
@@ -3185,6 +3261,20 @@
       "actions": "AMD vwap_pullback \u2192 target +1.95R",
       "lessons": [
         "Replayed 10 tickers on 5-minute bars; 1 trade(s), +1.95R after costs."
+      ]
+    },
+    {
+      "date": "2026-09-15",
+      "trades": [
+        "2026-09-15-AMD-7",
+        "2026-09-15-TSLA-8",
+        "2026-09-15-META-9",
+        "2026-09-15-AAPL-3"
+      ],
+      "realized_R": -2.415,
+      "actions": "AMD vwap_pullback \u2192 stop -1.05R; TSLA vwap_pullback \u2192 stop -1.05R; META vwap_pullback \u2192 eod_flat -0.15R; AAPL orb_long \u2192 eod_flat -0.16R",
+      "lessons": [
+        "Replayed 10 tickers on 5-minute bars; 4 trade(s), -2.42R after costs."
       ]
     }
   ],
