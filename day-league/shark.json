@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 2289.36,
+    "balance": 2064.9,
     "open_risk_R": 0
   },
   "rules": {
@@ -35,13 +35,13 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 163,
+    "trades_closed": 168,
     "wins": 52,
-    "losses": 111,
-    "win_rate_pct": 31.9,
-    "expectancy_R": -0.224,
-    "total_R": -36.488,
-    "max_drawdown_pct": 58.62
+    "losses": 116,
+    "win_rate_pct": 31.0,
+    "expectancy_R": -0.248,
+    "total_R": -41.738,
+    "max_drawdown_pct": 62.68
   },
   "open_trades": [],
   "pending_orders": [],
@@ -3142,6 +3142,101 @@
       "r_multiple": -0.164,
       "pnl_usd": -7.34,
       "balance_after": 2289.36
+    },
+    {
+      "id": "2026-09-16-META-7",
+      "ticker": "META",
+      "setup": "vwap_pullback",
+      "entry": 680.56,
+      "stop": 678.12,
+      "target": 685.44,
+      "shares": 18,
+      "risk_usd": 43.919999999998936,
+      "opened": "2026-09-16",
+      "entry_bar": 11,
+      "note": "Held above VWAP then first pullback into it (bar 10); long on reclaim of 680.55, stop under the dip 678.80.",
+      "exit": 678.12,
+      "closed": "2026-09-16",
+      "reason": "stop",
+      "r_multiple": -1.05,
+      "pnl_usd": -46.12,
+      "balance_after": 2243.24
+    },
+    {
+      "id": "2026-09-16-AMD-8",
+      "ticker": "AMD",
+      "setup": "vwap_pullback",
+      "entry": 523.21,
+      "stop": 521.14,
+      "target": 527.35,
+      "shares": 21,
+      "risk_usd": 43.47000000000105,
+      "opened": "2026-09-16",
+      "entry_bar": 15,
+      "note": "Held above VWAP then first pullback into it (bar 14); long on reclaim of 523.20, stop under the dip 521.66.",
+      "exit": 521.14,
+      "closed": "2026-09-16",
+      "reason": "stop",
+      "r_multiple": -1.05,
+      "pnl_usd": -45.64,
+      "balance_after": 2197.6
+    },
+    {
+      "id": "2026-09-16-TSLA-9",
+      "ticker": "TSLA",
+      "setup": "vwap_pullback",
+      "entry": 362.18,
+      "stop": 361.15,
+      "target": 364.24,
+      "shares": 42,
+      "risk_usd": 43.26000000000124,
+      "opened": "2026-09-16",
+      "entry_bar": 38,
+      "note": "Held above VWAP then first pullback into it (bar 32); long on reclaim of 362.17, stop under the dip 361.51.",
+      "exit": 361.15,
+      "closed": "2026-09-16",
+      "reason": "stop",
+      "r_multiple": -1.05,
+      "pnl_usd": -45.42,
+      "balance_after": 2152.18
+    },
+    {
+      "id": "2026-09-16-SPY-0",
+      "ticker": "SPY",
+      "setup": "orb_long",
+      "entry": 760.81,
+      "stop": 757.96,
+      "target": 766.51,
+      "shares": 15,
+      "risk_usd": 42.749999999998636,
+      "opened": "2026-09-16",
+      "entry_bar": 54,
+      "note": "30-min opening range 758.72\u2013760.43; long on the break of 760.43 with volume \u2265 1.2\u00d7 the opening average.",
+      "exit": 757.96,
+      "closed": "2026-09-16",
+      "reason": "stop",
+      "r_multiple": -1.05,
+      "pnl_usd": -44.89,
+      "balance_after": 2107.29
+    },
+    {
+      "id": "2026-09-16-QQQ-1",
+      "ticker": "QQQ",
+      "setup": "orb_long",
+      "entry": 710.61,
+      "stop": 706.94,
+      "target": 717.95,
+      "shares": 11,
+      "risk_usd": 40.36999999999955,
+      "opened": "2026-09-16",
+      "entry_bar": 54,
+      "note": "30-min opening range 707.65\u2013710.25; long on the break of 710.25 with volume \u2265 1.2\u00d7 the opening average.",
+      "exit": 706.94,
+      "closed": "2026-09-16",
+      "reason": "stop",
+      "r_multiple": -1.05,
+      "pnl_usd": -42.39,
+      "balance_after": 2064.9
     }
   ],
   "sessions": [
@@ -3690,6 +3785,19 @@
       ],
       "realized_R": -2.415,
       "actions": "AMD stop -1.05R; TSLA stop -1.05R; META eod_flat -0.15R; AAPL eod_flat -0.16R",
+      "personality": "shark"
+    },
+    {
+      "date": "2026-09-16",
+      "trades": [
+        "2026-09-16-META-7",
+        "2026-09-16-AMD-8",
+        "2026-09-16-TSLA-9",
+        "2026-09-16-SPY-0",
+        "2026-09-16-QQQ-1"
+      ],
+      "realized_R": -5.25,
+      "actions": "META stop -1.05R; AMD stop -1.05R; TSLA stop -1.05R; SPY stop -1.05R; QQQ stop -1.05R",
       "personality": "shark"
     }
   ],
