@@ -24,7 +24,20 @@
     "max_drawdown_pct": 0.39
   },
   "open_trades": [],
-  "pending_orders": [],
+  "pending_orders": [
+    {
+      "id": "c9fbc0fd",
+      "ticker": "MSFT",
+      "setup": "ma_pullback",
+      "entry": 501.47,
+      "stop": 485.03,
+      "target": 534.35,
+      "shares": 1,
+      "risk_usd": 16.44,
+      "placed": "2026-09-17",
+      "note": "Uptrend pullback into 20/50 zone (SMA20 496.88 / SMA50 462.00); entry on reclaim of today's high 501.47, stop below pullback low 486.00."
+    }
+  ],
   "closed_trades": [
     {
       "id": "ad14cd91",
@@ -720,6 +733,20 @@
       "brutality_note": "Tape moved 0.8% on average; we were flat. Sitting out is a position.",
       "lessons": [
         "Skipped 7 candidate(s) and logged them: skips are data too."
+      ],
+      "variant": "charter-baseline"
+    },
+    {
+      "date": "2026-09-17",
+      "regime": "SPY 762.60, choppy uptrend (above 50, testing 20); QQQ 716.92, uptrend (above rising 20/50)",
+      "actions": "MSFT ma_pullback order placed: entry 501.47, stop 485.03, target 534.35, 1 shares; SPY base_breakout candidate skipped; QQQ base_breakout candidate skipped; EWJ base_breakout candidate skipped; EWT base_breakout candidate skipped; EWA base_breakout candidate skipped.",
+      "trades": [],
+      "realized_R": 0,
+      "brutality": 2,
+      "brutality_note": "Tape moved 2.1% on average; we were flat. Sitting out is a position.",
+      "lessons": [
+        "Orders placed, none filled yet \u2014 patience between signal and fill is part of the edge.",
+        "Skipped 5 candidate(s) and logged them: skips are data too."
       ],
       "variant": "charter-baseline"
     }
@@ -2404,6 +2431,46 @@
       "entry": 30.47,
       "stop": 28.26,
       "reason": "regime off \u2014 SPY 754.05 below its 50-day SMA 759.19; longs stand down"
+    },
+    {
+      "date": "2026-09-17",
+      "ticker": "SPY",
+      "setup": "base_breakout",
+      "entry": 776.08,
+      "stop": 748.1,
+      "reason": "blocked by rules: Stop is too wide: risking $25.12 at $27.98/share buys 0 shares."
+    },
+    {
+      "date": "2026-09-17",
+      "ticker": "QQQ",
+      "setup": "base_breakout",
+      "entry": 724.85,
+      "stop": 698.6,
+      "reason": "correlation guard \u2014 QQQ moves with SPY (0.91 over 90d): one bet, two tickets"
+    },
+    {
+      "date": "2026-09-17",
+      "ticker": "EWJ",
+      "setup": "base_breakout",
+      "entry": 98.86,
+      "stop": 96.04,
+      "reason": "blocked by rules: Max 1 positions: 0 open + 1 pending already."
+    },
+    {
+      "date": "2026-09-17",
+      "ticker": "EWT",
+      "setup": "base_breakout",
+      "entry": 112.41,
+      "stop": 105.98,
+      "reason": "blocked by rules: Max 1 positions: 0 open + 1 pending already."
+    },
+    {
+      "date": "2026-09-17",
+      "ticker": "EWA",
+      "setup": "base_breakout",
+      "entry": 30.47,
+      "stop": 28.26,
+      "reason": "blocked by rules: Max 1 positions: 0 open + 1 pending already."
     }
   ]
 }
