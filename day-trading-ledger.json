@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 3491.92,
+    "balance": 3533.48,
     "open_risk_R": 0
   },
   "rules": {
@@ -34,12 +34,12 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 145,
-    "wins": 45,
+    "trades_closed": 147,
+    "wins": 47,
     "losses": 100,
-    "win_rate_pct": 31.0,
-    "expectancy_R": -0.243,
-    "total_R": -35.283,
+    "win_rate_pct": 32.0,
+    "expectancy_R": -0.232,
+    "total_R": -34.056,
     "max_drawdown_pct": 34.95
   },
   "open_trades": [],
@@ -2799,6 +2799,44 @@
       "r_multiple": 0.444,
       "pnl_usd": 15.1,
       "balance_after": 3491.92
+    },
+    {
+      "id": "2026-09-18-AMD-5",
+      "ticker": "AMD",
+      "setup": "orb_long",
+      "entry": 551.67,
+      "stop": 543.46,
+      "target": 568.09,
+      "shares": 4,
+      "risk_usd": 32.83999999999969,
+      "opened": "2026-09-18",
+      "entry_bar": 76,
+      "note": "30-min opening range 544.00\u2013551.39; long on the break of 551.39 with volume \u2265 1.2\u00d7 the opening average.",
+      "exit": 559.8,
+      "closed": "2026-09-18",
+      "reason": "eod_flat",
+      "r_multiple": 0.94,
+      "pnl_usd": 30.88,
+      "balance_after": 3522.8
+    },
+    {
+      "id": "2026-09-18-QQQ-1",
+      "ticker": "QQQ",
+      "setup": "orb_long",
+      "entry": 720.2396850585938,
+      "stop": 716.92,
+      "target": 725.86,
+      "shares": 11,
+      "risk_usd": 32.7800000000002,
+      "opened": "2026-09-18",
+      "entry_bar": 77,
+      "note": "30-min opening range 717.64\u2013719.54; long on the break of 719.54 with volume \u2265 1.2\u00d7 the opening average.",
+      "exit": 721.36,
+      "closed": "2026-09-18",
+      "reason": "eod_flat",
+      "r_multiple": 0.287,
+      "pnl_usd": 10.68,
+      "balance_after": 3533.48
     }
   ],
   "sessions": [
@@ -3455,6 +3493,18 @@
       "actions": "GOOGL vwap_pullback \u2192 stop -1.05R; AAPL vwap_pullback \u2192 target +1.95R; META vwap_pullback \u2192 target +1.95R; MSFT vwap_pullback \u2192 eod_flat +0.44R",
       "lessons": [
         "Replayed 10 tickers on 5-minute bars; 4 trade(s), +3.29R after costs."
+      ]
+    },
+    {
+      "date": "2026-09-18",
+      "trades": [
+        "2026-09-18-AMD-5",
+        "2026-09-18-QQQ-1"
+      ],
+      "realized_R": 1.227,
+      "actions": "AMD orb_long \u2192 eod_flat +0.94R; QQQ orb_long \u2192 eod_flat +0.29R",
+      "lessons": [
+        "Replayed 10 tickers on 5-minute bars; 2 trade(s), +1.23R after costs."
       ]
     }
   ],

@@ -26,7 +26,7 @@
   "open_trades": [],
   "pending_orders": [
     {
-      "id": "b18d5c61",
+      "id": "8ce40f37",
       "ticker": "SPY",
       "setup": "base_breakout",
       "entry": 776.08,
@@ -34,34 +34,33 @@
       "target": 832.04,
       "shares": 3,
       "risk_usd": 83.94,
-      "placed": "2026-09-17",
-      "note": "4-week base 749.60\u2013775.30 (3.4% range) near highs; entry on break of 775.30; fill requires volume \u2265 59,715,682 (1.5\u00d7 avg) \u2014 a quiet break is not the setup.",
-      "min_volume": 59715682.0
+      "placed": "2026-09-18",
+      "note": "4-week base 749.60\u2013775.30 (3.4% range) near highs; entry on break of 775.30; fill requires volume \u2265 61,207,409 (1.5\u00d7 avg) \u2014 a quiet break is not the setup.",
+      "min_volume": 61207409.0
     },
     {
-      "id": "6fd572fa",
+      "id": "7328b40b",
       "ticker": "MSFT",
       "setup": "ma_pullback",
-      "entry": 501.47,
+      "entry": 498.65,
       "stop": 485.03,
-      "target": 534.35,
-      "shares": 5,
-      "risk_usd": 82.2,
-      "placed": "2026-09-17",
-      "note": "Uptrend pullback into 20/50 zone (SMA20 496.88 / SMA50 462.00); entry on reclaim of today's high 501.47, stop below pullback low 486.00."
+      "target": 525.89,
+      "shares": 7,
+      "risk_usd": 95.34,
+      "placed": "2026-09-18",
+      "note": "Uptrend pullback into 20/50 zone (SMA20 497.51 / SMA50 464.20); entry on reclaim of today's high 498.65, stop below pullback low 486.00."
     },
     {
-      "id": "7e43d725",
+      "id": "48dc8557",
       "ticker": "EWJ",
-      "setup": "base_breakout",
-      "entry": 98.86,
+      "setup": "ma_pullback",
+      "entry": 97.07,
       "stop": 96.04,
-      "target": 104.5,
-      "shares": 34,
-      "risk_usd": 95.88,
-      "placed": "2026-09-17",
-      "note": "4-week base 94.05\u201398.76 (5.0% range) near highs; entry on break of 98.76; fill requires volume \u2265 5,239,582 (1.5\u00d7 avg) \u2014 a quiet break is not the setup.",
-      "min_volume": 5239582.0
+      "target": 99.13,
+      "shares": 94,
+      "risk_usd": 96.82,
+      "placed": "2026-09-18",
+      "note": "Uptrend pullback into 20/50 zone (SMA20 96.62 / SMA50 94.95); entry on reclaim of today's high 97.07, stop below pullback low 96.23."
     }
   ],
   "closed_trades": [
@@ -901,6 +900,20 @@
       "realized_R": 0,
       "brutality": 2,
       "brutality_note": "Tape moved 2.1% on average; we were flat. Sitting out is a position.",
+      "lessons": [
+        "Orders placed, none filled yet \u2014 patience between signal and fill is part of the edge.",
+        "Skipped 3 candidate(s) and logged them: skips are data too."
+      ],
+      "variant": "charter-baseline"
+    },
+    {
+      "date": "2026-09-18",
+      "regime": "SPY 761.69, choppy uptrend (above 50, testing 20); QQQ 721.45, uptrend (above rising 20/50)",
+      "actions": "SPY base_breakout order placed: entry 776.08, stop 748.1, target 832.04, 3 shares; MSFT ma_pullback order placed: entry 498.65, stop 485.03, target 525.89, 7 shares; EWJ ma_pullback order placed: entry 97.07, stop 96.04, target 99.13, 94 shares; QQQ base_breakout candidate skipped; EWT base_breakout candidate skipped; EWA base_breakout candidate skipped.",
+      "trades": [],
+      "realized_R": 0,
+      "brutality": 1,
+      "brutality_note": "Tape moved 0.8% on average; we were flat. Sitting out is a position.",
       "lessons": [
         "Orders placed, none filled yet \u2014 patience between signal and fill is part of the edge.",
         "Skipped 3 candidate(s) and logged them: skips are data too."
@@ -2063,6 +2076,30 @@
     },
     {
       "date": "2026-09-17",
+      "ticker": "EWA",
+      "setup": "base_breakout",
+      "entry": 30.47,
+      "stop": 28.26,
+      "reason": "blocked by rules: Max 3 positions: 0 open + 3 pending already."
+    },
+    {
+      "date": "2026-09-18",
+      "ticker": "QQQ",
+      "setup": "base_breakout",
+      "entry": 724.85,
+      "stop": 698.6,
+      "reason": "correlation guard \u2014 QQQ moves with SPY (0.91 over 90d): one bet, two tickets"
+    },
+    {
+      "date": "2026-09-18",
+      "ticker": "EWT",
+      "setup": "base_breakout",
+      "entry": 112.41,
+      "stop": 105.98,
+      "reason": "blocked by rules: Max 3 positions: 0 open + 3 pending already."
+    },
+    {
+      "date": "2026-09-18",
       "ticker": "EWA",
       "setup": "base_breakout",
       "entry": 30.47,
