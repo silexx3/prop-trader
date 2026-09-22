@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 4487.84,
+    "balance": 4433.54,
     "open_risk_R": 0
   },
   "rules": {
@@ -35,12 +35,12 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 75,
+    "trades_closed": 77,
     "wins": 28,
-    "losses": 47,
-    "win_rate_pct": 37.3,
-    "expectancy_R": -0.138,
-    "total_R": -10.325,
+    "losses": 49,
+    "win_rate_pct": 36.4,
+    "expectancy_R": -0.15,
+    "total_R": -11.567,
     "max_drawdown_pct": 15.3
   },
   "open_trades": [],
@@ -1470,6 +1470,44 @@
       "r_multiple": 0.287,
       "pnl_usd": 13.6,
       "balance_after": 4487.84
+    },
+    {
+      "id": "2026-09-21-TSLA-5",
+      "ticker": "TSLA",
+      "setup": "vwap_pullback",
+      "entry": 376.23,
+      "stop": 374.82,
+      "target": 379.05,
+      "shares": 31,
+      "risk_usd": 43.710000000000775,
+      "opened": "2026-09-21",
+      "entry_bar": 11,
+      "note": "Held above VWAP then first pullback into it (bar 9); long on reclaim of 376.22, stop under the dip 375.20.",
+      "exit": 374.82,
+      "closed": "2026-09-21",
+      "reason": "stop",
+      "r_multiple": -1.05,
+      "pnl_usd": -45.9,
+      "balance_after": 4441.94
+    },
+    {
+      "id": "2026-09-21-GOOGL-6",
+      "ticker": "GOOGL",
+      "setup": "vwap_pullback",
+      "entry": 355.45,
+      "stop": 353.83,
+      "target": 358.69,
+      "shares": 27,
+      "risk_usd": 43.74000000000012,
+      "opened": "2026-09-21",
+      "entry_bar": 21,
+      "note": "Held above VWAP then first pullback into it (bar 18); long on reclaim of 355.44, stop under the dip 354.18.",
+      "exit": 355.22,
+      "closed": "2026-09-21",
+      "reason": "eod_flat",
+      "r_multiple": -0.192,
+      "pnl_usd": -8.4,
+      "balance_after": 4433.54
     }
   ],
   "sessions": [
@@ -1945,6 +1983,16 @@
       "realized_R": 1.227,
       "actions": "AMD eod_flat +0.94R; QQQ eod_flat +0.29R",
       "personality": "owl"
+    },
+    {
+      "date": "2026-09-21",
+      "trades": [
+        "2026-09-21-TSLA-5",
+        "2026-09-21-GOOGL-6"
+      ],
+      "realized_R": -1.242,
+      "actions": "TSLA stop -1.05R; GOOGL eod_flat -0.19R",
+      "personality": "owl"
     }
   ],
   "skipped_candidates": [
@@ -2051,6 +2099,22 @@
       "entry": 760.97,
       "stop": 757.7,
       "reason": "gapped past trigger (762.35 vs 760.97, >0.25R) \u2014 chasing is not the setup"
+    },
+    {
+      "date": "2026-09-21",
+      "ticker": "SPY",
+      "setup": "orb_long",
+      "entry": 768.1,
+      "stop": 765.26,
+      "reason": "gapped past trigger (769.03 vs 768.10, >0.25R) \u2014 chasing is not the setup"
+    },
+    {
+      "date": "2026-09-21",
+      "ticker": "QQQ",
+      "setup": "orb_long",
+      "entry": 733.04,
+      "stop": 727.09,
+      "reason": "gapped past trigger (734.97 vs 733.04, >0.25R) \u2014 chasing is not the setup"
     }
   ]
 }
