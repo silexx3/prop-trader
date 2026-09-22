@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 4859.24,
+    "balance": 4799.74,
     "open_risk_R": 0
   },
   "rules": {
@@ -35,12 +35,12 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 101,
+    "trades_closed": 103,
     "wins": 35,
-    "losses": 66,
-    "win_rate_pct": 34.7,
-    "expectancy_R": -0.035,
-    "total_R": -3.553,
+    "losses": 68,
+    "win_rate_pct": 34.0,
+    "expectancy_R": -0.051,
+    "total_R": -5.296,
     "max_drawdown_pct": 7.66
   },
   "open_trades": [],
@@ -1964,6 +1964,44 @@
       "r_multiple": -0.077,
       "pnl_usd": -2.54,
       "balance_after": 4859.24
+    },
+    {
+      "id": "2026-09-22-META-8",
+      "ticker": "META",
+      "setup": "vwap_pullback",
+      "entry": 750.15,
+      "stop": 745.37,
+      "target": 759.71,
+      "shares": 7,
+      "risk_usd": 33.45999999999981,
+      "opened": "2026-09-22",
+      "entry_bar": 19,
+      "note": "Held above VWAP then first pullback into it (bar 14); long on reclaim of 750.14, stop under the dip 746.12.",
+      "exit": 745.37,
+      "closed": "2026-09-22",
+      "reason": "stop",
+      "r_multiple": -1.05,
+      "pnl_usd": -35.13,
+      "balance_after": 4824.11
+    },
+    {
+      "id": "2026-09-22-MSFT-9",
+      "ticker": "MSFT",
+      "setup": "vwap_pullback",
+      "entry": 499.13,
+      "stop": 497.28,
+      "target": 502.83,
+      "shares": 19,
+      "risk_usd": 35.15000000000043,
+      "opened": "2026-09-22",
+      "entry_bar": 71,
+      "note": "Held above VWAP then first pullback into it (bar 65); long on reclaim of 499.12, stop under the dip 497.78.",
+      "exit": 497.94,
+      "closed": "2026-09-22",
+      "reason": "eod_flat",
+      "r_multiple": -0.693,
+      "pnl_usd": -24.37,
+      "balance_after": 4799.74
     }
   ],
   "sessions": [
@@ -2478,6 +2516,16 @@
       "realized_R": 1.873,
       "actions": "SPY target +1.95R; GOOGL eod_flat -0.08R",
       "personality": "rabbit"
+    },
+    {
+      "date": "2026-09-22",
+      "trades": [
+        "2026-09-22-META-8",
+        "2026-09-22-MSFT-9"
+      ],
+      "realized_R": -1.743,
+      "actions": "META stop -1.05R; MSFT eod_flat -0.69R",
+      "personality": "rabbit"
     }
   ],
   "skipped_candidates": [
@@ -2808,6 +2856,22 @@
       "entry": 256.78,
       "stop": 253.35,
       "reason": "gapped past trigger (258.50 vs 256.78, >0.25R) \u2014 chasing is not the setup"
+    },
+    {
+      "date": "2026-09-22",
+      "ticker": "QQQ",
+      "setup": "orb_long",
+      "entry": 745.74,
+      "stop": 740.26,
+      "reason": "gapped past trigger (747.68 vs 745.74, >0.25R) \u2014 chasing is not the setup"
+    },
+    {
+      "date": "2026-09-22",
+      "ticker": "AMD",
+      "setup": "orb_long",
+      "entry": 618.73,
+      "stop": 605.71,
+      "reason": "gapped past trigger (622.98 vs 618.73, >0.25R) \u2014 chasing is not the setup"
     }
   ]
 }
