@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 3350.05,
+    "balance": 3317.29,
     "open_risk_R": 0
   },
   "rules": {
@@ -34,13 +34,13 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 153,
+    "trades_closed": 154,
     "wins": 47,
-    "losses": 106,
-    "win_rate_pct": 30.7,
-    "expectancy_R": -0.258,
-    "total_R": -39.498,
-    "max_drawdown_pct": 34.95
+    "losses": 107,
+    "win_rate_pct": 30.5,
+    "expectancy_R": -0.263,
+    "total_R": -40.548,
+    "max_drawdown_pct": 35.5
   },
   "open_trades": [],
   "pending_orders": [],
@@ -2951,6 +2951,25 @@
       "r_multiple": -1.05,
       "pnl_usd": -35.13,
       "balance_after": 3350.05
+    },
+    {
+      "id": "2026-09-23-META-6",
+      "ticker": "META",
+      "setup": "vwap_pullback",
+      "entry": 752.83,
+      "stop": 750.43,
+      "target": 757.63,
+      "shares": 13,
+      "risk_usd": 31.200000000001182,
+      "opened": "2026-09-23",
+      "entry_bar": 51,
+      "note": "Held above VWAP then first pullback into it (bar 42); long on reclaim of 752.82, stop under the dip 751.18.",
+      "exit": 750.43,
+      "closed": "2026-09-23",
+      "reason": "stop",
+      "r_multiple": -1.05,
+      "pnl_usd": -32.76,
+      "balance_after": 3317.29
     }
   ],
   "sessions": [
@@ -3645,6 +3664,17 @@
       "actions": "AMD vwap_pullback \u2192 stop -1.05R; GOOGL vwap_pullback \u2192 stop -1.05R; AMZN vwap_pullback \u2192 stop -1.05R; META vwap_pullback \u2192 stop -1.05R",
       "lessons": [
         "Replayed 10 tickers on 5-minute bars; 4 trade(s), -4.20R after costs."
+      ]
+    },
+    {
+      "date": "2026-09-23",
+      "trades": [
+        "2026-09-23-META-6"
+      ],
+      "realized_R": -1.05,
+      "actions": "META vwap_pullback \u2192 stop -1.05R",
+      "lessons": [
+        "Replayed 10 tickers on 5-minute bars; 1 trade(s), -1.05R after costs."
       ]
     }
   ],

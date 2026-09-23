@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 4799.74,
+    "balance": 4732.29,
     "open_risk_R": 0
   },
   "rules": {
@@ -35,13 +35,13 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 103,
+    "trades_closed": 105,
     "wins": 35,
-    "losses": 68,
-    "win_rate_pct": 34.0,
-    "expectancy_R": -0.051,
-    "total_R": -5.296,
-    "max_drawdown_pct": 7.66
+    "losses": 70,
+    "win_rate_pct": 33.3,
+    "expectancy_R": -0.07,
+    "total_R": -7.396,
+    "max_drawdown_pct": 8.04
   },
   "open_trades": [],
   "pending_orders": [],
@@ -2002,6 +2002,44 @@
       "r_multiple": -0.693,
       "pnl_usd": -24.37,
       "balance_after": 4799.74
+    },
+    {
+      "id": "2026-09-23-TSLA-6",
+      "ticker": "TSLA",
+      "setup": "orb_long",
+      "entry": 386.06,
+      "stop": 378.4,
+      "target": 401.38,
+      "shares": 4,
+      "risk_usd": 30.6400000000001,
+      "opened": "2026-09-23",
+      "entry_bar": 6,
+      "note": "30-min opening range 378.78\u2013385.87; long on the break of 385.87 with volume \u2265 1.0\u00d7 the opening average.",
+      "exit": 378.4,
+      "closed": "2026-09-23",
+      "reason": "stop",
+      "r_multiple": -1.05,
+      "pnl_usd": -32.17,
+      "balance_after": 4767.57
+    },
+    {
+      "id": "2026-09-23-META-9",
+      "ticker": "META",
+      "setup": "vwap_pullback",
+      "entry": 752.83,
+      "stop": 750.43,
+      "target": 757.63,
+      "shares": 14,
+      "risk_usd": 33.60000000000127,
+      "opened": "2026-09-23",
+      "entry_bar": 51,
+      "note": "Held above VWAP then first pullback into it (bar 42); long on reclaim of 752.82, stop under the dip 751.18.",
+      "exit": 750.43,
+      "closed": "2026-09-23",
+      "reason": "stop",
+      "r_multiple": -1.05,
+      "pnl_usd": -35.28,
+      "balance_after": 4732.29
     }
   ],
   "sessions": [
@@ -2525,6 +2563,16 @@
       ],
       "realized_R": -1.743,
       "actions": "META stop -1.05R; MSFT eod_flat -0.69R",
+      "personality": "rabbit"
+    },
+    {
+      "date": "2026-09-23",
+      "trades": [
+        "2026-09-23-TSLA-6",
+        "2026-09-23-META-9"
+      ],
+      "realized_R": -2.1,
+      "actions": "TSLA stop -1.05R; META stop -1.05R",
       "personality": "rabbit"
     }
   ],

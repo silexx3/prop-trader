@@ -53,7 +53,7 @@
   ],
   "pending_orders": [
     {
-      "id": "347fb82a",
+      "id": "89d277f2",
       "ticker": "SPY",
       "setup": "base_breakout",
       "entry": 775.92,
@@ -61,9 +61,9 @@
       "target": 835.26,
       "shares": 3,
       "risk_usd": 89.01,
-      "placed": "2026-09-22",
-      "note": "4-week base 747.74\u2013775.14 (3.7% range) near highs; entry on break of 775.14; fill requires volume \u2265 62,234,760 (1.5\u00d7 avg) \u2014 a quiet break is not the setup.",
-      "min_volume": 62234760.0
+      "placed": "2026-09-23",
+      "note": "4-week base 747.74\u2013775.14 (3.7% range) near highs; entry on break of 775.14; fill requires volume \u2265 64,306,852 (1.5\u00d7 avg) \u2014 a quiet break is not the setup.",
+      "min_volume": 64306852.0
     }
   ],
   "closed_trades": [
@@ -934,6 +934,20 @@
       "lessons": [
         "MSFT filled at 498.65: the trade only exists because the level traded \u2014 orders wait for price, we don't chase it.",
         "EWJ filled at 97.07: the trade only exists because the level traded \u2014 orders wait for price, we don't chase it.",
+        "Skipped 2 candidate(s) and logged them: skips are data too."
+      ],
+      "variant": "charter-baseline"
+    },
+    {
+      "date": "2026-09-23",
+      "regime": "SPY 767.81, uptrend (above rising 20/50); QQQ 741.21, uptrend (above rising 20/50)",
+      "actions": "SPY base_breakout order placed: entry 775.92, stop 746.25, target 835.26, 3 shares; QQQ base_breakout candidate skipped; EWA base_breakout candidate skipped.",
+      "trades": [],
+      "realized_R": 0,
+      "brutality": 1,
+      "brutality_note": "Tape moved 1.5% on average; we were flat. Sitting out is a position.",
+      "lessons": [
+        "Orders placed, none filled yet \u2014 patience between signal and fill is part of the edge.",
         "Skipped 2 candidate(s) and logged them: skips are data too."
       ],
       "variant": "charter-baseline"
@@ -2138,6 +2152,22 @@
       "setup": "base_breakout",
       "entry": 30.47,
       "stop": 28.26,
+      "reason": "blocked by rules: Max 3 positions: 2 open + 1 pending already."
+    },
+    {
+      "date": "2026-09-23",
+      "ticker": "QQQ",
+      "setup": "base_breakout",
+      "entry": 749.1,
+      "stop": 697.87,
+      "reason": "correlation guard \u2014 QQQ moves with SPY (0.92 over 90d): one bet, two tickets"
+    },
+    {
+      "date": "2026-09-23",
+      "ticker": "EWA",
+      "setup": "base_breakout",
+      "entry": 30.47,
+      "stop": 28.23,
       "reason": "blocked by rules: Max 3 positions: 2 open + 1 pending already."
     }
   ]

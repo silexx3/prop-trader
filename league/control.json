@@ -5,7 +5,7 @@
     "currency": "USD",
     "starting_balance": 5000.0,
     "balance": 4939.11,
-    "open_risk_R": 0.0
+    "open_risk_R": 1.0
   },
   "rules": {
     "risk_per_trade_pct": 1.0,
@@ -23,10 +23,24 @@
     "total_R": -1.2,
     "max_drawdown_pct": 2.94
   },
-  "open_trades": [],
+  "open_trades": [
+    {
+      "id": "ba9502d9",
+      "ticker": "MSFT",
+      "setup": "ma_pullback",
+      "entry": 508.5,
+      "stop": 485.03,
+      "initial_stop": 485.03,
+      "target": 555.44,
+      "shares": 2,
+      "risk_usd": 46.94,
+      "opened": "2026-09-23",
+      "note": "Uptrend pullback into 20/50 zone (SMA20 498.96 / SMA50 468.70); entry on reclaim of today's high 508.50, stop below pullback low 486.00."
+    }
+  ],
   "pending_orders": [
     {
-      "id": "cc4230d7",
+      "id": "3eba486a",
       "ticker": "SPY",
       "setup": "base_breakout",
       "entry": 775.92,
@@ -34,21 +48,9 @@
       "target": 835.26,
       "shares": 1,
       "risk_usd": 29.67,
-      "placed": "2026-09-22",
-      "note": "4-week base 747.74\u2013775.14 (3.7% range) near highs; entry on break of 775.14; fill requires volume \u2265 62,234,760 (1.5\u00d7 avg) \u2014 a quiet break is not the setup.",
-      "min_volume": 62234760.0
-    },
-    {
-      "id": "ba9502d9",
-      "ticker": "MSFT",
-      "setup": "ma_pullback",
-      "entry": 508.5,
-      "stop": 485.03,
-      "target": 555.44,
-      "shares": 2,
-      "risk_usd": 46.94,
-      "placed": "2026-09-22",
-      "note": "Uptrend pullback into 20/50 zone (SMA20 498.96 / SMA50 468.70); entry on reclaim of today's high 508.50, stop below pullback low 486.00."
+      "placed": "2026-09-23",
+      "note": "4-week base 747.74\u2013775.14 (3.7% range) near highs; entry on break of 775.14; fill requires volume \u2265 64,306,852 (1.5\u00d7 avg) \u2014 a quiet break is not the setup.",
+      "min_volume": 64306852.0
     }
   ],
   "closed_trades": [
@@ -860,6 +862,20 @@
       "brutality_note": "Tape moved 0.7% on average; we were flat. Sitting out is a position.",
       "lessons": [
         "Orders placed, none filled yet \u2014 patience between signal and fill is part of the edge.",
+        "Skipped 3 candidate(s) and logged them: skips are data too."
+      ],
+      "variant": "charter-baseline"
+    },
+    {
+      "date": "2026-09-23",
+      "regime": "SPY 767.81, uptrend (above rising 20/50); QQQ 741.21, uptrend (above rising 20/50)",
+      "actions": "MSFT order filled at 508.5 (stop 485.03, target 555.44); SPY base_breakout order placed: entry 775.92, stop 746.25, target 835.26, 1 shares; QQQ base_breakout candidate skipped; EWJ ma_pullback candidate skipped; EWA base_breakout candidate skipped.",
+      "trades": [],
+      "realized_R": 0,
+      "brutality": 1,
+      "brutality_note": "Tape moved 1.5% on average; we were flat. Sitting out is a position.",
+      "lessons": [
+        "MSFT filled at 508.5: the trade only exists because the level traded \u2014 orders wait for price, we don't chase it.",
         "Skipped 3 candidate(s) and logged them: skips are data too."
       ],
       "variant": "charter-baseline"
@@ -2217,6 +2233,30 @@
       "entry": 30.47,
       "stop": 28.26,
       "reason": "blocked by rules: Max 2 positions: 0 open + 2 pending already."
+    },
+    {
+      "date": "2026-09-23",
+      "ticker": "QQQ",
+      "setup": "base_breakout",
+      "entry": 749.1,
+      "stop": 697.87,
+      "reason": "blocked by rules: Max 2 positions: 1 open + 1 pending already."
+    },
+    {
+      "date": "2026-09-23",
+      "ticker": "EWJ",
+      "setup": "ma_pullback",
+      "entry": 97.93,
+      "stop": 96.04,
+      "reason": "blocked by rules: Max 2 positions: 1 open + 1 pending already."
+    },
+    {
+      "date": "2026-09-23",
+      "ticker": "EWA",
+      "setup": "base_breakout",
+      "entry": 30.47,
+      "stop": 28.23,
+      "reason": "blocked by rules: Max 2 positions: 1 open + 1 pending already."
     }
   ]
 }
