@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 3317.29,
+    "balance": 3315.54,
     "open_risk_R": 0
   },
   "rules": {
@@ -34,13 +34,13 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 154,
-    "wins": 47,
-    "losses": 107,
-    "win_rate_pct": 30.5,
-    "expectancy_R": -0.263,
-    "total_R": -40.548,
-    "max_drawdown_pct": 35.5
+    "trades_closed": 157,
+    "wins": 49,
+    "losses": 108,
+    "win_rate_pct": 31.2,
+    "expectancy_R": -0.258,
+    "total_R": -40.554,
+    "max_drawdown_pct": 36.14
   },
   "open_trades": [],
   "pending_orders": [],
@@ -2970,6 +2970,63 @@
       "r_multiple": -1.05,
       "pnl_usd": -32.76,
       "balance_after": 3317.29
+    },
+    {
+      "id": "2026-09-24-AMD-8",
+      "ticker": "AMD",
+      "setup": "vwap_pullback",
+      "entry": 616.45,
+      "stop": 614.04,
+      "target": 621.27,
+      "shares": 13,
+      "risk_usd": 31.330000000001064,
+      "opened": "2026-09-24",
+      "entry_bar": 15,
+      "note": "Held above VWAP then first pullback into it (bar 14); long on reclaim of 616.44, stop under the dip 614.65.",
+      "exit": 614.04,
+      "closed": "2026-09-24",
+      "reason": "stop",
+      "r_multiple": -1.05,
+      "pnl_usd": -32.9,
+      "balance_after": 3284.39
+    },
+    {
+      "id": "2026-09-24-SPY-0",
+      "ticker": "SPY",
+      "setup": "orb_long",
+      "entry": 765.87,
+      "stop": 762.86,
+      "target": 771.89,
+      "shares": 10,
+      "risk_usd": 30.09999999999991,
+      "opened": "2026-09-24",
+      "entry_bar": 33,
+      "note": "30-min opening range 763.62\u2013765.49; long on the break of 765.49 with volume \u2265 1.2\u00d7 the opening average.",
+      "exit": 767.24,
+      "closed": "2026-09-24",
+      "reason": "eod_flat",
+      "r_multiple": 0.405,
+      "pnl_usd": 12.19,
+      "balance_after": 3296.58
+    },
+    {
+      "id": "2026-09-24-QQQ-1",
+      "ticker": "QQQ",
+      "setup": "orb_long",
+      "entry": 738.14,
+      "stop": 733.9,
+      "target": 746.62,
+      "shares": 7,
+      "risk_usd": 29.680000000000064,
+      "opened": "2026-09-24",
+      "entry_bar": 33,
+      "note": "30-min opening range 734.63\u2013737.77; long on the break of 737.77 with volume \u2265 1.2\u00d7 the opening average.",
+      "exit": 741.06,
+      "closed": "2026-09-24",
+      "reason": "eod_flat",
+      "r_multiple": 0.639,
+      "pnl_usd": 18.96,
+      "balance_after": 3315.54
     }
   ],
   "sessions": [
@@ -3675,6 +3732,19 @@
       "actions": "META vwap_pullback \u2192 stop -1.05R",
       "lessons": [
         "Replayed 10 tickers on 5-minute bars; 1 trade(s), -1.05R after costs."
+      ]
+    },
+    {
+      "date": "2026-09-24",
+      "trades": [
+        "2026-09-24-AMD-8",
+        "2026-09-24-SPY-0",
+        "2026-09-24-QQQ-1"
+      ],
+      "realized_R": -0.006,
+      "actions": "AMD vwap_pullback \u2192 stop -1.05R; SPY orb_long \u2192 eod_flat +0.41R; QQQ orb_long \u2192 eod_flat +0.64R",
+      "lessons": [
+        "Replayed 10 tickers on 5-minute bars; 3 trade(s), -0.01R after costs."
       ]
     }
   ],

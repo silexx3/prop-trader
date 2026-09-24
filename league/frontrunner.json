@@ -805,6 +805,19 @@
         "Skipped 3 candidate(s) and logged them: skips are data too."
       ],
       "variant": "pullback-deep-swing"
+    },
+    {
+      "date": "2026-09-24",
+      "regime": "SPY 767.18, uptrend (above rising 20/50); QQQ 741.10, uptrend (above rising 20/50)",
+      "actions": "QQQ base_breakout candidate skipped; EWJ base_breakout candidate skipped; EWY ma_pullback candidate skipped; EWT base_breakout candidate skipped; EWA base_breakout candidate skipped.",
+      "trades": [],
+      "realized_R": 0,
+      "brutality": 0,
+      "brutality_note": "Tape moved 0.7% on average; we were flat. Sitting out is a position.",
+      "lessons": [
+        "Skipped 5 candidate(s) and logged them: skips are data too."
+      ],
+      "variant": "pullback-deep-swing"
     }
   ],
   "skipped_candidates": [
@@ -2222,6 +2235,46 @@
       "setup": "base_breakout",
       "entry": 30.47,
       "stop": 28.23,
+      "reason": "blocked by rules: Max 2 positions: 2 open + 0 pending already."
+    },
+    {
+      "date": "2026-09-24",
+      "ticker": "QQQ",
+      "setup": "base_breakout",
+      "entry": 749.1,
+      "stop": 697.87,
+      "reason": "correlation guard \u2014 QQQ moves with SPY (0.91 over 90d): one bet, two tickets"
+    },
+    {
+      "date": "2026-09-24",
+      "ticker": "EWJ",
+      "setup": "base_breakout",
+      "entry": 98.86,
+      "stop": 94.91,
+      "reason": "blocked by rules: Max 2 positions: 2 open + 0 pending already."
+    },
+    {
+      "date": "2026-09-24",
+      "ticker": "EWY",
+      "setup": "ma_pullback",
+      "entry": 185.44,
+      "stop": 173.55,
+      "reason": "blocked by rules: Max 2 positions: 2 open + 0 pending already."
+    },
+    {
+      "date": "2026-09-24",
+      "ticker": "EWT",
+      "setup": "base_breakout",
+      "entry": 115.94,
+      "stop": 105.98,
+      "reason": "blocked by rules: Max 2 positions: 2 open + 0 pending already."
+    },
+    {
+      "date": "2026-09-24",
+      "ticker": "EWA",
+      "setup": "base_breakout",
+      "entry": 30.43,
+      "stop": 28.15,
       "reason": "blocked by rules: Max 2 positions: 2 open + 0 pending already."
     }
   ]
