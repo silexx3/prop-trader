@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 4571.71,
+    "balance": 4548.27,
     "open_risk_R": 0
   },
   "rules": {
@@ -35,12 +35,12 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 56,
+    "trades_closed": 57,
     "wins": 16,
-    "losses": 40,
-    "win_rate_pct": 28.6,
-    "expectancy_R": -0.325,
-    "total_R": -18.175,
+    "losses": 41,
+    "win_rate_pct": 28.1,
+    "expectancy_R": -0.337,
+    "total_R": -19.225,
     "max_drawdown_pct": 10.26
   },
   "open_trades": [],
@@ -1109,6 +1109,25 @@
       "r_multiple": 1.95,
       "pnl_usd": 42.82,
       "balance_after": 4571.71
+    },
+    {
+      "id": "2026-09-28-SPY-0",
+      "ticker": "SPY",
+      "setup": "orb_long",
+      "entry": 768.99,
+      "stop": 766.2,
+      "target": 774.57,
+      "shares": 8,
+      "risk_usd": 22.31999999999971,
+      "opened": "2026-09-28",
+      "entry_bar": 35,
+      "note": "30-min opening range 766.97\u2013768.61; long on the break of 768.61 with volume \u2265 1.2\u00d7 the opening average.",
+      "exit": 766.2,
+      "closed": "2026-09-28",
+      "reason": "stop",
+      "r_multiple": -1.05,
+      "pnl_usd": -23.44,
+      "balance_after": 4548.27
     }
   ],
   "sessions": [
@@ -1614,6 +1633,15 @@
       ],
       "realized_R": 1.95,
       "actions": "MSFT target +1.95R",
+      "personality": "turtle"
+    },
+    {
+      "date": "2026-09-28",
+      "trades": [
+        "2026-09-28-SPY-0"
+      ],
+      "realized_R": -1.05,
+      "actions": "SPY stop -1.05R",
       "personality": "turtle"
     }
   ],

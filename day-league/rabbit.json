@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 4758.58,
+    "balance": 4710.73,
     "open_risk_R": 0
   },
   "rules": {
@@ -35,12 +35,12 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 112,
+    "trades_closed": 115,
     "wins": 39,
-    "losses": 73,
-    "win_rate_pct": 34.8,
-    "expectancy_R": -0.059,
-    "total_R": -6.632,
+    "losses": 76,
+    "win_rate_pct": 33.9,
+    "expectancy_R": -0.07,
+    "total_R": -8.048,
     "max_drawdown_pct": 8.73
   },
   "open_trades": [],
@@ -2173,6 +2173,63 @@
       "r_multiple": -0.241,
       "pnl_usd": -8.17,
       "balance_after": 4758.58
+    },
+    {
+      "id": "2026-09-28-SPY-0",
+      "ticker": "SPY",
+      "setup": "orb_long",
+      "entry": 768.99,
+      "stop": 766.2,
+      "target": 774.57,
+      "shares": 12,
+      "risk_usd": 33.47999999999956,
+      "opened": "2026-09-28",
+      "entry_bar": 35,
+      "note": "30-min opening range 766.97\u2013768.61; long on the break of 768.61 with volume \u2265 1.0\u00d7 the opening average.",
+      "exit": 766.2,
+      "closed": "2026-09-28",
+      "reason": "stop",
+      "r_multiple": -1.05,
+      "pnl_usd": -35.15,
+      "balance_after": 4723.43
+    },
+    {
+      "id": "2026-09-28-AMZN-6",
+      "ticker": "AMZN",
+      "setup": "orb_long",
+      "entry": 246.99,
+      "stop": 244.48,
+      "target": 252.01,
+      "shares": 14,
+      "risk_usd": 35.14000000000027,
+      "opened": "2026-09-28",
+      "entry_bar": 44,
+      "note": "30-min opening range 244.73\u2013246.87; long on the break of 246.87 with volume \u2265 1.0\u00d7 the opening average.",
+      "exit": 246.26,
+      "closed": "2026-09-28",
+      "reason": "eod_flat",
+      "r_multiple": -0.341,
+      "pnl_usd": -11.98,
+      "balance_after": 4711.45
+    },
+    {
+      "id": "2026-09-28-MSFT-4",
+      "ticker": "MSFT",
+      "setup": "orb_long",
+      "entry": 509.2799987792969,
+      "stop": 501.72,
+      "target": 523.89,
+      "shares": 4,
+      "risk_usd": 29.559999999999945,
+      "opened": "2026-09-28",
+      "entry_bar": 77,
+      "note": "30-min opening range 502.22\u2013508.86; long on the break of 508.86 with volume \u2265 1.0\u00d7 the opening average.",
+      "exit": 509.47,
+      "closed": "2026-09-28",
+      "reason": "eod_flat",
+      "r_multiple": -0.025,
+      "pnl_usd": -0.72,
+      "balance_after": 4710.73
     }
   ],
   "sessions": [
@@ -2729,6 +2786,17 @@
       ],
       "realized_R": 0.77,
       "actions": "MSFT target +1.95R; TSLA stop -1.05R; SPY eod_flat +0.11R; AMZN eod_flat -0.24R",
+      "personality": "rabbit"
+    },
+    {
+      "date": "2026-09-28",
+      "trades": [
+        "2026-09-28-SPY-0",
+        "2026-09-28-AMZN-6",
+        "2026-09-28-MSFT-4"
+      ],
+      "realized_R": -1.416,
+      "actions": "SPY stop -1.05R; AMZN eod_flat -0.34R; MSFT eod_flat -0.03R",
       "personality": "rabbit"
     }
   ],

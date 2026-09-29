@@ -804,6 +804,19 @@
         "Skipped 6 candidate(s) and logged them: skips are data too."
       ],
       "variant": "charter-baseline"
+    },
+    {
+      "date": "2026-09-25",
+      "regime": "SPY 771.35, uptrend (above rising 20/50); QQQ 744.50, uptrend (above rising 20/50)",
+      "actions": "SPY base_breakout candidate skipped; QQQ base_breakout candidate skipped; EWJ base_breakout candidate skipped; EWY ma_pullback candidate skipped; EWT base_breakout candidate skipped; EWA base_breakout candidate skipped.",
+      "trades": [],
+      "realized_R": 0,
+      "brutality": 1,
+      "brutality_note": "Tape moved 1.2% on average; we were flat. Sitting out is a position.",
+      "lessons": [
+        "Skipped 6 candidate(s) and logged them: skips are data too."
+      ],
+      "variant": "charter-baseline"
     }
   ],
   "skipped_candidates": [
@@ -2673,6 +2686,54 @@
     },
     {
       "date": "2026-09-24",
+      "ticker": "EWA",
+      "setup": "base_breakout",
+      "entry": 30.43,
+      "stop": 28.15,
+      "reason": "blocked by rules: Max 1 positions: 1 open + 0 pending already."
+    },
+    {
+      "date": "2026-09-25",
+      "ticker": "SPY",
+      "setup": "base_breakout",
+      "entry": 775.92,
+      "stop": 746.25,
+      "reason": "blocked by rules: Max 1 positions: 1 open + 0 pending already."
+    },
+    {
+      "date": "2026-09-25",
+      "ticker": "QQQ",
+      "setup": "base_breakout",
+      "entry": 749.1,
+      "stop": 697.87,
+      "reason": "correlation guard \u2014 QQQ moves with SPY (0.91 over 90d): one bet, two tickets"
+    },
+    {
+      "date": "2026-09-25",
+      "ticker": "EWJ",
+      "setup": "base_breakout",
+      "entry": 99.11,
+      "stop": 94.92,
+      "reason": "blocked by rules: Max 1 positions: 1 open + 0 pending already."
+    },
+    {
+      "date": "2026-09-25",
+      "ticker": "EWY",
+      "setup": "ma_pullback",
+      "entry": 187.64,
+      "stop": 173.55,
+      "reason": "blocked by rules: Max 1 positions: 1 open + 0 pending already."
+    },
+    {
+      "date": "2026-09-25",
+      "ticker": "EWT",
+      "setup": "base_breakout",
+      "entry": 115.94,
+      "stop": 105.98,
+      "reason": "blocked by rules: Max 1 positions: 1 open + 0 pending already."
+    },
+    {
+      "date": "2026-09-25",
       "ticker": "EWA",
       "setup": "base_breakout",
       "entry": 30.43,
