@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 2067.2,
+    "balance": 2057.64,
     "open_risk_R": 0
   },
   "rules": {
@@ -35,12 +35,12 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 198,
-    "wins": 64,
-    "losses": 134,
+    "trades_closed": 201,
+    "wins": 65,
+    "losses": 136,
     "win_rate_pct": 32.3,
-    "expectancy_R": -0.211,
-    "total_R": -41.779,
+    "expectancy_R": -0.208,
+    "total_R": -41.851,
     "max_drawdown_pct": 63.69
   },
   "open_trades": [],
@@ -3807,6 +3807,63 @@
       "r_multiple": -0.025,
       "pnl_usd": -0.9,
       "balance_after": 2067.2
+    },
+    {
+      "id": "2026-09-29-AMD-9",
+      "ticker": "AMD",
+      "setup": "vwap_pullback",
+      "entry": 617.47,
+      "stop": 613.67,
+      "target": 625.07,
+      "shares": 10,
+      "risk_usd": 38.00000000000068,
+      "opened": "2026-09-29",
+      "entry_bar": 12,
+      "note": "Held above VWAP then first pullback into it (bar 9); long on reclaim of 617.46, stop under the dip 614.28.",
+      "exit": 613.67,
+      "closed": "2026-09-29",
+      "reason": "stop",
+      "r_multiple": -1.05,
+      "pnl_usd": -39.9,
+      "balance_after": 2027.3
+    },
+    {
+      "id": "2026-09-29-MSFT-4",
+      "ticker": "MSFT",
+      "setup": "orb_long",
+      "entry": 511.1700134277344,
+      "stop": 501.9,
+      "target": 525.15,
+      "shares": 5,
+      "risk_usd": 38.75,
+      "opened": "2026-09-29",
+      "entry_bar": 13,
+      "note": "30-min opening range 502.40\u2013509.40; long on the break of 509.40 with volume \u2265 1.2\u00d7 the opening average.",
+      "exit": 509.04,
+      "closed": "2026-09-29",
+      "reason": "eod_flat",
+      "r_multiple": -0.28,
+      "pnl_usd": -12.59,
+      "balance_after": 2014.71
+    },
+    {
+      "id": "2026-09-29-META-6",
+      "ticker": "META",
+      "setup": "orb_long",
+      "entry": 727.86,
+      "stop": 719.33,
+      "target": 744.92,
+      "shares": 4,
+      "risk_usd": 34.11999999999989,
+      "opened": "2026-09-29",
+      "entry_bar": 46,
+      "note": "30-min opening range 720.05\u2013727.50; long on the break of 727.50 with volume \u2265 1.2\u00d7 the opening average.",
+      "exit": 739.02,
+      "closed": "2026-09-29",
+      "reason": "eod_flat",
+      "r_multiple": 1.258,
+      "pnl_usd": 42.93,
+      "balance_after": 2057.64
     }
   ],
   "sessions": [
@@ -4462,6 +4519,17 @@
       ],
       "realized_R": -1.416,
       "actions": "SPY stop -1.05R; AMZN eod_flat -0.34R; MSFT eod_flat -0.03R",
+      "personality": "shark"
+    },
+    {
+      "date": "2026-09-29",
+      "trades": [
+        "2026-09-29-AMD-9",
+        "2026-09-29-MSFT-4",
+        "2026-09-29-META-6"
+      ],
+      "realized_R": -0.072,
+      "actions": "AMD stop -1.05R; MSFT eod_flat -0.28R; META eod_flat +1.26R",
       "personality": "shark"
     }
   ],

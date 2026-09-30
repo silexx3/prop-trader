@@ -53,17 +53,16 @@
   ],
   "pending_orders": [
     {
-      "id": "11307ffe",
+      "id": "43c5ab8b",
       "ticker": "EWJ",
-      "setup": "base_breakout",
-      "entry": 99.11,
+      "setup": "ma_pullback",
+      "entry": 97.32,
       "stop": 94.92,
-      "target": 107.49,
-      "shares": 22,
-      "risk_usd": 92.18,
-      "placed": "2026-09-25",
-      "note": "4-week base 94.99\u201399.01 (4.2% range) near highs; entry on break of 99.01; fill requires volume \u2265 6,049,920 (1.5\u00d7 avg) \u2014 a quiet break is not the setup.",
-      "min_volume": 6049920.0
+      "target": 102.12,
+      "shares": 39,
+      "risk_usd": 93.6,
+      "placed": "2026-09-28",
+      "note": "Uptrend pullback into 20/50 zone (SMA20 97.20 / SMA50 95.50); entry on reclaim of today's high 97.32, stop below pullback low 95.11."
     }
   ],
   "closed_trades": [
@@ -998,6 +997,20 @@
       "brutality_note": "Tape moved 1.2% on average; we were flat. Sitting out is a position.",
       "lessons": [
         "SPY filled at 768.95: the trade only exists because the level traded \u2014 orders wait for price, we don't chase it.",
+        "Skipped 4 candidate(s) and logged them: skips are data too."
+      ],
+      "variant": "charter-baseline"
+    },
+    {
+      "date": "2026-09-28",
+      "regime": "SPY 765.61, uptrend (above rising 20/50); QQQ 736.53, uptrend (above rising 20/50)",
+      "actions": "EWJ ma_pullback order placed: entry 97.32, stop 94.92, target 102.12, 39 shares; QQQ base_breakout candidate skipped; EWY ma_pullback candidate skipped; EWT ma_pullback candidate skipped; EWA base_breakout candidate skipped.",
+      "trades": [],
+      "realized_R": 0,
+      "brutality": 1,
+      "brutality_note": "Tape moved 1.3% on average; we were flat. Sitting out is a position.",
+      "lessons": [
+        "Orders placed, none filled yet \u2014 patience between signal and fill is part of the edge.",
         "Skipped 4 candidate(s) and logged them: skips are data too."
       ],
       "variant": "charter-baseline"
@@ -2278,6 +2291,38 @@
     },
     {
       "date": "2026-09-25",
+      "ticker": "EWA",
+      "setup": "base_breakout",
+      "entry": 30.43,
+      "stop": 28.15,
+      "reason": "blocked by rules: Max 3 positions: 2 open + 1 pending already."
+    },
+    {
+      "date": "2026-09-28",
+      "ticker": "QQQ",
+      "setup": "base_breakout",
+      "entry": 749.1,
+      "stop": 697.87,
+      "reason": "correlation guard \u2014 QQQ moves with SPY (0.92 over 90d): one bet, two tickets"
+    },
+    {
+      "date": "2026-09-28",
+      "ticker": "EWY",
+      "setup": "ma_pullback",
+      "entry": 185.13,
+      "stop": 173.55,
+      "reason": "blocked by rules: Max 3 positions: 2 open + 1 pending already."
+    },
+    {
+      "date": "2026-09-28",
+      "ticker": "EWT",
+      "setup": "ma_pullback",
+      "entry": 114.45,
+      "stop": 105.98,
+      "reason": "blocked by rules: Max 3 positions: 2 open + 1 pending already."
+    },
+    {
+      "date": "2026-09-28",
       "ticker": "EWA",
       "setup": "base_breakout",
       "entry": 30.43,
