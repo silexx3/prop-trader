@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 3282.71,
+    "balance": 3263.33,
     "open_risk_R": 0
   },
   "rules": {
@@ -34,12 +34,12 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 167,
+    "trades_closed": 169,
     "wins": 51,
-    "losses": 116,
-    "win_rate_pct": 30.5,
-    "expectancy_R": -0.248,
-    "total_R": -41.407,
+    "losses": 118,
+    "win_rate_pct": 30.2,
+    "expectancy_R": -0.249,
+    "total_R": -42.068,
     "max_drawdown_pct": 36.8
   },
   "open_trades": [],
@@ -3217,6 +3217,44 @@
       "r_multiple": 1.258,
       "pnl_usd": 32.2,
       "balance_after": 3282.71
+    },
+    {
+      "id": "2026-09-30-MSFT-3",
+      "ticker": "MSFT",
+      "setup": "orb_long",
+      "entry": 517.12,
+      "stop": 509.82,
+      "target": 531.72,
+      "shares": 4,
+      "risk_usd": 29.200000000000045,
+      "opened": "2026-09-30",
+      "entry_bar": 6,
+      "note": "30-min opening range 510.33\u2013516.86; long on the break of 516.86 with volume \u2265 1.2\u00d7 the opening average.",
+      "exit": 512.96,
+      "closed": "2026-09-30",
+      "reason": "eod_flat",
+      "r_multiple": -0.62,
+      "pnl_usd": -18.1,
+      "balance_after": 3264.61
+    },
+    {
+      "id": "2026-09-30-AMZN-4",
+      "ticker": "AMZN",
+      "setup": "orb_long",
+      "entry": 249.0,
+      "stop": 245.84,
+      "target": 255.32,
+      "shares": 10,
+      "risk_usd": 31.599999999999966,
+      "opened": "2026-09-30",
+      "entry_bar": 6,
+      "note": "30-min opening range 246.09\u2013248.88; long on the break of 248.88 with volume \u2265 1.2\u00d7 the opening average.",
+      "exit": 249.03,
+      "closed": "2026-09-30",
+      "reason": "eod_flat",
+      "r_multiple": -0.041,
+      "pnl_usd": -1.28,
+      "balance_after": 3263.33
     }
   ],
   "sessions": [
@@ -3975,6 +4013,18 @@
       "actions": "AMD vwap_pullback \u2192 stop -1.05R; MSFT orb_long \u2192 eod_flat -0.28R; META orb_long \u2192 eod_flat +1.26R",
       "lessons": [
         "Replayed 10 tickers on 5-minute bars; 3 trade(s), -0.07R after costs."
+      ]
+    },
+    {
+      "date": "2026-09-30",
+      "trades": [
+        "2026-09-30-MSFT-3",
+        "2026-09-30-AMZN-4"
+      ],
+      "realized_R": -0.661,
+      "actions": "MSFT orb_long \u2192 eod_flat -0.62R; AMZN orb_long \u2192 eod_flat -0.04R",
+      "lessons": [
+        "Replayed 10 tickers on 5-minute bars; 2 trade(s), -0.66R after costs."
       ]
     }
   ],
