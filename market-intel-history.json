@@ -238,5 +238,9 @@
   {
     "date": "2026-10-01",
     "regime": "risk-on"
+  },
+  {
+    "date": "2026-10-02",
+    "regime": "risk-on"
   }
 ]

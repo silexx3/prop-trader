@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 4318.79,
+    "balance": 4400.95,
     "open_risk_R": 0
   },
   "rules": {
@@ -35,12 +35,12 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 87,
-    "wins": 30,
+    "trades_closed": 89,
+    "wins": 32,
     "losses": 57,
-    "win_rate_pct": 34.5,
-    "expectancy_R": -0.164,
-    "total_R": -14.288,
+    "win_rate_pct": 36.0,
+    "expectancy_R": -0.138,
+    "total_R": -12.278,
     "max_drawdown_pct": 15.91
   },
   "open_trades": [],
@@ -1698,6 +1698,44 @@
       "r_multiple": -0.041,
       "pnl_usd": -1.66,
       "balance_after": 4318.79
+    },
+    {
+      "id": "2026-10-01-AMD-7",
+      "ticker": "AMD",
+      "setup": "vwap_pullback",
+      "entry": 612.06,
+      "stop": 608.92,
+      "target": 618.34,
+      "shares": 13,
+      "risk_usd": 40.81999999999982,
+      "opened": "2026-10-01",
+      "entry_bar": 36,
+      "note": "Held above VWAP then first pullback into it (bar 31); long on reclaim of 612.05, stop under the dip 609.53.",
+      "exit": 618.34,
+      "closed": "2026-10-01",
+      "reason": "target",
+      "r_multiple": 1.95,
+      "pnl_usd": 79.6,
+      "balance_after": 4398.39
+    },
+    {
+      "id": "2026-10-01-NVDA-8",
+      "ticker": "NVDA",
+      "setup": "vwap_pullback",
+      "entry": 230.86,
+      "stop": 229.95,
+      "target": 232.68,
+      "shares": 47,
+      "risk_usd": 42.770000000001176,
+      "opened": "2026-10-01",
+      "entry_bar": 47,
+      "note": "Held above VWAP then first pullback into it (bar 40); long on reclaim of 230.85, stop under the dip 230.18.",
+      "exit": 230.96,
+      "closed": "2026-10-01",
+      "reason": "eod_flat",
+      "r_multiple": 0.06,
+      "pnl_usd": 2.56,
+      "balance_after": 4400.95
     }
   ],
   "sessions": [
@@ -2247,6 +2285,16 @@
       ],
       "realized_R": -0.661,
       "actions": "MSFT eod_flat -0.62R; AMZN eod_flat -0.04R",
+      "personality": "owl"
+    },
+    {
+      "date": "2026-10-01",
+      "trades": [
+        "2026-10-01-AMD-7",
+        "2026-10-01-NVDA-8"
+      ],
+      "realized_R": 2.01,
+      "actions": "AMD target +1.95R; NVDA eod_flat +0.06R",
       "personality": "owl"
     }
   ],

@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 2148.29,
+    "balance": 2184.96,
     "open_risk_R": 0
   },
   "rules": {
@@ -35,12 +35,12 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 206,
-    "wins": 67,
-    "losses": 139,
-    "win_rate_pct": 32.5,
-    "expectancy_R": -0.193,
-    "total_R": -39.662,
+    "trades_closed": 209,
+    "wins": 69,
+    "losses": 140,
+    "win_rate_pct": 33.0,
+    "expectancy_R": -0.185,
+    "total_R": -38.702,
     "max_drawdown_pct": 63.69
   },
   "open_trades": [],
@@ -3959,6 +3959,63 @@
       "r_multiple": -0.041,
       "pnl_usd": -1.66,
       "balance_after": 2148.29
+    },
+    {
+      "id": "2026-10-01-TSLA-4",
+      "ticker": "TSLA",
+      "setup": "orb_long",
+      "entry": 358.9200134277344,
+      "stop": 354.97,
+      "target": 365.8,
+      "shares": 11,
+      "risk_usd": 39.709999999999525,
+      "opened": "2026-10-01",
+      "entry_bar": 18,
+      "note": "30-min opening range 355.32\u2013358.40; long on the break of 358.40 with volume \u2265 1.2\u00d7 the opening average.",
+      "exit": 354.97,
+      "closed": "2026-10-01",
+      "reason": "stop",
+      "r_multiple": -1.05,
+      "pnl_usd": -45.44,
+      "balance_after": 2102.85
+    },
+    {
+      "id": "2026-10-01-AMD-7",
+      "ticker": "AMD",
+      "setup": "vwap_pullback",
+      "entry": 612.06,
+      "stop": 608.92,
+      "target": 618.34,
+      "shares": 13,
+      "risk_usd": 40.81999999999982,
+      "opened": "2026-10-01",
+      "entry_bar": 33,
+      "note": "Held above VWAP then first pullback into it (bar 31); long on reclaim of 612.05, stop under the dip 609.53.",
+      "exit": 618.34,
+      "closed": "2026-10-01",
+      "reason": "target",
+      "r_multiple": 1.95,
+      "pnl_usd": 79.6,
+      "balance_after": 2182.45
+    },
+    {
+      "id": "2026-10-01-NVDA-8",
+      "ticker": "NVDA",
+      "setup": "vwap_pullback",
+      "entry": 230.86,
+      "stop": 229.95,
+      "target": 232.68,
+      "shares": 46,
+      "risk_usd": 41.86000000000115,
+      "opened": "2026-10-01",
+      "entry_bar": 47,
+      "note": "Held above VWAP then first pullback into it (bar 40); long on reclaim of 230.85, stop under the dip 230.18.",
+      "exit": 230.96,
+      "closed": "2026-10-01",
+      "reason": "eod_flat",
+      "r_multiple": 0.06,
+      "pnl_usd": 2.51,
+      "balance_after": 2184.96
     }
   ],
   "sessions": [
@@ -4638,6 +4695,17 @@
       ],
       "realized_R": 2.189,
       "actions": "GOOGL target +1.95R; TSLA target +1.95R; AAPL stop -1.05R; MSFT eod_flat -0.62R; AMZN eod_flat -0.04R",
+      "personality": "shark"
+    },
+    {
+      "date": "2026-10-01",
+      "trades": [
+        "2026-10-01-TSLA-4",
+        "2026-10-01-AMD-7",
+        "2026-10-01-NVDA-8"
+      ],
+      "realized_R": 0.96,
+      "actions": "TSLA stop -1.05R; AMD target +1.95R; NVDA eod_flat +0.06R",
       "personality": "shark"
     }
   ],
