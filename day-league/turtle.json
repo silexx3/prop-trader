@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 4524.08,
+    "balance": 4537.72,
     "open_risk_R": 0
   },
   "rules": {
@@ -35,12 +35,12 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 61,
-    "wins": 17,
+    "trades_closed": 62,
+    "wins": 18,
     "losses": 44,
-    "win_rate_pct": 27.9,
-    "expectancy_R": -0.335,
-    "total_R": -20.425,
+    "win_rate_pct": 29.0,
+    "expectancy_R": -0.32,
+    "total_R": -19.814,
     "max_drawdown_pct": 10.35
   },
   "open_trades": [],
@@ -1204,6 +1204,25 @@
       "r_multiple": -1.05,
       "pnl_usd": -23.22,
       "balance_after": 4524.08
+    },
+    {
+      "id": "2026-10-05-AMD-6",
+      "ticker": "AMD",
+      "setup": "vwap_pullback",
+      "entry": 630.68,
+      "stop": 628.82,
+      "target": 634.4,
+      "shares": 12,
+      "risk_usd": 22.3199999999988,
+      "opened": "2026-10-05",
+      "entry_bar": 66,
+      "note": "Held above VWAP then first pullback into it (bar 64); long on reclaim of 630.67, stop under the dip 629.45.",
+      "exit": 631.91,
+      "closed": "2026-10-05",
+      "reason": "eod_flat",
+      "r_multiple": 0.611,
+      "pnl_usd": 13.64,
+      "balance_after": 4537.72
     }
   ],
   "sessions": [
@@ -1754,6 +1773,15 @@
       ],
       "realized_R": -1.05,
       "actions": "AMD stop -1.05R",
+      "personality": "turtle"
+    },
+    {
+      "date": "2026-10-05",
+      "trades": [
+        "2026-10-05-AMD-6"
+      ],
+      "realized_R": 0.611,
+      "actions": "AMD eod_flat +0.61R",
       "personality": "turtle"
     }
   ],

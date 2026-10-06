@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 4356.63,
+    "balance": 4382.78,
     "open_risk_R": 0
   },
   "rules": {
@@ -35,12 +35,12 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 90,
-    "wins": 32,
+    "trades_closed": 91,
+    "wins": 33,
     "losses": 58,
-    "win_rate_pct": 35.6,
-    "expectancy_R": -0.148,
-    "total_R": -13.328,
+    "win_rate_pct": 36.3,
+    "expectancy_R": -0.14,
+    "total_R": -12.717,
     "max_drawdown_pct": 15.91
   },
   "open_trades": [],
@@ -1755,6 +1755,25 @@
       "r_multiple": -1.05,
       "pnl_usd": -44.32,
       "balance_after": 4356.63
+    },
+    {
+      "id": "2026-10-05-AMD-6",
+      "ticker": "AMD",
+      "setup": "vwap_pullback",
+      "entry": 630.68,
+      "stop": 628.82,
+      "target": 634.4,
+      "shares": 23,
+      "risk_usd": 42.7799999999977,
+      "opened": "2026-10-05",
+      "entry_bar": 66,
+      "note": "Held above VWAP then first pullback into it (bar 64); long on reclaim of 630.67, stop under the dip 629.45.",
+      "exit": 631.91,
+      "closed": "2026-10-05",
+      "reason": "eod_flat",
+      "r_multiple": 0.611,
+      "pnl_usd": 26.15,
+      "balance_after": 4382.78
     }
   ],
   "sessions": [
@@ -2324,6 +2343,15 @@
       "realized_R": -1.05,
       "actions": "AMD stop -1.05R",
       "personality": "owl"
+    },
+    {
+      "date": "2026-10-05",
+      "trades": [
+        "2026-10-05-AMD-6"
+      ],
+      "realized_R": 0.611,
+      "actions": "AMD eod_flat +0.61R",
+      "personality": "owl"
     }
   ],
   "skipped_candidates": [
@@ -2478,6 +2506,38 @@
       "entry": 727.86,
       "stop": 719.33,
       "reason": "gapped past trigger (737.23 vs 727.86, >0.25R) \u2014 chasing is not the setup"
+    },
+    {
+      "date": "2026-10-05",
+      "ticker": "GOOGL",
+      "setup": "orb_long",
+      "entry": 346.13,
+      "stop": 342.07,
+      "reason": "gapped past trigger (347.44 vs 346.13, >0.25R) \u2014 chasing is not the setup"
+    },
+    {
+      "date": "2026-10-05",
+      "ticker": "SPY",
+      "setup": "orb_long",
+      "entry": 771.37,
+      "stop": 768.86,
+      "reason": "gapped past trigger (776.25 vs 771.37, >0.25R) \u2014 chasing is not the setup"
+    },
+    {
+      "date": "2026-10-05",
+      "ticker": "QQQ",
+      "setup": "orb_long",
+      "entry": 753.84,
+      "stop": 748.33,
+      "reason": "gapped past trigger (755.91 vs 753.84, >0.25R) \u2014 chasing is not the setup"
+    },
+    {
+      "date": "2026-10-05",
+      "ticker": "NVDA",
+      "setup": "orb_long",
+      "entry": 237.98,
+      "stop": 234.91,
+      "reason": "gapped past trigger (239.24 vs 237.98, >0.25R) \u2014 chasing is not the setup"
     }
   ]
 }
