@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 4749.82,
+    "balance": 4721.55,
     "open_risk_R": 0
   },
   "rules": {
@@ -35,12 +35,12 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 126,
+    "trades_closed": 127,
     "wins": 44,
-    "losses": 82,
-    "win_rate_pct": 34.9,
-    "expectancy_R": -0.056,
-    "total_R": -7.054,
+    "losses": 83,
+    "win_rate_pct": 34.6,
+    "expectancy_R": -0.062,
+    "total_R": -7.891,
     "max_drawdown_pct": 10.28
   },
   "open_trades": [],
@@ -2439,6 +2439,25 @@
       "r_multiple": -0.078,
       "pnl_usd": -2.45,
       "balance_after": 4749.82
+    },
+    {
+      "id": "2026-10-06-MSFT-4",
+      "ticker": "MSFT",
+      "setup": "orb_long",
+      "entry": 533.92,
+      "stop": 528.29,
+      "target": 545.18,
+      "shares": 6,
+      "risk_usd": 33.77999999999997,
+      "opened": "2026-10-06",
+      "entry_bar": 9,
+      "note": "30-min opening range 528.82\u2013533.65; long on the break of 533.65 with volume \u2265 1.0\u00d7 the opening average.",
+      "exit": 529.49,
+      "closed": "2026-10-06",
+      "reason": "eod_flat",
+      "r_multiple": -0.837,
+      "pnl_usd": -28.27,
+      "balance_after": 4721.55
     }
   ],
   "sessions": [
@@ -3058,6 +3077,15 @@
       "realized_R": -0.078,
       "actions": "META eod_flat -0.08R",
       "personality": "rabbit"
+    },
+    {
+      "date": "2026-10-06",
+      "trades": [
+        "2026-10-06-MSFT-4"
+      ],
+      "realized_R": -0.837,
+      "actions": "MSFT eod_flat -0.84R",
+      "personality": "rabbit"
     }
   ],
   "skipped_candidates": [
@@ -3444,6 +3472,14 @@
       "entry": 753.84,
       "stop": 748.33,
       "reason": "gapped past trigger (755.91 vs 753.84, >0.25R) \u2014 chasing is not the setup"
+    },
+    {
+      "date": "2026-10-06",
+      "ticker": "AMZN",
+      "setup": "orb_long",
+      "entry": 253.73,
+      "stop": 250.83,
+      "reason": "gapped past trigger (256.40 vs 253.73, >0.25R) \u2014 chasing is not the setup"
     }
   ]
 }

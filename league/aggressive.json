@@ -53,17 +53,17 @@
   ],
   "pending_orders": [
     {
-      "id": "a3cc833b",
-      "ticker": "MSFT",
+      "id": "ebda06a8",
+      "ticker": "EWJ",
       "setup": "base_breakout",
-      "entry": 532.88,
-      "stop": 490.24,
-      "target": 618.16,
-      "shares": 2,
-      "risk_usd": 85.28,
-      "placed": "2026-10-05",
-      "note": "4-week base 486.00\u2013532.35 (9.5% range) near highs; entry on break of 532.35; fill requires volume \u2265 32,517,968 (1.5\u00d7 avg) \u2014 a quiet break is not the setup.",
-      "min_volume": 32517968.0
+      "entry": 100.08,
+      "stop": 94.92,
+      "target": 110.4,
+      "shares": 18,
+      "risk_usd": 92.88,
+      "placed": "2026-10-06",
+      "note": "4-week base 95.11\u201399.98 (5.1% range) near highs; entry on break of 99.98; fill requires volume \u2265 6,092,498 (1.5\u00d7 avg) \u2014 a quiet break is not the setup.",
+      "min_volume": 6092498.0
     }
   ],
   "closed_trades": [
@@ -1112,6 +1112,20 @@
       "lessons": [
         "MSFT hit target for +1.95R \u2014 the 2R minimum is what lets a sub-50% win rate still print positive expectancy.",
         "AAPL filled at 332.48: the trade only exists because the level traded \u2014 orders wait for price, we don't chase it.",
+        "Skipped 3 candidate(s) and logged them: skips are data too."
+      ],
+      "variant": "charter-baseline"
+    },
+    {
+      "date": "2026-10-06",
+      "regime": "SPY 779.09, uptrend (above rising 20/50); QQQ 759.66, uptrend (above rising 20/50)",
+      "actions": "EWJ base_breakout order placed: entry 100.08, stop 94.92, target 110.4, 18 shares; QQQ base_breakout candidate skipped; EWY ma_pullback candidate skipped; EWA base_breakout candidate skipped.",
+      "trades": [],
+      "realized_R": 0,
+      "brutality": 0,
+      "brutality_note": "Tape moved 0.7% on average; we were flat. Sitting out is a position.",
+      "lessons": [
+        "Orders placed, none filled yet \u2014 patience between signal and fill is part of the edge.",
         "Skipped 3 candidate(s) and logged them: skips are data too."
       ],
       "variant": "charter-baseline"
@@ -2571,6 +2585,30 @@
       "ticker": "EWA",
       "setup": "base_breakout",
       "entry": 30.14,
+      "stop": 27.7,
+      "reason": "blocked by rules: Max 3 positions: 2 open + 1 pending already."
+    },
+    {
+      "date": "2026-10-06",
+      "ticker": "QQQ",
+      "setup": "base_breakout",
+      "entry": 763.62,
+      "stop": 730.17,
+      "reason": "correlation guard \u2014 QQQ moves with SPY (0.91 over 90d): one bet, two tickets"
+    },
+    {
+      "date": "2026-10-06",
+      "ticker": "EWY",
+      "setup": "ma_pullback",
+      "entry": 190.39,
+      "stop": 180.03,
+      "reason": "blocked by rules: Max 3 positions: 2 open + 1 pending already."
+    },
+    {
+      "date": "2026-10-06",
+      "ticker": "EWA",
+      "setup": "base_breakout",
+      "entry": 29.87,
       "stop": 27.7,
       "reason": "blocked by rules: Max 3 positions: 2 open + 1 pending already."
     }

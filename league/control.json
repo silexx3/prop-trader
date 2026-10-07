@@ -971,6 +971,19 @@
         "Skipped 4 candidate(s) and logged them: skips are data too."
       ],
       "variant": "charter-baseline"
+    },
+    {
+      "date": "2026-10-06",
+      "regime": "SPY 779.09, uptrend (above rising 20/50); QQQ 759.66, uptrend (above rising 20/50)",
+      "actions": "QQQ base_breakout candidate skipped; AAPL ma_pullback candidate skipped; EWJ base_breakout candidate skipped; EWY ma_pullback candidate skipped; EWA base_breakout candidate skipped.",
+      "trades": [],
+      "realized_R": 0,
+      "brutality": 0,
+      "brutality_note": "Tape moved 0.7% on average; we were flat. Sitting out is a position.",
+      "lessons": [
+        "Skipped 5 candidate(s) and logged them: skips are data too."
+      ],
+      "variant": "charter-baseline"
     }
   ],
   "skipped_candidates": [
@@ -2643,6 +2656,46 @@
       "ticker": "EWA",
       "setup": "base_breakout",
       "entry": 30.14,
+      "stop": 27.7,
+      "reason": "blocked by rules: Max 2 positions: 2 open + 0 pending already."
+    },
+    {
+      "date": "2026-10-06",
+      "ticker": "QQQ",
+      "setup": "base_breakout",
+      "entry": 763.62,
+      "stop": 730.17,
+      "reason": "blocked by rules: Max 2 positions: 2 open + 0 pending already."
+    },
+    {
+      "date": "2026-10-06",
+      "ticker": "AAPL",
+      "setup": "ma_pullback",
+      "entry": 334.38,
+      "stop": 325.16,
+      "reason": "blocked by rules: Max 2 positions: 2 open + 0 pending already."
+    },
+    {
+      "date": "2026-10-06",
+      "ticker": "EWJ",
+      "setup": "base_breakout",
+      "entry": 100.08,
+      "stop": 94.92,
+      "reason": "blocked by rules: Max 2 positions: 2 open + 0 pending already."
+    },
+    {
+      "date": "2026-10-06",
+      "ticker": "EWY",
+      "setup": "ma_pullback",
+      "entry": 190.39,
+      "stop": 180.03,
+      "reason": "blocked by rules: Max 2 positions: 2 open + 0 pending already."
+    },
+    {
+      "date": "2026-10-06",
+      "ticker": "EWA",
+      "setup": "base_breakout",
+      "entry": 29.87,
       "stop": 27.7,
       "reason": "blocked by rules: Max 2 positions: 2 open + 0 pending already."
     }

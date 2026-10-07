@@ -5,7 +5,7 @@
     "currency": "USD",
     "starting_balance": 5000.0,
     "balance": 5050.09,
-    "open_risk_R": 0.0
+    "open_risk_R": 1.0
   },
   "rules": {
     "risk_per_trade_pct": 0.5,
@@ -23,21 +23,22 @@
     "total_R": 2.85,
     "max_drawdown_pct": 0.39
   },
-  "open_trades": [],
-  "pending_orders": [
+  "open_trades": [
     {
       "id": "8905ef9c",
       "ticker": "SPY",
       "setup": "ma_pullback",
       "entry": 776.61,
       "stop": 757.27,
+      "initial_stop": 757.27,
       "target": 815.29,
       "shares": 1,
       "risk_usd": 19.34,
-      "placed": "2026-10-05",
+      "opened": "2026-10-06",
       "note": "Uptrend pullback into 20/50 zone (SMA20 764.31 / SMA50 762.98); entry on reclaim of today's high 776.61, stop below pullback low 758.79."
     }
   ],
+  "pending_orders": [],
   "closed_trades": [
     {
       "id": "ad14cd91",
@@ -901,6 +902,20 @@
       "lessons": [
         "MSFT hit target for +1.95R \u2014 the 2R minimum is what lets a sub-50% win rate still print positive expectancy.",
         "Orders placed, none filled yet \u2014 patience between signal and fill is part of the edge.",
+        "Skipped 5 candidate(s) and logged them: skips are data too."
+      ],
+      "variant": "charter-baseline"
+    },
+    {
+      "date": "2026-10-06",
+      "regime": "SPY 779.09, uptrend (above rising 20/50); QQQ 759.66, uptrend (above rising 20/50)",
+      "actions": "SPY order filled at 776.61 (stop 757.27, target 815.29); QQQ base_breakout candidate skipped; AAPL ma_pullback candidate skipped; EWJ base_breakout candidate skipped; EWY ma_pullback candidate skipped; EWA base_breakout candidate skipped.",
+      "trades": [],
+      "realized_R": 0,
+      "brutality": 0,
+      "brutality_note": "Tape moved 0.7% on average; we were flat. Sitting out is a position.",
+      "lessons": [
+        "SPY filled at 776.61: the trade only exists because the level traded \u2014 orders wait for price, we don't chase it.",
         "Skipped 5 candidate(s) and logged them: skips are data too."
       ],
       "variant": "charter-baseline"
@@ -3082,6 +3097,46 @@
       "entry": 30.14,
       "stop": 27.7,
       "reason": "blocked by rules: Max 1 positions: 0 open + 1 pending already."
+    },
+    {
+      "date": "2026-10-06",
+      "ticker": "QQQ",
+      "setup": "base_breakout",
+      "entry": 763.62,
+      "stop": 730.17,
+      "reason": "correlation guard \u2014 QQQ moves with SPY (0.91 over 90d): one bet, two tickets"
+    },
+    {
+      "date": "2026-10-06",
+      "ticker": "AAPL",
+      "setup": "ma_pullback",
+      "entry": 334.38,
+      "stop": 325.16,
+      "reason": "blocked by rules: Max 1 positions: 1 open + 0 pending already."
+    },
+    {
+      "date": "2026-10-06",
+      "ticker": "EWJ",
+      "setup": "base_breakout",
+      "entry": 100.08,
+      "stop": 94.92,
+      "reason": "blocked by rules: Max 1 positions: 1 open + 0 pending already."
+    },
+    {
+      "date": "2026-10-06",
+      "ticker": "EWY",
+      "setup": "ma_pullback",
+      "entry": 190.39,
+      "stop": 180.03,
+      "reason": "blocked by rules: Max 1 positions: 1 open + 0 pending already."
+    },
+    {
+      "date": "2026-10-06",
+      "ticker": "EWA",
+      "setup": "base_breakout",
+      "entry": 29.87,
+      "stop": 27.7,
+      "reason": "blocked by rules: Max 1 positions: 1 open + 0 pending already."
     }
   ]
 }
