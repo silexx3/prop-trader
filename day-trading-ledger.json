@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 3312.41,
+    "balance": 3298.46,
     "open_risk_R": 0
   },
   "rules": {
@@ -34,12 +34,12 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 177,
-    "wins": 56,
-    "losses": 121,
-    "win_rate_pct": 31.6,
-    "expectancy_R": -0.228,
-    "total_R": -40.424,
+    "trades_closed": 180,
+    "wins": 58,
+    "losses": 122,
+    "win_rate_pct": 32.2,
+    "expectancy_R": -0.227,
+    "total_R": -40.789,
     "max_drawdown_pct": 37.27
   },
   "open_trades": [],
@@ -3407,6 +3407,63 @@
       "r_multiple": -0.837,
       "pnl_usd": -23.56,
       "balance_after": 3312.41
+    },
+    {
+      "id": "2026-10-07-AAPL-6",
+      "ticker": "AAPL",
+      "setup": "vwap_pullback",
+      "entry": 335.69,
+      "stop": 334.89,
+      "target": 337.29,
+      "shares": 41,
+      "risk_usd": 32.800000000000466,
+      "opened": "2026-10-07",
+      "entry_bar": 12,
+      "note": "Held above VWAP then first pullback into it (bar 11); long on reclaim of 335.68, stop under the dip 335.23.",
+      "exit": 334.89,
+      "closed": "2026-10-07",
+      "reason": "stop",
+      "r_multiple": -1.05,
+      "pnl_usd": -34.44,
+      "balance_after": 3277.97
+    },
+    {
+      "id": "2026-10-07-QQQ-1",
+      "ticker": "QQQ",
+      "setup": "orb_long",
+      "entry": 755.2,
+      "stop": 751.01,
+      "target": 763.58,
+      "shares": 7,
+      "risk_usd": 29.330000000000382,
+      "opened": "2026-10-07",
+      "entry_bar": 20,
+      "note": "30-min opening range 751.76\u2013754.82; long on the break of 754.82 with volume \u2265 1.2\u00d7 the opening average.",
+      "exit": 757.71,
+      "closed": "2026-10-07",
+      "reason": "eod_flat",
+      "r_multiple": 0.549,
+      "pnl_usd": 16.1,
+      "balance_after": 3294.07
+    },
+    {
+      "id": "2026-10-07-SPY-0",
+      "ticker": "SPY",
+      "setup": "orb_long",
+      "entry": 776.54,
+      "stop": 773.32,
+      "target": 782.98,
+      "shares": 10,
+      "risk_usd": 32.199999999999136,
+      "opened": "2026-10-07",
+      "entry_bar": 28,
+      "note": "30-min opening range 774.09\u2013776.15; long on the break of 776.15 with volume \u2265 1.2\u00d7 the opening average.",
+      "exit": 777.14,
+      "closed": "2026-10-07",
+      "reason": "eod_flat",
+      "r_multiple": 0.136,
+      "pnl_usd": 4.39,
+      "balance_after": 3298.46
     }
   ],
   "sessions": [
@@ -4226,6 +4283,19 @@
       "lessons": [
         "Replayed 10 tickers on 5-minute bars; 1 trade(s), -0.84R after costs."
       ]
+    },
+    {
+      "date": "2026-10-07",
+      "trades": [
+        "2026-10-07-AAPL-6",
+        "2026-10-07-QQQ-1",
+        "2026-10-07-SPY-0"
+      ],
+      "realized_R": -0.365,
+      "actions": "AAPL vwap_pullback \u2192 stop -1.05R; QQQ orb_long \u2192 eod_flat +0.55R; SPY orb_long \u2192 eod_flat +0.14R",
+      "lessons": [
+        "Replayed 10 tickers on 5-minute bars; 3 trade(s), -0.36R after costs."
+      ]
     }
   ],
   "skipped_candidates": [
@@ -4540,6 +4610,14 @@
       "entry": 253.73,
       "stop": 250.83,
       "reason": "gapped past trigger (256.40 vs 253.73, >0.25R) \u2014 chasing is not the setup"
+    },
+    {
+      "date": "2026-10-07",
+      "ticker": "AMZN",
+      "setup": "orb_long",
+      "entry": 255.78,
+      "stop": 252.92,
+      "reason": "gapped past trigger (256.71 vs 255.78, >0.25R) \u2014 chasing is not the setup"
     }
   ]
 }
