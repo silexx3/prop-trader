@@ -919,6 +919,19 @@
         "Skipped 5 candidate(s) and logged them: skips are data too."
       ],
       "variant": "charter-baseline"
+    },
+    {
+      "date": "2026-10-07",
+      "regime": "SPY 777.22, uptrend (above rising 20/50); QQQ 757.73, uptrend (above rising 20/50)",
+      "actions": "QQQ base_breakout candidate skipped; AAPL ma_pullback candidate skipped; EWJ ma_pullback candidate skipped; EWY ma_pullback candidate skipped; EWA base_breakout candidate skipped.",
+      "trades": [],
+      "realized_R": 0,
+      "brutality": 1,
+      "brutality_note": "Tape moved 0.8% on average; we were flat. Sitting out is a position.",
+      "lessons": [
+        "Skipped 5 candidate(s) and logged them: skips are data too."
+      ],
+      "variant": "charter-baseline"
     }
   ],
   "skipped_candidates": [
@@ -3135,6 +3148,46 @@
       "ticker": "EWA",
       "setup": "base_breakout",
       "entry": 29.87,
+      "stop": 27.7,
+      "reason": "blocked by rules: Max 1 positions: 1 open + 0 pending already."
+    },
+    {
+      "date": "2026-10-07",
+      "ticker": "QQQ",
+      "setup": "base_breakout",
+      "entry": 763.62,
+      "stop": 730.17,
+      "reason": "correlation guard \u2014 QQQ moves with SPY (0.91 over 90d): one bet, two tickets"
+    },
+    {
+      "date": "2026-10-07",
+      "ticker": "AAPL",
+      "setup": "ma_pullback",
+      "entry": 338.67,
+      "stop": 325.16,
+      "reason": "blocked by rules: Max 1 positions: 1 open + 0 pending already."
+    },
+    {
+      "date": "2026-10-07",
+      "ticker": "EWJ",
+      "setup": "ma_pullback",
+      "entry": 98.4,
+      "stop": 94.92,
+      "reason": "blocked by rules: Max 1 positions: 1 open + 0 pending already."
+    },
+    {
+      "date": "2026-10-07",
+      "ticker": "EWY",
+      "setup": "ma_pullback",
+      "entry": 184.69,
+      "stop": 180.03,
+      "reason": "blocked by rules: Max 1 positions: 1 open + 0 pending already."
+    },
+    {
+      "date": "2026-10-07",
+      "ticker": "EWA",
+      "setup": "base_breakout",
+      "entry": 29.46,
       "stop": 27.7,
       "reason": "blocked by rules: Max 1 positions: 1 open + 0 pending already."
     }
