@@ -997,6 +997,19 @@
         "Skipped 5 candidate(s) and logged them: skips are data too."
       ],
       "variant": "charter-baseline"
+    },
+    {
+      "date": "2026-10-08",
+      "regime": "SPY 773.93, uptrend (above rising 20/50); QQQ 747.58, uptrend (above rising 20/50)",
+      "actions": "QQQ base_breakout candidate skipped; AAPL base_breakout candidate skipped; EWJ ma_pullback candidate skipped; EWT ma_pullback candidate skipped; EWA base_breakout candidate skipped.",
+      "trades": [],
+      "realized_R": 0,
+      "brutality": 2,
+      "brutality_note": "Tape moved 1.7% on average; we were flat. Sitting out is a position.",
+      "lessons": [
+        "Skipped 5 candidate(s) and logged them: skips are data too."
+      ],
+      "variant": "charter-baseline"
     }
   ],
   "skipped_candidates": [
@@ -2746,6 +2759,46 @@
     },
     {
       "date": "2026-10-07",
+      "ticker": "EWA",
+      "setup": "base_breakout",
+      "entry": 29.46,
+      "stop": 27.7,
+      "reason": "blocked by rules: Max 2 positions: 2 open + 0 pending already."
+    },
+    {
+      "date": "2026-10-08",
+      "ticker": "QQQ",
+      "setup": "base_breakout",
+      "entry": 763.62,
+      "stop": 730.17,
+      "reason": "blocked by rules: Max 2 positions: 2 open + 0 pending already."
+    },
+    {
+      "date": "2026-10-08",
+      "ticker": "AAPL",
+      "setup": "base_breakout",
+      "entry": 345.69,
+      "stop": 325.16,
+      "reason": "blocked by rules: Max 2 positions: 2 open + 0 pending already."
+    },
+    {
+      "date": "2026-10-08",
+      "ticker": "EWJ",
+      "setup": "ma_pullback",
+      "entry": 97.74,
+      "stop": 95.78,
+      "reason": "blocked by rules: Max 2 positions: 2 open + 0 pending already."
+    },
+    {
+      "date": "2026-10-08",
+      "ticker": "EWT",
+      "setup": "ma_pullback",
+      "entry": 115.0,
+      "stop": 111.53,
+      "reason": "blocked by rules: Max 2 positions: 2 open + 0 pending already."
+    },
+    {
+      "date": "2026-10-08",
       "ticker": "EWA",
       "setup": "base_breakout",
       "entry": 29.46,
