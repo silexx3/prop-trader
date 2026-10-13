@@ -1009,6 +1009,18 @@
       "lessons": [
         "Skipped 5 candidate(s) and logged them: skips are data too."
       ]
+    },
+    {
+      "date": "2026-10-12",
+      "regime": "SPY 778.10, uptrend (above rising 20/50); QQQ 746.04, uptrend (above rising 20/50)",
+      "actions": "QQQ base_breakout candidate skipped; AMD ma_pullback candidate skipped; EWJ ma_pullback candidate skipped; EWT ma_pullback candidate skipped; EWA base_breakout candidate skipped.",
+      "trades": [],
+      "realized_R": 0,
+      "brutality": 1,
+      "brutality_note": "Tape moved 1.1% on average; we were flat. Sitting out is a position.",
+      "lessons": [
+        "Skipped 5 candidate(s) and logged them: skips are data too."
+      ]
     }
   ],
   "skipped_candidates": [
@@ -2905,6 +2917,46 @@
       "ticker": "EWA",
       "setup": "base_breakout",
       "entry": 29.46,
+      "stop": 27.7,
+      "reason": "blocked by charter: Max 2 positions: 2 open + 0 pending already."
+    },
+    {
+      "date": "2026-10-12",
+      "ticker": "QQQ",
+      "setup": "base_breakout",
+      "entry": 763.62,
+      "stop": 733.87,
+      "reason": "correlation guard \u2014 QQQ moves with SPY (0.91 over 90d): one bet, two tickets"
+    },
+    {
+      "date": "2026-10-12",
+      "ticker": "AMD",
+      "setup": "ma_pullback",
+      "entry": 601.77,
+      "stop": 585.37,
+      "reason": "blocked by charter: Max 2 positions: 2 open + 0 pending already."
+    },
+    {
+      "date": "2026-10-12",
+      "ticker": "EWJ",
+      "setup": "ma_pullback",
+      "entry": 97.82,
+      "stop": 95.78,
+      "reason": "blocked by charter: Max 2 positions: 2 open + 0 pending already."
+    },
+    {
+      "date": "2026-10-12",
+      "ticker": "EWT",
+      "setup": "ma_pullback",
+      "entry": 115.45,
+      "stop": 111.53,
+      "reason": "blocked by charter: Max 2 positions: 2 open + 0 pending already."
+    },
+    {
+      "date": "2026-10-12",
+      "ticker": "EWA",
+      "setup": "base_breakout",
+      "entry": 29.19,
       "stop": 27.7,
       "reason": "blocked by charter: Max 2 positions: 2 open + 0 pending already."
     }

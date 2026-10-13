@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 3226.58,
+    "balance": 3199.17,
     "open_risk_R": 0
   },
   "rules": {
@@ -34,13 +34,13 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 185,
-    "wins": 60,
-    "losses": 125,
-    "win_rate_pct": 32.4,
-    "expectancy_R": -0.233,
-    "total_R": -43.084,
-    "max_drawdown_pct": 37.81
+    "trades_closed": 187,
+    "wins": 61,
+    "losses": 126,
+    "win_rate_pct": 32.6,
+    "expectancy_R": -0.235,
+    "total_R": -44.038,
+    "max_drawdown_pct": 37.86
   },
   "open_trades": [],
   "pending_orders": [],
@@ -3559,6 +3559,44 @@
       "r_multiple": 0.384,
       "pnl_usd": 13.72,
       "balance_after": 3226.58
+    },
+    {
+      "id": "2026-10-12-META-8",
+      "ticker": "META",
+      "setup": "vwap_pullback",
+      "entry": 744.66,
+      "stop": 740.52,
+      "target": 752.94,
+      "shares": 7,
+      "risk_usd": 28.979999999999905,
+      "opened": "2026-10-12",
+      "entry_bar": 14,
+      "note": "Held above VWAP then first pullback into it (bar 13); long on reclaim of 744.65, stop under the dip 741.26.",
+      "exit": 740.52,
+      "closed": "2026-10-12",
+      "reason": "stop",
+      "r_multiple": -1.05,
+      "pnl_usd": -30.43,
+      "balance_after": 3196.15
+    },
+    {
+      "id": "2026-10-12-AMD-9",
+      "ticker": "AMD",
+      "setup": "vwap_pullback",
+      "entry": 593.87,
+      "stop": 592.02,
+      "target": 597.57,
+      "shares": 17,
+      "risk_usd": 31.450000000000387,
+      "opened": "2026-10-12",
+      "entry_bar": 73,
+      "note": "Held above VWAP then first pullback into it (bar 32); long on reclaim of 593.86, stop under the dip 592.62.",
+      "exit": 594.14,
+      "closed": "2026-10-12",
+      "reason": "eod_flat",
+      "r_multiple": 0.096,
+      "pnl_usd": 3.02,
+      "balance_after": 3199.17
     }
   ],
   "sessions": [
@@ -4415,6 +4453,18 @@
       "actions": "TSLA vwap_pullback \u2192 stop -1.05R; MSFT orb_long \u2192 eod_flat +0.47R; AAPL orb_long \u2192 eod_flat +0.38R",
       "lessons": [
         "Replayed 10 tickers on 5-minute bars; 3 trade(s), -0.20R after costs."
+      ]
+    },
+    {
+      "date": "2026-10-12",
+      "trades": [
+        "2026-10-12-META-8",
+        "2026-10-12-AMD-9"
+      ],
+      "realized_R": -0.954,
+      "actions": "META vwap_pullback \u2192 stop -1.05R; AMD vwap_pullback \u2192 eod_flat +0.10R",
+      "lessons": [
+        "Replayed 10 tickers on 5-minute bars; 2 trade(s), -0.95R after costs."
       ]
     }
   ],

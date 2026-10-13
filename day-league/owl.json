@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 4215.6,
+    "balance": 4165.99,
     "open_risk_R": 0
   },
   "rules": {
@@ -35,13 +35,13 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 98,
-    "wins": 35,
-    "losses": 63,
-    "win_rate_pct": 35.7,
-    "expectancy_R": -0.171,
-    "total_R": -16.734,
-    "max_drawdown_pct": 18.26
+    "trades_closed": 100,
+    "wins": 36,
+    "losses": 64,
+    "win_rate_pct": 36.0,
+    "expectancy_R": -0.177,
+    "total_R": -17.7,
+    "max_drawdown_pct": 18.96
   },
   "open_trades": [],
   "pending_orders": [],
@@ -1907,6 +1907,44 @@
       "r_multiple": 0.471,
       "pnl_usd": 17.41,
       "balance_after": 4215.6
+    },
+    {
+      "id": "2026-10-12-META-8",
+      "ticker": "META",
+      "setup": "vwap_pullback",
+      "entry": 745.6199951171875,
+      "stop": 740.52,
+      "target": 752.94,
+      "shares": 10,
+      "risk_usd": 41.399999999999864,
+      "opened": "2026-10-12",
+      "entry_bar": 26,
+      "note": "Held above VWAP then first pullback into it (bar 13); long on reclaim of 744.65, stop under the dip 741.26.",
+      "exit": 740.52,
+      "closed": "2026-10-12",
+      "reason": "stop",
+      "r_multiple": -1.05,
+      "pnl_usd": -53.07,
+      "balance_after": 4162.53
+    },
+    {
+      "id": "2026-10-12-AMD-9",
+      "ticker": "AMD",
+      "setup": "vwap_pullback",
+      "entry": 593.8900146484375,
+      "stop": 592.02,
+      "target": 597.57,
+      "shares": 22,
+      "risk_usd": 40.7000000000005,
+      "opened": "2026-10-12",
+      "entry_bar": 77,
+      "note": "Held above VWAP then first pullback into it (bar 32); long on reclaim of 593.86, stop under the dip 592.62.",
+      "exit": 594.14,
+      "closed": "2026-10-12",
+      "reason": "eod_flat",
+      "r_multiple": 0.084,
+      "pnl_usd": 3.46,
+      "balance_after": 4165.99
     }
   ],
   "sessions": [
@@ -2523,6 +2561,16 @@
       ],
       "realized_R": -0.579,
       "actions": "TSLA stop -1.05R; MSFT eod_flat +0.47R",
+      "personality": "owl"
+    },
+    {
+      "date": "2026-10-12",
+      "trades": [
+        "2026-10-12-META-8",
+        "2026-10-12-AMD-9"
+      ],
+      "realized_R": -0.966,
+      "actions": "META stop -1.05R; AMD eod_flat +0.08R",
       "personality": "owl"
     }
   ],
