@@ -4,8 +4,8 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 4987.1,
-    "open_risk_R": 2.0
+    "balance": 4672.25,
+    "open_risk_R": 1.0
   },
   "rules": {
     "risk_per_trade_pct": 2.0,
@@ -15,12 +15,12 @@
   },
   "watchlist": [],
   "stats": {
-    "trades_closed": 11,
+    "trades_closed": 12,
     "wins": 4,
-    "losses": 7,
-    "win_rate_pct": 36.4,
-    "expectancy_R": 0.011,
-    "total_R": 0.12,
+    "losses": 8,
+    "win_rate_pct": 33.3,
+    "expectancy_R": -0.31,
+    "total_R": -3.72,
     "max_drawdown_pct": 7.4
   },
   "open_trades": [
@@ -36,34 +36,33 @@
       "risk_usd": 90.8,
       "opened": "2026-09-25",
       "note": "Uptrend pullback into 20/50 zone (SMA20 763.92 / SMA50 759.46); entry on reclaim of today's high 768.95, stop below pullback low 747.74."
-    },
-    {
-      "id": "f22e46da",
-      "ticker": "AMD",
-      "setup": "ma_pullback",
-      "entry": 601.77,
-      "stop": 585.37,
-      "initial_stop": 585.37,
-      "target": 634.57,
-      "shares": 5,
-      "risk_usd": 82.0,
-      "opened": "2026-10-13",
-      "note": "Uptrend pullback into 20/50 zone (SMA20 603.11 / SMA50 531.28); entry on reclaim of today's high 601.77, stop below pullback low 586.54."
     }
   ],
   "pending_orders": [
     {
-      "id": "85d7922d",
+      "id": "8158f8c1",
       "ticker": "AAPL",
       "setup": "base_breakout",
       "entry": 348.5,
-      "stop": 325.16,
-      "target": 395.18,
-      "shares": 4,
-      "risk_usd": 93.36,
-      "placed": "2026-10-13",
-      "note": "4-week base 325.81\u2013348.15 (6.9% range) near highs; entry on break of 348.15; fill requires volume \u2265 56,200,718 (1.5\u00d7 avg) \u2014 a quiet break is not the setup.",
-      "min_volume": 56200718.0
+      "stop": 329.95,
+      "target": 385.6,
+      "shares": 5,
+      "risk_usd": 92.75,
+      "placed": "2026-10-15",
+      "note": "4-week base 325.81\u2013348.15 (6.9% range) near highs; entry on break of 348.15; fill requires volume \u2265 57,474,639 (1.5\u00d7 avg) \u2014 a quiet break is not the setup.",
+      "min_volume": 57474639.0
+    },
+    {
+      "id": "5026259d",
+      "ticker": "AMD",
+      "setup": "ma_pullback",
+      "entry": 568.62,
+      "stop": 529.03,
+      "target": 647.8,
+      "shares": 2,
+      "risk_usd": 79.18,
+      "placed": "2026-10-15",
+      "note": "Uptrend pullback into 20/50 zone (SMA20 611.95 / SMA50 536.35); entry on reclaim of today's high 568.62, stop below pullback low 530.09."
     }
   ],
   "closed_trades": [
@@ -275,6 +274,25 @@
       "r_multiple": 1.95,
       "pnl_usd": 171.29,
       "balance_after": 4987.1
+    },
+    {
+      "id": "f22e46da",
+      "ticker": "AMD",
+      "setup": "ma_pullback",
+      "entry": 601.77,
+      "stop": 585.37,
+      "initial_stop": 585.37,
+      "target": 634.57,
+      "shares": 5,
+      "risk_usd": 82.0,
+      "opened": "2026-10-13",
+      "note": "Uptrend pullback into 20/50 zone (SMA20 603.11 / SMA50 531.28); entry on reclaim of today's high 601.77, stop below pullback low 586.54.",
+      "exit": 539.62,
+      "closed": "2026-10-15",
+      "reason": "stop",
+      "r_multiple": -3.84,
+      "pnl_usd": -314.85,
+      "balance_after": 4672.25
     }
   ],
   "sessions": [
@@ -1205,6 +1223,23 @@
         "AAPL hit target for +1.95R \u2014 the 2R minimum is what lets a sub-50% win rate still print positive expectancy.",
         "AMD filled at 601.77: the trade only exists because the level traded \u2014 orders wait for price, we don't chase it.",
         "Skipped 3 candidate(s) and logged them: skips are data too."
+      ],
+      "variant": "charter-baseline"
+    },
+    {
+      "date": "2026-10-15",
+      "regime": "SPY 771.79, uptrend (above rising 20/50); QQQ 728.00, choppy uptrend (above 50, testing 20)",
+      "actions": "AMD closed on stop at 539.62 (-3.84R); AAPL base_breakout order placed: entry 348.5, stop 329.95, target 385.6, 5 shares; AMD ma_pullback order placed: entry 568.62, stop 529.03, target 647.8, 2 shares; QQQ base_breakout candidate skipped; EWJ base_breakout candidate skipped; EWT ma_pullback candidate skipped; EWA base_breakout candidate skipped.",
+      "trades": [
+        "f22e46da"
+      ],
+      "realized_R": -3.84,
+      "brutality": 3,
+      "brutality_note": "Tape moved 1.1% on average and took -3.84R from us.",
+      "lessons": [
+        "AMD gapped through the stop (-3.84R): size for the gap, not the stop \u2014 daily swing risk includes overnight.",
+        "Orders placed, none filled yet \u2014 patience between signal and fill is part of the edge.",
+        "Skipped 4 candidate(s) and logged them: skips are data too."
       ],
       "variant": "charter-baseline"
     }
@@ -2801,6 +2836,38 @@
       "entry": 29.19,
       "stop": 27.7,
       "reason": "blocked by rules: Max 3 positions: 2 open + 1 pending already."
+    },
+    {
+      "date": "2026-10-15",
+      "ticker": "QQQ",
+      "setup": "base_breakout",
+      "entry": 763.62,
+      "stop": 714.0,
+      "reason": "correlation guard \u2014 QQQ moves with SPY (0.91 over 90d): one bet, two tickets"
+    },
+    {
+      "date": "2026-10-15",
+      "ticker": "EWJ",
+      "setup": "base_breakout",
+      "entry": 100.08,
+      "stop": 94.14,
+      "reason": "blocked by rules: Max 3 positions: 1 open + 2 pending already."
+    },
+    {
+      "date": "2026-10-15",
+      "ticker": "EWT",
+      "setup": "ma_pullback",
+      "entry": 109.25,
+      "stop": 106.51,
+      "reason": "blocked by rules: Max 3 positions: 1 open + 2 pending already."
+    },
+    {
+      "date": "2026-10-15",
+      "ticker": "EWA",
+      "setup": "base_breakout",
+      "entry": 29.19,
+      "stop": 28.0,
+      "reason": "blocked by rules: Max 3 positions: 1 open + 2 pending already."
     }
   ]
 }

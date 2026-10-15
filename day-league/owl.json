@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 4123.07,
+    "balance": 4166.97,
     "open_risk_R": 0
   },
   "rules": {
@@ -35,12 +35,12 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 101,
-    "wins": 36,
+    "trades_closed": 103,
+    "wins": 38,
     "losses": 65,
-    "win_rate_pct": 35.6,
-    "expectancy_R": -0.186,
-    "total_R": -18.75,
+    "win_rate_pct": 36.9,
+    "expectancy_R": -0.171,
+    "total_R": -17.58,
     "max_drawdown_pct": 19.72
   },
   "open_trades": [],
@@ -1964,6 +1964,44 @@
       "r_multiple": -1.05,
       "pnl_usd": -42.92,
       "balance_after": 4123.07
+    },
+    {
+      "id": "2026-10-15-SPY-0",
+      "ticker": "SPY",
+      "setup": "orb_long",
+      "entry": 767.82,
+      "stop": 763.67,
+      "target": 776.12,
+      "shares": 9,
+      "risk_usd": 37.35000000000082,
+      "opened": "2026-10-15",
+      "entry_bar": 10,
+      "note": "30-min opening range 764.43\u2013767.44; long on the break of 767.44 with volume \u2265 1.2\u00d7 the opening average.",
+      "exit": 771.71,
+      "closed": "2026-10-15",
+      "reason": "eod_flat",
+      "r_multiple": 0.887,
+      "pnl_usd": 33.14,
+      "balance_after": 4156.21
+    },
+    {
+      "id": "2026-10-15-NVDA-2",
+      "ticker": "NVDA",
+      "setup": "orb_long",
+      "entry": 216.08999633789062,
+      "stop": 212.64,
+      "target": 222.96,
+      "shares": 11,
+      "risk_usd": 37.84000000000029,
+      "opened": "2026-10-15",
+      "entry_bar": 11,
+      "note": "30-min opening range 212.85\u2013215.97; long on the break of 215.97 with volume \u2265 1.2\u00d7 the opening average.",
+      "exit": 217.24,
+      "closed": "2026-10-15",
+      "reason": "eod_flat",
+      "r_multiple": 0.283,
+      "pnl_usd": 10.76,
+      "balance_after": 4166.97
     }
   ],
   "sessions": [
@@ -2606,6 +2644,16 @@
       "trades": [],
       "realized_R": 0,
       "actions": "No trades \u2014 this personality found nothing worth doing.",
+      "personality": "owl"
+    },
+    {
+      "date": "2026-10-15",
+      "trades": [
+        "2026-10-15-SPY-0",
+        "2026-10-15-NVDA-2"
+      ],
+      "realized_R": 1.17,
+      "actions": "SPY eod_flat +0.89R; NVDA eod_flat +0.28R",
       "personality": "owl"
     }
   ],
