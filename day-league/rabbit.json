@@ -3306,6 +3306,13 @@
       "realized_R": 0.505,
       "actions": "NVDA eod_flat +0.63R; TSLA eod_flat -0.12R",
       "personality": "rabbit"
+    },
+    {
+      "date": "2026-10-14",
+      "trades": [],
+      "realized_R": 0,
+      "actions": "No trades \u2014 this personality found nothing worth doing.",
+      "personality": "rabbit"
     }
   ],
   "skipped_candidates": [

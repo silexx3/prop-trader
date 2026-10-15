@@ -1023,6 +1023,19 @@
         "Skipped 6 candidate(s) and logged them: skips are data too."
       ],
       "variant": "charter-baseline"
+    },
+    {
+      "date": "2026-10-13",
+      "regime": "SPY 778.01, uptrend (above rising 20/50); QQQ 743.57, uptrend (above rising 20/50)",
+      "actions": "QQQ base_breakout candidate skipped; AAPL base_breakout candidate skipped; EWJ ma_pullback candidate skipped; EWA base_breakout candidate skipped.",
+      "trades": [],
+      "realized_R": 0,
+      "brutality": 0,
+      "brutality_note": "Tape moved 0.7% on average; we were flat. Sitting out is a position.",
+      "lessons": [
+        "Skipped 4 candidate(s) and logged them: skips are data too."
+      ],
+      "variant": "charter-baseline"
     }
   ],
   "skipped_candidates": [
@@ -2860,6 +2873,38 @@
     },
     {
       "date": "2026-10-12",
+      "ticker": "EWA",
+      "setup": "base_breakout",
+      "entry": 29.19,
+      "stop": 27.7,
+      "reason": "blocked by rules: Max 2 positions: 2 open + 0 pending already."
+    },
+    {
+      "date": "2026-10-13",
+      "ticker": "QQQ",
+      "setup": "base_breakout",
+      "entry": 763.62,
+      "stop": 734.78,
+      "reason": "blocked by rules: Max 2 positions: 2 open + 0 pending already."
+    },
+    {
+      "date": "2026-10-13",
+      "ticker": "AAPL",
+      "setup": "base_breakout",
+      "entry": 348.5,
+      "stop": 325.16,
+      "reason": "blocked by rules: Max 2 positions: 2 open + 0 pending already."
+    },
+    {
+      "date": "2026-10-13",
+      "ticker": "EWJ",
+      "setup": "ma_pullback",
+      "entry": 97.52,
+      "stop": 96.58,
+      "reason": "blocked by rules: Max 2 positions: 2 open + 0 pending already."
+    },
+    {
+      "date": "2026-10-13",
       "ticker": "EWA",
       "setup": "base_breakout",
       "entry": 29.19,

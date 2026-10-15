@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 3182.03,
+    "balance": 3148.77,
     "open_risk_R": 0
   },
   "rules": {
@@ -34,13 +34,13 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 190,
+    "trades_closed": 191,
     "wins": 62,
-    "losses": 128,
-    "win_rate_pct": 32.6,
-    "expectancy_R": -0.235,
-    "total_R": -44.72,
-    "max_drawdown_pct": 38.43
+    "losses": 129,
+    "win_rate_pct": 32.5,
+    "expectancy_R": -0.24,
+    "total_R": -45.77,
+    "max_drawdown_pct": 38.78
   },
   "open_trades": [],
   "pending_orders": [],
@@ -3654,6 +3654,25 @@
       "r_multiple": -0.262,
       "pnl_usd": -8.36,
       "balance_after": 3182.03
+    },
+    {
+      "id": "2026-10-14-TSLA-7",
+      "ticker": "TSLA",
+      "setup": "vwap_pullback",
+      "entry": 368.02,
+      "stop": 366.7,
+      "target": 370.66,
+      "shares": 24,
+      "risk_usd": 31.679999999999836,
+      "opened": "2026-10-14",
+      "entry_bar": 14,
+      "note": "Held above VWAP then first pullback into it (bar 13); long on reclaim of 368.01, stop under the dip 367.07.",
+      "exit": 366.7,
+      "closed": "2026-10-14",
+      "reason": "stop",
+      "r_multiple": -1.05,
+      "pnl_usd": -33.26,
+      "balance_after": 3148.77
     }
   ],
   "sessions": [
@@ -4535,6 +4554,17 @@
       "actions": "AAPL vwap_pullback \u2192 stop -1.05R; NVDA orb_long \u2192 eod_flat +0.63R; TSLA orb_long \u2192 eod_flat -0.26R",
       "lessons": [
         "Replayed 10 tickers on 5-minute bars; 3 trade(s), -0.68R after costs."
+      ]
+    },
+    {
+      "date": "2026-10-14",
+      "trades": [
+        "2026-10-14-TSLA-7"
+      ],
+      "realized_R": -1.05,
+      "actions": "TSLA vwap_pullback \u2192 stop -1.05R",
+      "lessons": [
+        "Replayed 10 tickers on 5-minute bars; 1 trade(s), -1.05R after costs."
       ]
     }
   ],
