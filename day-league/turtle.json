@@ -1986,6 +1986,13 @@
       "realized_R": 1.95,
       "actions": "META target +1.95R",
       "personality": "turtle"
+    },
+    {
+      "date": "2026-10-16",
+      "trades": [],
+      "realized_R": 0,
+      "actions": "No trades \u2014 this personality found nothing worth doing.",
+      "personality": "turtle"
     }
   ],
   "skipped_candidates": [
@@ -2092,6 +2099,14 @@
       "entry": 253.73,
       "stop": 250.83,
       "reason": "gapped past trigger (256.40 vs 253.73, >0.25R) \u2014 chasing is not the setup"
+    },
+    {
+      "date": "2026-10-16",
+      "ticker": "NVDA",
+      "setup": "orb_long",
+      "entry": 216.91,
+      "stop": 214.85,
+      "reason": "gapped past trigger (218.46 vs 216.91, >0.25R) \u2014 chasing is not the setup"
     }
   ]
 }

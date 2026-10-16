@@ -1049,6 +1049,19 @@
         "Skipped 6 candidate(s) and logged them: skips are data too."
       ],
       "variant": "charter-baseline"
+    },
+    {
+      "date": "2026-10-16",
+      "regime": "SPY 763.25, downtrend (below 20/50); QQQ 709.80, downtrend (below 20/50)",
+      "actions": "QQQ base_breakout candidate skipped; AAPL ma_pullback candidate skipped; AMD ma_pullback candidate skipped; EWJ base_breakout candidate skipped; EWA base_breakout candidate skipped.",
+      "trades": [],
+      "realized_R": 0,
+      "brutality": 2,
+      "brutality_note": "Tape moved 1.9% on average; we were flat. Sitting out is a position.",
+      "lessons": [
+        "Skipped 5 candidate(s) and logged them: skips are data too."
+      ],
+      "variant": "charter-baseline"
     }
   ],
   "skipped_candidates": [
@@ -2966,6 +2979,46 @@
     },
     {
       "date": "2026-10-15",
+      "ticker": "EWA",
+      "setup": "base_breakout",
+      "entry": 29.19,
+      "stop": 28.0,
+      "reason": "blocked by rules: Max 2 positions: 2 open + 0 pending already."
+    },
+    {
+      "date": "2026-10-16",
+      "ticker": "QQQ",
+      "setup": "base_breakout",
+      "entry": 763.62,
+      "stop": 705.82,
+      "reason": "blocked by rules: Max 2 positions: 2 open + 0 pending already."
+    },
+    {
+      "date": "2026-10-16",
+      "ticker": "AAPL",
+      "setup": "ma_pullback",
+      "entry": 347.82,
+      "stop": 329.96,
+      "reason": "blocked by rules: Max 2 positions: 2 open + 0 pending already."
+    },
+    {
+      "date": "2026-10-16",
+      "ticker": "AMD",
+      "setup": "ma_pullback",
+      "entry": 550.96,
+      "stop": 525.78,
+      "reason": "blocked by rules: Max 2 positions: 2 open + 0 pending already."
+    },
+    {
+      "date": "2026-10-16",
+      "ticker": "EWJ",
+      "setup": "base_breakout",
+      "entry": 100.08,
+      "stop": 94.13,
+      "reason": "blocked by rules: Max 2 positions: 2 open + 0 pending already."
+    },
+    {
+      "date": "2026-10-16",
       "ticker": "EWA",
       "setup": "base_breakout",
       "entry": 29.19,

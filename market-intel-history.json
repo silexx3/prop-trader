@@ -282,5 +282,9 @@
   {
     "date": "2026-10-15",
     "regime": "risk-on"
+  },
+  {
+    "date": "2026-10-16",
+    "regime": "risk-off"
   }
 ]
