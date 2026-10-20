@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 4440.81,
+    "balance": 4425.79,
     "open_risk_R": 0
   },
   "rules": {
@@ -35,12 +35,12 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 69,
+    "trades_closed": 70,
     "wins": 19,
-    "losses": 50,
-    "win_rate_pct": 27.5,
-    "expectancy_R": -0.35,
-    "total_R": -24.164,
+    "losses": 51,
+    "win_rate_pct": 27.1,
+    "expectancy_R": -0.355,
+    "total_R": -24.837,
     "max_drawdown_pct": 12.77
   },
   "open_trades": [],
@@ -1356,6 +1356,25 @@
       "r_multiple": 1.95,
       "pnl_usd": 38.96,
       "balance_after": 4440.81
+    },
+    {
+      "id": "2026-10-19-QQQ-1",
+      "ticker": "QQQ",
+      "setup": "orb_long",
+      "entry": 721.1268920898438,
+      "stop": 716.62,
+      "target": 728.5,
+      "shares": 5,
+      "risk_usd": 19.800000000000182,
+      "opened": "2026-10-19",
+      "entry_bar": 12,
+      "note": "30-min opening range 717.34\u2013720.22; long on the break of 720.22 with volume \u2265 1.2\u00d7 the opening average.",
+      "exit": 718.32,
+      "closed": "2026-10-19",
+      "reason": "eod_flat",
+      "r_multiple": -0.673,
+      "pnl_usd": -15.02,
+      "balance_after": 4425.79
     }
   ],
   "sessions": [
@@ -1992,6 +2011,15 @@
       "trades": [],
       "realized_R": 0,
       "actions": "No trades \u2014 this personality found nothing worth doing.",
+      "personality": "turtle"
+    },
+    {
+      "date": "2026-10-19",
+      "trades": [
+        "2026-10-19-QQQ-1"
+      ],
+      "realized_R": -0.673,
+      "actions": "QQQ eod_flat -0.67R",
       "personality": "turtle"
     }
   ],

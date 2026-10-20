@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 4166.97,
+    "balance": 4222.7,
     "open_risk_R": 0
   },
   "rules": {
@@ -35,12 +35,12 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 103,
-    "wins": 38,
-    "losses": 65,
-    "win_rate_pct": 36.9,
-    "expectancy_R": -0.171,
-    "total_R": -17.58,
+    "trades_closed": 105,
+    "wins": 39,
+    "losses": 66,
+    "win_rate_pct": 37.1,
+    "expectancy_R": -0.156,
+    "total_R": -16.418,
     "max_drawdown_pct": 19.72
   },
   "open_trades": [],
@@ -2002,6 +2002,44 @@
       "r_multiple": 0.283,
       "pnl_usd": 10.76,
       "balance_after": 4166.97
+    },
+    {
+      "id": "2026-10-19-AMZN-4",
+      "ticker": "AMZN",
+      "setup": "orb_long",
+      "entry": 258.20001220703125,
+      "stop": 254.98,
+      "target": 263.62,
+      "shares": 14,
+      "risk_usd": 40.320000000000334,
+      "opened": "2026-10-19",
+      "entry_bar": 8,
+      "note": "30-min opening range 255.24\u2013257.73; long on the break of 257.73 with volume \u2265 1.2\u00d7 the opening average.",
+      "exit": 263.62,
+      "closed": "2026-10-19",
+      "reason": "target",
+      "r_multiple": 1.633,
+      "pnl_usd": 73.86,
+      "balance_after": 4240.83
+    },
+    {
+      "id": "2026-10-19-AAPL-2",
+      "ticker": "AAPL",
+      "setup": "orb_long",
+      "entry": 345.2950134277344,
+      "stop": 339.77,
+      "target": 355.67,
+      "shares": 7,
+      "risk_usd": 37.10000000000008,
+      "opened": "2026-10-19",
+      "entry_bar": 8,
+      "note": "30-min opening range 340.11\u2013344.90; long on the break of 344.90 with volume \u2265 1.2\u00d7 the opening average.",
+      "exit": 342.97,
+      "closed": "2026-10-19",
+      "reason": "eod_flat",
+      "r_multiple": -0.471,
+      "pnl_usd": -18.13,
+      "balance_after": 4222.7
     }
   ],
   "sessions": [
@@ -2661,6 +2699,16 @@
       "trades": [],
       "realized_R": 0,
       "actions": "No trades \u2014 this personality found nothing worth doing.",
+      "personality": "owl"
+    },
+    {
+      "date": "2026-10-19",
+      "trades": [
+        "2026-10-19-AMZN-4",
+        "2026-10-19-AAPL-2"
+      ],
+      "realized_R": 1.162,
+      "actions": "AMZN target +1.63R; AAPL eod_flat -0.47R",
       "personality": "owl"
     }
   ],
