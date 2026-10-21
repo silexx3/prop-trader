@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 4425.79,
+    "balance": 4403.22,
     "open_risk_R": 0
   },
   "rules": {
@@ -35,12 +35,12 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 70,
+    "trades_closed": 71,
     "wins": 19,
-    "losses": 51,
-    "win_rate_pct": 27.1,
-    "expectancy_R": -0.355,
-    "total_R": -24.837,
+    "losses": 52,
+    "win_rate_pct": 26.8,
+    "expectancy_R": -0.365,
+    "total_R": -25.887,
     "max_drawdown_pct": 12.77
   },
   "open_trades": [],
@@ -1375,6 +1375,25 @@
       "r_multiple": -0.673,
       "pnl_usd": -15.02,
       "balance_after": 4425.79
+    },
+    {
+      "id": "2026-10-20-MSFT-5",
+      "ticker": "MSFT",
+      "setup": "vwap_pullback",
+      "entry": 531.76,
+      "stop": 529.61,
+      "target": 536.06,
+      "shares": 10,
+      "risk_usd": 21.499999999999773,
+      "opened": "2026-10-20",
+      "entry_bar": 12,
+      "note": "Held above VWAP then first pullback into it (bar 11); long on reclaim of 531.75, stop under the dip 530.14.",
+      "exit": 529.61,
+      "closed": "2026-10-20",
+      "reason": "stop",
+      "r_multiple": -1.05,
+      "pnl_usd": -22.57,
+      "balance_after": 4403.22
     }
   ],
   "sessions": [
@@ -2021,6 +2040,15 @@
       "realized_R": -0.673,
       "actions": "QQQ eod_flat -0.67R",
       "personality": "turtle"
+    },
+    {
+      "date": "2026-10-20",
+      "trades": [
+        "2026-10-20-MSFT-5"
+      ],
+      "realized_R": -1.05,
+      "actions": "MSFT stop -1.05R",
+      "personality": "turtle"
     }
   ],
   "skipped_candidates": [
@@ -2135,6 +2163,14 @@
       "entry": 216.91,
       "stop": 214.85,
       "reason": "gapped past trigger (218.46 vs 216.91, >0.25R) \u2014 chasing is not the setup"
+    },
+    {
+      "date": "2026-10-20",
+      "ticker": "AMZN",
+      "setup": "vwap_pullback",
+      "entry": 263.38,
+      "stop": 262.46,
+      "reason": "gapped past trigger (264.32 vs 263.38, >0.25R) \u2014 chasing is not the setup"
     }
   ]
 }

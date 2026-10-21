@@ -1229,6 +1229,19 @@
         "Skipped 6 candidate(s) and logged them: skips are data too."
       ],
       "variant": "charter-baseline"
+    },
+    {
+      "date": "2026-10-19",
+      "regime": "SPY 766.48, downtrend (below 20/50); QQQ 718.36, downtrend (below 20/50)",
+      "actions": "QQQ ma_pullback candidate skipped; AAPL ma_pullback candidate skipped; AMD ma_pullback candidate skipped; EWJ base_breakout candidate skipped; EWA base_breakout candidate skipped.",
+      "trades": [],
+      "realized_R": 0,
+      "brutality": 1,
+      "brutality_note": "Tape moved 1.1% on average; we were flat. Sitting out is a position.",
+      "lessons": [
+        "Skipped 5 candidate(s) and logged them: skips are data too."
+      ],
+      "variant": "charter-baseline"
     }
   ],
   "skipped_candidates": [
@@ -2903,6 +2916,46 @@
       "entry": 29.19,
       "stop": 28.0,
       "reason": "regime off \u2014 SPY 763.25 below its 50-day SMA 767.40; longs stand down"
+    },
+    {
+      "date": "2026-10-19",
+      "ticker": "QQQ",
+      "setup": "ma_pullback",
+      "entry": 724.55,
+      "stop": 705.82,
+      "reason": "regime off \u2014 SPY 766.48 below its 50-day SMA 767.30; longs stand down"
+    },
+    {
+      "date": "2026-10-19",
+      "ticker": "AAPL",
+      "setup": "ma_pullback",
+      "entry": 346.0,
+      "stop": 329.96,
+      "reason": "regime off \u2014 SPY 766.48 below its 50-day SMA 767.30; longs stand down"
+    },
+    {
+      "date": "2026-10-19",
+      "ticker": "AMD",
+      "setup": "ma_pullback",
+      "entry": 554.41,
+      "stop": 525.78,
+      "reason": "regime off \u2014 SPY 766.48 below its 50-day SMA 767.30; longs stand down"
+    },
+    {
+      "date": "2026-10-19",
+      "ticker": "EWJ",
+      "setup": "base_breakout",
+      "entry": 100.08,
+      "stop": 94.13,
+      "reason": "regime off \u2014 SPY 766.48 below its 50-day SMA 767.30; longs stand down"
+    },
+    {
+      "date": "2026-10-19",
+      "ticker": "EWA",
+      "setup": "base_breakout",
+      "entry": 29.19,
+      "stop": 28.0,
+      "reason": "regime off \u2014 SPY 766.48 below its 50-day SMA 767.30; longs stand down"
     }
   ]
 }
