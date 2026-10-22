@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 4136.34,
+    "balance": 4103.05,
     "open_risk_R": 0
   },
   "rules": {
@@ -35,13 +35,13 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 107,
-    "wins": 39,
-    "losses": 68,
-    "win_rate_pct": 36.4,
-    "expectancy_R": -0.173,
-    "total_R": -18.518,
-    "max_drawdown_pct": 19.72
+    "trades_closed": 109,
+    "wins": 40,
+    "losses": 69,
+    "win_rate_pct": 36.7,
+    "expectancy_R": -0.177,
+    "total_R": -19.256,
+    "max_drawdown_pct": 20.36
   },
   "open_trades": [],
   "pending_orders": [],
@@ -2078,6 +2078,44 @@
       "r_multiple": -1.05,
       "pnl_usd": -43.47,
       "balance_after": 4136.34
+    },
+    {
+      "id": "2026-10-21-META-7",
+      "ticker": "META",
+      "setup": "vwap_pullback",
+      "entry": 706.8699951171875,
+      "stop": 702.45,
+      "target": 713.82,
+      "shares": 10,
+      "risk_usd": 37.899999999999636,
+      "opened": "2026-10-21",
+      "entry_bar": 14,
+      "note": "Held above VWAP then first pullback into it (bar 10); long on reclaim of 706.23, stop under the dip 703.15.",
+      "exit": 702.45,
+      "closed": "2026-10-21",
+      "reason": "stop",
+      "r_multiple": -1.05,
+      "pnl_usd": -46.09,
+      "balance_after": 4090.25
+    },
+    {
+      "id": "2026-10-21-QQQ-1",
+      "ticker": "QQQ",
+      "setup": "orb_long",
+      "entry": 723.56,
+      "stop": 719.0,
+      "target": 732.68,
+      "shares": 9,
+      "risk_usd": 41.03999999999951,
+      "opened": "2026-10-21",
+      "entry_bar": 16,
+      "note": "30-min opening range 719.72\u2013723.20; long on the break of 723.20 with volume \u2265 1.2\u00d7 the opening average.",
+      "exit": 725.21,
+      "closed": "2026-10-21",
+      "reason": "eod_flat",
+      "r_multiple": 0.312,
+      "pnl_usd": 12.8,
+      "balance_after": 4103.05
     }
   ],
   "sessions": [
@@ -2757,6 +2795,16 @@
       ],
       "realized_R": -2.1,
       "actions": "MSFT stop -1.05R; AMZN stop -1.05R",
+      "personality": "owl"
+    },
+    {
+      "date": "2026-10-21",
+      "trades": [
+        "2026-10-21-META-7",
+        "2026-10-21-QQQ-1"
+      ],
+      "realized_R": -0.738,
+      "actions": "META stop -1.05R; QQQ eod_flat +0.31R",
       "personality": "owl"
     }
   ],

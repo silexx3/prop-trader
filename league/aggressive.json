@@ -38,7 +38,32 @@
       "note": "Uptrend pullback into 20/50 zone (SMA20 763.92 / SMA50 759.46); entry on reclaim of today's high 768.95, stop below pullback low 747.74."
     }
   ],
-  "pending_orders": [],
+  "pending_orders": [
+    {
+      "id": "5e8a529e",
+      "ticker": "AAPL",
+      "setup": "ma_pullback",
+      "entry": 343.06,
+      "stop": 330.04,
+      "target": 369.1,
+      "shares": 7,
+      "risk_usd": 91.14,
+      "placed": "2026-10-20",
+      "note": "Uptrend pullback into 20/50 zone (SMA20 337.61 / SMA50 326.92); entry on reclaim of today's high 343.06, stop below pullback low 330.70."
+    },
+    {
+      "id": "a6a33269",
+      "ticker": "MSFT",
+      "setup": "ma_pullback",
+      "entry": 534.21,
+      "stop": 517.75,
+      "target": 567.13,
+      "shares": 5,
+      "risk_usd": 82.3,
+      "placed": "2026-10-20",
+      "note": "Uptrend pullback into 20/50 zone (SMA20 523.51 / SMA50 506.59); entry on reclaim of today's high 534.21, stop below pullback low 518.79."
+    }
+  ],
   "closed_trades": [
     {
       "id": "f68af048",
@@ -1240,6 +1265,20 @@
       "brutality_note": "Tape moved 1.1% on average; we were flat. Sitting out is a position.",
       "lessons": [
         "Skipped 5 candidate(s) and logged them: skips are data too."
+      ],
+      "variant": "charter-baseline"
+    },
+    {
+      "date": "2026-10-20",
+      "regime": "SPY 769.05, choppy uptrend (above 50, testing 20); QQQ 717.63, downtrend (below 20/50)",
+      "actions": "AAPL ma_pullback order placed: entry 343.06, stop 330.04, target 369.1, 7 shares; MSFT ma_pullback order placed: entry 534.21, stop 517.75, target 567.13, 5 shares; QQQ base_breakout candidate skipped; EWJ base_breakout candidate skipped; EWA base_breakout candidate skipped.",
+      "trades": [],
+      "realized_R": 0,
+      "brutality": 0,
+      "brutality_note": "Tape moved 0.6% on average; we were flat. Sitting out is a position.",
+      "lessons": [
+        "Orders placed, none filled yet \u2014 patience between signal and fill is part of the edge.",
+        "Skipped 3 candidate(s) and logged them: skips are data too."
       ],
       "variant": "charter-baseline"
     }
@@ -2956,6 +2995,30 @@
       "entry": 29.19,
       "stop": 28.0,
       "reason": "regime off \u2014 SPY 766.48 below its 50-day SMA 767.30; longs stand down"
+    },
+    {
+      "date": "2026-10-20",
+      "ticker": "QQQ",
+      "setup": "base_breakout",
+      "entry": 763.62,
+      "stop": 705.82,
+      "reason": "correlation guard \u2014 QQQ moves with SPY (0.91 over 90d): one bet, two tickets"
+    },
+    {
+      "date": "2026-10-20",
+      "ticker": "EWJ",
+      "setup": "base_breakout",
+      "entry": 100.08,
+      "stop": 94.13,
+      "reason": "blocked by rules: Max 3 positions: 1 open + 2 pending already."
+    },
+    {
+      "date": "2026-10-20",
+      "ticker": "EWA",
+      "setup": "base_breakout",
+      "entry": 29.31,
+      "stop": 28.0,
+      "reason": "blocked by rules: Max 3 positions: 1 open + 2 pending already."
     }
   ]
 }

@@ -294,5 +294,9 @@
   {
     "date": "2026-10-21",
     "regime": "risk-off"
+  },
+  {
+    "date": "2026-10-22",
+    "regime": "risk-on"
   }
 ]
