@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 4066.19,
+    "balance": 4024.65,
     "open_risk_R": 0
   },
   "rules": {
@@ -35,13 +35,13 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 111,
+    "trades_closed": 113,
     "wins": 41,
-    "losses": 70,
-    "win_rate_pct": 36.9,
-    "expectancy_R": -0.182,
-    "total_R": -20.158,
-    "max_drawdown_pct": 20.95
+    "losses": 72,
+    "win_rate_pct": 36.3,
+    "expectancy_R": -0.187,
+    "total_R": -21.171,
+    "max_drawdown_pct": 21.64
   },
   "open_trades": [],
   "pending_orders": [],
@@ -2154,6 +2154,44 @@
       "r_multiple": 0.148,
       "pnl_usd": 6.13,
       "balance_after": 4066.19
+    },
+    {
+      "id": "2026-10-23-SPY-0",
+      "ticker": "SPY",
+      "setup": "orb_long",
+      "entry": 761.58,
+      "stop": 758.38,
+      "target": 767.98,
+      "shares": 12,
+      "risk_usd": 38.400000000000546,
+      "opened": "2026-10-23",
+      "entry_bar": 14,
+      "note": "30-min opening range 759.14\u2013761.20; long on the break of 761.20 with volume \u2265 1.2\u00d7 the opening average.",
+      "exit": 759.91,
+      "closed": "2026-10-23",
+      "reason": "eod_flat",
+      "r_multiple": -0.572,
+      "pnl_usd": -21.96,
+      "balance_after": 4044.23
+    },
+    {
+      "id": "2026-10-23-QQQ-1",
+      "ticker": "QQQ",
+      "setup": "orb_long",
+      "entry": 706.9099731445312,
+      "stop": 700.46,
+      "target": 717.05,
+      "shares": 7,
+      "risk_usd": 38.70999999999981,
+      "opened": "2026-10-23",
+      "entry_bar": 14,
+      "note": "30-min opening range 701.16\u2013705.64; long on the break of 705.64 with volume \u2265 1.2\u00d7 the opening average.",
+      "exit": 704.39,
+      "closed": "2026-10-23",
+      "reason": "eod_flat",
+      "r_multiple": -0.441,
+      "pnl_usd": -19.58,
+      "balance_after": 4024.65
     }
   ],
   "sessions": [
@@ -2854,6 +2892,16 @@
       "realized_R": -0.902,
       "actions": "MSFT stop -1.05R; AAPL eod_flat +0.15R",
       "personality": "owl"
+    },
+    {
+      "date": "2026-10-23",
+      "trades": [
+        "2026-10-23-SPY-0",
+        "2026-10-23-QQQ-1"
+      ],
+      "realized_R": -1.013,
+      "actions": "SPY eod_flat -0.57R; QQQ eod_flat -0.44R",
+      "personality": "owl"
     }
   ],
   "skipped_candidates": [
@@ -3080,6 +3128,14 @@
       "entry": 657.36,
       "stop": 654.6,
       "reason": "gapped past trigger (661.91 vs 657.36, >0.25R) \u2014 chasing is not the setup"
+    },
+    {
+      "date": "2026-10-23",
+      "ticker": "AMD",
+      "setup": "vwap_pullback",
+      "entry": 516.84,
+      "stop": 513.16,
+      "reason": "gapped past trigger (518.78 vs 516.84, >0.25R) \u2014 chasing is not the setup"
     }
   ]
 }

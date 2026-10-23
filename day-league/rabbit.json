@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 4761.6,
+    "balance": 4708.4,
     "open_risk_R": 0
   },
   "rules": {
@@ -35,12 +35,12 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 149,
+    "trades_closed": 151,
     "wins": 57,
-    "losses": 92,
-    "win_rate_pct": 38.3,
-    "expectancy_R": -0.047,
-    "total_R": -6.948,
+    "losses": 94,
+    "win_rate_pct": 37.7,
+    "expectancy_R": -0.056,
+    "total_R": -8.465,
     "max_drawdown_pct": 10.28
   },
   "open_trades": [],
@@ -2876,6 +2876,44 @@
       "r_multiple": 0.223,
       "pnl_usd": 7.82,
       "balance_after": 4761.6
+    },
+    {
+      "id": "2026-10-23-GOOGL-8",
+      "ticker": "GOOGL",
+      "setup": "orb_long",
+      "entry": 323.75,
+      "stop": 319.86,
+      "target": 331.53,
+      "shares": 9,
+      "risk_usd": 35.00999999999988,
+      "opened": "2026-10-23",
+      "entry_bar": 8,
+      "note": "30-min opening range 320.18\u2013323.59; long on the break of 323.59 with volume \u2265 1.0\u00d7 the opening average.",
+      "exit": 320.27,
+      "closed": "2026-10-23",
+      "reason": "eod_flat",
+      "r_multiple": -0.945,
+      "pnl_usd": -33.07,
+      "balance_after": 4728.53
+    },
+    {
+      "id": "2026-10-23-SPY-0",
+      "ticker": "SPY",
+      "setup": "orb_long",
+      "entry": 761.58,
+      "stop": 758.38,
+      "target": 767.98,
+      "shares": 11,
+      "risk_usd": 35.2000000000005,
+      "opened": "2026-10-23",
+      "entry_bar": 14,
+      "note": "30-min opening range 759.14\u2013761.20; long on the break of 761.20 with volume \u2265 1.0\u00d7 the opening average.",
+      "exit": 759.91,
+      "closed": "2026-10-23",
+      "reason": "eod_flat",
+      "r_multiple": -0.572,
+      "pnl_usd": -20.13,
+      "balance_after": 4708.4
     }
   ],
   "sessions": [
@@ -3620,6 +3658,16 @@
       ],
       "realized_R": 1.123,
       "actions": "META target +1.95R; TSLA stop -1.05R; AAPL eod_flat +0.22R",
+      "personality": "rabbit"
+    },
+    {
+      "date": "2026-10-23",
+      "trades": [
+        "2026-10-23-GOOGL-8",
+        "2026-10-23-SPY-0"
+      ],
+      "realized_R": -1.517,
+      "actions": "GOOGL eod_flat -0.94R; SPY eod_flat -0.57R",
       "personality": "rabbit"
     }
   ],
