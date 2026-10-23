@@ -5,7 +5,7 @@
     "currency": "USD",
     "starting_balance": 5000.0,
     "balance": 4672.25,
-    "open_risk_R": 1.0
+    "open_risk_R": 2.0
   },
   "rules": {
     "risk_per_trade_pct": 2.0,
@@ -36,32 +36,34 @@
       "risk_usd": 90.8,
       "opened": "2026-09-25",
       "note": "Uptrend pullback into 20/50 zone (SMA20 763.92 / SMA50 759.46); entry on reclaim of today's high 768.95, stop below pullback low 747.74."
-    }
-  ],
-  "pending_orders": [
+    },
     {
       "id": "5e8a529e",
       "ticker": "AAPL",
       "setup": "ma_pullback",
       "entry": 343.06,
       "stop": 330.04,
+      "initial_stop": 330.04,
       "target": 369.1,
       "shares": 7,
       "risk_usd": 91.14,
-      "placed": "2026-10-20",
+      "opened": "2026-10-21",
       "note": "Uptrend pullback into 20/50 zone (SMA20 337.61 / SMA50 326.92); entry on reclaim of today's high 343.06, stop below pullback low 330.70."
-    },
+    }
+  ],
+  "pending_orders": [
     {
-      "id": "a6a33269",
-      "ticker": "MSFT",
-      "setup": "ma_pullback",
-      "entry": 534.21,
-      "stop": 517.75,
-      "target": 567.13,
-      "shares": 5,
-      "risk_usd": 82.3,
-      "placed": "2026-10-20",
-      "note": "Uptrend pullback into 20/50 zone (SMA20 523.51 / SMA50 506.59); entry on reclaim of today's high 534.21, stop below pullback low 518.79."
+      "id": "a9470cab",
+      "ticker": "EWJ",
+      "setup": "base_breakout",
+      "entry": 100.08,
+      "stop": 94.13,
+      "target": 111.98,
+      "shares": 15,
+      "risk_usd": 89.25,
+      "placed": "2026-10-21",
+      "note": "4-week base 94.32\u201399.98 (6.0% range) near highs; entry on break of 99.98; fill requires volume \u2265 6,318,922 (1.5\u00d7 avg) \u2014 a quiet break is not the setup.",
+      "min_volume": 6318922.0
     }
   ],
   "closed_trades": [
@@ -1279,6 +1281,20 @@
       "lessons": [
         "Orders placed, none filled yet \u2014 patience between signal and fill is part of the edge.",
         "Skipped 3 candidate(s) and logged them: skips are data too."
+      ],
+      "variant": "charter-baseline"
+    },
+    {
+      "date": "2026-10-21",
+      "regime": "SPY 773.09, uptrend (above rising 20/50); QQQ 725.20, downtrend (below 20/50)",
+      "actions": "AAPL order filled at 343.06 (stop 330.04, target 369.1); EWJ base_breakout order placed: entry 100.08, stop 94.13, target 111.98, 15 shares; QQQ base_breakout candidate skipped; EWA base_breakout candidate skipped.",
+      "trades": [],
+      "realized_R": 0,
+      "brutality": 1,
+      "brutality_note": "Tape moved 1.3% on average; we were flat. Sitting out is a position.",
+      "lessons": [
+        "AAPL filled at 343.06: the trade only exists because the level traded \u2014 orders wait for price, we don't chase it.",
+        "Skipped 2 candidate(s) and logged them: skips are data too."
       ],
       "variant": "charter-baseline"
     }
@@ -3019,6 +3035,22 @@
       "entry": 29.31,
       "stop": 28.0,
       "reason": "blocked by rules: Max 3 positions: 1 open + 2 pending already."
+    },
+    {
+      "date": "2026-10-21",
+      "ticker": "QQQ",
+      "setup": "base_breakout",
+      "entry": 763.62,
+      "stop": 705.82,
+      "reason": "correlation guard \u2014 QQQ moves with SPY (0.91 over 90d): one bet, two tickets"
+    },
+    {
+      "date": "2026-10-21",
+      "ticker": "EWA",
+      "setup": "base_breakout",
+      "entry": 29.35,
+      "stop": 28.0,
+      "reason": "blocked by rules: Max 3 positions: 2 open + 1 pending already."
     }
   ]
 }

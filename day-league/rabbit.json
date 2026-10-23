@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 4724.59,
+    "balance": 4761.6,
     "open_risk_R": 0
   },
   "rules": {
@@ -35,12 +35,12 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 146,
-    "wins": 55,
-    "losses": 91,
-    "win_rate_pct": 37.7,
-    "expectancy_R": -0.055,
-    "total_R": -8.071,
+    "trades_closed": 149,
+    "wins": 57,
+    "losses": 92,
+    "win_rate_pct": 38.3,
+    "expectancy_R": -0.047,
+    "total_R": -6.948,
     "max_drawdown_pct": 10.28
   },
   "open_trades": [],
@@ -2819,6 +2819,63 @@
       "r_multiple": 0.295,
       "pnl_usd": 11.18,
       "balance_after": 4724.59
+    },
+    {
+      "id": "2026-10-22-META-8",
+      "ticker": "META",
+      "setup": "vwap_pullback",
+      "entry": 657.36,
+      "stop": 654.6,
+      "target": 662.88,
+      "shares": 12,
+      "risk_usd": 33.11999999999989,
+      "opened": "2026-10-22",
+      "entry_bar": 25,
+      "note": "Held above VWAP then first pullback into it (bar 24); long on reclaim of 657.35, stop under the dip 655.26.",
+      "exit": 662.88,
+      "closed": "2026-10-22",
+      "reason": "target",
+      "r_multiple": 1.95,
+      "pnl_usd": 64.58,
+      "balance_after": 4789.17
+    },
+    {
+      "id": "2026-10-22-TSLA-7",
+      "ticker": "TSLA",
+      "setup": "vwap_pullback",
+      "entry": 384.85,
+      "stop": 381.48,
+      "target": 391.59,
+      "shares": 10,
+      "risk_usd": 33.700000000000045,
+      "opened": "2026-10-22",
+      "entry_bar": 22,
+      "note": "Held above VWAP then first pullback into it (bar 19); long on reclaim of 384.84, stop under the dip 381.86.",
+      "exit": 381.48,
+      "closed": "2026-10-22",
+      "reason": "stop",
+      "r_multiple": -1.05,
+      "pnl_usd": -35.39,
+      "balance_after": 4753.78
+    },
+    {
+      "id": "2026-10-22-AAPL-3",
+      "ticker": "AAPL",
+      "setup": "orb_long",
+      "entry": 347.45,
+      "stop": 344.26,
+      "target": 353.83,
+      "shares": 11,
+      "risk_usd": 35.089999999999975,
+      "opened": "2026-10-22",
+      "entry_bar": 74,
+      "note": "30-min opening range 344.60\u2013347.28; long on the break of 347.28 with volume \u2265 1.0\u00d7 the opening average.",
+      "exit": 348.32,
+      "closed": "2026-10-22",
+      "reason": "eod_flat",
+      "r_multiple": 0.223,
+      "pnl_usd": 7.82,
+      "balance_after": 4761.6
     }
   ],
   "sessions": [
@@ -3552,6 +3609,17 @@
       ],
       "realized_R": -0.443,
       "actions": "META stop -1.05R; QQQ eod_flat +0.31R; SPY eod_flat +0.29R",
+      "personality": "rabbit"
+    },
+    {
+      "date": "2026-10-22",
+      "trades": [
+        "2026-10-22-META-8",
+        "2026-10-22-TSLA-7",
+        "2026-10-22-AAPL-3"
+      ],
+      "realized_R": 1.123,
+      "actions": "META target +1.95R; TSLA stop -1.05R; AAPL eod_flat +0.22R",
       "personality": "rabbit"
     }
   ],

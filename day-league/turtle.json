@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 4379.67,
+    "balance": 4358.44,
     "open_risk_R": 0
   },
   "rules": {
@@ -35,13 +35,13 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 72,
+    "trades_closed": 73,
     "wins": 19,
-    "losses": 53,
-    "win_rate_pct": 26.4,
-    "expectancy_R": -0.374,
-    "total_R": -26.937,
-    "max_drawdown_pct": 13.21
+    "losses": 54,
+    "win_rate_pct": 26.0,
+    "expectancy_R": -0.383,
+    "total_R": -27.987,
+    "max_drawdown_pct": 13.63
   },
   "open_trades": [],
   "pending_orders": [],
@@ -1413,6 +1413,25 @@
       "r_multiple": -1.05,
       "pnl_usd": -23.55,
       "balance_after": 4379.67
+    },
+    {
+      "id": "2026-10-22-TSLA-5",
+      "ticker": "TSLA",
+      "setup": "vwap_pullback",
+      "entry": 384.85,
+      "stop": 381.48,
+      "target": 391.59,
+      "shares": 6,
+      "risk_usd": 20.220000000000027,
+      "opened": "2026-10-22",
+      "entry_bar": 22,
+      "note": "Held above VWAP then first pullback into it (bar 19); long on reclaim of 384.84, stop under the dip 381.86.",
+      "exit": 381.48,
+      "closed": "2026-10-22",
+      "reason": "stop",
+      "r_multiple": -1.05,
+      "pnl_usd": -21.23,
+      "balance_after": 4358.44
     }
   ],
   "sessions": [
@@ -2076,6 +2095,15 @@
       ],
       "realized_R": -1.05,
       "actions": "META stop -1.05R",
+      "personality": "turtle"
+    },
+    {
+      "date": "2026-10-22",
+      "trades": [
+        "2026-10-22-TSLA-5"
+      ],
+      "realized_R": -1.05,
+      "actions": "TSLA stop -1.05R",
       "personality": "turtle"
     }
   ],
