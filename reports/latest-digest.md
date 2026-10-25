@@ -1,9 +1,9 @@
-# 📰 Week 2026-W42 — Prop Trader digest
-*Covering 2026-10-11 → 2026-10-18. Simulation only — no real money.*
+# 📰 Week 2026-W43 — Prop Trader digest
+*Covering 2026-10-18 → 2026-10-25. Simulation only — no real money.*
 
 ## 🌍 Market Intelligence
-Regime as of 2026-10-16: **risk-off**.
-Regime moved this week: risk-on → risk-on → risk-on → risk-on → risk-off.
+Regime as of 2026-10-23: **risk-off**.
+Regime moved this week: risk-off → risk-off → risk-on → risk-on → risk-off.
 
 ## 🏆 League standings
 | account | balance | expectancy | trades |
@@ -18,22 +18,31 @@ Regime moved this week: risk-on → risk-on → risk-on → risk-on → risk-off
 ### 👑 Swing (charter)
 Balance **$5,018.79** · lifetime expectancy **0.15** (95% CI -1.89R…+2.19R) over 5 trades.
 This week: no closed trades. Sitting out is a position.
-Discipline: 18 candidate(s) declined (guards, caps, and rules doing their job).
+Discipline: 15 candidate(s) declined (guards, caps, and rules doing their job).
 
 ### ⚡ Day lane
-Balance **$3,150.90** · lifetime expectancy **-0.235** (95% CI -0.38R…-0.09R) over 194 trades.
-This week: **9 closed trades, -2.57R ($-75.68)**.
-- 2026-10-12 META `vwap_pullback` → stop **-1.05R**
-- 2026-10-12 AMD `vwap_pullback` → eod_flat **+0.10R**
-- 2026-10-13 AAPL `vwap_pullback` → stop **-1.05R**
-- 2026-10-13 NVDA `orb_long` → eod_flat **+0.63R**
-- 2026-10-13 TSLA `orb_long` → eod_flat **-0.26R**
-- 2026-10-14 TSLA `vwap_pullback` → stop **-1.05R**
-- 2026-10-15 SPY `orb_long` → eod_flat **+0.89R**
-- 2026-10-15 NVDA `orb_long` → eod_flat **+0.28R**
-- 2026-10-16 NVDA `orb_long` → stop **-1.05R**
+Balance **$3,013.53** · lifetime expectancy **-0.236** (95% CI -0.37R…-0.10R) over 211 trades.
+This week: **17 closed trades, -4.23R ($-137.37)**.
+- 2026-10-19 AMZN `orb_long` → target **+1.95R**
+- 2026-10-19 NVDA `vwap_pullback` → stop **-1.05R**
+- 2026-10-19 AAPL `orb_long` → eod_flat **-0.47R**
+- 2026-10-19 MSFT `orb_long` → eod_flat **-0.05R**
+- 2026-10-20 MSFT `vwap_pullback` → stop **-1.05R**
+- 2026-10-20 TSLA `vwap_pullback` → stop **-1.05R**
+- 2026-10-20 AMZN `vwap_pullback` → stop **-1.05R**
+- 2026-10-20 SPY `orb_long` → eod_flat **-0.10R**
+- 2026-10-21 META `vwap_pullback` → stop **-1.05R**
+- 2026-10-21 QQQ `orb_long` → eod_flat **+0.31R**
+- 2026-10-21 SPY `orb_long` → eod_flat **+0.29R**
+- 2026-10-22 META `vwap_pullback` → target **+1.95R**
+- 2026-10-22 TSLA `vwap_pullback` → stop **-1.05R**
+- 2026-10-22 MSFT `vwap_pullback` → stop **-1.05R**
+- 2026-10-22 AAPL `orb_long` → eod_flat **+0.22R**
+- 2026-10-23 GOOGL `orb_long` → eod_flat **-0.94R**
+- 2026-10-23 AMD `vwap_pullback` → eod_flat **-0.04R**
+Discipline: 3 candidate(s) declined (guards, caps, and rules doing their job).
 
 ## 🧠 Practice Lab
-5 practice run(s) this week, 74 banked all-time.
-Current leader: **pullback-deep-swing** at 0.336R over 1303 practice trades.
+5 practice run(s) this week, 79 banked all-time.
+Current leader: **pullback-deep-swing** at 0.344R over 1400 practice trades.
 No variant has met the promotion bar yet — the bar is the point.
