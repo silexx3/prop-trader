@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 3113.72,
+    "balance": 3143.58,
     "open_risk_R": 0
   },
   "rules": {
@@ -34,12 +34,12 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 218,
-    "wins": 73,
-    "losses": 145,
-    "win_rate_pct": 33.5,
-    "expectancy_R": -0.214,
-    "total_R": -46.62,
+    "trades_closed": 222,
+    "wins": 76,
+    "losses": 146,
+    "win_rate_pct": 34.2,
+    "expectancy_R": -0.206,
+    "total_R": -45.677,
     "max_drawdown_pct": 41.41
   },
   "open_trades": [],
@@ -4186,6 +4186,82 @@
       "r_multiple": -0.045,
       "pnl_usd": -1.26,
       "balance_after": 3113.72
+    },
+    {
+      "id": "2026-10-28-TSLA-7",
+      "ticker": "TSLA",
+      "setup": "vwap_pullback",
+      "entry": 401.89,
+      "stop": 400.53,
+      "target": 404.61,
+      "shares": 22,
+      "risk_usd": 29.9200000000003,
+      "opened": "2026-10-28",
+      "entry_bar": 28,
+      "note": "Held above VWAP then first pullback into it (bar 27); long on reclaim of 401.88, stop under the dip 400.93.",
+      "exit": 400.53,
+      "closed": "2026-10-28",
+      "reason": "stop",
+      "r_multiple": -1.05,
+      "pnl_usd": -31.42,
+      "balance_after": 3082.3
+    },
+    {
+      "id": "2026-10-28-AMD-8",
+      "ticker": "AMD",
+      "setup": "vwap_pullback",
+      "entry": 567.1,
+      "stop": 564.73,
+      "target": 571.84,
+      "shares": 13,
+      "risk_usd": 30.81000000000006,
+      "opened": "2026-10-28",
+      "entry_bar": 29,
+      "note": "Held above VWAP then first pullback into it (bar 28); long on reclaim of 567.09, stop under the dip 565.30.",
+      "exit": 571.84,
+      "closed": "2026-10-28",
+      "reason": "target",
+      "r_multiple": 1.95,
+      "pnl_usd": 60.08,
+      "balance_after": 3142.38
+    },
+    {
+      "id": "2026-10-28-SPY-0",
+      "ticker": "SPY",
+      "setup": "orb_long",
+      "entry": 772.09,
+      "stop": 768.47,
+      "target": 779.33,
+      "shares": 8,
+      "risk_usd": 28.960000000000036,
+      "opened": "2026-10-28",
+      "entry_bar": 61,
+      "note": "30-min opening range 769.24\u2013771.70; long on the break of 771.70 with volume \u2265 1.2\u00d7 the opening average.",
+      "exit": 772.35,
+      "closed": "2026-10-28",
+      "reason": "eod_flat",
+      "r_multiple": 0.022,
+      "pnl_usd": 0.63,
+      "balance_after": 3143.01
+    },
+    {
+      "id": "2026-10-28-QQQ-1",
+      "ticker": "QQQ",
+      "setup": "orb_long",
+      "entry": 725.09,
+      "stop": 719.58,
+      "target": 736.11,
+      "shares": 5,
+      "risk_usd": 27.549999999999955,
+      "opened": "2026-10-28",
+      "entry_bar": 61,
+      "note": "30-min opening range 720.30\u2013724.73; long on the break of 724.73 with volume \u2265 1.2\u00d7 the opening average.",
+      "exit": 725.48,
+      "closed": "2026-10-28",
+      "reason": "eod_flat",
+      "r_multiple": 0.021,
+      "pnl_usd": 0.57,
+      "balance_after": 3143.58
     }
   ],
   "sessions": [
@@ -5195,6 +5271,20 @@
       "actions": "TSLA vwap_pullback \u2192 target +1.95R; AAPL orb_long \u2192 eod_flat +0.32R; GOOGL orb_long \u2192 eod_flat -0.04R",
       "lessons": [
         "Replayed 10 tickers on 5-minute bars; 3 trade(s), +2.23R after costs."
+      ]
+    },
+    {
+      "date": "2026-10-28",
+      "trades": [
+        "2026-10-28-TSLA-7",
+        "2026-10-28-AMD-8",
+        "2026-10-28-SPY-0",
+        "2026-10-28-QQQ-1"
+      ],
+      "realized_R": 0.943,
+      "actions": "TSLA vwap_pullback \u2192 stop -1.05R; AMD vwap_pullback \u2192 target +1.95R; SPY orb_long \u2192 eod_flat +0.02R; QQQ orb_long \u2192 eod_flat +0.02R",
+      "lessons": [
+        "Replayed 10 tickers on 5-minute bars; 4 trade(s), +0.94R after costs."
       ]
     }
   ],

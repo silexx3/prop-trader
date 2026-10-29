@@ -51,7 +51,20 @@
       "note": "Uptrend pullback into 20/50 zone (SMA20 337.61 / SMA50 326.92); entry on reclaim of today's high 343.06, stop below pullback low 330.70."
     }
   ],
-  "pending_orders": [],
+  "pending_orders": [
+    {
+      "id": "03084146",
+      "ticker": "MSFT",
+      "setup": "ma_pullback",
+      "entry": 534.7,
+      "stop": 514.67,
+      "target": 574.76,
+      "shares": 4,
+      "risk_usd": 80.12,
+      "placed": "2026-10-27",
+      "note": "Uptrend pullback into 20/50 zone (SMA20 528.99 / SMA50 510.15); entry on reclaim of today's high 534.70, stop below pullback low 515.70."
+    }
+  ],
   "closed_trades": [
     {
       "id": "f68af048",
@@ -1307,6 +1320,20 @@
       "brutality_note": "Tape moved 1.1% on average; we were flat. Sitting out is a position.",
       "lessons": [
         "Skipped 4 candidate(s) and logged them: skips are data too."
+      ],
+      "variant": "charter-baseline"
+    },
+    {
+      "date": "2026-10-27",
+      "regime": "SPY 769.66, choppy uptrend (above 50, testing 20); QQQ 721.25, downtrend (below 20/50)",
+      "actions": "MSFT ma_pullback order placed: entry 534.7, stop 514.67, target 574.76, 4 shares; QQQ base_breakout candidate skipped; EWJ base_breakout candidate skipped.",
+      "trades": [],
+      "realized_R": 0,
+      "brutality": 1,
+      "brutality_note": "Tape moved 1.4% on average; we were flat. Sitting out is a position.",
+      "lessons": [
+        "Orders placed, none filled yet \u2014 patience between signal and fill is part of the edge.",
+        "Skipped 2 candidate(s) and logged them: skips are data too."
       ],
       "variant": "charter-baseline"
     }
@@ -3127,6 +3154,22 @@
       "entry": 29.35,
       "stop": 28.34,
       "reason": "regime off \u2014 SPY 765.37 below its 50-day SMA 766.72; longs stand down"
+    },
+    {
+      "date": "2026-10-27",
+      "ticker": "QQQ",
+      "setup": "base_breakout",
+      "entry": 763.62,
+      "stop": 699.76,
+      "reason": "correlation guard \u2014 QQQ moves with SPY (0.90 over 90d): one bet, two tickets"
+    },
+    {
+      "date": "2026-10-27",
+      "ticker": "EWJ",
+      "setup": "base_breakout",
+      "entry": 100.08,
+      "stop": 93.31,
+      "reason": "blocked by rules: Max 3 positions: 2 open + 1 pending already."
     }
   ]
 }
