@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 3201.51,
+    "balance": 3161.92,
     "open_risk_R": 0
   },
   "rules": {
@@ -34,12 +34,12 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 226,
-    "wins": 78,
-    "losses": 148,
-    "win_rate_pct": 34.5,
-    "expectancy_R": -0.194,
-    "total_R": -43.877,
+    "trades_closed": 230,
+    "wins": 79,
+    "losses": 151,
+    "win_rate_pct": 34.3,
+    "expectancy_R": -0.196,
+    "total_R": -45.077,
     "max_drawdown_pct": 41.41
   },
   "open_trades": [],
@@ -4338,6 +4338,82 @@
       "r_multiple": 1.95,
       "pnl_usd": 58.5,
       "balance_after": 3201.51
+    },
+    {
+      "id": "2026-10-30-META-7",
+      "ticker": "META",
+      "setup": "vwap_pullback",
+      "entry": 622.6,
+      "stop": 619.97,
+      "target": 627.86,
+      "shares": 12,
+      "risk_usd": 31.559999999999945,
+      "opened": "2026-10-30",
+      "entry_bar": 25,
+      "note": "Held above VWAP then first pullback into it (bar 24); long on reclaim of 622.59, stop under the dip 620.59.",
+      "exit": 619.97,
+      "closed": "2026-10-30",
+      "reason": "stop",
+      "r_multiple": -1.05,
+      "pnl_usd": -33.14,
+      "balance_after": 3168.37
+    },
+    {
+      "id": "2026-10-30-AMZN-8",
+      "ticker": "AMZN",
+      "setup": "vwap_pullback",
+      "entry": 239.19,
+      "stop": 238.3,
+      "target": 240.97,
+      "shares": 35,
+      "risk_usd": 31.149999999999523,
+      "opened": "2026-10-30",
+      "entry_bar": 32,
+      "note": "Held above VWAP then first pullback into it (bar 28); long on reclaim of 239.18, stop under the dip 238.54.",
+      "exit": 240.97,
+      "closed": "2026-10-30",
+      "reason": "target",
+      "r_multiple": 1.95,
+      "pnl_usd": 60.74,
+      "balance_after": 3229.11
+    },
+    {
+      "id": "2026-10-30-GOOGL-3",
+      "ticker": "GOOGL",
+      "setup": "orb_long",
+      "entry": 282.385009765625,
+      "stop": 278.72,
+      "target": 288.95,
+      "shares": 9,
+      "risk_usd": 30.689999999999714,
+      "opened": "2026-10-30",
+      "entry_bar": 23,
+      "note": "30-min opening range 279.00\u2013281.99; long on the break of 281.99 with volume \u2265 1.2\u00d7 the opening average.",
+      "exit": 278.72,
+      "closed": "2026-10-30",
+      "reason": "stop",
+      "r_multiple": -1.05,
+      "pnl_usd": -34.52,
+      "balance_after": 3194.59
+    },
+    {
+      "id": "2026-10-30-MSFT-6",
+      "ticker": "MSFT",
+      "setup": "vwap_pullback",
+      "entry": 523.22,
+      "stop": 521.39,
+      "target": 526.88,
+      "shares": 17,
+      "risk_usd": 31.110000000000696,
+      "opened": "2026-10-30",
+      "entry_bar": 72,
+      "note": "Held above VWAP then first pullback into it (bar 17); long on reclaim of 523.21, stop under the dip 521.91.",
+      "exit": 521.39,
+      "closed": "2026-10-30",
+      "reason": "stop",
+      "r_multiple": -1.05,
+      "pnl_usd": -32.67,
+      "balance_after": 3161.92
     }
   ],
   "sessions": [
@@ -5376,6 +5452,20 @@
       "lessons": [
         "Replayed 10 tickers on 5-minute bars; 4 trade(s), +1.80R after costs."
       ]
+    },
+    {
+      "date": "2026-10-30",
+      "trades": [
+        "2026-10-30-META-7",
+        "2026-10-30-AMZN-8",
+        "2026-10-30-GOOGL-3",
+        "2026-10-30-MSFT-6"
+      ],
+      "realized_R": -1.2,
+      "actions": "META vwap_pullback \u2192 stop -1.05R; AMZN vwap_pullback \u2192 target +1.95R; GOOGL orb_long \u2192 stop -1.05R; MSFT vwap_pullback \u2192 stop -1.05R",
+      "lessons": [
+        "Replayed 10 tickers on 5-minute bars; 4 trade(s), -1.20R after costs."
+      ]
     }
   ],
   "skipped_candidates": [
@@ -5738,6 +5828,14 @@
       "entry": 718.55,
       "stop": 713.57,
       "reason": "gapped past trigger (721.49 vs 718.55, >0.25R) \u2014 chasing is not the setup"
+    },
+    {
+      "date": "2026-10-30",
+      "ticker": "TSLA",
+      "setup": "vwap_pullback",
+      "entry": 400.07,
+      "stop": 398.84,
+      "reason": "gapped past trigger (401.20 vs 400.07, >0.25R) \u2014 chasing is not the setup"
     }
   ]
 }

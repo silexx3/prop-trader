@@ -3094,6 +3094,13 @@
       "realized_R": -2.1,
       "actions": "AMD stop -1.05R; NVDA stop -1.05R",
       "personality": "owl"
+    },
+    {
+      "date": "2026-10-30",
+      "trades": [],
+      "realized_R": 0,
+      "actions": "No trades \u2014 this personality found nothing worth doing.",
+      "personality": "owl"
     }
   ],
   "skipped_candidates": [
@@ -3328,6 +3335,22 @@
       "entry": 516.84,
       "stop": 513.16,
       "reason": "gapped past trigger (518.78 vs 516.84, >0.25R) \u2014 chasing is not the setup"
+    },
+    {
+      "date": "2026-10-30",
+      "ticker": "MSFT",
+      "setup": "vwap_pullback",
+      "entry": 523.22,
+      "stop": 521.39,
+      "reason": "gapped past trigger (524.46 vs 523.22, >0.25R) \u2014 chasing is not the setup"
+    },
+    {
+      "date": "2026-10-30",
+      "ticker": "AMZN",
+      "setup": "vwap_pullback",
+      "entry": 239.19,
+      "stop": 238.3,
+      "reason": "gapped past trigger (239.96 vs 239.19, >0.25R) \u2014 chasing is not the setup"
     }
   ]
 }
