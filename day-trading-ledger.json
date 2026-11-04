@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 3096.44,
+    "balance": 3096.31,
     "open_risk_R": 0
   },
   "rules": {
@@ -34,12 +34,12 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 232,
-    "wins": 79,
-    "losses": 153,
-    "win_rate_pct": 34.1,
-    "expectancy_R": -0.203,
-    "total_R": -47.177,
+    "trades_closed": 234,
+    "wins": 80,
+    "losses": 154,
+    "win_rate_pct": 34.2,
+    "expectancy_R": -0.202,
+    "total_R": -47.162,
     "max_drawdown_pct": 41.41
   },
   "open_trades": [],
@@ -4452,6 +4452,44 @@
       "r_multiple": -1.05,
       "pnl_usd": -32.76,
       "balance_after": 3096.44
+    },
+    {
+      "id": "2026-11-03-META-4",
+      "ticker": "META",
+      "setup": "orb_long",
+      "entry": 616.8350219726562,
+      "stop": 609.49,
+      "target": 630.01,
+      "shares": 4,
+      "risk_usd": 27.360000000000127,
+      "opened": "2026-11-03",
+      "entry_bar": 10,
+      "note": "30-min opening range 610.10\u2013616.02; long on the break of 616.02 with volume \u2265 1.2\u00d7 the opening average.",
+      "exit": 620.95,
+      "closed": "2026-11-03",
+      "reason": "eod_flat",
+      "r_multiple": 0.51,
+      "pnl_usd": 15.09,
+      "balance_after": 3111.53
+    },
+    {
+      "id": "2026-11-03-QQQ-1",
+      "ticker": "QQQ",
+      "setup": "orb_long",
+      "entry": 687.62,
+      "stop": 682.5,
+      "target": 697.86,
+      "shares": 6,
+      "risk_usd": 30.720000000000027,
+      "opened": "2026-11-03",
+      "entry_bar": 21,
+      "note": "30-min opening range 683.18\u2013687.28; long on the break of 687.28 with volume \u2265 1.2\u00d7 the opening average.",
+      "exit": 685.34,
+      "closed": "2026-11-03",
+      "reason": "eod_flat",
+      "r_multiple": -0.495,
+      "pnl_usd": -15.22,
+      "balance_after": 3096.31
     }
   ],
   "sessions": [
@@ -5516,6 +5554,18 @@
       "lessons": [
         "Replayed 10 tickers on 5-minute bars; 2 trade(s), -2.10R after costs."
       ]
+    },
+    {
+      "date": "2026-11-03",
+      "trades": [
+        "2026-11-03-META-4",
+        "2026-11-03-QQQ-1"
+      ],
+      "realized_R": 0.015,
+      "actions": "META orb_long \u2192 eod_flat +0.51R; QQQ orb_long \u2192 eod_flat -0.49R",
+      "lessons": [
+        "Replayed 10 tickers on 5-minute bars; 2 trade(s), +0.01R after costs."
+      ]
     }
   ],
   "skipped_candidates": [
@@ -5886,6 +5936,22 @@
       "entry": 400.07,
       "stop": 398.84,
       "reason": "gapped past trigger (401.20 vs 400.07, >0.25R) \u2014 chasing is not the setup"
+    },
+    {
+      "date": "2026-11-03",
+      "ticker": "MSFT",
+      "setup": "orb_long",
+      "entry": 512.86,
+      "stop": 507.34,
+      "reason": "gapped past trigger (514.59 vs 512.86, >0.25R) \u2014 chasing is not the setup"
+    },
+    {
+      "date": "2026-11-03",
+      "ticker": "SPY",
+      "setup": "orb_long",
+      "entry": 755.06,
+      "stop": 751.64,
+      "reason": "gapped past trigger (756.12 vs 755.06, >0.25R) \u2014 chasing is not the setup"
     }
   ]
 }

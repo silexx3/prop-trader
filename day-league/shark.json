@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 1890.38,
+    "balance": 1923.94,
     "open_risk_R": 0
   },
   "rules": {
@@ -35,12 +35,12 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 283,
-    "wins": 100,
-    "losses": 183,
-    "win_rate_pct": 35.3,
-    "expectancy_R": -0.16,
-    "total_R": -45.227,
+    "trades_closed": 286,
+    "wins": 102,
+    "losses": 184,
+    "win_rate_pct": 35.7,
+    "expectancy_R": -0.155,
+    "total_R": -44.348,
     "max_drawdown_pct": 66.84
   },
   "open_trades": [],
@@ -5422,6 +5422,63 @@
       "r_multiple": -1.05,
       "pnl_usd": -40.32,
       "balance_after": 1890.38
+    },
+    {
+      "id": "2026-11-03-META-4",
+      "ticker": "META",
+      "setup": "orb_long",
+      "entry": 616.8350219726562,
+      "stop": 609.49,
+      "target": 630.01,
+      "shares": 5,
+      "risk_usd": 34.20000000000016,
+      "opened": "2026-11-03",
+      "entry_bar": 10,
+      "note": "30-min opening range 610.10\u2013616.02; long on the break of 616.02 with volume \u2265 1.2\u00d7 the opening average.",
+      "exit": 620.95,
+      "closed": "2026-11-03",
+      "reason": "eod_flat",
+      "r_multiple": 0.51,
+      "pnl_usd": 18.86,
+      "balance_after": 1909.24
+    },
+    {
+      "id": "2026-11-03-MSFT-2",
+      "ticker": "MSFT",
+      "setup": "orb_long",
+      "entry": 514.594970703125,
+      "stop": 507.34,
+      "target": 523.9,
+      "shares": 6,
+      "risk_usd": 33.12000000000023,
+      "opened": "2026-11-03",
+      "entry_bar": 16,
+      "note": "30-min opening range 507.85\u2013512.60; long on the break of 512.60 with volume \u2265 1.2\u00d7 the opening average.",
+      "exit": 520.77,
+      "closed": "2026-11-03",
+      "reason": "eod_flat",
+      "r_multiple": 0.801,
+      "pnl_usd": 35.39,
+      "balance_after": 1944.63
+    },
+    {
+      "id": "2026-11-03-SPY-0",
+      "ticker": "SPY",
+      "setup": "orb_long",
+      "entry": 756.1199951171875,
+      "stop": 751.64,
+      "target": 761.9,
+      "shares": 11,
+      "risk_usd": 37.61999999999955,
+      "opened": "2026-11-03",
+      "entry_bar": 19,
+      "note": "30-min opening range 752.39\u2013754.68; long on the break of 754.68 with volume \u2265 1.2\u00d7 the opening average.",
+      "exit": 754.41,
+      "closed": "2026-11-03",
+      "reason": "eod_flat",
+      "r_multiple": -0.432,
+      "pnl_usd": -20.69,
+      "balance_after": 1923.94
     }
   ],
   "sessions": [
@@ -6362,6 +6419,17 @@
       ],
       "realized_R": -2.1,
       "actions": "GOOGL stop -1.05R; AMZN stop -1.05R",
+      "personality": "shark"
+    },
+    {
+      "date": "2026-11-03",
+      "trades": [
+        "2026-11-03-META-4",
+        "2026-11-03-MSFT-2",
+        "2026-11-03-SPY-0"
+      ],
+      "realized_R": 0.879,
+      "actions": "META eod_flat +0.51R; MSFT eod_flat +0.80R; SPY eod_flat -0.43R",
       "personality": "shark"
     }
   ],
