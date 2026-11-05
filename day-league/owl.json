@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 4116.75,
+    "balance": 4033.24,
     "open_risk_R": 0
   },
   "rules": {
@@ -35,12 +35,12 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 124,
+    "trades_closed": 126,
     "wins": 47,
-    "losses": 77,
-    "win_rate_pct": 37.9,
-    "expectancy_R": -0.153,
-    "total_R": -18.955,
+    "losses": 79,
+    "win_rate_pct": 37.3,
+    "expectancy_R": -0.167,
+    "total_R": -21.055,
     "max_drawdown_pct": 21.64
   },
   "open_trades": [],
@@ -2401,6 +2401,44 @@
       "r_multiple": -0.495,
       "pnl_usd": -20.29,
       "balance_after": 4116.75
+    },
+    {
+      "id": "2026-11-04-QQQ-2",
+      "ticker": "QQQ",
+      "setup": "vwap_pullback",
+      "entry": 697.75,
+      "stop": 695.3,
+      "target": 702.65,
+      "shares": 16,
+      "risk_usd": 39.20000000000073,
+      "opened": "2026-11-04",
+      "entry_bar": 13,
+      "note": "Held above VWAP then first pullback into it (bar 11); long on reclaim of 697.74, stop under the dip 696.00.",
+      "exit": 695.3,
+      "closed": "2026-11-04",
+      "reason": "stop",
+      "r_multiple": -1.05,
+      "pnl_usd": -41.16,
+      "balance_after": 4075.59
+    },
+    {
+      "id": "2026-11-04-NVDA-3",
+      "ticker": "NVDA",
+      "setup": "vwap_pullback",
+      "entry": 204.89,
+      "stop": 203.8,
+      "target": 207.07,
+      "shares": 37,
+      "risk_usd": 40.329999999999075,
+      "opened": "2026-11-04",
+      "entry_bar": 13,
+      "note": "Held above VWAP then first pullback into it (bar 11); long on reclaim of 204.88, stop under the dip 204.00.",
+      "exit": 203.8,
+      "closed": "2026-11-04",
+      "reason": "stop",
+      "r_multiple": -1.05,
+      "pnl_usd": -42.35,
+      "balance_after": 4033.24
     }
   ],
   "sessions": [
@@ -3176,6 +3214,16 @@
       ],
       "realized_R": 0.015,
       "actions": "META eod_flat +0.51R; QQQ eod_flat -0.49R",
+      "personality": "owl"
+    },
+    {
+      "date": "2026-11-04",
+      "trades": [
+        "2026-11-04-QQQ-2",
+        "2026-11-04-NVDA-3"
+      ],
+      "realized_R": -2.1,
+      "actions": "QQQ stop -1.05R; NVDA stop -1.05R",
       "personality": "owl"
     }
   ],
