@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 2971.64,
+    "balance": 2852.18,
     "open_risk_R": 0
   },
   "rules": {
@@ -34,13 +34,13 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 238,
+    "trades_closed": 242,
     "wins": 80,
-    "losses": 158,
-    "win_rate_pct": 33.6,
-    "expectancy_R": -0.216,
-    "total_R": -51.362,
-    "max_drawdown_pct": 42.22
+    "losses": 162,
+    "win_rate_pct": 33.1,
+    "expectancy_R": -0.23,
+    "total_R": -55.562,
+    "max_drawdown_pct": 44.54
   },
   "open_trades": [],
   "pending_orders": [],
@@ -4566,6 +4566,82 @@
       "r_multiple": -1.05,
       "pnl_usd": -30.91,
       "balance_after": 2971.64
+    },
+    {
+      "id": "2026-11-05-TSLA-2",
+      "ticker": "TSLA",
+      "setup": "vwap_pullback",
+      "entry": 350.26,
+      "stop": 347.73,
+      "target": 355.32,
+      "shares": 11,
+      "risk_usd": 27.8299999999997,
+      "opened": "2026-11-05",
+      "entry_bar": 25,
+      "note": "Held above VWAP then first pullback into it (bar 24); long on reclaim of 350.25, stop under the dip 348.08.",
+      "exit": 347.73,
+      "closed": "2026-11-05",
+      "reason": "stop",
+      "r_multiple": -1.05,
+      "pnl_usd": -29.22,
+      "balance_after": 2942.42
+    },
+    {
+      "id": "2026-11-05-QQQ-1",
+      "ticker": "QQQ",
+      "setup": "vwap_pullback",
+      "entry": 661.89,
+      "stop": 657.79,
+      "target": 670.09,
+      "shares": 7,
+      "risk_usd": 28.70000000000016,
+      "opened": "2026-11-05",
+      "entry_bar": 25,
+      "note": "Held above VWAP then first pullback into it (bar 24); long on reclaim of 661.88, stop under the dip 658.45.",
+      "exit": 657.79,
+      "closed": "2026-11-05",
+      "reason": "stop",
+      "r_multiple": -1.05,
+      "pnl_usd": -30.14,
+      "balance_after": 2912.28
+    },
+    {
+      "id": "2026-11-05-MSFT-4",
+      "ticker": "MSFT",
+      "setup": "vwap_pullback",
+      "entry": 543.12,
+      "stop": 540.93,
+      "target": 547.5,
+      "shares": 13,
+      "risk_usd": 28.47000000000071,
+      "opened": "2026-11-05",
+      "entry_bar": 28,
+      "note": "Held above VWAP then first pullback into it (bar 27); long on reclaim of 543.11, stop under the dip 541.47.",
+      "exit": 540.93,
+      "closed": "2026-11-05",
+      "reason": "stop",
+      "r_multiple": -1.05,
+      "pnl_usd": -29.89,
+      "balance_after": 2882.39
+    },
+    {
+      "id": "2026-11-05-META-5",
+      "ticker": "META",
+      "setup": "vwap_pullback",
+      "entry": 604.51,
+      "stop": 600.4,
+      "target": 612.73,
+      "shares": 7,
+      "risk_usd": 28.770000000000095,
+      "opened": "2026-11-05",
+      "entry_bar": 44,
+      "note": "Held above VWAP then first pullback into it (bar 42); long on reclaim of 604.50, stop under the dip 601.00.",
+      "exit": 600.4,
+      "closed": "2026-11-05",
+      "reason": "stop",
+      "r_multiple": -1.05,
+      "pnl_usd": -30.21,
+      "balance_after": 2852.18
     }
   ],
   "sessions": [
@@ -5653,6 +5729,20 @@
       ],
       "realized_R": -4.2,
       "actions": "QQQ vwap_pullback \u2192 stop -1.05R; NVDA vwap_pullback \u2192 stop -1.05R; TSLA vwap_pullback \u2192 stop -1.05R; AAPL vwap_pullback \u2192 stop -1.05R",
+      "lessons": [
+        "Replayed 10 tickers on 5-minute bars; 4 trade(s), -4.20R after costs."
+      ]
+    },
+    {
+      "date": "2026-11-05",
+      "trades": [
+        "2026-11-05-TSLA-2",
+        "2026-11-05-QQQ-1",
+        "2026-11-05-MSFT-4",
+        "2026-11-05-META-5"
+      ],
+      "realized_R": -4.2,
+      "actions": "TSLA vwap_pullback \u2192 stop -1.05R; QQQ vwap_pullback \u2192 stop -1.05R; MSFT vwap_pullback \u2192 stop -1.05R; META vwap_pullback \u2192 stop -1.05R",
       "lessons": [
         "Replayed 10 tickers on 5-minute bars; 4 trade(s), -4.20R after costs."
       ]

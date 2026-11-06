@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 4701.78,
+    "balance": 4529.7,
     "open_risk_R": 0
   },
   "rules": {
@@ -35,13 +35,13 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 173,
+    "trades_closed": 178,
     "wins": 68,
-    "losses": 105,
-    "win_rate_pct": 39.3,
-    "expectancy_R": -0.052,
-    "total_R": -9.03,
-    "max_drawdown_pct": 10.28
+    "losses": 110,
+    "win_rate_pct": 38.2,
+    "expectancy_R": -0.08,
+    "total_R": -14.28,
+    "max_drawdown_pct": 11.98
   },
   "open_trades": [],
   "pending_orders": [],
@@ -3332,6 +3332,101 @@
       "r_multiple": 0.066,
       "pnl_usd": 1.74,
       "balance_after": 4701.78
+    },
+    {
+      "id": "2026-11-05-TSLA-3",
+      "ticker": "TSLA",
+      "setup": "vwap_pullback",
+      "entry": 350.26,
+      "stop": 347.73,
+      "target": 355.32,
+      "shares": 13,
+      "risk_usd": 32.889999999999645,
+      "opened": "2026-11-05",
+      "entry_bar": 25,
+      "note": "Held above VWAP then first pullback into it (bar 24); long on reclaim of 350.25, stop under the dip 348.08.",
+      "exit": 347.73,
+      "closed": "2026-11-05",
+      "reason": "stop",
+      "r_multiple": -1.05,
+      "pnl_usd": -34.53,
+      "balance_after": 4667.25
+    },
+    {
+      "id": "2026-11-05-QQQ-2",
+      "ticker": "QQQ",
+      "setup": "vwap_pullback",
+      "entry": 661.89,
+      "stop": 657.79,
+      "target": 670.09,
+      "shares": 8,
+      "risk_usd": 32.80000000000018,
+      "opened": "2026-11-05",
+      "entry_bar": 25,
+      "note": "Held above VWAP then first pullback into it (bar 24); long on reclaim of 661.88, stop under the dip 658.45.",
+      "exit": 657.79,
+      "closed": "2026-11-05",
+      "reason": "stop",
+      "r_multiple": -1.05,
+      "pnl_usd": -34.44,
+      "balance_after": 4632.81
+    },
+    {
+      "id": "2026-11-05-MSFT-5",
+      "ticker": "MSFT",
+      "setup": "vwap_pullback",
+      "entry": 543.12,
+      "stop": 540.93,
+      "target": 547.5,
+      "shares": 15,
+      "risk_usd": 32.85000000000082,
+      "opened": "2026-11-05",
+      "entry_bar": 28,
+      "note": "Held above VWAP then first pullback into it (bar 27); long on reclaim of 543.11, stop under the dip 541.47.",
+      "exit": 540.93,
+      "closed": "2026-11-05",
+      "reason": "stop",
+      "r_multiple": -1.05,
+      "pnl_usd": -34.49,
+      "balance_after": 4598.32
+    },
+    {
+      "id": "2026-11-05-META-6",
+      "ticker": "META",
+      "setup": "vwap_pullback",
+      "entry": 604.51,
+      "stop": 600.4,
+      "target": 612.73,
+      "shares": 8,
+      "risk_usd": 32.88000000000011,
+      "opened": "2026-11-05",
+      "entry_bar": 44,
+      "note": "Held above VWAP then first pullback into it (bar 42); long on reclaim of 604.50, stop under the dip 601.00.",
+      "exit": 600.4,
+      "closed": "2026-11-05",
+      "reason": "stop",
+      "r_multiple": -1.05,
+      "pnl_usd": -34.52,
+      "balance_after": 4563.8
+    },
+    {
+      "id": "2026-11-05-AMZN-7",
+      "ticker": "AMZN",
+      "setup": "vwap_pullback",
+      "entry": 261.05,
+      "stop": 259.02,
+      "target": 265.11,
+      "shares": 16,
+      "risk_usd": 32.48000000000047,
+      "opened": "2026-11-05",
+      "entry_bar": 63,
+      "note": "Held above VWAP then first pullback into it (bar 42); long on reclaim of 261.04, stop under the dip 259.28.",
+      "exit": 259.02,
+      "closed": "2026-11-05",
+      "reason": "stop",
+      "r_multiple": -1.05,
+      "pnl_usd": -34.1,
+      "balance_after": 4529.7
     }
   ],
   "sessions": [
@@ -4172,6 +4267,19 @@
       ],
       "realized_R": -3.764,
       "actions": "NVDA stop -1.05R; TSLA stop -1.05R; AAPL stop -1.05R; QQQ eod_flat -0.68R; MSFT eod_flat +0.07R",
+      "personality": "rabbit"
+    },
+    {
+      "date": "2026-11-05",
+      "trades": [
+        "2026-11-05-TSLA-3",
+        "2026-11-05-QQQ-2",
+        "2026-11-05-MSFT-5",
+        "2026-11-05-META-6",
+        "2026-11-05-AMZN-7"
+      ],
+      "realized_R": -5.25,
+      "actions": "TSLA stop -1.05R; QQQ stop -1.05R; MSFT stop -1.05R; META stop -1.05R; AMZN stop -1.05R",
       "personality": "rabbit"
     }
   ],
