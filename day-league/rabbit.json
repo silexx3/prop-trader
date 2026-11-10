@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 4547.66,
+    "balance": 4514.7,
     "open_risk_R": 0
   },
   "rules": {
@@ -35,12 +35,12 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 181,
-    "wins": 69,
-    "losses": 112,
-    "win_rate_pct": 38.1,
-    "expectancy_R": -0.076,
-    "total_R": -13.778,
+    "trades_closed": 184,
+    "wins": 70,
+    "losses": 114,
+    "win_rate_pct": 38.0,
+    "expectancy_R": -0.08,
+    "total_R": -14.692,
     "max_drawdown_pct": 12.6
   },
   "open_trades": [],
@@ -3484,6 +3484,63 @@
       "r_multiple": -0.398,
       "pnl_usd": -11.64,
       "balance_after": 4547.66
+    },
+    {
+      "id": "2026-11-09-NVDA-7",
+      "ticker": "NVDA",
+      "setup": "vwap_pullback",
+      "entry": 177.49000549316406,
+      "stop": 175.95,
+      "target": 180.54,
+      "shares": 22,
+      "risk_usd": 33.660000000000025,
+      "opened": "2026-11-09",
+      "entry_bar": 31,
+      "note": "Held above VWAP then first pullback into it (bar 30); long on reclaim of 177.47, stop under the dip 176.13.",
+      "exit": 175.95,
+      "closed": "2026-11-09",
+      "reason": "stop",
+      "r_multiple": -1.05,
+      "pnl_usd": -35.56,
+      "balance_after": 4512.1
+    },
+    {
+      "id": "2026-11-09-QQQ-1",
+      "ticker": "QQQ",
+      "setup": "orb_long",
+      "entry": 674.3699951171875,
+      "stop": 661.36,
+      "target": 699.25,
+      "shares": 2,
+      "risk_usd": 25.25999999999999,
+      "opened": "2026-11-09",
+      "entry_bar": 14,
+      "note": "30-min opening range 662.02\u2013673.65; long on the break of 673.65 with volume \u2265 1.0\u00d7 the opening average.",
+      "exit": 678.76,
+      "closed": "2026-11-09",
+      "reason": "eod_flat",
+      "r_multiple": 0.287,
+      "pnl_usd": 7.52,
+      "balance_after": 4519.62
+    },
+    {
+      "id": "2026-11-09-AAPL-2",
+      "ticker": "AAPL",
+      "setup": "orb_long",
+      "entry": 351.1700134277344,
+      "stop": 344.45,
+      "target": 362.63,
+      "shares": 5,
+      "risk_usd": 30.30000000000001,
+      "opened": "2026-11-09",
+      "entry_bar": 76,
+      "note": "30-min opening range 344.79\u2013350.33; long on the break of 350.33 with volume \u2265 1.0\u00d7 the opening average.",
+      "exit": 350.49,
+      "closed": "2026-11-09",
+      "reason": "eod_flat",
+      "r_multiple": -0.151,
+      "pnl_usd": -4.92,
+      "balance_after": 4514.7
     }
   ],
   "sessions": [
@@ -4349,6 +4406,17 @@
       "realized_R": 0.502,
       "actions": "AMD stop -1.05R; TSLA target +1.95R; MSFT eod_flat -0.40R",
       "personality": "rabbit"
+    },
+    {
+      "date": "2026-11-09",
+      "trades": [
+        "2026-11-09-NVDA-7",
+        "2026-11-09-QQQ-1",
+        "2026-11-09-AAPL-2"
+      ],
+      "realized_R": -0.914,
+      "actions": "NVDA stop -1.05R; QQQ eod_flat +0.29R; AAPL eod_flat -0.15R",
+      "personality": "rabbit"
     }
   ],
   "skipped_candidates": [
@@ -4831,6 +4899,14 @@
       "entry": 755.06,
       "stop": 751.64,
       "reason": "gapped past trigger (756.12 vs 755.06, >0.25R) \u2014 chasing is not the setup"
+    },
+    {
+      "date": "2026-11-09",
+      "ticker": "SPY",
+      "setup": "orb_long",
+      "entry": 748.35,
+      "stop": 740.28,
+      "reason": "gapped past trigger (753.96 vs 748.35, >0.25R) \u2014 chasing is not the setup"
     }
   ]
 }

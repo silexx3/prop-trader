@@ -40,17 +40,17 @@
   ],
   "pending_orders": [
     {
-      "id": "ddfa6e47",
+      "id": "f2b409c7",
       "ticker": "SPY",
       "setup": "base_breakout",
-      "entry": 780.2,
+      "entry": 779.53,
       "stop": 731.24,
-      "target": 878.12,
+      "target": 876.11,
       "shares": 1,
-      "risk_usd": 48.96,
-      "placed": "2026-11-05",
-      "note": "4-week base 732.71\u2013779.42 (6.4% range) near highs; entry on break of 779.42; fill requires volume \u2265 67,795,965 (1.5\u00d7 avg) \u2014 a quiet break is not the setup.",
-      "min_volume": 67795965.0
+      "risk_usd": 48.29,
+      "placed": "2026-11-09",
+      "note": "4-week base 732.71\u2013778.75 (6.3% range) near highs; entry on break of 778.75; fill requires volume \u2265 72,876,352 (1.5\u00d7 avg) \u2014 a quiet break is not the setup.",
+      "min_volume": 72876352.0
     }
   ],
   "closed_trades": [
@@ -1263,6 +1263,20 @@
         "SPY stopped for -1.05R \u2014 a planned loss is tuition, not failure. The stop did its one job: define where we're wrong.",
         "AAPL filled at 354.5: the trade only exists because the level traded \u2014 orders wait for price, we don't chase it.",
         "Skipped 3 candidate(s) and logged them: skips are data too."
+      ],
+      "variant": "charter-baseline"
+    },
+    {
+      "date": "2026-11-09",
+      "regime": "SPY 752.69, downtrend (below 20/50); QQQ 679.35, downtrend (below 20/50)",
+      "actions": "SPY base_breakout order placed: entry 779.53, stop 731.24, target 876.11, 1 shares; EWA base_breakout candidate skipped.",
+      "trades": [],
+      "realized_R": 0,
+      "brutality": 3,
+      "brutality_note": "Tape moved 3.9% on average; we were flat. Sitting out is a position.",
+      "lessons": [
+        "Orders placed, none filled yet \u2014 patience between signal and fill is part of the edge.",
+        "Skipped 1 candidate(s) and logged them: skips are data too."
       ],
       "variant": "charter-baseline"
     }
@@ -3550,6 +3564,14 @@
     },
     {
       "date": "2026-11-05",
+      "ticker": "EWA",
+      "setup": "base_breakout",
+      "entry": 29.95,
+      "stop": 28.89,
+      "reason": "blocked by rules: Max 2 positions: 1 open + 1 pending already."
+    },
+    {
+      "date": "2026-11-09",
       "ticker": "EWA",
       "setup": "base_breakout",
       "entry": 29.95,

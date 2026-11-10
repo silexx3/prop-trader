@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 2756.89,
+    "balance": 2727.48,
     "open_risk_R": 0
   },
   "rules": {
@@ -34,13 +34,13 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 246,
+    "trades_closed": 248,
     "wins": 80,
-    "losses": 166,
-    "win_rate_pct": 32.5,
-    "expectancy_R": -0.24,
-    "total_R": -59.11,
-    "max_drawdown_pct": 46.4
+    "losses": 168,
+    "win_rate_pct": 32.3,
+    "expectancy_R": -0.243,
+    "total_R": -60.197,
+    "max_drawdown_pct": 46.97
   },
   "open_trades": [],
   "pending_orders": [],
@@ -4718,6 +4718,44 @@
       "r_multiple": -0.398,
       "pnl_usd": -11.64,
       "balance_after": 2756.89
+    },
+    {
+      "id": "2026-11-09-AAPL-3",
+      "ticker": "AAPL",
+      "setup": "vwap_pullback",
+      "entry": 349.87,
+      "stop": 349.05,
+      "target": 351.51,
+      "shares": 33,
+      "risk_usd": 27.059999999999775,
+      "opened": "2026-11-09",
+      "entry_bar": 28,
+      "note": "Held above VWAP then first pullback into it (bar 27); long on reclaim of 349.86, stop under the dip 349.39.",
+      "exit": 349.05,
+      "closed": "2026-11-09",
+      "reason": "stop",
+      "r_multiple": -1.05,
+      "pnl_usd": -28.41,
+      "balance_after": 2728.48
+    },
+    {
+      "id": "2026-11-09-META-2",
+      "ticker": "META",
+      "setup": "vwap_pullback",
+      "entry": 641.43,
+      "stop": 638.41,
+      "target": 647.47,
+      "shares": 9,
+      "risk_usd": 27.179999999999836,
+      "opened": "2026-11-09",
+      "entry_bar": 28,
+      "note": "Held above VWAP then first pullback into it (bar 21); long on reclaim of 641.42, stop under the dip 639.05.",
+      "exit": 641.47,
+      "closed": "2026-11-09",
+      "reason": "eod_flat",
+      "r_multiple": -0.037,
+      "pnl_usd": -1.0,
+      "balance_after": 2727.48
     }
   ],
   "sessions": [
@@ -5836,6 +5874,18 @@
       "lessons": [
         "Replayed 10 tickers on 5-minute bars; 4 trade(s), -3.55R after costs."
       ]
+    },
+    {
+      "date": "2026-11-09",
+      "trades": [
+        "2026-11-09-AAPL-3",
+        "2026-11-09-META-2"
+      ],
+      "realized_R": -1.087,
+      "actions": "AAPL vwap_pullback \u2192 stop -1.05R; META vwap_pullback \u2192 eod_flat -0.04R",
+      "lessons": [
+        "Replayed 10 tickers on 5-minute bars; 2 trade(s), -1.09R after costs."
+      ]
     }
   ],
   "skipped_candidates": [
@@ -6230,6 +6280,22 @@
       "entry": 358.31,
       "stop": 355.69,
       "reason": "gapped past trigger (359.92 vs 358.31, >0.25R) \u2014 chasing is not the setup"
+    },
+    {
+      "date": "2026-11-09",
+      "ticker": "NVDA",
+      "setup": "vwap_pullback",
+      "entry": 177.48,
+      "stop": 175.95,
+      "reason": "gapped past trigger (178.01 vs 177.48, >0.25R) \u2014 chasing is not the setup"
+    },
+    {
+      "date": "2026-11-09",
+      "ticker": "SPY",
+      "setup": "orb_long",
+      "entry": 748.35,
+      "stop": 740.28,
+      "reason": "gapped past trigger (754.21 vs 748.35, >0.25R) \u2014 chasing is not the setup"
     }
   ]
 }
