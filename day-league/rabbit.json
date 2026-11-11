@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 4514.7,
+    "balance": 4466.11,
     "open_risk_R": 0
   },
   "rules": {
@@ -35,13 +35,13 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 184,
+    "trades_closed": 187,
     "wins": 70,
-    "losses": 114,
-    "win_rate_pct": 38.0,
-    "expectancy_R": -0.08,
-    "total_R": -14.692,
-    "max_drawdown_pct": 12.6
+    "losses": 117,
+    "win_rate_pct": 37.4,
+    "expectancy_R": -0.087,
+    "total_R": -16.284,
+    "max_drawdown_pct": 13.22
   },
   "open_trades": [],
   "pending_orders": [],
@@ -3541,6 +3541,63 @@
       "r_multiple": -0.151,
       "pnl_usd": -4.92,
       "balance_after": 4514.7
+    },
+    {
+      "id": "2026-11-10-QQQ-1",
+      "ticker": "QQQ",
+      "setup": "orb_long",
+      "entry": 679.51,
+      "stop": 669.25,
+      "target": 700.03,
+      "shares": 3,
+      "risk_usd": 30.779999999999973,
+      "opened": "2026-11-10",
+      "entry_bar": 6,
+      "note": "30-min opening range 669.92\u2013679.17; long on the break of 679.17 with volume \u2265 1.0\u00d7 the opening average.",
+      "exit": 669.25,
+      "closed": "2026-11-10",
+      "reason": "stop",
+      "r_multiple": -1.05,
+      "pnl_usd": -32.32,
+      "balance_after": 4482.38
+    },
+    {
+      "id": "2026-11-10-AMZN-6",
+      "ticker": "AMZN",
+      "setup": "orb_long",
+      "entry": 272.1,
+      "stop": 265.87,
+      "target": 284.56,
+      "shares": 5,
+      "risk_usd": 31.15000000000009,
+      "opened": "2026-11-10",
+      "entry_bar": 11,
+      "note": "30-min opening range 266.14\u2013271.96; long on the break of 271.96 with volume \u2265 1.0\u00d7 the opening average.",
+      "exit": 270.9,
+      "closed": "2026-11-10",
+      "reason": "eod_flat",
+      "r_multiple": -0.243,
+      "pnl_usd": -7.56,
+      "balance_after": 4474.82
+    },
+    {
+      "id": "2026-11-10-SPY-0",
+      "ticker": "SPY",
+      "setup": "orb_long",
+      "entry": 751.15,
+      "stop": 746.3,
+      "target": 760.85,
+      "shares": 6,
+      "risk_usd": 29.100000000000136,
+      "opened": "2026-11-10",
+      "entry_bar": 76,
+      "note": "30-min opening range 747.05\u2013750.77; long on the break of 750.77 with volume \u2265 1.0\u00d7 the opening average.",
+      "exit": 749.94,
+      "closed": "2026-11-10",
+      "reason": "eod_flat",
+      "r_multiple": -0.299,
+      "pnl_usd": -8.71,
+      "balance_after": 4466.11
     }
   ],
   "sessions": [
@@ -4416,6 +4473,17 @@
       ],
       "realized_R": -0.914,
       "actions": "NVDA stop -1.05R; QQQ eod_flat +0.29R; AAPL eod_flat -0.15R",
+      "personality": "rabbit"
+    },
+    {
+      "date": "2026-11-10",
+      "trades": [
+        "2026-11-10-QQQ-1",
+        "2026-11-10-AMZN-6",
+        "2026-11-10-SPY-0"
+      ],
+      "realized_R": -1.592,
+      "actions": "QQQ stop -1.05R; AMZN eod_flat -0.24R; SPY eod_flat -0.30R",
       "personality": "rabbit"
     }
   ],
