@@ -1246,6 +1246,18 @@
       "lessons": [
         "Skipped 2 candidate(s) and logged them: skips are data too."
       ]
+    },
+    {
+      "date": "2026-11-10",
+      "regime": "SPY 749.92, downtrend (below 20/50); QQQ 674.76, downtrend (below 20/50)",
+      "actions": "SPY base_breakout candidate skipped; MSFT ma_pullback candidate skipped; EWA base_breakout candidate skipped.",
+      "trades": [],
+      "realized_R": 0,
+      "brutality": 1,
+      "brutality_note": "Tape moved 1.4% on average; we were flat. Sitting out is a position.",
+      "lessons": [
+        "Skipped 3 candidate(s) and logged them: skips are data too."
+      ]
     }
   ],
   "skipped_candidates": [
@@ -3616,6 +3628,30 @@
       "entry": 29.95,
       "stop": 28.89,
       "reason": "regime off \u2014 SPY 752.69 below its 50-day SMA 764.86; longs stand down"
+    },
+    {
+      "date": "2026-11-10",
+      "ticker": "SPY",
+      "setup": "base_breakout",
+      "entry": 777.13,
+      "stop": 731.24,
+      "reason": "regime off \u2014 SPY 749.92 below its 50-day SMA 764.55; longs stand down"
+    },
+    {
+      "date": "2026-11-10",
+      "ticker": "MSFT",
+      "setup": "ma_pullback",
+      "entry": 544.19,
+      "stop": 503.95,
+      "reason": "regime off \u2014 SPY 749.92 below its 50-day SMA 764.55; longs stand down"
+    },
+    {
+      "date": "2026-11-10",
+      "ticker": "EWA",
+      "setup": "base_breakout",
+      "entry": 29.95,
+      "stop": 28.89,
+      "reason": "regime off \u2014 SPY 749.92 below its 50-day SMA 764.55; longs stand down"
     }
   ]
 }
