@@ -7040,6 +7040,85 @@
           "max_drawdown_pct": 4.37
         }
       ]
+    },
+    {
+      "run": 94,
+      "at": "2026-11-13T13:22:17+00:00",
+      "window": [
+        "2015-09-22",
+        "2018-02-01"
+      ],
+      "tickers": [
+        "AAPL",
+        "AMD",
+        "EWA",
+        "EWT",
+        "EWY",
+        "FXI",
+        "INDA",
+        "MSFT",
+        "NVDA",
+        "QQQ",
+        "SPY"
+      ],
+      "results": [
+        {
+          "variant": "charter-baseline",
+          "trades": 29,
+          "expectancy_R": 0.712,
+          "win_rate_pct": 58.6,
+          "total_R": 20.662,
+          "max_drawdown_pct": 4.22
+        },
+        {
+          "variant": "base-6-weeks",
+          "trades": 32,
+          "expectancy_R": 0.724,
+          "win_rate_pct": 59.4,
+          "total_R": 23.173,
+          "max_drawdown_pct": 4.65
+        },
+        {
+          "variant": "base-8-weeks-tight",
+          "trades": 35,
+          "expectancy_R": 0.568,
+          "win_rate_pct": 54.3,
+          "total_R": 19.886,
+          "max_drawdown_pct": 5.69
+        },
+        {
+          "variant": "base-loose-range",
+          "trades": 30,
+          "expectancy_R": 0.761,
+          "win_rate_pct": 60.0,
+          "total_R": 22.821,
+          "max_drawdown_pct": 3.19
+        },
+        {
+          "variant": "pullback-deep-swing",
+          "trades": 25,
+          "expectancy_R": 0.991,
+          "win_rate_pct": 68.0,
+          "total_R": 24.776,
+          "max_drawdown_pct": 2.08
+        },
+        {
+          "variant": "pullback-wide-zone",
+          "trades": 26,
+          "expectancy_R": 0.896,
+          "win_rate_pct": 65.4,
+          "total_R": 23.308,
+          "max_drawdown_pct": 3.49
+        },
+        {
+          "variant": "wider-stop-buffer",
+          "trades": 25,
+          "expectancy_R": 0.883,
+          "win_rate_pct": 64.0,
+          "total_R": 22.086,
+          "max_drawdown_pct": 2.67
+        }
+      ]
     }
   ]
 }
