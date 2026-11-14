@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 4253.9,
+    "balance": 4250.6,
     "open_risk_R": 0
   },
   "rules": {
@@ -35,12 +35,12 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 88,
+    "trades_closed": 89,
     "wins": 24,
-    "losses": 64,
-    "win_rate_pct": 27.3,
-    "expectancy_R": -0.377,
-    "total_R": -33.14,
+    "losses": 65,
+    "win_rate_pct": 27.0,
+    "expectancy_R": -0.374,
+    "total_R": -33.306,
     "max_drawdown_pct": 15.9
   },
   "open_trades": [],
@@ -1717,6 +1717,25 @@
       "r_multiple": 0.336,
       "pnl_usd": 7.7,
       "balance_after": 4253.9
+    },
+    {
+      "id": "2026-11-13-TSLA-7",
+      "ticker": "TSLA",
+      "setup": "vwap_pullback",
+      "entry": 390.35,
+      "stop": 388.54,
+      "target": 393.97,
+      "shares": 11,
+      "risk_usd": 19.910000000000025,
+      "opened": "2026-11-13",
+      "entry_bar": 38,
+      "note": "Held above VWAP then first pullback into it (bar 37); long on reclaim of 390.34, stop under the dip 388.92.",
+      "exit": 390.1401,
+      "closed": "2026-11-13",
+      "reason": "eod_flat",
+      "r_multiple": -0.166,
+      "pnl_usd": -3.3,
+      "balance_after": 4250.6
     }
   ],
   "sessions": [
@@ -2525,6 +2544,15 @@
       "realized_R": 0.336,
       "actions": "GOOGL eod_flat +0.34R",
       "personality": "turtle"
+    },
+    {
+      "date": "2026-11-13",
+      "trades": [
+        "2026-11-13-TSLA-7"
+      ],
+      "realized_R": -0.166,
+      "actions": "TSLA eod_flat -0.17R",
+      "personality": "turtle"
     }
   ],
   "skipped_candidates": [
@@ -2663,6 +2691,14 @@
       "entry": 688.76,
       "stop": 679.16,
       "reason": "gapped past trigger (691.79 vs 688.76, >0.25R) \u2014 chasing is not the setup"
+    },
+    {
+      "date": "2026-11-13",
+      "ticker": "MSFT",
+      "setup": "vwap_pullback",
+      "entry": 520.22,
+      "stop": 518.18,
+      "reason": "gapped past trigger (521.61 vs 520.22, >0.25R) \u2014 chasing is not the setup"
     }
   ]
 }

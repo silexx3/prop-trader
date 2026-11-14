@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 1299.22,
+    "balance": 1374.16,
     "open_risk_R": 0
   },
   "rules": {
@@ -35,12 +35,12 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 318,
-    "wins": 107,
-    "losses": 211,
-    "win_rate_pct": 33.6,
-    "expectancy_R": -0.203,
-    "total_R": -64.441,
+    "trades_closed": 321,
+    "wins": 109,
+    "losses": 212,
+    "win_rate_pct": 34.0,
+    "expectancy_R": -0.192,
+    "total_R": -61.483,
     "max_drawdown_pct": 76.68
   },
   "open_trades": [],
@@ -6087,6 +6087,63 @@
       "r_multiple": 0.336,
       "pnl_usd": 8.98,
       "balance_after": 1299.22
+    },
+    {
+      "id": "2026-11-13-MSFT-5",
+      "ticker": "MSFT",
+      "setup": "vwap_pullback",
+      "entry": 520.22,
+      "stop": 518.18,
+      "target": 524.3,
+      "shares": 12,
+      "risk_usd": 24.480000000000928,
+      "opened": "2026-11-13",
+      "entry_bar": 11,
+      "note": "Held above VWAP then first pullback into it (bar 9); long on reclaim of 520.21, stop under the dip 518.70.",
+      "exit": 524.3,
+      "closed": "2026-11-13",
+      "reason": "target",
+      "r_multiple": 1.95,
+      "pnl_usd": 47.74,
+      "balance_after": 1346.96
+    },
+    {
+      "id": "2026-11-13-TSLA-7",
+      "ticker": "TSLA",
+      "setup": "vwap_pullback",
+      "entry": 390.35,
+      "stop": 388.54,
+      "target": 393.97,
+      "shares": 14,
+      "risk_usd": 25.340000000000032,
+      "opened": "2026-11-13",
+      "entry_bar": 38,
+      "note": "Held above VWAP then first pullback into it (bar 37); long on reclaim of 390.34, stop under the dip 388.92.",
+      "exit": 390.1401,
+      "closed": "2026-11-13",
+      "reason": "eod_flat",
+      "r_multiple": -0.166,
+      "pnl_usd": -4.21,
+      "balance_after": 1342.75
+    },
+    {
+      "id": "2026-11-13-NVDA-6",
+      "ticker": "NVDA",
+      "setup": "vwap_pullback",
+      "entry": 161.51,
+      "stop": 160.44,
+      "target": 163.65,
+      "shares": 25,
+      "risk_usd": 26.74999999999983,
+      "opened": "2026-11-13",
+      "entry_bar": 48,
+      "note": "Held above VWAP then first pullback into it (bar 37); long on reclaim of 161.50, stop under the dip 160.60.",
+      "exit": 162.8201,
+      "closed": "2026-11-13",
+      "reason": "eod_flat",
+      "r_multiple": 1.174,
+      "pnl_usd": 31.41,
+      "balance_after": 1374.16
     }
   ],
   "sessions": [
@@ -7126,6 +7183,17 @@
       ],
       "realized_R": -2.097,
       "actions": "NVDA stop -1.05R; TSLA stop -1.05R; QQQ eod_flat -0.33R; GOOGL eod_flat +0.34R",
+      "personality": "shark"
+    },
+    {
+      "date": "2026-11-13",
+      "trades": [
+        "2026-11-13-MSFT-5",
+        "2026-11-13-TSLA-7",
+        "2026-11-13-NVDA-6"
+      ],
+      "realized_R": 2.958,
+      "actions": "MSFT target +1.95R; TSLA eod_flat -0.17R; NVDA eod_flat +1.17R",
       "personality": "shark"
     }
   ],

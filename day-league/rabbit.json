@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 4420.28,
+    "balance": 4413.5,
     "open_risk_R": 0
   },
   "rules": {
@@ -35,12 +35,12 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 192,
+    "trades_closed": 194,
     "wins": 73,
-    "losses": 119,
-    "win_rate_pct": 38.0,
-    "expectancy_R": -0.092,
-    "total_R": -17.753,
+    "losses": 121,
+    "win_rate_pct": 37.6,
+    "expectancy_R": -0.093,
+    "total_R": -17.963,
     "max_drawdown_pct": 14.33
   },
   "open_trades": [],
@@ -3693,6 +3693,44 @@
       "r_multiple": 0.336,
       "pnl_usd": 11.55,
       "balance_after": 4420.28
+    },
+    {
+      "id": "2026-11-13-MSFT-3",
+      "ticker": "MSFT",
+      "setup": "orb_long",
+      "entry": 524.239990234375,
+      "stop": 513.31,
+      "target": 544.87,
+      "shares": 3,
+      "risk_usd": 31.560000000000286,
+      "opened": "2026-11-13",
+      "entry_bar": 32,
+      "note": "30-min opening range 513.82\u2013523.57; long on the break of 523.57 with volume \u2265 1.0\u00d7 the opening average.",
+      "exit": 524.31,
+      "closed": "2026-11-13",
+      "reason": "eod_flat",
+      "r_multiple": -0.044,
+      "pnl_usd": -1.37,
+      "balance_after": 4418.91
+    },
+    {
+      "id": "2026-11-13-TSLA-8",
+      "ticker": "TSLA",
+      "setup": "vwap_pullback",
+      "entry": 390.35,
+      "stop": 388.54,
+      "target": 393.97,
+      "shares": 18,
+      "risk_usd": 32.58000000000004,
+      "opened": "2026-11-13",
+      "entry_bar": 38,
+      "note": "Held above VWAP then first pullback into it (bar 37); long on reclaim of 390.34, stop under the dip 388.92.",
+      "exit": 390.1401,
+      "closed": "2026-11-13",
+      "reason": "eod_flat",
+      "r_multiple": -0.166,
+      "pnl_usd": -5.41,
+      "balance_after": 4413.5
     }
   ],
   "sessions": [
@@ -4600,6 +4638,16 @@
       ],
       "realized_R": -1.764,
       "actions": "NVDA stop -1.05R; TSLA stop -1.05R; GOOGL eod_flat +0.34R",
+      "personality": "rabbit"
+    },
+    {
+      "date": "2026-11-13",
+      "trades": [
+        "2026-11-13-MSFT-3",
+        "2026-11-13-TSLA-8"
+      ],
+      "realized_R": -0.21,
+      "actions": "MSFT eod_flat -0.04R; TSLA eod_flat -0.17R",
       "personality": "rabbit"
     }
   ],
