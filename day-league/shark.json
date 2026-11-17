@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 1374.16,
+    "balance": 1346.39,
     "open_risk_R": 0
   },
   "rules": {
@@ -35,12 +35,12 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 321,
+    "trades_closed": 322,
     "wins": 109,
-    "losses": 212,
-    "win_rate_pct": 34.0,
-    "expectancy_R": -0.192,
-    "total_R": -61.483,
+    "losses": 213,
+    "win_rate_pct": 33.9,
+    "expectancy_R": -0.194,
+    "total_R": -62.533,
     "max_drawdown_pct": 76.68
   },
   "open_trades": [],
@@ -6144,6 +6144,25 @@
       "r_multiple": 1.174,
       "pnl_usd": 31.41,
       "balance_after": 1374.16
+    },
+    {
+      "id": "2026-11-16-MSFT-6",
+      "ticker": "MSFT",
+      "setup": "vwap_pullback",
+      "entry": 524.25,
+      "stop": 523.1,
+      "target": 526.55,
+      "shares": 23,
+      "risk_usd": 26.449999999999477,
+      "opened": "2026-11-16",
+      "entry_bar": 32,
+      "note": "Held above VWAP then first pullback into it (bar 30); long on reclaim of 524.24, stop under the dip 523.62.",
+      "exit": 523.1,
+      "closed": "2026-11-16",
+      "reason": "stop",
+      "r_multiple": -1.05,
+      "pnl_usd": -27.77,
+      "balance_after": 1346.39
     }
   ],
   "sessions": [
@@ -7194,6 +7213,15 @@
       ],
       "realized_R": 2.958,
       "actions": "MSFT target +1.95R; TSLA eod_flat -0.17R; NVDA eod_flat +1.17R",
+      "personality": "shark"
+    },
+    {
+      "date": "2026-11-16",
+      "trades": [
+        "2026-11-16-MSFT-6"
+      ],
+      "realized_R": -1.05,
+      "actions": "MSFT stop -1.05R",
       "personality": "shark"
     }
   ],

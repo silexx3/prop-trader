@@ -4649,6 +4649,13 @@
       "realized_R": -0.21,
       "actions": "MSFT eod_flat -0.04R; TSLA eod_flat -0.17R",
       "personality": "rabbit"
+    },
+    {
+      "date": "2026-11-16",
+      "trades": [],
+      "realized_R": 0,
+      "actions": "No trades \u2014 this personality found nothing worth doing.",
+      "personality": "rabbit"
     }
   ],
   "skipped_candidates": [
