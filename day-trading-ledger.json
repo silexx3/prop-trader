@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 2650.13,
+    "balance": 2656.12,
     "open_risk_R": 0
   },
   "rules": {
@@ -34,12 +34,12 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 261,
-    "wins": 85,
+    "trades_closed": 262,
+    "wins": 86,
     "losses": 176,
-    "win_rate_pct": 32.6,
-    "expectancy_R": -0.243,
-    "total_R": -63.365,
+    "win_rate_pct": 32.8,
+    "expectancy_R": -0.241,
+    "total_R": -63.132,
     "max_drawdown_pct": 49.54
   },
   "open_trades": [],
@@ -5003,6 +5003,25 @@
       "r_multiple": -1.05,
       "pnl_usd": -27.77,
       "balance_after": 2650.13
+    },
+    {
+      "id": "2026-11-17-NVDA-8",
+      "ticker": "NVDA",
+      "setup": "vwap_pullback",
+      "entry": 155.19,
+      "stop": 154.2,
+      "target": 157.17,
+      "shares": 26,
+      "risk_usd": 25.740000000000236,
+      "opened": "2026-11-17",
+      "entry_bar": 77,
+      "note": "Held above VWAP then first pullback into it (bar 23); long on reclaim of 155.18, stop under the dip 154.35.",
+      "exit": 155.47,
+      "closed": "2026-11-17",
+      "reason": "eod_flat",
+      "r_multiple": 0.233,
+      "pnl_usd": 5.99,
+      "balance_after": 2656.12
     }
   ],
   "sessions": [
@@ -6195,6 +6214,17 @@
       "actions": "MSFT vwap_pullback \u2192 stop -1.05R",
       "lessons": [
         "Replayed 10 tickers on 5-minute bars; 1 trade(s), -1.05R after costs."
+      ]
+    },
+    {
+      "date": "2026-11-17",
+      "trades": [
+        "2026-11-17-NVDA-8"
+      ],
+      "realized_R": 0.233,
+      "actions": "NVDA vwap_pullback \u2192 eod_flat +0.23R",
+      "lessons": [
+        "Replayed 10 tickers on 5-minute bars; 1 trade(s), +0.23R after costs."
       ]
     }
   ],

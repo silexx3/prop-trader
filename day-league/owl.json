@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 3884.1,
+    "balance": 3893.09,
     "open_risk_R": 0
   },
   "rules": {
@@ -35,12 +35,12 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 138,
-    "wins": 51,
+    "trades_closed": 139,
+    "wins": 52,
     "losses": 87,
-    "win_rate_pct": 37.0,
-    "expectancy_R": -0.183,
-    "total_R": -25.196,
+    "win_rate_pct": 37.4,
+    "expectancy_R": -0.18,
+    "total_R": -24.963,
     "max_drawdown_pct": 25.36
   },
   "open_trades": [],
@@ -2667,6 +2667,25 @@
       "r_multiple": 1.174,
       "pnl_usd": 43.98,
       "balance_after": 3884.1
+    },
+    {
+      "id": "2026-11-17-NVDA-8",
+      "ticker": "NVDA",
+      "setup": "vwap_pullback",
+      "entry": 155.19,
+      "stop": 154.2,
+      "target": 157.17,
+      "shares": 39,
+      "risk_usd": 38.610000000000355,
+      "opened": "2026-11-17",
+      "entry_bar": 77,
+      "note": "Held above VWAP then first pullback into it (bar 23); long on reclaim of 155.18, stop under the dip 154.35.",
+      "exit": 155.47,
+      "closed": "2026-11-17",
+      "reason": "eod_flat",
+      "r_multiple": 0.233,
+      "pnl_usd": 8.99,
+      "balance_after": 3893.09
     }
   ],
   "sessions": [
@@ -3526,6 +3545,15 @@
       "trades": [],
       "realized_R": 0,
       "actions": "No trades \u2014 this personality found nothing worth doing.",
+      "personality": "owl"
+    },
+    {
+      "date": "2026-11-17",
+      "trades": [
+        "2026-11-17-NVDA-8"
+      ],
+      "realized_R": 0.233,
+      "actions": "NVDA eod_flat +0.23R",
       "personality": "owl"
     }
   ],
