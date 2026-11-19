@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 3893.09,
+    "balance": 4036.96,
     "open_risk_R": 0
   },
   "rules": {
@@ -35,12 +35,12 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 139,
-    "wins": 52,
+    "trades_closed": 141,
+    "wins": 54,
     "losses": 87,
-    "win_rate_pct": 37.4,
-    "expectancy_R": -0.18,
-    "total_R": -24.963,
+    "win_rate_pct": 38.3,
+    "expectancy_R": -0.149,
+    "total_R": -21.063,
     "max_drawdown_pct": 25.36
   },
   "open_trades": [],
@@ -2686,6 +2686,44 @@
       "r_multiple": 0.233,
       "pnl_usd": 8.99,
       "balance_after": 3893.09
+    },
+    {
+      "id": "2026-11-18-TSLA-8",
+      "ticker": "TSLA",
+      "setup": "vwap_pullback",
+      "entry": 382.1,
+      "stop": 380.84,
+      "target": 384.62,
+      "shares": 30,
+      "risk_usd": 37.80000000000143,
+      "opened": "2026-11-18",
+      "entry_bar": 33,
+      "note": "Held above VWAP then first pullback into it (bar 32); long on reclaim of 382.09, stop under the dip 381.22.",
+      "exit": 384.62,
+      "closed": "2026-11-18",
+      "reason": "target",
+      "r_multiple": 1.95,
+      "pnl_usd": 73.71,
+      "balance_after": 3966.8
+    },
+    {
+      "id": "2026-11-18-AMD-7",
+      "ticker": "AMD",
+      "setup": "vwap_pullback",
+      "entry": 513.56,
+      "stop": 508.42,
+      "target": 523.84,
+      "shares": 7,
+      "risk_usd": 35.97999999999951,
+      "opened": "2026-11-18",
+      "entry_bar": 34,
+      "note": "Held above VWAP then first pullback into it (bar 11); long on reclaim of 513.55, stop under the dip 508.93.",
+      "exit": 523.84,
+      "closed": "2026-11-18",
+      "reason": "target",
+      "r_multiple": 1.95,
+      "pnl_usd": 70.16,
+      "balance_after": 4036.96
     }
   ],
   "sessions": [
@@ -3554,6 +3592,16 @@
       ],
       "realized_R": 0.233,
       "actions": "NVDA eod_flat +0.23R",
+      "personality": "owl"
+    },
+    {
+      "date": "2026-11-18",
+      "trades": [
+        "2026-11-18-TSLA-8",
+        "2026-11-18-AMD-7"
+      ],
+      "realized_R": 3.9,
+      "actions": "TSLA target +1.95R; AMD target +1.95R",
       "personality": "owl"
     }
   ],

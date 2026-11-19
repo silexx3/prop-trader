@@ -40,17 +40,17 @@
   ],
   "pending_orders": [
     {
-      "id": "68011dfa",
+      "id": "1b5966b3",
       "ticker": "EWA",
       "setup": "base_breakout",
       "entry": 29.95,
-      "stop": 28.02,
-      "target": 33.81,
-      "shares": 25,
-      "risk_usd": 48.25,
-      "placed": "2026-11-17",
-      "note": "4-week base 28.08\u201329.92 (6.6% range) near highs; entry on break of 29.92; fill requires volume \u2265 3,959,318 (1.5\u00d7 avg) \u2014 a quiet break is not the setup.",
-      "min_volume": 3959318.0
+      "stop": 27.68,
+      "target": 34.49,
+      "shares": 21,
+      "risk_usd": 47.67,
+      "placed": "2026-11-18",
+      "note": "4-week base 27.74\u201329.92 (7.9% range) near highs; entry on break of 29.92; fill requires volume \u2265 4,102,695 (1.5\u00d7 avg) \u2014 a quiet break is not the setup.",
+      "min_volume": 4102695.0
     }
   ],
   "closed_trades": [
@@ -1344,6 +1344,20 @@
       "realized_R": 0,
       "brutality": 1,
       "brutality_note": "Tape moved 1.1% on average; we were flat. Sitting out is a position.",
+      "lessons": [
+        "Orders placed, none filled yet \u2014 patience between signal and fill is part of the edge.",
+        "Skipped 1 candidate(s) and logged them: skips are data too."
+      ],
+      "variant": "charter-baseline"
+    },
+    {
+      "date": "2026-11-18",
+      "regime": "SPY 730.20, downtrend (below 20/50); QQQ 659.51, downtrend (below 20/50)",
+      "actions": "EWA base_breakout order placed: entry 29.95, stop 27.68, target 34.49, 21 shares; SPY base_breakout candidate skipped.",
+      "trades": [],
+      "realized_R": 0,
+      "brutality": 1,
+      "brutality_note": "Tape moved 1.2% on average; we were flat. Sitting out is a position.",
       "lessons": [
         "Orders placed, none filled yet \u2014 patience between signal and fill is part of the edge.",
         "Skipped 1 candidate(s) and logged them: skips are data too."
@@ -3711,6 +3725,14 @@
       "entry": 776.42,
       "stop": 725.55,
       "reason": "blocked by rules: Stop is too wide: risking $49.83 at $50.87/share buys 0 shares."
+    },
+    {
+      "date": "2026-11-18",
+      "ticker": "SPY",
+      "setup": "base_breakout",
+      "entry": 776.42,
+      "stop": 725.35,
+      "reason": "blocked by rules: Stop is too wide: risking $49.83 at $51.07/share buys 0 shares."
     }
   ]
 }
