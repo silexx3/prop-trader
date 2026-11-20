@@ -3603,6 +3603,13 @@
       "realized_R": 3.9,
       "actions": "TSLA target +1.95R; AMD target +1.95R",
       "personality": "owl"
+    },
+    {
+      "date": "2026-11-19",
+      "trades": [],
+      "realized_R": 0,
+      "actions": "No trades \u2014 this personality found nothing worth doing.",
+      "personality": "owl"
     }
   ],
   "skipped_candidates": [

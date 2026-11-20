@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 4534.36,
+    "balance": 4446.34,
     "open_risk_R": 0
   },
   "rules": {
@@ -35,12 +35,12 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 197,
+    "trades_closed": 198,
     "wins": 75,
-    "losses": 122,
-    "win_rate_pct": 38.1,
-    "expectancy_R": -0.072,
-    "total_R": -14.17,
+    "losses": 123,
+    "win_rate_pct": 37.9,
+    "expectancy_R": -0.086,
+    "total_R": -16.982,
     "max_drawdown_pct": 14.33
   },
   "open_trades": [],
@@ -3788,6 +3788,25 @@
       "r_multiple": -0.107,
       "pnl_usd": -3.16,
       "balance_after": 4534.36
+    },
+    {
+      "id": "2026-11-19-QQQ-1",
+      "ticker": "QQQ",
+      "setup": "orb_long",
+      "entry": 675.64,
+      "stop": 669.38,
+      "target": 688.16,
+      "shares": 5,
+      "risk_usd": 31.299999999999955,
+      "opened": "2026-11-19",
+      "entry_bar": 28,
+      "note": "30-min opening range 670.05\u2013675.30; long on the break of 675.30 with volume \u2265 1.0\u00d7 the opening average.",
+      "exit": 658.35,
+      "closed": "2026-11-19",
+      "reason": "stop",
+      "r_multiple": -2.812,
+      "pnl_usd": -88.02,
+      "balance_after": 4446.34
     }
   ],
   "sessions": [
@@ -4730,6 +4749,15 @@
       ],
       "realized_R": 3.793,
       "actions": "TSLA target +1.95R; AMD target +1.95R; MSFT eod_flat -0.11R",
+      "personality": "rabbit"
+    },
+    {
+      "date": "2026-11-19",
+      "trades": [
+        "2026-11-19-QQQ-1"
+      ],
+      "realized_R": -2.812,
+      "actions": "QQQ stop -2.81R",
       "personality": "rabbit"
     }
   ],

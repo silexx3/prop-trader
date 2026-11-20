@@ -6296,6 +6296,15 @@
       "lessons": [
         "Replayed 10 tickers on 5-minute bars; 3 trade(s), +3.79R after costs."
       ]
+    },
+    {
+      "date": "2026-11-19",
+      "trades": [],
+      "realized_R": 0,
+      "actions": "No day trades \u2014 no setup triggered. Sitting out is a position.",
+      "lessons": [
+        "Replayed 10 tickers on 5-minute bars; 0 trade(s), +0.00R after costs."
+      ]
     }
   ],
   "skipped_candidates": [

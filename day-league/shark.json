@@ -7319,6 +7319,13 @@
       "realized_R": 3.793,
       "actions": "TSLA target +1.95R; AMD target +1.95R; MSFT eod_flat -0.11R",
       "personality": "shark"
+    },
+    {
+      "date": "2026-11-19",
+      "trades": [],
+      "realized_R": 0,
+      "actions": "No trades \u2014 this personality found nothing worth doing.",
+      "personality": "shark"
     }
   ],
   "skipped_candidates": [

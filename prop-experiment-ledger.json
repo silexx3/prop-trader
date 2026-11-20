@@ -1318,6 +1318,18 @@
       "lessons": [
         "Skipped 2 candidate(s) and logged them: skips are data too."
       ]
+    },
+    {
+      "date": "2026-11-19",
+      "regime": "SPY 715.87, downtrend (below 20/50); QQQ 645.04, downtrend (below 20/50)",
+      "actions": "SPY base_breakout candidate skipped.",
+      "trades": [],
+      "realized_R": 0,
+      "brutality": 3,
+      "brutality_note": "Tape moved 2.6% on average; we were flat. Sitting out is a position.",
+      "lessons": [
+        "Skipped 1 candidate(s) and logged them: skips are data too."
+      ]
     }
   ],
   "skipped_candidates": [
@@ -3808,6 +3820,14 @@
       "entry": 29.95,
       "stop": 27.68,
       "reason": "regime off \u2014 SPY 730.20 below its 50-day SMA 762.28; longs stand down"
+    },
+    {
+      "date": "2026-11-19",
+      "ticker": "SPY",
+      "setup": "base_breakout",
+      "entry": 776.42,
+      "stop": 714.22,
+      "reason": "regime off \u2014 SPY 715.87 below its 50-day SMA 761.48; longs stand down"
     }
   ]
 }

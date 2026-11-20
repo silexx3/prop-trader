@@ -38,21 +38,7 @@
       "note": "Uptrend pullback into 20/50 zone (SMA20 342.91 / SMA50 334.84); entry on reclaim of today's high 354.50, stop below pullback low 325.33."
     }
   ],
-  "pending_orders": [
-    {
-      "id": "1b5966b3",
-      "ticker": "EWA",
-      "setup": "base_breakout",
-      "entry": 29.95,
-      "stop": 27.68,
-      "target": 34.49,
-      "shares": 21,
-      "risk_usd": 47.67,
-      "placed": "2026-11-18",
-      "note": "4-week base 27.74\u201329.92 (7.9% range) near highs; entry on break of 29.92; fill requires volume \u2265 4,102,695 (1.5\u00d7 avg) \u2014 a quiet break is not the setup.",
-      "min_volume": 4102695.0
-    }
-  ],
+  "pending_orders": [],
   "closed_trades": [
     {
       "id": "41e95532",
@@ -1360,6 +1346,19 @@
       "brutality_note": "Tape moved 1.2% on average; we were flat. Sitting out is a position.",
       "lessons": [
         "Orders placed, none filled yet \u2014 patience between signal and fill is part of the edge.",
+        "Skipped 1 candidate(s) and logged them: skips are data too."
+      ],
+      "variant": "charter-baseline"
+    },
+    {
+      "date": "2026-11-19",
+      "regime": "SPY 715.87, downtrend (below 20/50); QQQ 645.04, downtrend (below 20/50)",
+      "actions": "SPY base_breakout candidate skipped.",
+      "trades": [],
+      "realized_R": 0,
+      "brutality": 3,
+      "brutality_note": "Tape moved 2.6% on average; we were flat. Sitting out is a position.",
+      "lessons": [
         "Skipped 1 candidate(s) and logged them: skips are data too."
       ],
       "variant": "charter-baseline"
@@ -3733,6 +3732,14 @@
       "entry": 776.42,
       "stop": 725.35,
       "reason": "blocked by rules: Stop is too wide: risking $49.83 at $51.07/share buys 0 shares."
+    },
+    {
+      "date": "2026-11-19",
+      "ticker": "SPY",
+      "setup": "base_breakout",
+      "entry": 776.42,
+      "stop": 714.22,
+      "reason": "blocked by rules: Stop is too wide: risking $49.83 at $62.20/share buys 0 shares."
     }
   ]
 }
