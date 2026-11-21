@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 2755.47,
+    "balance": 2669.91,
     "open_risk_R": 0
   },
   "rules": {
@@ -34,12 +34,12 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 265,
+    "trades_closed": 268,
     "wins": 88,
-    "losses": 177,
-    "win_rate_pct": 33.2,
-    "expectancy_R": -0.224,
-    "total_R": -59.339,
+    "losses": 180,
+    "win_rate_pct": 32.8,
+    "expectancy_R": -0.233,
+    "total_R": -62.489,
     "max_drawdown_pct": 49.54
   },
   "open_trades": [],
@@ -5079,6 +5079,63 @@
       "r_multiple": -0.107,
       "pnl_usd": -2.37,
       "balance_after": 2755.47
+    },
+    {
+      "id": "2026-11-20-QQQ-1",
+      "ticker": "QQQ",
+      "setup": "orb_long",
+      "entry": 642.25,
+      "stop": 633.23,
+      "target": 660.29,
+      "shares": 3,
+      "risk_usd": 27.059999999999945,
+      "opened": "2026-11-20",
+      "entry_bar": 6,
+      "note": "30-min opening range 633.86\u2013641.92; long on the break of 641.92 with volume \u2265 1.2\u00d7 the opening average.",
+      "exit": 633.23,
+      "closed": "2026-11-20",
+      "reason": "stop",
+      "r_multiple": -1.05,
+      "pnl_usd": -28.41,
+      "balance_after": 2727.06
+    },
+    {
+      "id": "2026-11-20-AMZN-2",
+      "ticker": "AMZN",
+      "setup": "vwap_pullback",
+      "entry": 256.125,
+      "stop": 254.56,
+      "target": 259.03,
+      "shares": 18,
+      "risk_usd": 26.820000000000164,
+      "opened": "2026-11-20",
+      "entry_bar": 10,
+      "note": "Held above VWAP then first pullback into it (bar 9); long on reclaim of 256.04, stop under the dip 254.81.",
+      "exit": 254.56,
+      "closed": "2026-11-20",
+      "reason": "stop",
+      "r_multiple": -1.05,
+      "pnl_usd": -29.51,
+      "balance_after": 2697.55
+    },
+    {
+      "id": "2026-11-20-GOOGL-4",
+      "ticker": "GOOGL",
+      "setup": "vwap_pullback",
+      "entry": 278.98,
+      "stop": 277.1,
+      "target": 282.74,
+      "shares": 14,
+      "risk_usd": 26.319999999999936,
+      "opened": "2026-11-20",
+      "entry_bar": 13,
+      "note": "Held above VWAP then first pullback into it (bar 11); long on reclaim of 278.97, stop under the dip 277.37.",
+      "exit": 277.1,
+      "closed": "2026-11-20",
+      "reason": "stop",
+      "r_multiple": -1.05,
+      "pnl_usd": -27.64,
+      "balance_after": 2669.91
     }
   ],
   "sessions": [
@@ -6304,6 +6361,19 @@
       "actions": "No day trades \u2014 no setup triggered. Sitting out is a position.",
       "lessons": [
         "Replayed 10 tickers on 5-minute bars; 0 trade(s), +0.00R after costs."
+      ]
+    },
+    {
+      "date": "2026-11-20",
+      "trades": [
+        "2026-11-20-QQQ-1",
+        "2026-11-20-AMZN-2",
+        "2026-11-20-GOOGL-4"
+      ],
+      "realized_R": -3.15,
+      "actions": "QQQ orb_long \u2192 stop -1.05R; AMZN vwap_pullback \u2192 stop -1.05R; GOOGL vwap_pullback \u2192 stop -1.05R",
+      "lessons": [
+        "Replayed 10 tickers on 5-minute bars; 3 trade(s), -3.15R after costs."
       ]
     }
   ],

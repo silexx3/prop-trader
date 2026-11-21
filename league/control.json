@@ -1362,6 +1362,19 @@
         "Skipped 1 candidate(s) and logged them: skips are data too."
       ],
       "variant": "charter-baseline"
+    },
+    {
+      "date": "2026-11-20",
+      "regime": "SPY 689.81, downtrend (below 20/50); QQQ 608.45, downtrend (below 20/50)",
+      "actions": "No trades. No setup = no trade; sitting out is a position..",
+      "trades": [],
+      "realized_R": 0,
+      "brutality": 3,
+      "brutality_note": "Tape moved 5.8% on average; we were flat. Sitting out is a position.",
+      "lessons": [
+        "No setup = no trade. Most sessions in a two-setup system are correctly boring."
+      ],
+      "variant": "charter-baseline"
     }
   ],
   "skipped_candidates": [

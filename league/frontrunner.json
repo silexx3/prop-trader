@@ -4,8 +4,8 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 5206.61,
-    "open_risk_R": 2.0
+    "balance": 5171.27,
+    "open_risk_R": 1.0
   },
   "rules": {
     "risk_per_trade_pct": 1.0,
@@ -15,28 +15,15 @@
   },
   "watchlist": [],
   "stats": {
-    "trades_closed": 4,
+    "trades_closed": 5,
     "wins": 3,
-    "losses": 1,
-    "win_rate_pct": 75.0,
-    "expectancy_R": 1.2,
-    "total_R": 4.8,
+    "losses": 2,
+    "win_rate_pct": 60.0,
+    "expectancy_R": 0.74,
+    "total_R": 3.701,
     "max_drawdown_pct": 0.98
   },
   "open_trades": [
-    {
-      "id": "4cbac616",
-      "ticker": "SPY",
-      "setup": "ma_pullback",
-      "entry": 747.29,
-      "stop": 715.15,
-      "initial_stop": 715.15,
-      "target": 811.57,
-      "shares": 1,
-      "risk_usd": 32.14,
-      "opened": "2026-07-20",
-      "note": "Uptrend pullback into 20/50 zone (SMA20 745.02 / SMA50 743.23); entry on reclaim of today's high 747.29, stop below pullback low 716.58."
-    },
     {
       "id": "908e847a",
       "ticker": "AAPL",
@@ -128,6 +115,25 @@
       "r_multiple": 1.95,
       "pnl_usd": 89.89,
       "balance_after": 5206.61
+    },
+    {
+      "id": "4cbac616",
+      "ticker": "SPY",
+      "setup": "ma_pullback",
+      "entry": 747.29,
+      "stop": 715.15,
+      "initial_stop": 715.15,
+      "target": 811.57,
+      "shares": 1,
+      "risk_usd": 32.14,
+      "opened": "2026-07-20",
+      "note": "Uptrend pullback into 20/50 zone (SMA20 745.02 / SMA50 743.23); entry on reclaim of today's high 747.29, stop below pullback low 716.58.",
+      "exit": 713.56,
+      "closed": "2026-11-20",
+      "reason": "stop",
+      "r_multiple": -1.099,
+      "pnl_usd": -35.34,
+      "balance_after": 5171.27
     }
   ],
   "sessions": [
@@ -1294,6 +1300,21 @@
       "brutality_note": "Tape moved 2.6% on average; we were flat. Sitting out is a position.",
       "lessons": [
         "No setup = no trade. Most sessions in a two-setup system are correctly boring."
+      ],
+      "variant": "pullback-deep-swing"
+    },
+    {
+      "date": "2026-11-20",
+      "regime": "SPY 689.81, downtrend (below 20/50); QQQ 608.45, downtrend (below 20/50)",
+      "actions": "SPY closed on stop at 713.56 (-1.10R).",
+      "trades": [
+        "4cbac616"
+      ],
+      "realized_R": -1.099,
+      "brutality": 4,
+      "brutality_note": "Tape moved 5.8% on average and took -1.10R from us.",
+      "lessons": [
+        "SPY gapped through the stop (-1.10R): size for the gap, not the stop \u2014 daily swing risk includes overnight."
       ],
       "variant": "pullback-deep-swing"
     }
