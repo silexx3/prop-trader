@@ -7578,6 +7578,86 @@
           "max_drawdown_pct": 6.13
         }
       ]
+    },
+    {
+      "run": 101,
+      "at": "2026-11-24T16:12:31+00:00",
+      "window": [
+        "2017-12-14",
+        "2020-04-29"
+      ],
+      "tickers": [
+        "AAPL",
+        "AMD",
+        "EWA",
+        "EWJ",
+        "EWT",
+        "EWY",
+        "FXI",
+        "INDA",
+        "MSFT",
+        "NVDA",
+        "QQQ",
+        "SPY"
+      ],
+      "results": [
+        {
+          "variant": "charter-baseline",
+          "trades": 28,
+          "expectancy_R": 0.337,
+          "win_rate_pct": 46.4,
+          "total_R": 9.448,
+          "max_drawdown_pct": 5.53
+        },
+        {
+          "variant": "base-6-weeks",
+          "trades": 28,
+          "expectancy_R": 0.445,
+          "win_rate_pct": 50.0,
+          "total_R": 12.473,
+          "max_drawdown_pct": 5.16
+        },
+        {
+          "variant": "base-8-weeks-tight",
+          "trades": 27,
+          "expectancy_R": 0.156,
+          "win_rate_pct": 40.7,
+          "total_R": 4.209,
+          "max_drawdown_pct": 5.59
+        },
+        {
+          "variant": "base-loose-range",
+          "trades": 26,
+          "expectancy_R": 0.329,
+          "win_rate_pct": 46.2,
+          "total_R": 8.548,
+          "max_drawdown_pct": 6.39
+        },
+        {
+          "variant": "pullback-deep-swing",
+          "trades": 20,
+          "expectancy_R": 0.291,
+          "win_rate_pct": 45.0,
+          "total_R": 5.828,
+          "max_drawdown_pct": 4.23
+        },
+        {
+          "variant": "pullback-wide-zone",
+          "trades": 20,
+          "expectancy_R": 0.306,
+          "win_rate_pct": 45.0,
+          "total_R": 6.115,
+          "max_drawdown_pct": 4.37
+        },
+        {
+          "variant": "wider-stop-buffer",
+          "trades": 23,
+          "expectancy_R": 0.383,
+          "win_rate_pct": 47.8,
+          "total_R": 8.803,
+          "max_drawdown_pct": 4.17
+        }
+      ]
     }
   ]
 }
