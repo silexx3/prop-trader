@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 4309.34,
+    "balance": 4373.4,
     "open_risk_R": 0
   },
   "rules": {
@@ -35,12 +35,12 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 205,
-    "wins": 76,
-    "losses": 129,
-    "win_rate_pct": 37.1,
-    "expectancy_R": -0.104,
-    "total_R": -21.332,
+    "trades_closed": 208,
+    "wins": 78,
+    "losses": 130,
+    "win_rate_pct": 37.5,
+    "expectancy_R": -0.093,
+    "total_R": -19.338,
     "max_drawdown_pct": 16.76
   },
   "open_trades": [],
@@ -3940,6 +3940,63 @@
       "r_multiple": -1.05,
       "pnl_usd": -33.03,
       "balance_after": 4309.34
+    },
+    {
+      "id": "2026-11-24-AMD-7",
+      "ticker": "AMD",
+      "setup": "vwap_pullback",
+      "entry": 410.41,
+      "stop": 407.2,
+      "target": 416.83,
+      "shares": 10,
+      "risk_usd": 32.100000000000364,
+      "opened": "2026-11-24",
+      "entry_bar": 35,
+      "note": "Held above VWAP then first pullback into it (bar 34); long on reclaim of 410.40, stop under the dip 407.61.",
+      "exit": 416.83,
+      "closed": "2026-11-24",
+      "reason": "target",
+      "r_multiple": 1.95,
+      "pnl_usd": 62.59,
+      "balance_after": 4371.93
+    },
+    {
+      "id": "2026-11-24-MSFT-3",
+      "ticker": "MSFT",
+      "setup": "orb_long",
+      "entry": 495.47,
+      "stop": 487.94,
+      "target": 510.53,
+      "shares": 4,
+      "risk_usd": 30.12000000000012,
+      "opened": "2026-11-24",
+      "entry_bar": 12,
+      "note": "30-min opening range 488.43\u2013495.22; long on the break of 495.22 with volume \u2265 1.0\u00d7 the opening average.",
+      "exit": 496.4701,
+      "closed": "2026-11-24",
+      "reason": "eod_flat",
+      "r_multiple": 0.083,
+      "pnl_usd": 2.49,
+      "balance_after": 4374.42
+    },
+    {
+      "id": "2026-11-24-AAPL-2",
+      "ticker": "AAPL",
+      "setup": "orb_long",
+      "entry": 354.1,
+      "stop": 345.53,
+      "target": 371.24,
+      "shares": 3,
+      "risk_usd": 25.71000000000015,
+      "opened": "2026-11-24",
+      "entry_bar": 77,
+      "note": "30-min opening range 345.88\u2013353.92; long on the break of 353.92 with volume \u2265 1.0\u00d7 the opening average.",
+      "exit": 354.19,
+      "closed": "2026-11-24",
+      "reason": "eod_flat",
+      "r_multiple": -0.039,
+      "pnl_usd": -1.02,
+      "balance_after": 4373.4
     }
   ],
   "sessions": [
@@ -4915,6 +4972,17 @@
       "realized_R": -1.2,
       "actions": "AMD stop -1.05R; TSLA stop -1.05R; META target +1.95R; AMZN stop -1.05R",
       "personality": "rabbit"
+    },
+    {
+      "date": "2026-11-24",
+      "trades": [
+        "2026-11-24-AMD-7",
+        "2026-11-24-MSFT-3",
+        "2026-11-24-AAPL-2"
+      ],
+      "realized_R": 1.994,
+      "actions": "AMD target +1.95R; MSFT eod_flat +0.08R; AAPL eod_flat -0.04R",
+      "personality": "rabbit"
     }
   ],
   "skipped_candidates": [
@@ -5445,6 +5513,14 @@
       "entry": 281.53,
       "stop": 279.79,
       "reason": "gapped past trigger (281.97 vs 281.53, >0.25R) \u2014 chasing is not the setup"
+    },
+    {
+      "date": "2026-11-24",
+      "ticker": "TSLA",
+      "setup": "vwap_pullback",
+      "entry": 383.6,
+      "stop": 382.32,
+      "reason": "gapped past trigger (384.35 vs 383.60, >0.25R) \u2014 chasing is not the setup"
     }
   ]
 }

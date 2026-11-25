@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 4034.25,
+    "balance": 3996.55,
     "open_risk_R": 0
   },
   "rules": {
@@ -35,12 +35,12 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 144,
-    "wins": 55,
-    "losses": 89,
-    "win_rate_pct": 38.2,
-    "expectancy_R": -0.147,
-    "total_R": -21.213,
+    "trades_closed": 146,
+    "wins": 56,
+    "losses": 90,
+    "win_rate_pct": 38.4,
+    "expectancy_R": -0.152,
+    "total_R": -22.18,
     "max_drawdown_pct": 25.36
   },
   "open_trades": [],
@@ -2781,6 +2781,44 @@
       "r_multiple": 1.95,
       "pnl_usd": 76.56,
       "balance_after": 4034.25
+    },
+    {
+      "id": "2026-11-24-AMZN-5",
+      "ticker": "AMZN",
+      "setup": "vwap_pullback",
+      "entry": 254.59,
+      "stop": 252.97,
+      "target": 257.83,
+      "shares": 24,
+      "risk_usd": 38.88000000000011,
+      "opened": "2026-11-24",
+      "entry_bar": 12,
+      "note": "Held above VWAP then first pullback into it (bar 11); long on reclaim of 254.58, stop under the dip 253.22.",
+      "exit": 252.97,
+      "closed": "2026-11-24",
+      "reason": "stop",
+      "r_multiple": -1.05,
+      "pnl_usd": -40.82,
+      "balance_after": 3993.43
+    },
+    {
+      "id": "2026-11-24-MSFT-2",
+      "ticker": "MSFT",
+      "setup": "orb_long",
+      "entry": 495.47,
+      "stop": 487.94,
+      "target": 510.53,
+      "shares": 5,
+      "risk_usd": 37.65000000000015,
+      "opened": "2026-11-24",
+      "entry_bar": 12,
+      "note": "30-min opening range 488.43\u2013495.22; long on the break of 495.22 with volume \u2265 1.2\u00d7 the opening average.",
+      "exit": 496.4701,
+      "closed": "2026-11-24",
+      "reason": "eod_flat",
+      "r_multiple": 0.083,
+      "pnl_usd": 3.12,
+      "balance_after": 3996.55
     }
   ],
   "sessions": [
@@ -3685,6 +3723,16 @@
       ],
       "realized_R": 0.9,
       "actions": "AMD stop -1.05R; META target +1.95R",
+      "personality": "owl"
+    },
+    {
+      "date": "2026-11-24",
+      "trades": [
+        "2026-11-24-AMZN-5",
+        "2026-11-24-MSFT-2"
+      ],
+      "realized_R": -0.967,
+      "actions": "AMZN stop -1.05R; MSFT eod_flat +0.08R",
       "personality": "owl"
     }
   ],
