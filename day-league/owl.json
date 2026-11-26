@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 3996.55,
+    "balance": 3915.29,
     "open_risk_R": 0
   },
   "rules": {
@@ -35,12 +35,12 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 146,
+    "trades_closed": 148,
     "wins": 56,
-    "losses": 90,
-    "win_rate_pct": 38.4,
-    "expectancy_R": -0.152,
-    "total_R": -22.18,
+    "losses": 92,
+    "win_rate_pct": 37.8,
+    "expectancy_R": -0.164,
+    "total_R": -24.28,
     "max_drawdown_pct": 25.36
   },
   "open_trades": [],
@@ -2819,6 +2819,44 @@
       "r_multiple": 0.083,
       "pnl_usd": 3.12,
       "balance_after": 3996.55
+    },
+    {
+      "id": "2026-11-25-NVDA-3",
+      "ticker": "NVDA",
+      "setup": "vwap_pullback",
+      "entry": 143.92,
+      "stop": 142.91,
+      "target": 145.94,
+      "shares": 39,
+      "risk_usd": 39.389999999999645,
+      "opened": "2026-11-25",
+      "entry_bar": 12,
+      "note": "Held above VWAP then first pullback into it (bar 11); long on reclaim of 143.91, stop under the dip 143.05.",
+      "exit": 142.91,
+      "closed": "2026-11-25",
+      "reason": "stop",
+      "r_multiple": -1.05,
+      "pnl_usd": -41.36,
+      "balance_after": 3955.19
+    },
+    {
+      "id": "2026-11-25-TSLA-2",
+      "ticker": "TSLA",
+      "setup": "vwap_pullback",
+      "entry": 363.56,
+      "stop": 361.56,
+      "target": 367.56,
+      "shares": 19,
+      "risk_usd": 38.0,
+      "opened": "2026-11-25",
+      "entry_bar": 12,
+      "note": "Held above VWAP then first pullback into it (bar 10); long on reclaim of 363.55, stop under the dip 361.92.",
+      "exit": 361.56,
+      "closed": "2026-11-25",
+      "reason": "stop",
+      "r_multiple": -1.05,
+      "pnl_usd": -39.9,
+      "balance_after": 3915.29
     }
   ],
   "sessions": [
@@ -3733,6 +3771,16 @@
       ],
       "realized_R": -0.967,
       "actions": "AMZN stop -1.05R; MSFT eod_flat +0.08R",
+      "personality": "owl"
+    },
+    {
+      "date": "2026-11-25",
+      "trades": [
+        "2026-11-25-NVDA-3",
+        "2026-11-25-TSLA-2"
+      ],
+      "realized_R": -2.1,
+      "actions": "NVDA stop -1.05R; TSLA stop -1.05R",
       "personality": "owl"
     }
   ],

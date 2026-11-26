@@ -1366,6 +1366,18 @@
       "lessons": [
         "No setup = no trade. Most sessions in a two-setup system are correctly boring."
       ]
+    },
+    {
+      "date": "2026-11-25",
+      "regime": "SPY 716.70, downtrend (below 20/50); QQQ 633.93, downtrend (below 20/50)",
+      "actions": "No trades. No setup = no trade; sitting out is a position..",
+      "trades": [],
+      "realized_R": 0,
+      "brutality": 1,
+      "brutality_note": "Tape moved 1.1% on average; we were flat. Sitting out is a position.",
+      "lessons": [
+        "No setup = no trade. Most sessions in a two-setup system are correctly boring."
+      ]
     }
   ],
   "skipped_candidates": [
