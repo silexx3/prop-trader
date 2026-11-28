@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 2619.74,
+    "balance": 2624.25,
     "open_risk_R": 0
   },
   "rules": {
@@ -34,12 +34,12 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 279,
-    "wins": 92,
-    "losses": 187,
-    "win_rate_pct": 33.0,
-    "expectancy_R": -0.23,
-    "total_R": -64.095,
+    "trades_closed": 281,
+    "wins": 93,
+    "losses": 188,
+    "win_rate_pct": 33.1,
+    "expectancy_R": -0.227,
+    "total_R": -63.84,
     "max_drawdown_pct": 50.04
   },
   "open_trades": [],
@@ -5345,6 +5345,44 @@
       "r_multiple": 1.95,
       "pnl_usd": 50.02,
       "balance_after": 2619.74
+    },
+    {
+      "id": "2026-11-27-AAPL-2",
+      "ticker": "AAPL",
+      "setup": "orb_long",
+      "entry": 359.08,
+      "stop": 355.28,
+      "target": 366.68,
+      "shares": 6,
+      "risk_usd": 22.800000000000068,
+      "opened": "2026-11-27",
+      "entry_bar": 14,
+      "note": "30-min opening range 355.64\u2013358.90; long on the break of 358.90 with volume \u2265 1.2\u00d7 the opening average.",
+      "exit": 358.7,
+      "closed": "2026-11-27",
+      "reason": "eod_flat",
+      "r_multiple": -0.15,
+      "pnl_usd": -3.42,
+      "balance_after": 2616.32
+    },
+    {
+      "id": "2026-11-27-QQQ-1",
+      "ticker": "QQQ",
+      "setup": "orb_long",
+      "entry": 646.3099975585938,
+      "stop": 636.53,
+      "target": 665.57,
+      "shares": 2,
+      "risk_usd": 19.360000000000127,
+      "opened": "2026-11-27",
+      "entry_bar": 30,
+      "note": "30-min opening range 637.17\u2013645.89; long on the break of 645.89 with volume \u2265 1.2\u00d7 the opening average.",
+      "exit": 650.76,
+      "closed": "2026-11-27",
+      "reason": "eod_flat",
+      "r_multiple": 0.405,
+      "pnl_usd": 7.93,
+      "balance_after": 2624.25
     }
   ],
   "sessions": [
@@ -6624,6 +6662,18 @@
       "actions": "NVDA vwap_pullback \u2192 stop -1.05R; GOOGL vwap_pullback \u2192 stop -1.05R; TSLA vwap_pullback \u2192 stop -1.05R; META vwap_pullback \u2192 target +1.95R",
       "lessons": [
         "Replayed 10 tickers on 5-minute bars; 4 trade(s), -1.20R after costs."
+      ]
+    },
+    {
+      "date": "2026-11-27",
+      "trades": [
+        "2026-11-27-AAPL-2",
+        "2026-11-27-QQQ-1"
+      ],
+      "realized_R": 0.255,
+      "actions": "AAPL orb_long \u2192 eod_flat -0.15R; QQQ orb_long \u2192 eod_flat +0.41R",
+      "lessons": [
+        "Replayed 10 tickers on 5-minute bars; 2 trade(s), +0.26R after costs."
       ]
     }
   ],

@@ -4,7 +4,7 @@
   "account": {
     "currency": "USD",
     "starting_balance": 5000.0,
-    "balance": 3915.29,
+    "balance": 3925.45,
     "open_risk_R": 0
   },
   "rules": {
@@ -35,12 +35,12 @@
     "GOOGL"
   ],
   "stats": {
-    "trades_closed": 148,
-    "wins": 56,
-    "losses": 92,
-    "win_rate_pct": 37.8,
-    "expectancy_R": -0.164,
-    "total_R": -24.28,
+    "trades_closed": 150,
+    "wins": 57,
+    "losses": 93,
+    "win_rate_pct": 38.0,
+    "expectancy_R": -0.16,
+    "total_R": -24.025,
     "max_drawdown_pct": 25.36
   },
   "open_trades": [],
@@ -2857,6 +2857,44 @@
       "r_multiple": -1.05,
       "pnl_usd": -39.9,
       "balance_after": 3915.29
+    },
+    {
+      "id": "2026-11-27-AAPL-2",
+      "ticker": "AAPL",
+      "setup": "orb_long",
+      "entry": 359.08,
+      "stop": 355.28,
+      "target": 366.68,
+      "shares": 10,
+      "risk_usd": 38.000000000000114,
+      "opened": "2026-11-27",
+      "entry_bar": 14,
+      "note": "30-min opening range 355.64\u2013358.90; long on the break of 358.90 with volume \u2265 1.2\u00d7 the opening average.",
+      "exit": 358.7,
+      "closed": "2026-11-27",
+      "reason": "eod_flat",
+      "r_multiple": -0.15,
+      "pnl_usd": -5.7,
+      "balance_after": 3909.59
+    },
+    {
+      "id": "2026-11-27-QQQ-1",
+      "ticker": "QQQ",
+      "setup": "orb_long",
+      "entry": 646.3099975585938,
+      "stop": 636.53,
+      "target": 665.57,
+      "shares": 4,
+      "risk_usd": 38.720000000000255,
+      "opened": "2026-11-27",
+      "entry_bar": 30,
+      "note": "30-min opening range 637.17\u2013645.89; long on the break of 645.89 with volume \u2265 1.2\u00d7 the opening average.",
+      "exit": 650.76,
+      "closed": "2026-11-27",
+      "reason": "eod_flat",
+      "r_multiple": 0.405,
+      "pnl_usd": 15.86,
+      "balance_after": 3925.45
     }
   ],
   "sessions": [
@@ -3781,6 +3819,16 @@
       ],
       "realized_R": -2.1,
       "actions": "NVDA stop -1.05R; TSLA stop -1.05R",
+      "personality": "owl"
+    },
+    {
+      "date": "2026-11-27",
+      "trades": [
+        "2026-11-27-AAPL-2",
+        "2026-11-27-QQQ-1"
+      ],
+      "realized_R": 0.255,
+      "actions": "AAPL eod_flat -0.15R; QQQ eod_flat +0.41R",
       "personality": "owl"
     }
   ],
